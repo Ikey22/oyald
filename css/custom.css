@@ -45,3 +45,31 @@ p{
 	width: 600px !important;
 	float: right;
 }
+
+
+.logo-img{
+	width: 70px !important;
+	border-radius: 8px;
+
+}
+
+.logo-text{
+	margin-top: 8px !important;
+	padding-top: 8px !important;
+	transform: translate(0px, 15px);
+}
+
+.logo{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: row;
+	align-items: center;
+	height: 50px;
+
+}
+
+/* .top-bar{
+	padding-left: 10px !important;
+	padding-right: 10px !important;
+} */
