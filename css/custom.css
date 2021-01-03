@@ -22,6 +22,7 @@ html, body{
 	width: 100% !important;
 	height: 200px !important;
 	background-color: #000 !important;
+	background-image: url('./img/oyald.jpg') !important;
 }
 
 p{
