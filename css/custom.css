@@ -1,0 +1,29 @@
+html, body{
+	margin: 0px !important;
+	padding: 0px !important;
+	width: 100% !important;
+	height: 100% !important;
+}
+
+.logo-text{
+	font-weight: 900;
+	padding: 8px;
+}
+
+.logo-white{
+	color: #fff;
+}
+
+.logo-dark{
+	color: #000;
+}
+
+.black-start{
+	width: 100% !important;
+	height: 200px !important;
+	background-color: #000 !important;
+}
+
+p{
+	color: #000000 !important;
+}
