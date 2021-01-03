@@ -28,3 +28,20 @@ html, body{
 p{
 	color: #000000 !important;
 }
+
+.map-container{
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	flex-direction: row;
+}
+
+.map-image{
+	height: 500px;
+	width: max-content;
+}
+
+.statistics-img{
+	width: 600px !important;
+	float: right;
+}
