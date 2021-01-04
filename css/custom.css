@@ -4,7 +4,7 @@ html, body{
 	width: 100% !important;
 	height: 100% !important;
 }
-
+ 
 .logo-text{
 	font-weight: 900;
 	padding: 8px;
@@ -73,3 +73,8 @@ p{
 	padding-left: 10px !important;
 	padding-right: 10px !important;
 } */
+
+.to-bar > .right > a.text-white{
+	transform: translate(0px, 38px) !important;
+	position: relative;
+}
