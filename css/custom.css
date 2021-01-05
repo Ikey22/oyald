@@ -218,14 +218,14 @@ input:focus, textarea:focus{
 }
 
 .btn:hover, button:hover, [type=submit]:hover{
-	box-shadow: 1px 1px 1px 1px #999 !important;
+	background: #ff6982 !important;
 }
 
 .btn:active, button:active, [type=submit]:active{
-	background: #cc6666 !important;
+	box-shadow: 1px 1px 1px 1px #999 !important;
 }
 
-.plr{
+.p-l-r{
 	padding-left: 32px;
 	padding-right: 32px;
 }
