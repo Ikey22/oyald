@@ -2190,7 +2190,7 @@ nav.fixed, .fixed nav {
   padding: 0 2em;
 }
 nav.fixed .top-nav li a, .fixed nav .top-nav li a {
-  color: #444;  
+  color: #999;  
 }
 nav.fixed .logo-white, .fixed nav .logo-white {
   display:none;
