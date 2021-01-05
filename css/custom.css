@@ -24,6 +24,12 @@ html, body{
 	padding: 8px;
 }
 
+@media (max-width: 768px){
+	.logo-text{
+		display: none !important;
+	}
+}
+
 .logo-white{
 	color: #fff;
 }
@@ -130,8 +136,9 @@ p{
 	text-align: center !important;
 	height: 500px;
 	border-radius: 8px;
+	border: 1px solid #999;
 	overflow: hidden !important;
-	box-shadow: 2px 2px 2px 2px #817f7f;
+	box-shadow: 1px 1px 2px 2px #817f7f;
 	font-weight: 600;
 	background-color: #dbd6d6;
 	margin-bottom: 32px;
@@ -139,7 +146,7 @@ p{
 	width: calc(33% - 60px);
 }
 .team-member:hover{
-	box-shadow: 2px 2px 2px 2px var(--custom-primary-color);
+	box-shadow: 1px 1px 2px 2px var(--custom-primary-color);
 }
 
 img.teammate-avatar{
@@ -189,18 +196,21 @@ input:focus, textarea:focus{
 	border-bottom: 2px solid var(--custom-primary-color) !important;
 }
 
-[type=submit]{
+.btn, button, [type=submit]{
 	padding: 16px;
 	border: none;
+	border: .5px solid #999;
+	position: relative;
 	border-radius: 4px;
 	cursor: pointer;
+	box-shadow: .5px .5px .5px .5px #999 !important;
 }
 
-[type=submit]:hover{
-	box-shadow: 2px 2px 2px 2px #999 !important;
+.btn:hover, button:hover, [type=submit]:hover{
+	box-shadow: 1px 1px 1px 1px #999 !important;
 }
 
-[type=submit]:active{
+.btn:active, button:active, [type=submit]:active{
 	background: #cc6666 !important;
 }
 
@@ -210,9 +220,22 @@ input:focus, textarea:focus{
 }
 
 
-/*.country{}*/
+.country ul{
+	list-style-type: none;
+}
 
 .country-title{
 	padding-bottom: 8px;
 	border-bottom: thick solid var(--custom-primary-color)
+}
+
+section{
+	position: relative;
+}
+
+@media (max-width: 768px){
+	.top-nav a{
+		color: #ffffff !important;
+		font-weight: 900 !important;
+	}
 }
