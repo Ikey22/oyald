@@ -184,13 +184,13 @@ img.teammate-avatar{
 }
 
 input, textarea{
-	margin-left: 4px;
-	margin-right: 4px;
+	margin-left: 8px;
+	margin-right: 8px;
 	border: none;
 	outline-color: transparent;
 	outline: none;
 	border-bottom: 1px solid #4e4d4d !important;
-	width: calc(100% - 8px);
+	width: calc(100% - 16px);
 	caret-color: var(--custom-primary-color);
 }
 
@@ -212,6 +212,7 @@ input:focus, textarea:focus{
 	border: .5px solid #999;
 	position: relative;
 	border-radius: 4px;
+	width: calc(100% - 16px) !important;
 	cursor: pointer;
 	box-shadow: .5px .5px .5px .5px #999 !important;
 }
@@ -241,8 +242,8 @@ input:focus, textarea:focus{
 
 section, .section{
 	position: relative;
-	padding-top: 50px !important;
-	padding-bottom: 50px !important;
+	padding-top: 30px !important;
+	padding-bottom: 30px !important;
 }
 
 @media (max-width: 768px){
