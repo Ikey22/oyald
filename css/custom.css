@@ -12,6 +12,10 @@ hr{
 	border-bottom: thin solid var(--custom-primary-color	);
 }
 
+.text-left{
+	text-align: left;
+}
+
 html, body{
 	margin: 0px !important;
 	padding: 0px !important;
