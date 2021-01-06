@@ -1,5 +1,7 @@
 :root{
 	--custom-primary-color: #c81010;
+	--custom-green: #055505;
+	--custom-gold: #e0bf03;
 }
 
 *{
@@ -9,17 +11,28 @@
 
 hr{
 	border-top: thin solid #ffffff;
-	border-bottom: thin solid var(--custom-primary-color	);
+	border-bottom: thin solid var(--custom-primary-color);
 }
 
 .text-left{
 	text-align: left;
 }
 
+footer, footer section, .background-dark{
+	background-color: var(--custom-green) !important;
+	color: #ffffff !important;
+}
+
+.background-primary, header, nav, .logo, .logo-text{
+	background-color: var(--custom-gold) !important;
+	color: var(--custom-green) !important;
+}
+
 html, body{
 	margin: 0px !important;
 	padding: 0px !important;
 	width: 100% !important;
+	/*background-color: #4e9231;*/
 	height: 100% !important;
 }
  
@@ -34,8 +47,14 @@ html, body{
 	}
 }
 
-.logo-white{
-	color: #fff;
+.logo-text.logo-white{
+	font-size: 24px !important;
+	margin: 0px !important;
+	margin: 0px !important;
+}
+
+.logo-white.logo-img{
+	display: none !important;;
 }
 
 .logo-dark{
@@ -87,20 +106,39 @@ p{
 	transform: translate(0px, 15px);
 }
 
+img:not(.logo, .logo-white, .logo-dark, .logo-img){
+	padding: 16px !important;
+}
+
 .logo{
 	display: flex;
 	align-items: center;
-	justify-content: center;
+	justify-content: flex-start;
 	flex-direction: row;
 	align-items: center;
-	height: 50px;
+	/*height: 50px;*/
 
+}
+
+.social-icons{
+	min-width: 300px !important;
+	max-width: 500px !important;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	height: 100px;
+	align-self: center;
+	justify-self: center;
 }
 
 /* .top-bar{
 	padding-left: 10px !important;
 	padding-right: 10px !important;
 } */
+
+.text-white{
+	color: #ffffff !important;
+}
 
 .top-bar > .right > a.text-white{
 	transform: translate(0px, 38px) !important;
@@ -130,6 +168,15 @@ p{
 
 .background-secondary{
 	background-color: #999;
+}
+
+.text-size-90, .text-size-80, .text-size-70, .text-size-60, .text-size-50{
+	color: var(--custom-green) !important;
+}
+
+section.background-image h2.text-size-80.text-white{
+	color: #ffffff !important;
+	font-size: 80px !important;
 }
 
 .w-100{
@@ -210,6 +257,18 @@ input:focus, textarea:focus{
 	border-bottom: 2px solid var(--custom-primary-color) !important;
 }
 
+.btn.background-primary, button.background-primary, [type=submit].background-primary {
+	background-color: var(--custom-green) !important;
+}
+
+.background-custom-green{
+	background-color: var(--custom-green);
+}
+
+.text-custom-green{
+	color: var(--custom-green) !important;
+}
+
 .btn, button, [type=submit]{
 	padding: 16px;
 	border: none;
@@ -222,7 +281,7 @@ input:focus, textarea:focus{
 }
 
 .btn:hover, button:hover, [type=submit]:hover{
-	background: #ff6982 !important;
+	background: var(--custom-gold) !important;
 }
 
 .btn:active, button:active, [type=submit]:active{
@@ -234,6 +293,9 @@ input:focus, textarea:focus{
 	padding-right: 32px;
 }
 
+cite::before{
+	display: none;
+}
 
 .country ul{
 	list-style-type: none;
@@ -241,13 +303,22 @@ input:focus, textarea:focus{
 
 .country-title{
 	padding-bottom: 8px;
-	border-bottom: thick solid var(--custom-primary-color)
+	border-bottom: thick solid var(--custom-green);
 }
 
 section, .section{
 	position: relative;
 	padding-top: 30px !important;
 	padding-bottom: 30px !important;
+}
+
+.top-nav{
+	font-weight: 900 !important;
+}
+
+.nav-fixed .top-nav li a, .nav-fixed top-nav li::marker a{
+	border: 10px solid var(--custom-green) !important;
+	font-weight: 900 !important;
 }
 
 @media (max-width: 768px) and (min-width: 0px){
