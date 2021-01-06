@@ -166,6 +166,10 @@ img:not(.logo, .logo-white, .logo-dark, .logo-img){
 	justify-content: space-around;
 }
 
+.bold{
+	font-weight: bold;
+}
+
 .background-secondary{
 	background-color: #999;
 }
