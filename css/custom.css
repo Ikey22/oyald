@@ -48,14 +48,14 @@ html, body{
 }
 
 .logo-text.logo-white{
-	font-size: 24px !important;
+	font-size: 16px !important;
 	margin: 0px !important;
 	margin: 0px !important;
 }
 
-.logo-white.logo-img{
+/*.logo-white.logo-img{
 	display: none !important;;
-}
+}*/
 
 .logo-dark{
 	color: #000;

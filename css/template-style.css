@@ -2190,7 +2190,10 @@ nav.fixed, .fixed nav {
   padding: 0 2em;
 }
 nav.fixed .top-nav li a, .fixed nav .top-nav li a {
-  color: #999;  
+  color: #ffffff;  
+  font-weight: 900;
+  -webkit-text-stroke-color: #000000;
+  -webkit-text-stroke-width: 0.05px;
 }
 nav.fixed .logo-white, .fixed nav .logo-white {
   display:none;
