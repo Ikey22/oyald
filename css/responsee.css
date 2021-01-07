@@ -878,21 +878,26 @@ nav.breadcrumb-nav ul li:last-child:after {content:"";}
   } 
   .top-nav > ul ul.show-ul {
     display:block;
-    height:auto;  
+    height:auto;
+    box-shadow: 2px 2px 2px 2px #383737 !important;
   }
   .top-nav li ul li a {
-    background:none repeat scroll 0 0 #2b4c61;
     padding:0.625rem;
   }
-  .top-nav li ul li ul li a { background:none repeat scroll 0 0 #456274;}
+  .top-nav li ul li ul li a {
+    /*background:none repeat scroll 0 0 var(--custom-green) !important;*/
+    color: #000 !important;
+  }
   .top-nav {
     position:fixed;
     top:0;
     z-index:10;
     left:-100%;
-    width: 70% !important;/**/
-    bottom:0;
-    background:none repeat scroll 0 0 #1c3849;
+    width: 57% !important;/**/
+    height: 70% !important;/**/
+    text-align: left !important;/**/
+    /*bottom:0;
+    background:none repeat scroll 0 0 var(--custom-green) !important;*/
     overflow-y:auto;
     transition:left 0.20s linear 0s;
     -o-transition:left 0.20s linear 0s;
