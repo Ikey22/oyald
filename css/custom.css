@@ -72,6 +72,34 @@ nav.sticky:not(.fixed) ul li a{
 	background-image: url('./img/oyald.jpg') !important;
 }
 
+html, body{
+	overflow-x: hidden !important;
+	animation-name: fadeIn !important;
+	animation-duration: 2s !important;
+}
+
+@-webkit-keyframes fadeIn {
+	from{
+		opacity: 0;
+		scale: 0;
+	}
+	to{
+		opacity: 1;
+		scale: 1
+	}
+}
+
+@keyframes fadeIn {
+	from{
+		opacity: 0;
+		scale: 0;
+	}
+	to{
+		opacity: 1;
+		scale: 1
+	}
+}
+
 p{
 	color: #000000 !important;
 }
@@ -84,8 +112,8 @@ p{
 }
 
 .map-image{
-	height: 500px;
-	width: max-content;
+	width: 100% !important;
+	max-width: 400px !important;
 }
 
 .statistics-img{
@@ -246,7 +274,11 @@ input, textarea{
 	outline: none;
 	border-bottom: 1px solid #4e4d4d !important;
 	width: calc(100% - 16px);
-	caret-color: var(--custom-primary-color);
+	caret-color: var(--custom-green);
+}
+
+.text-size-15{
+	font-size: 15px !important;
 }
 
 textarea{
@@ -258,11 +290,15 @@ input{
 }
 
 input:focus, textarea:focus{
-	border-bottom: 2px solid var(--custom-primary-color) !important;
+	border-bottom: 2px solid var(--custom-green) !important;
+}
+
+.btn, button{
+	font-weight: 900;
 }
 
 .btn.background-primary, button.background-primary, [type=submit].background-primary {
-	background-color: var(--custom-green) !important;
+	background: linear-gradient(to right, var(--custom-green), var(--custom-gold) 80%) !important;
 }
 
 .background-custom-green{

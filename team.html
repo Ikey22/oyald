@@ -92,6 +92,14 @@
           }
         }
       </style>
+
+      <style>
+        @media screen and (max-width: 768px){
+          .custom-hide-on-small{
+            display: none !important;
+          }
+        }
+      </style>
     
     
     
@@ -107,17 +115,15 @@
     <!-- MAIN -->
     <main role="main w-100">
 
-      <br />
-      <br />
-      <br />
+      <br class="custom-hide-on-small" />
+      <br class="custom-hide-on-small" />
+      <br class="custom-hide-on-small" />
     
       
     <!-- Team -->
       <section class="team-list section-bottom-padding background-grey w-100">
         
           <p class="text-extra-strong text-size-60 margin-bottom-20 text-line-height-1 text-center">Our Team</p>
-
-        <!-- <div class="text-black d-flex flex-row align-items-center justify-content-around w-100">
 
           <div class="teammate border-box s-12 m-6 l-4 xl-4">
             <div class="teammate-inner-content">
@@ -230,8 +236,8 @@
         <br /><br />                 
       </section>
 
-      <section class="section background-primary w-100">
-        <div class="line text-white">
+      <section class="section background-primary w-100 text-custom-green">
+        <div class="line text-custom-green"></div>
           <p class="text-white text-extra-strong text-size-60 margin-bottom-20 text-line-height-1 text-center">Become a member</p>
           <p class="text-strong text-size-20 text-center">
             (Condition to be member of OYALD including reference from country way of collecting the funds)
@@ -241,7 +247,7 @@
           </p>
           <br />
           <center>
-            <ol style="max-width: 500px; text-align: left;">
+            <ol style="max-width: 500px; font-size: 30px !important; text-align: left;" class="text-black">
               <li>Are aged between the minimum legal age of maturity in their respective countries of citizenship, and 50 years.</li>
               <li>Have functional literacy in English or French.</li>
               <li>Are engaged professionally, or as volunteers, in development related activities, or/and who have demonstrated credible support for sustainable development in Africa.</li>

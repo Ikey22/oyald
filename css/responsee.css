@@ -888,6 +888,9 @@ nav.breadcrumb-nav ul li:last-child:after {content:"";}
     /*background:none repeat scroll 0 0 var(--custom-green) !important;*/
     color: #000 !important;
   }
+  .top-nav li ul.show-ul a{
+    color: #000000 !important;
+  }
   .top-nav {
     position:fixed;
     top:0;

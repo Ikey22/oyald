@@ -92,6 +92,14 @@
           }
         }
       </style>
+
+      <style>
+        @media screen and (max-width: 768px) {
+          .custom-hide-on-small{
+            display: none !important;
+          }
+        }
+      </style>
     
     
     
@@ -105,17 +113,17 @@
     
     <main role="main" class="main">
 
-      <br class="custom-hide-large" />
-      <br class="custom-hide-large" />
-      <br class="custom-hide-large" />
+      <br class="custom-hide-small" />
+      <br class="custom-hide-small" />
+      <br class="custom-hide-small" />
 
       <p class="text-extra-strong text-size-80 text-m-size-40 text-center">Join OYALD</p>
 
       <div class="w-100 d-flex flex-column align-items-center justify-content-around">
-        <br />
+        <br class="custom-hide-on-small" />
         <center>Fill the form to proceed</center>
-        <br />
-        <br />
+        <br class="custom-hide-on-small" />
+        <br class="custom-hide-on-small" />
         <form class="s-12 m-6 l-6 xl-6">
           <div class="s-12 m-12 l-6 xl-6">
             <input type="text" autocomplete="given-name" placeholder="First name*" required>
