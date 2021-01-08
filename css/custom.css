@@ -1,7 +1,7 @@
 :root{
 	--custom-primary-color: #c81010;
-	--custom-green: #055505;
-	--custom-gold: #e0bf03;
+	--custom-green: #002200;
+	--custom-gold: #b99e00;
 }
 
 *{
@@ -48,7 +48,7 @@ html, body{
 }
 
 .logo-text.logo-white{
-	font-size: 16px !important;
+	font-size: 25px !important;
 	margin: 0px !important;
 	margin: 0px !important;
 }
@@ -75,28 +75,28 @@ nav.sticky:not(.fixed) ul li a{
 html, body{
 	overflow-x: hidden !important;
 	animation-name: fadeIn !important;
-	animation-duration: 2s !important;
+	animation-duration: 1.5s !important;
+	animation-timing-function: ease-in;
 }
 
 @-webkit-keyframes fadeIn {
 	from{
 		opacity: 0;
-		scale: 0;
+		transform: translate3d(0px, 0px, 2px);
+		perspective: 1000;
 	}
 	to{
 		opacity: 1;
-		scale: 1
+		transform: translate3d(0px, 0px, 0px);
 	}
 }
 
 @keyframes fadeIn {
 	from{
 		opacity: 0;
-		scale: 0;
 	}
 	to{
 		opacity: 1;
-		scale: 1
 	}
 }
 
@@ -117,7 +117,8 @@ p{
 }
 
 .statistics-img{
-	width: 600px !important;
+	padding: 16px;
+	width: 500px !important;
 	float: right;
 }
 
@@ -166,6 +167,10 @@ img:not(.logo, .logo-white, .logo-dark, .logo-img){
 
 .text-white{
 	color: #ffffff !important;
+}
+
+.box-shadow{
+	box-shadow: 1px 1px 2px 2px #999;
 }
 
 .top-bar > .right > a.text-white{
@@ -243,6 +248,10 @@ section.background-image h2.text-size-80.text-white{
 	box-shadow: 1px 1px 2px 2px var(--custom-primary-color);
 }
 
+.statistics-image, .map-image{
+	padding: 16px !important;
+}
+
 img.teammate-avatar{
 	width: 100%;
 	height: 300px !important;
@@ -293,12 +302,14 @@ input:focus, textarea:focus{
 	border-bottom: 2px solid var(--custom-green) !important;
 }
 
-.btn, button{
+.button, .btn, button{
 	font-weight: 900;
 }
 
-.btn.background-primary, button.background-primary, [type=submit].background-primary {
+.btn, .button, .btn.background-primary, button.background-primary, [type=submit].background-primary {
 	background: linear-gradient(to right, var(--custom-green), var(--custom-gold) 80%) !important;
+	-webkit-text-stroke-width: .3px;
+	-webkit-text-stroke-color: var(--custom-green);
 }
 
 .background-custom-green{
@@ -333,6 +344,10 @@ input:focus, textarea:focus{
 	padding-right: 32px;
 }
 
+cite, cite *{
+	font-size:12.5px !important;
+}
+
 cite::before{
 	display: none;
 }
@@ -341,15 +356,30 @@ cite::before{
 	list-style-type: none;
 }
 
+.box-shadow{
+	box-shadow: 1px 1px 2px 2px #999;
+}
+
+form{
+	padding: 8px;
+}
+
 .country-title{
 	padding-bottom: 8px;
-	border-bottom: thick solid var(--custom-green);
+	border-bottom: 4px solid var(--custom-green);
+	border-image: linear-gradient(to right, var(--custom-green), var(--custom-gold) 80%) !important;
+	-webkit-border-image: linear-gradient(to right, var(--custom-green), var(--custom-gold) 80%) !important;
+	-moz-border-image: linear-gradient(to right, var(--custom-green), var(--custom-gold) 80%) !important;
 }
 
 section, .section{
 	position: relative;
-	padding-top: 30px !important;
-	padding-bottom: 30px !important;
+	padding-top: 10px !important;
+	padding-bottom: 8px !important;
+}
+
+nav{
+	box-shadow: 0px 1px 1px 1px #999 !important;
 }
 
 .top-nav{
