@@ -367,9 +367,9 @@ form{
 .country-title{
 	padding-bottom: 8px;
 	border-bottom: 4px solid var(--custom-green);
-	border-image: linear-gradient(to right, var(--custom-green), var(--custom-gold) 80%) !important;
+	/* border-image: linear-gradient(to right, var(--custom-green), var(--custom-gold) 80%) !important;
 	-webkit-border-image: linear-gradient(to right, var(--custom-green), var(--custom-gold) 80%) !important;
-	-moz-border-image: linear-gradient(to right, var(--custom-green), var(--custom-gold) 80%) !important;
+	-moz-border-image: linear-gradient(to right, var(--custom-green), var(--custom-gold) 80%) !important; */
 }
 
 section, .section{
