@@ -24,8 +24,8 @@ footer, footer section, .background-dark{
 }
 
 .background-primary, header, nav, .logo, .logo-text{
-	background-color: var(--custom-gold) !important;
-	color: var(--custom-green) !important;
+	background-color: var(--custom-green) !important;
+	color: var(--custom-gold) !important;
 }
 
 html, body{
@@ -61,8 +61,12 @@ html, body{
 	color: #000;
 }
 
-nav.sticky:not(.fixed) ul li a{
-	color: #000 !important;
+nav.sticky:not(.fixed) .top-nav > ul > li > a{
+	color: #ffffff !important;
+}
+
+nav.sticky:not(.fixed) ul li::marker ul li a{
+	color: #000000 !important;
 }
 
 .head-start-on-large{
@@ -160,6 +164,28 @@ img:not(.logo, .logo-white, .logo-dark, .logo-img){
 	height: 100px;
 	align-self: center;
 	justify-self: center;
+}
+
+.newsletter-section{
+	height: 250px;
+	display: flex;
+	flex-direction: column;
+	align-items: center !important;
+	justify-content: space-around;
+}
+
+.newsletter-section *:not(.newsletter-section div.s-12.m12.l-12){
+	display: block !important;
+	width: 100% !important;
+}
+
+.newsletter-section div.s-12.m12.l-12{
+	width: 300px !important;
+}
+
+.newsletter-section div.s-12.m-12.l-12 > a.button{
+	width: max-content !important;
+	margin: 0px !important;
 }
 
 /* .top-bar{
