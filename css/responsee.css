@@ -897,7 +897,7 @@ nav.breadcrumb-nav ul li:last-child:after {content:"";}
     z-index:10;
     left:-100%;
     width: 57% !important;/**/
-    height: 70% !important;/**/
+    height: 85% !important;/**/
     text-align: left !important;/**/
     /*bottom:0;
     background:none repeat scroll 0 0 var(--custom-green) !important;*/

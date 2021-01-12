@@ -102,6 +102,7 @@ html, body{
 
 p{
 	color: #000000 !important;
+	text-align: justify;
 }
 
 .map-container{
@@ -113,13 +114,14 @@ p{
 
 .map-image{
 	width: 100% !important;
-	max-width: 400px !important;
+	max-width: 370px !important;
 }
 
 .statistics-img{
 	padding: 16px;
 	width: 500px !important;
 	float: right;
+	max-width: 370px;
 }
 
 
