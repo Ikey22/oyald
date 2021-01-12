@@ -483,7 +483,7 @@ aside.aside-left {
   color: #E4A600 !important;
 }
 .text-red-hover:hover, .primary-color-red .text-primary-hover:hover {
-  color: #C81010 !important;
+  color: var(--primary-gold) !important;
 }
 .text-pink-hover:hover, .primary-color-pink .text-primary-hover:hover {
   color: #DE1E5E !important;

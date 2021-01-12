@@ -201,6 +201,10 @@ img:not(.logo, .logo-white, .logo-dark, .logo-img){
 	box-shadow: 1px 1px 2px 2px #999;
 }
 
+sub{
+	font-size: 50%;
+}
+
 .top-bar > .right > a.text-white{
 	transform: translate(0px, 38px) !important;
 	position: relative;
