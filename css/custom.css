@@ -11,7 +11,7 @@
 
 hr{
 	border-top: thin solid #ffffff;
-	border-bottom: thin solid var(--custom-primary-color);
+	border-bottom: thin solid var(--custom-green);
 }
 
 .text-left{
@@ -184,7 +184,7 @@ img:not(.logo, .logo-white, .logo-dark, .logo-img){
 }
 
 .newsletter-section div.s-12.m-12.l-12 > a.button{
-	width: max-content !important;
+	width: 250px !important;
 	margin: 0px !important;
 }
 
@@ -408,6 +408,16 @@ section, .section{
 	position: relative;
 	padding-top: 10px !important;
 	padding-bottom: 8px !important;
+}
+
+.text-left{
+	text-align: left !important;
+}
+
+@media only screen and (min-width: 779px){
+	.top-nav > ul > li{
+		transform: translateY(30px);
+	}
 }
 
 nav{
