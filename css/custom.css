@@ -183,8 +183,8 @@ img:not(.logo, .logo-white, .logo-dark, .logo-img){
 	width: 300px !important;
 }
 
-.newsletter-section div.s-12.m-12.l-12 > a.button{
-	width: 250px !important;
+.newsletter-section div.s-12.m-12.l-12 > .line > .center  a.button{
+	width: 100% !important;
 	margin: 0px !important;
 }
 
