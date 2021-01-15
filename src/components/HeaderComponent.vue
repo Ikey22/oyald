@@ -1,13 +1,13 @@
 <template>
   <b-navbar :sticky="true" toggleable="lg" type="dark" variant="success" style="background: var(--custom-primary-color) !important;">
-    <b-navbar-brand to="/" class="font-weight-bold navbar-brand">
+    <b-navbar-brand to="/home" class="font-weight-bold navbar-brand">
       <div class="logo-img-wrapper">
         <img class="logo-img" src="@/assets/img/logo.jpeg">
         <br />
-        <i class="logo-img-slogan text-white"><small class="font-weight-bold text-center d-none d-md-block d-lg-block d-xl-block">INFORM...INSPIRE<br />INVOLVE</small></i>
+        <i class="logo-img-slogan text-white"><small class="font-weight-bold text-center d-none d-md-block d-lg-block d-xl-block">{{ $store.state.language === 'en' ? 'INFORM' : 'informer' }}...{{ $store.state.language === 'en' ? 'INSPIRE' : 'Inspirer' }}<br />{{ $store.state.language === 'en' ? 'INVOLVE' : 'impliquer' }}</small></i>
       </div>
-      <span style="color: var(--yellow)" class="logo-text d-none d-md-block d-lg-block d-xl-block" v-html="$store.state.language === 'en' ? 'Organisation <small>of</small> Young African Leaders <small>for</small><br /> Development' : 'full name in french'"></span>
-      <span style="color: var(--yellow)" class="logo-text d-block d-md-none d-lg-none d-xl-none">OYALD</span>
+      <span style="color: var(--yellow)" class="logo-text d-none d-md-block d-lg-block d-xl-block" v-html="$store.state.language === 'en' ? 'Organisation <small>of</small> Young African Leaders <small>for</small><br /> Development' : 'Organisation <small>des</small> jeunes leaders africains<br /> pour <small>le</small> développement'"></span>
+      <span style="color: var(--yellow)" class="logo-text d-block d-md-none d-lg-none d-xl-none">{{ $store.state.appNameShort }}</span>
     </b-navbar-brand>
 
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
@@ -15,16 +15,17 @@
     <b-collapse id="nav-collapse" is-nav>
 
       <b-navbar-nav class="ml-auto" align="center">
-        <b-nav-item to="/home">HOME</b-nav-item>
-        <b-nav-item-dropdown text="ABOUT" right>
-          <b-dropdown-item to="/about">ABOUT OYALD</b-dropdown-item>
-          <b-dropdown-item to="/initiatives">OUR INITIATIVES</b-dropdown-item>
+        <b-nav-item to="/home">{{ $store.state.language === 'en' ? 'HOME' : 'Accueil' }}</b-nav-item>
+        <b-nav-item-dropdown :text="$store.state.language === 'en' ? 'ABOUT' : 'À propos'" right>
+          <b-dropdown-item to="/about">{{ $store.state.language === 'en' ? 'ABOUT OYALD' : 'À propos de nous' }}</b-dropdown-item>
+          <b-dropdown-item to="/initiatives">{{ $store.state.language === 'en' ? 'OUR INITIATIVES' : 'Nos initiatives' }}</b-dropdown-item>
         </b-nav-item-dropdown>
-        <b-nav-item-dropdown text="OUR TEAM" right>
-          <b-dropdown-item to="/about">ABOUT OYALD</b-dropdown-item>
-          <b-dropdown-item to="/initiatives">OUR INITIATIVES</b-dropdown-item>
+        <b-nav-item-dropdown :text="$store.state.language === 'en' ? 'OUR TEAM' : 'Notre équipe'" right>
+          <b-dropdown-item to="/team">{{ $store.state.language === 'en' ? 'MEET OUR TEAM' : 'Rencontrez notre équipe' }}</b-dropdown-item>
+          <b-dropdown-item to="/membership">{{ $store.state.language === 'en' ? 'OUR MEMBERSHIP' : 'Notre adhésion' }}</b-dropdown-item>
+          <b-dropdown-item to="/partners">{{ $store.state.language === 'en' ? 'OUR PARTNERS' : 'Nos partenaires' }}</b-dropdown-item>
         </b-nav-item-dropdown>
-        <b-nav-item to="/contact">CONTACT US</b-nav-item>
+        <b-nav-item to="/contact">{{ $store.state.language === 'en' ? 'CONTACT US' : 'Nous contacter' }}</b-nav-item>
       </b-navbar-nav>
 
       <!-- Right aligned nav items -->

@@ -8,11 +8,33 @@ export default new Vuex.Store({
     primaryColor: "#002200",
     appNameShort: "OYALD",
     appNameLong: "Organisation of Young African Leaders for Development",
-    appNameLongFrench: "",
+    appNameLongFrench: "Organisation des jeunes leaders africains pour le développement",
     appbarTitle: "OYALD",
     language: 'en',
-    englishStrings: {},
-    frenchStrings: {}
+    englishStrings: {
+      home: '',
+      about: '',
+      aboutUs: '',
+      ourInitiatives: '',
+      ourTeam: '',
+      meetOurTeam: '',
+      ourmembership: '',
+      ourPartners: '',
+      contactUs: '',
+      writeUs: ''
+    },
+    frenchStrings: {
+      home: '',
+      about: '',
+      aboutUs: '',
+      ourInitiatives: '',
+      ourTeam: '',
+      meetOurTeam: '',
+      ourmembership: '',
+      ourPartners: '',
+      contactUs: '',
+      writeUs: ''
+    }
   },
   mutations: {
   },

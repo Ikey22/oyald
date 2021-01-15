@@ -2,11 +2,11 @@
   <div class="preheader p-4 bg-success clearfix text-white d-none d-sm-block d-md-block d-lg-block d-xl-block">
       <span class="float-left text-white">
         <b-select class="bg-success text-white" v-model="$store.state.language">
-          <b-select-option value="en">English</b-select-option>
-          <b-select-option value="fr">Franch</b-select-option>
+          <b-select-option value="en">Language: English</b-select-option>
+          <b-select-option value="fr">Langue: Français</b-select-option>
         </b-select>
       </span>
-      <a class="float-right text-white" href="mailto:info@oyald-ojlad.org"> <span class="text-white">&nbsp;|&nbsp;</span> write us: info@oyald-ojlad.org  </a>
+      <a class="float-right text-white" href="mailto:info@oyald-ojlad.org"> <span class="text-white">&nbsp;|&nbsp;</span> {{ $store.state.language === 'en' ? 'write us' : 'Écrivez-nous un email' }}: info@oyald-ojlad.org  </a>
       <br />
       <hr />
     </div>
