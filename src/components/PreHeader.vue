@@ -19,12 +19,7 @@
 
 <script>
 export default {
-    name: "PreHeader",
-    methods: {
-      setLanguage($event){
-        return this.$store.commit('setLanguage', $event.target.value);
-      }
-    }
+    name: "PreHeader"
 }
 </script>
 

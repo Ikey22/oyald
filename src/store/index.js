@@ -25,7 +25,9 @@ export default new Vuex.Store({
       ourmembership: 'OUR MEMBERSHIP',
       ourPartners: 'OUR PARTNERS',
       contactUs: 'CONTACT US',
-      writeUs: 'write us'
+      writeUs: 'write us',
+      usefulLinks: 'Useful links',
+      stayConnected: 'Stay Connected'
     },
     frenchStrings: {
       language: 'Langue',
@@ -41,7 +43,9 @@ export default new Vuex.Store({
       ourmembership: 'Notre adhésion',
       ourPartners: 'Nos partenaires',
       contactUs: 'Nous contacter',
-      writeUs: 'Écrivez-nous un email'
+      writeUs: 'Écrivez-nous un email',
+      usefulLinks: 'Hyperliens utiles',
+      stayConnected: 'Rester connecté'
     }
   },
   mutations: {
