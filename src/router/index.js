@@ -22,7 +22,7 @@ const routes = [
     path: '/about',
     alias: '/about-page',
     name: 'AboutPage',
-    component: () => import(/* webpackChunkName: "about" */ '@/views/About.vue')
+    component: () => import(/* webpackChunkName: "about" */ '@/views/AboutPage.vue')
   }
 ]
 

@@ -1,12 +1,13 @@
 <template>
-  <div />
+  <div>Footer</div>
 </template>
 
 <script>
 export default {
-    name: "AboutPage"
+    name: "FooterComponent"
 }
 </script>
 
-<style scoped>
+<style>
+
 </style>
