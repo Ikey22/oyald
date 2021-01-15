@@ -20,7 +20,7 @@ Vue.use(IconsPlugin);
 
 Vue.use(portalVue);
 
-// Vue.config.productionTip = false;
+Vue.config.productionTip = false;
 
 new Vue({
   store,

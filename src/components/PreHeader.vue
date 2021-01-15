@@ -1,20 +1,30 @@
 <template>
   <div class="preheader p-4 bg-success clearfix text-white d-none d-sm-block d-md-block d-lg-block d-xl-block">
       <span class="float-left text-white">
-        <b-select class="bg-success text-white" v-model="$store.state.language">
-          <b-select-option value="en">Language: English</b-select-option>
-          <b-select-option value="fr">Langue: Français</b-select-option>
-        </b-select>
+        <b-form inline>
+          <b-form-select
+            id="select-language"
+            class="text-white bg-success"
+            v-model="$store.state.language"
+            :options="[{ text: 'Language: English', value: 'en' }, { text: 'Langue: French', value: 'fr' }]"
+            value="en"
+          ></b-form-select>
+        </b-form>
       </span>
-      <a class="float-right text-white" href="mailto:info@oyald-ojlad.org"> <span class="text-white">&nbsp;|&nbsp;</span> {{ $store.state.language === 'en' ? 'write us' : 'Écrivez-nous un email' }}: info@oyald-ojlad.org  </a>
+      <a class="float-right text-white" href="mailto:info@oyald-ojlad.org"> <span class="text-white">&nbsp;|&nbsp;</span> {{ $store.state.language === 'en' ? $store.state.englishStrings.writeUs : $store.state.frenchStrings.writeUs }}: info@oyald-ojlad.org  </a>
       <br />
       <hr />
-    </div>
+  </div>
 </template>
 
 <script>
 export default {
-    name: "PreHeader"
+    name: "PreHeader",
+    methods: {
+      setLanguage($event){
+        return this.$store.commit('setLanguage', $event.target.value);
+      }
+    }
 }
 </script>
 

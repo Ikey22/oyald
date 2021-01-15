@@ -4,7 +4,7 @@
       <div class="logo-img-wrapper">
         <img class="logo-img" src="@/assets/img/logo.jpeg">
         <br />
-        <i class="logo-img-slogan text-white"><small class="font-weight-bold text-center d-none d-md-block d-lg-block d-xl-block">{{ $store.state.language === 'en' ? 'INFORM' : 'informer' }}...{{ $store.state.language === 'en' ? 'INSPIRE' : 'Inspirer' }}<br />{{ $store.state.language === 'en' ? 'INVOLVE' : 'impliquer' }}</small></i>
+        <i class="logo-img-slogan text-white"><small class="font-weight-bold text-center d-none d-md-block d-lg-block d-xl-block">{{ $store.state.language === 'en' ? $store.state.englishStrings.inform : $store.state.frenchStrings.inform }}...{{ $store.state.language === 'en' ? $store.state.englishStrings.inspire : $store.state.frenchStrings.inspire }}<br />{{ $store.state.language === 'en' ? $store.state.englishStrings.involve : $store.state.frenchStrings.involve }}</small></i>
       </div>
       <span style="color: var(--yellow)" class="logo-text d-none d-md-block d-lg-block d-xl-block" v-html="$store.state.language === 'en' ? 'Organisation <small>of</small> Young African Leaders <small>for</small><br /> Development' : 'Organisation <small>des</small> jeunes leaders africains<br /> pour <small>le</small> développement'"></span>
       <span style="color: var(--yellow)" class="logo-text d-block d-md-none d-lg-none d-xl-none">{{ $store.state.appNameShort }}</span>
@@ -15,10 +15,10 @@
     <b-collapse id="nav-collapse" is-nav>
 
       <b-navbar-nav class="ml-auto" align="center">
-        <b-nav-item to="/home">{{ $store.state.language === 'en' ? 'HOME' : 'Accueil' }}</b-nav-item>
-        <b-nav-item-dropdown :text="$store.state.language === 'en' ? 'ABOUT' : 'À propos'" right>
-          <b-dropdown-item to="/about">{{ $store.state.language === 'en' ? 'ABOUT OYALD' : 'À propos de nous' }}</b-dropdown-item>
-          <b-dropdown-item to="/initiatives">{{ $store.state.language === 'en' ? 'OUR INITIATIVES' : 'Nos initiatives' }}</b-dropdown-item>
+        <b-nav-item to="/home">{{ $store.state.language === 'en' ? $store.state.englishStrings.home : $store.state.frenchStrings.home }}</b-nav-item>
+        <b-nav-item-dropdown :text="$store.state.language === 'en' ? $store.state.englishStrings.about : $store.state.frenchStrings.about" right>
+          <b-dropdown-item to="/about">{{ $store.state.language === 'en' ? $store.state.englishStrings.aboutUs : $store.state.frenchStrings.aboutUs }}</b-dropdown-item>
+          <b-dropdown-item to="/initiatives">{{ $store.state.language === 'en' ? $store.state.englishStrings.ourInitiatives : $store.state.frenchStrings.ourInitiatives }}</b-dropdown-item>
         </b-nav-item-dropdown>
         <b-nav-item-dropdown :text="$store.state.language === 'en' ? 'OUR TEAM' : 'Notre équipe'" right>
           <b-dropdown-item to="/team">{{ $store.state.language === 'en' ? 'MEET OUR TEAM' : 'Rencontrez notre équipe' }}</b-dropdown-item>

@@ -12,31 +12,43 @@ export default new Vuex.Store({
     appbarTitle: "OYALD",
     language: 'en',
     englishStrings: {
-      home: '',
-      about: '',
-      aboutUs: '',
-      ourInitiatives: '',
-      ourTeam: '',
-      meetOurTeam: '',
-      ourmembership: '',
-      ourPartners: '',
-      contactUs: '',
-      writeUs: ''
+      language: 'Language',
+      inform: 'INFORM',
+      inspire: 'INSPIRE',
+      involve: 'INVOLVE',
+      home: 'HOME',
+      about: 'ABOUT',
+      aboutUs: 'ABOUT OYALD',
+      ourInitiatives: 'OUR INITIATIVES',
+      ourTeam: 'OUR TEAM',
+      meetOurTeam: 'MEET OUR TEAM',
+      ourmembership: 'OUR MEMBERSHIP',
+      ourPartners: 'OUR PARTNERS',
+      contactUs: 'CONTACT US',
+      writeUs: 'write us'
     },
     frenchStrings: {
-      home: '',
-      about: '',
-      aboutUs: '',
-      ourInitiatives: '',
-      ourTeam: '',
-      meetOurTeam: '',
-      ourmembership: '',
-      ourPartners: '',
-      contactUs: '',
-      writeUs: ''
+      language: 'Langue',
+      inform: 'Informer',
+      inspire: 'Inspirer',
+      involve: 'impliquer',
+      home: 'Accueil',
+      about: 'À propos',
+      aboutUs: 'À propos de nous',
+      ourInitiatives: 'Nos initiatives',
+      ourTeam: 'Notre équipe',
+      meetOurTeam: 'Rencontrez notre équipe',
+      ourmembership: 'Notre adhésion',
+      ourPartners: 'Nos partenaires',
+      contactUs: 'Nous contacter',
+      writeUs: 'Écrivez-nous un email'
     }
   },
   mutations: {
+    setLanguage(state, language){
+      state.language = language;
+      return console.log(language);
+    }
   },
   actions: {
   },
