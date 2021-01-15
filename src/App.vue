@@ -9,7 +9,7 @@
 
     <router-view />
 
-    <br v-if="$route.path !== '/' || $route.path !== '/landing-page'" />
+    <br v-for="x in 3" :key="`pre-fppter-line-break-${x}`" v-show="$route.path !== '/' || $route.path !== '/landing-page'" />
 
     <footer-component v-if="$route.path !== '/' || $route.path !== '/landing-page'" />
 
@@ -59,5 +59,35 @@ a, button, .btn, [type=button], [type=submit]{
 hr{
   border-top: 1px dashed var(--custom-primary-color) !important;
   border-bottom: 1px dashed #ffffff !important;
+}
+
+#root{
+  animation-name: fadeIn;
+  animation-duration: .5s;
+  animation-delay: .1;
+}
+
+@keyframes fadeIn {
+	from{
+		opacity: 0;
+		transform: translate3d(0px, 0px, 2px);
+		perspective: 1000;
+	}
+	to{
+		opacity: 1;
+		transform: translate3d(0px, 0px, 0px);
+	}
+}
+
+@-webkit-keyframes fadeIn {
+	from{
+		opacity: 0;
+		transform: translate3d(0px, 0px, 2px);
+		perspective: 1000;
+	}
+	to{
+		opacity: 1;
+		transform: translate3d(0px, 0px, 0px);
+	}
 }
 </style>
