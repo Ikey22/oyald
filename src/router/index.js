@@ -22,7 +22,19 @@ const routes = [
     path: '/about',
     alias: '/about-page',
     name: 'AboutPage',
-    component: () => import(/* webpackChunkName: "about" */ '@/views/AboutPage.vue')
+    component: () => import(/* webpackChunkName: "about", webpackPrefetch: true */ '@/views/AboutPage.vue')
+  },
+  {
+    path: '/initiatives',
+    alias: '/initiatives-page',
+    name: 'InitiativesPage',
+    component: () => import(/* webpackChunkName: "about", webpackPrefetch: true */ '@/views/InitiativesPage.vue')
+  },
+  {
+    path: '/membership',
+    alias: '/join-oyald',
+    name: 'JoinOyald',
+    component: () => import(/* webpackChunkName: "join-oyald", webpackPrefetch: true */ '@/views/JoinOyald.vue')
   }
 ];
 

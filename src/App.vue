@@ -57,14 +57,15 @@ a, button, .btn, [type=button], [type=submit]{
 }
 
 hr{
-  border-top: 1px dashed var(--custom-primary-color) !important;
-  border-bottom: 1px dashed #ffffff !important;
+  border-top: 1px dotted var(--custom-primary-color) !important;
+  border-bottom: 1px dotted #ffffff !important;
 }
 
 #root{
   animation-name: fadeIn;
-  animation-duration: .5s;
-  animation-delay: .1;
+  animation-duration: .9s;
+  animation-delay: .1s;
+  animation-timing-function: ease-in;
 }
 
 @keyframes fadeIn {
