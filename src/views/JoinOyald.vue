@@ -42,6 +42,38 @@
                         </div>
 
                         <div class="row w-100">
+                          <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                            <label for="country">Country*</label>
+                            <b-form-select
+                            id="country"
+                            placeholder="Select country..."
+                            autocomplete="country"
+                            :required="true"
+                            />
+                          </b-form-group>
+
+                          <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                            <label for="region">State/Region*</label>
+                            <b-form-select
+                            id="region"
+                            placeholder="Select State/Region..."
+                            autocomplete="region"
+                            :required="true"
+                            />
+                          </b-form-group>
+
+                          <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                            <label for="lga">District/L.G.A*</label>
+                            <b-form-select
+                            id="lga"
+                            placeholder="Select District/L.G.A..."
+                            autocomplete="country"
+                            :required="true"
+                            />
+                          </b-form-group>
+                        </div>
+
+                        <div class="row w-100">
                           <b-form-group class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
                             <label for="phone-number">Phone Number*</label>
                             <b-form-input
@@ -58,7 +90,8 @@
                             <b-form-input
                             id="zip-code"
                             placeholder="type here..."
-                            type="zip-code"
+                            type="number"
+                            :required="true"
                             autocomplete="zip-code"
                             />
                           </b-form-group>
@@ -77,27 +110,49 @@
                           </b-form-group>
 
                           <b-form-group class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                            <label for="date-of-birth">Date of birth</label>
-                            <b-form-input
+                            <label for="date-of-birth">Date of birth (18 to 50)</label>
+                            <b-form-datepicker
                             id="date-of-birth"
-                            placeholder="type here..."
+                            placeholder="select date..."
                             type="date"
+                            :max="new Date(`${(new Date).getFullYear() - 18}-12-31`)"
+                            :required="true"
                             autocomplete="date-of-birth"
                             />
                           </b-form-group>
                         </div>
 
-                        <b-form-group>
-                          <label for="passport">Passport-size photograph</label>
-                          <b-form-file
-                          id="passport"
-                          accept="image/*"
-                           />
-                        </b-form-group>
+                        <div class="row w-100">
+                          <b-form-group class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                            <label for="passport">Passport-size photograph*</label>
+                            <b-form-file
+                            id="passport"
+                            placeholder="Select file..."
+                            accept="image/*"
+                            :required="true"
+                            />
+                          </b-form-group>
+
+                          <b-form-group class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                            <label for="membership-type">Select membership type*</label>
+                            <b-form-select
+                            :required="true"
+                            id="membership-type"
+                            >
+                              <b-form-select-option
+                              :selected="true"
+                              value="active">Active member</b-form-select-option>
+                              <b-form-select-option value="associate">Associate member</b-form-select-option>
+                            </b-form-select>
+                          </b-form-group>
+                        </div>
 
                         <b-form-group>
-                          <label for="self-description"></label>
+                          <label for="self-description">Brief description of yourself</label>
                           <b-form-textarea
+                          style="height: 200px;"
+                          :required="true"
+                          placeholder="Type here..."
                           id="self-description"
                           />
                         </b-form-group>
@@ -111,6 +166,10 @@
                         style="background-color: var(--custom-primary-color) !important;"
                         >Submit</b-button>
                       </b-form>
+
+                      <br />
+                      <hr />
+                      <br />
   </div>
 </template>
 
