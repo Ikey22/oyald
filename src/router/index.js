@@ -35,6 +35,12 @@ const routes = [
     alias: '/join-oyald',
     name: 'JoinOyald',
     component: () => import(/* webpackChunkName: "join-oyald", webpackPrefetch: true */ '@/views/JoinOyald.vue')
+  },
+  {
+    path: "/team",
+    alias: "/our-team",
+    name: "OurTeam",
+    component: () => import(/* webpackChunkName: "our-team", webpackPrefetch: true */ '@/views/OurTeam.vue')
   }
 ];
 

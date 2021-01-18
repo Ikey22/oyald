@@ -34,24 +34,6 @@ export default {
 </script>
 
 <style>
-:root{
-	--custom-primary-color: #002200;
-	--custom-secondary-color: #b99e00;
-	--custom-gradient: linear-gradient(to right, var(--custom-green), var(--custom-gold) 80%);
-}
-
-.bg-success{
-  background-color: var(--custom-primary-color) !important;
-}
-
-.text-success{
-  color: var(--custom-primary-color) !important;
-}
-
-.bg-secondary{
-  background-color: var(--custom-secondary-color) !important;
-}
-
 a, button, .btn, [type=button], [type=submit]{
   cursor: pointer;
 }
