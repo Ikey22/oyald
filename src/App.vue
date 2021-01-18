@@ -1,7 +1,7 @@
 <template>
   <div class="root">
 
-    <pre-header v-if="$route.path !== '/' || $route.path !== '/landing-page'" />
+    <pre-header v-if="$route.path != '/' || $route.path != '/landing-page'" />
 
     <header-component v-if="$route.path !== '/' || $route.path !== '/landing-page'" />
 
@@ -29,6 +29,7 @@ export default {
     },
   name: "App",
   mounted(){
+    return console.log(this.$route.path);
   }
 }
 </script>
@@ -43,10 +44,10 @@ hr{
   border-bottom: 1px dotted #ffffff !important;
 }
 
-#root{
+*, #root{
   animation-name: fadeIn;
-  animation-duration: .9s;
-  animation-delay: .1s;
+  animation-duration: .45s;
+  animation-delay: 0s;
   animation-timing-function: ease-in;
 }
 

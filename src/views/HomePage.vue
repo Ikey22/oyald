@@ -33,7 +33,7 @@
 
     <section>
       <cite class="card p-2 rounded-lg">
-                <br /><br /><br /><br /><br />
+                <br />
                 <hr />
                 <u><p><small>Sources:</small></p></u>
                 <p><small>

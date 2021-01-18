@@ -1,23 +1,12 @@
 <template>
   <div class="w-100 container-fluid">
 
-    <div class="card shadow-lg p-4 text-center">
-      <p class="font-weight-bold text-success">Table of contents</p>
-      <b-nav align="center" pills>
-        <b-nav-item href="#team-tag">Our Team</b-nav-item>
-        <b-nav-item href="#partners-tag">Our Partners</b-nav-item>
-      </b-nav>
-    </div>
-
     <br />
     <br id="team-tag" />
-    <br />
-    <br />
-    <br />
 
-    <h1 class="w-100 text-success font-weight-bold text-center" style="color: var(--custom-primary-color) !important;">Meet our team</h1>
+    <h1 class="w-100 text-success font-weight-bold text-center" style="color: var(--custom-primary-color) !important;">{{ $store.state.language === 'en' ? $store.state.englishStrings.meetOurTeam : $store.state.frenchStrings.meetOurTeam }}</h1>
     <br />
-    <p class="text-secondary font-weight-bold w-100 text-center">Admin</p>
+    <p class="text-secondary font-weight-bold w-100 text-center">Admin</p> 
     <br >
     <section id="team">
         <div class="container">
@@ -79,9 +68,6 @@
 
     <br />
     <br id="partners-tag" />
-    <br />
-    <br />
-    <br />
 
     <h1 class="w-100 text-success font-weight-bold text-center" style="color: var(--custom-primary-color) !important;">Our partners</h1>
     <br />
@@ -110,6 +96,18 @@
             </div>
         </div>
     </section>
+
+    <br />
+    <br />
+    <br />
+
+    <center>
+        <b-button
+        style="background: var(--custom-primary-color);"
+        type="button"
+        to="/membership"
+        >JOIN OYALD</b-button>
+    </center>
 
     <br />
   </div>

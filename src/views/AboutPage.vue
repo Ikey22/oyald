@@ -1,6 +1,36 @@
 <template>
   <div class="container-fluid">
 
+    <div class="w-100 row">
+      <section class="col-12 col-md-6 col-lg-6 col-xl-6">
+        <img
+        class="w-100 p-2 p-lg-4"
+        src="@/assets/img/sdg-rect.jpeg"
+        />
+      </section>
+
+      <section class="col-12 col-md-6 col-lg-6 col-xl-6">
+        <h1 class="text-center text-success font-weight-bold w-100">
+          Who we are?
+        </h1>
+
+        <p>
+          OYALD is a non-partisan, not-for-profit, and non-discriminatory network established to equip young Africans for the inclusive transformation of the continent. 
+        </p>
+
+        <p>
+           Comprising young leaders, professionals and entrepreneurs of African descent/citizenship collaborating for sustainable development, we are a union of national chapters, organized and registered in the countries of Africa. 
+        </p>
+      </section>
+    </div>
+
+    <br />
+    <br />
+    <br />
+    <hr />
+    <br />
+    <br />
+
     <div class="row w-100">
       <section class="col-12 col-md-6 col-lg-8 col-xl-8">
       <h1 class="w-100 text-center text-success font-weight-bold">Why OYALD?</h1>
@@ -66,36 +96,7 @@
 
     <br />
     <br />
-    <br />
     <hr />
-    <br />
-    <br />
-
-    <div class="w-100 row">
-      <section class="col-12 col-md-6 col-lg-6 col-xl-6">
-        <img
-        class="w-100 p-2 p-lg-4"
-        src="@/assets/img/sdg-rect.jpeg"
-        />
-      </section>
-
-      <section class="col-12 col-md-6 col-lg-6 col-xl-6">
-        <h1 class="text-center text-success font-weight-bold w-100">
-          Who we are?
-        </h1>
-
-        <p>
-          OYALD is a non-partisan, not-for-profit, and non-discriminatory network established to equip young Africans for the inclusive transformation of the continent. 
-        </p>
-
-        <p>
-           Comprising young leaders, professionals and entrepreneurs of African descent/citizenship collaborating for sustainable development, we are a union of national chapters, organized and registered in the countries of Africa. 
-        </p>
-      </section>
-    </div>
-
-    <br />
-    <br />
     <br />
 
       <section>

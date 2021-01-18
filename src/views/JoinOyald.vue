@@ -4,6 +4,7 @@
       <br />
       <p class="text-white text-center w-100 text-dark">Join OYALD</p>
       <br />
+      <p><span class="p-1 bg-danger text-white font-weight-bold rounded">Note:</span> Fields labelled with asterisk (*) are mandatory, the rest are optional</p>
       <b-form
       @submit.stop.prevent
       class="card shadow-md rounded p-3 d-block text-left"
@@ -167,39 +168,21 @@
                         >Submit</b-button>
                       </b-form>
 
-                      <br />
-                      <hr />
-                      <br />
+      <br />
 
-
-      <div class="row w-100">
-
-          <div v-for="x in 4" :key="`country-${x}`" class="col-12 col-md-6 col-lg-6 col-xl-6">
-              <div class="accordion w-100" role="tablist">
-                <b-card no-body class="mb-1 w-100">
-                  <b-card-header header-tag="header" class="p-1" role="tab">
-                    <b-button block v-b-toggle="`accordion-${x}`" variant="sucess" class="bg-success text-white">Country Name<b-icon icon="caret-down-fill" /> </b-button>
-                  </b-card-header>
-                  <b-collapse :id="`accordion-${x}`" :accordion="`accordion-${x}`" role="tabpanel">
-                    <b-card-body>
-                      <b-card-text>Representative: Mr. f.hfgf</b-card-text>
-                      <b-card-text>Addres: No. fbfbfb</b-card-text>
-                      <b-card-text>Phone Number: +23433445654</b-card-text>
-                      <b-card-text>Email address: dgd@gg.dcdfb</b-card-text>
-                    </b-card-body>
-                  </b-collapse>
-                </b-card>
-              </div>
-          </div>
-
-      </div>
+      <CountryChapter />
 
   </div>
 </template>
 
 <script>
+import CountryChapter from '@/components/CountryChapter';
+
 export default {
-    name: "JoinOyald"
+    name: "JoinOyald",
+    components: {
+      CountryChapter
+    }
 }
 </script>
 

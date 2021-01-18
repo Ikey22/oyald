@@ -1,8 +1,9 @@
 <template>
   <div class="w-100 container-fluid">
-      <h1 class="text-center font-weight-bold w-100 text-primary">Contact us</h1>
-      <p class="text-center w-100 font-weight-bold">Don't hesitate to reach out</p>
+      <h1 class="text-center font-weight-bold w-100 text-success" style="color: var(--custom-primary-color) !important;">{{ $store.state.language === 'en' ? $store.state.englishStrings.contactUs : $store.state.frenchStrings.contactUs }}</h1>
+      <p class="text-center w-100 font-weight-bold">{{ $store.state.language === 'en' ? $store.state.englishStrings.dontHesitateToReachOut : $store.state.frenchStrings.dontHesitateToReachOut }}</p>
       <br />
+      <p><span class="p-1 bg-danger text-white font-weight-bold rounded">Note:</span> Fields labelled with asterisk (*) are mandatory, the rest are optional</p>
       <b-form
       @submit.stop.prevent
       class="card shadow-md rounded p-3 d-block text-left"
@@ -109,45 +110,18 @@
                           </b-form-group>
 
                           <b-form-group class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                            <label for="date-of-birth">Date of birth (18 to 50 years)</label>
-                            <b-form-datepicker
-                            id="date-of-birth"
-                            placeholder="select date..."
-                            type="date"
-                            :max="new Date(`${(new Date).getFullYear() - 18}-12-31`)"
-                            :required="true"
-                            autocomplete="date-of-birth"
-                            />
-                          </b-form-group>
-                        </b-form-row>
-
-                        <b-form-row class="row w-100">
-                          <b-form-group class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                            <label for="passport">Passport-size photograph*</label>
-                            <b-form-file
-                            id="passport"
-                            placeholder="Select file..."
-                            accept="image/*"
+                            <label for="subject">Subject*</label>
+                            <b-form-input
+                            id="subject"
+                            placeholder="Type here..."
+                            type="text"
                             :required="true"
                             />
-                          </b-form-group>
-
-                          <b-form-group class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                            <label for="membership-type">Select membership type*</label>
-                            <b-form-select
-                            :required="true"
-                            id="membership-type"
-                            >
-                              <b-form-select-option
-                              :selected="true"
-                              value="active">Active member</b-form-select-option>
-                              <b-form-select-option value="associate">Associate member</b-form-select-option>
-                            </b-form-select>
                           </b-form-group>
                         </b-form-row>
 
                         <b-form-group>
-                          <label for="self-description">Brief description of yourself</label>
+                          <label for="self-description">Message*</label>
                           <b-form-textarea
                           style="height: 200px;"
                           :required="true"
@@ -160,20 +134,29 @@
 
                         <b-button
                         type="submit"
-                        variant="success"
-                        class="bg-success w-100"
-                        style="background-color: var(--custom-primary-color) !important;"
+                        class="bg-green w-100"
                         >Submit</b-button>
                       </b-form>
+
+                      <br />
+
+                      <country-chapter />
   </div>
 </template>
 
 <script>
-export default {
+import CountryChapter from '@/components/CountryChapter.vue';
 
+export default {
+  name: "ContactUs",
+  components: {
+    CountryChapter
+  }
 }
 </script>
 
-<style>
-
+<style scoped>
+.bg-green{
+  background-color: var(--custom-primary-color) !important;
+}
 </style>

@@ -6,7 +6,7 @@
             id="select-language"
             class="text-white bg-success"
             v-model="$store.state.language"
-            :options="[{ text: 'Language: English', value: 'en' }, { text: 'Langue: French', value: 'fr' }]"
+            :options="[{ text: 'Language: English', value: 'en' }, { text: 'Langue: Français', value: 'fr' }]"
             value="en"
           ></b-form-select>
         </b-form>

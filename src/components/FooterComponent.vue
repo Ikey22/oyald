@@ -1,5 +1,12 @@
 <template>
 <footer class="w-100 bg-green text-dark">
+  <br />
+  <h1 class="w-100 text-center font-weight-bold text-white">Our Vision</h1>
+  <p class="text-center text-white font-weight-bold w-100">
+    We envision a united, peaceful, inclusive, and sustainably prosperous Africa, driven by the joint transformational efforts of Africans, across generations.
+  </p>
+  <br />
+  <hr />
   <div class="container-fluid">
     <div class="d-flex flex-column flex-med-row flex-lg-row align-items-start justify-content-between text-yellow">
       <center class="pt-4 pb-1">
