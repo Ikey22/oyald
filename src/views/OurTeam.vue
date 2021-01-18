@@ -17,6 +17,40 @@
 
     <h1 class="w-100 text-success font-weight-bold text-center" style="color: var(--custom-primary-color) !important;">Meet our team</h1>
     <br />
+    <p class="text-secondary font-weight-bold w-100 text-center">Admin</p>
+    <br >
+    <section id="team">
+        <div class="container">
+            <div class="row">
+
+                <div v-for="x in 4" :key="`team-member-${x}`" class="col-lg-3 col-md-6">
+                    <div class="member">
+                      <div class="member-img">
+                          <img src="@/assets/img/logo.jpeg" class="img-fluid" alt="">
+                      </div>
+                        <div class="member-info">
+                            <h4>Parveen Singh</h4>
+                            <span>Web Developer</span>
+                            <div class="social-links">
+                                <a href="#"><b-icon icon="linkedin"></b-icon></a>
+                                <a href="#"><b-icon icon="facebook"></b-icon></a>
+                                <a href="#"><b-icon icon="twitter"></b-icon></a>
+                                <a href="#"><b-icon icon="instagram"></b-icon></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <br />
+    <br />
+
+
+    <p class="text-secondary font-weight-bold w-100 text-center">Others</p>
+    <br >
     <section id="team">
         <div class="container">
             <div class="row">
@@ -88,10 +122,15 @@ export default {
 </script>
 
 <style scoped>
+
+.text-secondary{
+  color: var(--custom-secondary-color) !important;
+}
+
     #team {
     padding: 60px 0;
     text-align: center;
-    background-color:var(--custom-secondary-color);
+    background-color: var(--custom-primary-color);
     color: #fff;
 }
 #team h2 {

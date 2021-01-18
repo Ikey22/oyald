@@ -1,8 +1,7 @@
 <template>
-  <div class="container-fluid w-100">
-      <h1 class="text-success w-100 text-center font-weight-bold" style="color: var(--custom-primary-color) !important;">{{ $store.state.language === 'en' ? $store.state.englishStrings.ourMembership : $store.state.frenchStrings.ourMembership }}</h1>
-      <br />
-      <p class="text-white text-center w-100 text-dark">Join OYALD</p>
+  <div class="w-100 container-fluid">
+      <h1 class="text-center font-weight-bold w-100 text-primary">Contact us</h1>
+      <p class="text-center w-100 font-weight-bold">Don't hesitate to reach out</p>
       <br />
       <b-form
       @submit.stop.prevent
@@ -166,55 +165,15 @@
                         style="background-color: var(--custom-primary-color) !important;"
                         >Submit</b-button>
                       </b-form>
-
-                      <br />
-                      <hr />
-                      <br />
-
-
-      <div class="row w-100">
-
-          <div v-for="x in 4" :key="`country-${x}`" class="col-12 col-md-6 col-lg-6 col-xl-6">
-              <div class="accordion w-100" role="tablist">
-                <b-card no-body class="mb-1 w-100">
-                  <b-card-header header-tag="header" class="p-1" role="tab">
-                    <b-button block v-b-toggle="`accordion-${x}`" variant="sucess" class="bg-success text-white">Country Name<b-icon icon="caret-down-fill" /> </b-button>
-                  </b-card-header>
-                  <b-collapse :id="`accordion-${x}`" :accordion="`accordion-${x}`" role="tabpanel">
-                    <b-card-body>
-                      <b-card-text>Representative: Mr. f.hfgf</b-card-text>
-                      <b-card-text>Addres: No. fbfbfb</b-card-text>
-                      <b-card-text>Phone Number: +23433445654</b-card-text>
-                      <b-card-text>Email address: dgd@gg.dcdfb</b-card-text>
-                    </b-card-body>
-                  </b-collapse>
-                </b-card>
-              </div>
-          </div>
-
-      </div>
-
   </div>
 </template>
 
 <script>
 export default {
-    name: "JoinOyald"
+
 }
 </script>
 
-<style scoped>
-:root{
-	--custom-primary-color: #002200;
-	--custom-secondary-color: #b99e00;
-	--custom-gradient: linear-gradient(to right, var(--custom-green), var(--custom-gold) 80%);
-}
+<style>
 
-.bg-success{
-  background-color: var(--custom-primary-color) !important;
-}
-
-.text-success{
-  color: var(--custom-primary-color) !important;
-}
 </style>

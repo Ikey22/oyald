@@ -41,6 +41,12 @@ const routes = [
     alias: "/our-team",
     name: "OurTeam",
     component: () => import(/* webpackChunkName: "our-team", webpackPrefetch: true */ '@/views/OurTeam.vue')
+  },
+  {
+    path: "/contact",
+    alias: "/contact-us",
+    name: "ContactUs",
+    component: () => import(/* webpakChunkName: "contact-us", webpackPrefetch: true */ '@/views/ContactUs.vue')
   }
 ];
 
