@@ -23,7 +23,6 @@
         <b-nav-item-dropdown :text="$store.state.language === 'en' ? 'OUR TEAM' : 'Notre équipe'" right>
           <b-dropdown-item to="/team">{{ $store.state.language === 'en' ? 'MEET OUR TEAM' : 'Rencontrez notre équipe' }}</b-dropdown-item>
           <b-dropdown-item to="/membership">{{ $store.state.language === 'en' ? 'OUR MEMBERSHIP' : 'Notre adhésion' }}</b-dropdown-item>
-          <b-dropdown-item to="/partners">{{ $store.state.language === 'en' ? 'OUR PARTNERS' : 'Nos partenaires' }}</b-dropdown-item>
         </b-nav-item-dropdown>
         <b-nav-item to="/contact">{{ $store.state.language === 'en' ? 'CONTACT US' : 'Nous contacter' }}</b-nav-item>
       </b-navbar-nav>
