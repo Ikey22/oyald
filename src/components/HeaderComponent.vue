@@ -84,16 +84,18 @@ export default {
   padding: 4px;
   border-radius: 10px;
   box-sizing: border-box;
+  transform: translateY(6px);
 }
 
 .logo-img-slogan{
   font-weight: 600;
-  font-size: 11px;
-  transform: translateX(5px);
+  font-size: 12px;
+  transform: translate(2px, -4px);
 }
 
 .logo-text{
-  transform: translateY(-17px);
+  transform: translateY(-14px);
+  font-family: 'Times New Roman', Times, serif;
 }
 
 @media screen and (max-width: 767px){
