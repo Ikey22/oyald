@@ -15,7 +15,12 @@
                 <div v-for="x in 4" :key="`team-member-${x}`" class="col-lg-3 col-md-6">
                     <div class="member">
                       <div class="member-img">
-                          <img src="@/assets/img/logo.jpeg" class="img-fluid" alt="">
+                          <img
+                            src="@/assets/img/logo.jpeg"
+                            class="img-fluid"
+                            alt="Admin"
+                            width="200"
+                            />
                       </div>
                         <div class="member-info">
                             <h4>Parveen Singh</h4>
@@ -47,7 +52,12 @@
                 <div v-for="x in 12" :key="`team-member-${x}`" class="col-lg-3 col-md-6">
                     <div class="member">
                       <div class="member-img">
-                          <img src="@/assets/img/logo.jpeg" class="img-fluid" alt="">
+                          <img
+                            src="@/assets/img/logo.jpeg"
+                            width="200"
+                            class="img-fluid"
+                            alt="Team mate"
+                            />
                       </div>
                         <div class="member-info">
                             <h4>Parveen Singh</h4>
@@ -78,7 +88,12 @@
                 <div v-for="x in 4" :key="`team-member-${x}`" class="col-lg-3 col-md-6">
                     <div class="member">
                       <div class="member-img">
-                          <img src="@/assets/img/logo.jpeg" class="img-fluid" alt="">
+                          <img
+                            src="@/assets/img/logo.jpeg"
+                            class="img-fluid"
+                            alt="Partner"
+                            width="200"
+                            />
                       </div>
                         <div class="member-info">
                             <h4>Aleko Media</h4>

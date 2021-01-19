@@ -7,6 +7,8 @@
       class="w-100 h-100 absolute"
       id="carousel-1"
       v-model="slide"
+      img-height="500"
+      img-width="600"
       :interval="5000"
       :background="$store.state.primaryColor"
       style="text-shadow: 1px 1px 2px #333;"
@@ -16,6 +18,7 @@
         v-for="image in carouselImages"
         :key="image"
         class="w-100 h-100 bg-success"
+        img-alt="Stock Image of arica sourced from shutterstock"
         :img-src="`/img/shutterstock-${image}.jpg`"
       ></b-carousel-slide>
 
@@ -25,8 +28,15 @@
 
       <div class="call-to-action p-5 shadow-lg">
         <b-navbar>
-          <b-navbar-brand style="color: var(--custom-secondary-color);" class="w-100 font-weight-bold text-center">
-            <img src="@/assets/img/logo.jpeg" class="call-to-action-logo" width="100" />
+          <b-navbar-brand
+            style="color: var(--custom-secondary-color);"
+            class="w-100 font-weight-bold text-center n-brand">
+            <img
+              src="@/assets/img/logo.jpeg"
+              class="call-to-action-logo"
+              width="100"
+              alt="OYALD Logo"
+              />
             <br />
             <br />
             <span>OYALD</span>
@@ -109,5 +119,11 @@ export default {
 }
 .call-to-action-logo{
   border-radius: 20px;
+}
+.n-brand{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 </style>

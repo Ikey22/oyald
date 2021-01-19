@@ -2,13 +2,7 @@
   <div class="preheader p-4 bg-success clearfix text-white d-none d-sm-block d-md-block d-lg-block d-xl-block">
       <span class="float-left text-white">
         <b-form inline>
-          <b-form-select
-            id="select-language"
-            class="text-white bg-success"
-            v-model="$store.state.language"
-            :options="[{ text: 'Language: English', value: 'en' }, { text: 'Langue: Français', value: 'fr' }]"
-            value="en"
-          ></b-form-select>
+          <select-language-dropdown />
         </b-form>
       </span>
       <a class="float-right text-white" href="mailto:info@oyald-ojlad.org"> <span class="text-white">&nbsp;|&nbsp;</span> {{ $store.state.language === 'en' ? $store.state.englishStrings.writeUs : $store.state.frenchStrings.writeUs }}: info@oyald-ojlad.org  </a>
@@ -18,8 +12,13 @@
 </template>
 
 <script>
+import SelectLanguageDropdown from '@/components/SelectLanguageDropdown.vue';
+
 export default {
-    name: "PreHeader"
+    name: "PreHeader",
+    components: {
+      SelectLanguageDropdown
+    }
 }
 </script>
 

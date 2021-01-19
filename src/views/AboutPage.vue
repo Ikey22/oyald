@@ -5,6 +5,8 @@
       <section class="col-12 col-md-6 col-lg-6 col-xl-6">
         <img
         class="w-100 p-2 p-lg-4"
+        width="300"
+        alt="Rectangular Image depicting the 17 sustainable development goals as laid down by the United Nations Organisation"
         src="@/assets/img/sdg-rect.jpeg"
         />
       </section>
@@ -89,6 +91,8 @@
       <section class="col-12 col-md-6 col-lg-4 col-xl-4">
         <img
         class="w-100 p-2 p-lg-4"
+        alt="Elliptical Image depicting the 17 sustainable development goals as laid down by the United Nations Organisation"
+        width="300"
         src="@/assets/img/sdg-circle.jpeg"
         />
       </section>

@@ -2,11 +2,11 @@
   <b-navbar :sticky="true" toggleable="lg" type="dark" variant="success" style="background: var(--custom-primary-color) !important;">
     <b-navbar-brand to="/home" class="font-weight-bold navbar-brand">
       <div class="logo-img-wrapper">
-        <img class="logo-img" src="@/assets/img/logo.jpeg">
+        <img class="logo-img" width="100" alt="OYALD Logo" src="@/assets/img/logo.jpeg">
         <br />
         <i class="logo-img-slogan text-white"><small class="font-weight-bold text-center d-none d-md-block d-lg-block d-xl-block">{{ $store.state.language === 'en' ? $store.state.englishStrings.inform : $store.state.frenchStrings.inform }}...{{ $store.state.language === 'en' ? $store.state.englishStrings.inspire : $store.state.frenchStrings.inspire }}<br />{{ $store.state.language === 'en' ? $store.state.englishStrings.involve : $store.state.frenchStrings.involve }}</small></i>
       </div>
-      <span style="color: var(--yellow)" class="logo-text d-none d-md-block d-lg-block d-xl-block" v-html="$store.state.language === 'en' ? 'Organisation <small>of</small> Young African Leaders <small>for</small><br /> Development' : 'Organisation <small>des</small> jeunes leaders africains<br /> pour <small>le</small> développement'"></span>
+      <span style="color: var(--yellow)" class="logo-text d-none d-md-block d-lg-block d-xl-block" v-html="$store.state.language === 'en' ? 'Organisation <small>of</small> Young African Leaders <small>for</small><br /> Development' : 'Organisation <small>des</small> Jeunes Leaders Africains<br /> <small>pour le</small> Développement'"></span>
       <span style="color: var(--yellow)" class="logo-text d-block d-md-none d-lg-none d-xl-none">{{ $store.state.appNameShort }}</span>
     </b-navbar-brand>
 
