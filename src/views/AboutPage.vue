@@ -6,8 +6,8 @@
         <img
         class="w-100 p-2 p-lg-4"
         width="300"
-        alt="Rectangular Image depicting the 17 sustainable development goals as laid down by the United Nations Organisation"
-        src="@/assets/img/sdg-rect.jpeg"
+        alt="Rectangular Image depicting the 17 sustainable development goals as laid down by the United Nations Organisation - https://www.un.org/en/africa/osaa/images/youth-mali.jpg"
+        src="https://www.un.org/en/africa/osaa/images/youth-mali.jpg"
         />
       </section>
 
