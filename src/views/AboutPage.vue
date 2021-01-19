@@ -2,16 +2,17 @@
   <div class="container-fluid">
 
     <div class="w-100 row">
-      <section class="col-12 col-md-6 col-lg-6 col-xl-6">
+      <section class="col-12 col-md-6 col-lg-4 col-xl-4">
         <img
         class="w-100 p-2 p-lg-4"
         width="300"
-        alt="Rectangular Image depicting the 17 sustainable development goals as laid down by the United Nations Organisation - https://www.un.org/en/africa/osaa/images/youth-mali.jpg"
+        alt="Image depicting young happy Africans - https://www.un.org/en/africa/osaa/images/youth-mali.jpg"
         src="https://www.un.org/en/africa/osaa/images/youth-mali.jpg"
         />
+        <small class="pl-2 pl-lg-4">Image source: <a href="https://www.un.org/en/africa/osaa/peace/youth.shtml">https://www.un.org/en/africa/osaa/peace/youth.shtml</a></small>
       </section>
 
-      <section class="col-12 col-md-6 col-lg-6 col-xl-6">
+      <section class="col-12 col-md-6 col-lg-8 col-xl-8">
         <h1 class="text-center text-success font-weight-bold w-100">
           Who we are?
         </h1>

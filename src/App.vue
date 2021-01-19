@@ -46,7 +46,7 @@ hr{
 
 *, #root{
   animation-name: fadeIn;
-  animation-duration: .45s;
+  animation-duration: .25s;
   animation-delay: 0s;
   animation-timing-function: ease-in;
 }
