@@ -2,6 +2,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import HomePage from '@/views/HomePage.vue';
 import LandingPage from '@/views/LandingPage.vue';
+import NotFound404 from '@/views/NotFound404.vue';
 
 Vue.use(VueRouter);
 
@@ -47,6 +48,16 @@ const routes = [
     alias: "/contact-us",
     name: "ContactUs",
     component: () => import(/* webpakChunkName: "contact-us", webpackPrefetch: true */ '@/views/ContactUs.vue')
+  },
+  {
+    path: "__admin",
+    name: "Admin",
+    component: () => import(/*  webpackChunkName: "admin" */ '@/views/Admin.vue')
+  },
+  {
+    path: "*",
+    name: "NotFound404",
+    component: NotFound404
   }
 ];
 
