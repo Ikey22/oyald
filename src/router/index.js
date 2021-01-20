@@ -3,6 +3,7 @@ import VueRouter from 'vue-router';
 import HomePage from '@/views/HomePage.vue';
 import LandingPage from '@/views/LandingPage.vue';
 import NotFound404 from '@/views/NotFound404.vue';
+import Preloader from '@/components/Preloader.vue';
 
 Vue.use(VueRouter);
 
