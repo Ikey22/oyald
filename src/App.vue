@@ -1,17 +1,18 @@
 <template>
-  <div class="root">
+  <div
+      class="root w-100 h-100">
 
-    <pre-header v-if="$route.path != '/' || $route.path != '/landing-page'" />
+    <pre-header />
 
-    <header-component v-if="$route.path !== '/' || $route.path !== '/landing-page'" />
+    <header-component />
 
-    <br v-if="$route.path !== '/' || $route.path !== '/landing-page'" />
+    <br />
 
     <router-view />
 
-    <br v-for="x in 3" :key="`pre-fppter-line-break-${x}`" v-show="$route.path !== '/' || $route.path !== '/landing-page'" />
+    <br v-for="x in 3" :key="`pre-footer-line-break-${x}`" />
 
-    <footer-component v-if="$route.path !== '/' || $route.path !== '/landing-page'" />
+    <footer-component />
 
   </div>
 </template>

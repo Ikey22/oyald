@@ -3,7 +3,7 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex);
 
-export default new Vuex.Store({
+const $store = new Vuex.Store({
   state: {
     primaryColor: "#002200",
     appNameShort: "OYALD",
@@ -55,7 +55,8 @@ export default new Vuex.Store({
       usefulLinks: 'Hyperliens utiles',
       stayConnected: 'Rester connecté',
       dontHesitateToReachOut: "N'hésitez pas à nous contacter"
-    }
+    },
+    showLoadingOverlay: true
   },
   mutations: {
     setLanguage(state, language){
@@ -67,4 +68,10 @@ export default new Vuex.Store({
   },
   modules: {
   }
-})
+});
+
+window.__$store = $store;
+
+export default $store;
+
+
