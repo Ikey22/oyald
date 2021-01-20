@@ -138,6 +138,7 @@
                             <label for="membership-type">Select membership type*</label>
                             <b-form-select
                             :required="true"
+                            class="bg-primary-color text-white"
                             id="membership-type"
                             >
                               <b-form-select-option

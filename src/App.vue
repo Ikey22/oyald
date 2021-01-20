@@ -35,6 +35,29 @@ export default {
 </script>
 
 <style>
+:root{--custom-primary-color: #002200;--custom-secondary-color: #b99e00;--custom-gradient: linear-gradient(to right, var(--custom-green), var(--custom-gold) 80%);}
+
+*{
+  box-sizing: border-box;font-family:
+  'Times New Roman', Times, serif;
+}
+
+.bg-success, .bg-primary-color, .bg-green{
+  background-color: var(--custom-primary-color) !important;
+  }
+
+.text-success, .text-primary-color, .text-green{
+  color: var(--custom-primary-color) !important;
+}
+
+.bg-secondary{
+  background-color: var(--custom-secondary-color) !important;
+}
+
+input, textarea, select{
+  border-bottom: 1px solid green !important;
+}
+
 a, button, .btn, [type=button], [type=submit]{
   cursor: pointer;
 }

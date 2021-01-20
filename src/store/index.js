@@ -11,6 +11,13 @@ export default new Vuex.Store({
     appNameLongFrench: "Organisation des jeunes leaders africains pour le développement",
     appbarTitle: "OYALD",
     language: 'en',
+    userPreferences: {
+      firstName: "",
+      middleName: "",
+      surName: "",
+      membershipType: "active",
+      dob: ""
+    },
     englishStrings: {
       language: 'Language',
       inform: 'INFORM',
