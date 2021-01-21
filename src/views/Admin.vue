@@ -16,7 +16,7 @@
         <div class="py-4">
           <p class="text-primary-color font-weight-bold h3'">Overview</p>
           <bar-chart
-            height="400"
+            :height="400"
             :labels="[`Members`, `New Membership Requests`, `Partners`, `Newsletter subscribtions`, `Unread Mails`]" 
             datasetLabel="Statistical overview"
             :datasetData="[12, 6, 1, 5, 3]"
@@ -51,7 +51,7 @@
         </template>
         <hr />
 
-        <div class="py-4">Newsletter subscribtions</div>
+        <div class="py-4">Newsletter subscribtions <span class="bage bg-danger text-white font-weight-bold">5</span> </div>
       </b-tab>
 
       <b-tab>
