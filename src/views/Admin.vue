@@ -109,7 +109,24 @@
         </template>
         <hr />
 
-        <div class="py-4">Newsletter subscribtions</div>
+        <div class="py-4">
+          
+          <b-table
+            striped
+            bordered
+            outlined
+            caption-top
+            sort-icon-left
+            caption="List of individuals who signed up for the Newsletter"
+            responsive
+            hover
+            selectable
+            select-mode="multi"
+            :fields="newsletterTableFields"
+            :items="newsletterSubscribtion"
+            />
+
+        </div>
       </b-tab>
       <!-- End Nwsletter subscribion -->
 
@@ -140,9 +157,36 @@ export default {
   components: {
     BarChart,
     TeamMember,
-    TeamMemberList
+    TeamMemberList,
   },
     name: "Admin",
+    data(){
+      return {
+        newsletterTableFields: [
+          {
+            key: "name",
+            label: "Name in full",
+            sortable: true,
+          },
+          {
+            key: "field_of_interest",
+            label: "Field of interest",
+            sortable: true
+          },
+          {
+            key: "email",
+            sortable: true
+          }
+        ],
+        newsletterSubscribtion: [
+          {
+            name: "John Matthew Doe",
+            field_of_interest: "Sustainable development goals",
+            email: "dohn.doe@gmail.com"
+          }
+        ]
+      }
+    },
     mounted(){}
 }
 </script>
