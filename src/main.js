@@ -8,7 +8,8 @@ window.jquery = window.jQuery = window.$ = require('jquery');
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
-import './registerServiceWorker';// Firebase App (the core Firebase SDK) is always required and must be listed first
+import './registerServiceWorker';
+// Firebase App (the core Firebase SDK) is always required and must be listed first
 import firebase from "firebase/app";
 import "firebase/analytics";
 import "firebase/auth";
@@ -33,13 +34,18 @@ firebase.initializeApp(firebaseConfig);
 
 window.__$firebase = firebase;
 
+const firebaseVuePlugin = vueApp => {
+  vueApp.$firebase = vueApp.prototype.$firebase = firebase;
+}
+
 Vue.use(BootstrapVue);
 Vue.use(IconsPlugin);
 Vue.use(portalVue);
+Vue.use(firebaseVuePlugin);
 
 Vue.config.productionTip = false;
 
-new Vue({
+window.__$vm = new Vue({
   store,
   router,
   render: createApp => createApp(App)

@@ -10,7 +10,7 @@ export default {
           default: "#002200"
       },
       labels: {
-          type: String,
+          type: Array,
           required: false
       },
       datasetLabel: {
