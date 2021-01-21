@@ -66,20 +66,38 @@ const routes = [
     path: "/team",
     alias: "/our-team",
     name: "OurTeam",
-    component: () => import(/* webpackChunkName: "our-team", webpackPrefetch: true */ '@/views/OurTeam.vue')
+    component: () => ({
+      timeout: 60000,
+      delay: 1,
+      loading: PreLoader, 
+      error: NetworkError,
+      component: import(/* webpackChunkName: "our-team", webpackPrefetch: true */ '@/views/OurTeam.vue')
+    })
   },
 
   {
     path: "/contact",
     alias: "/contact-us",
     name: "ContactUs",
-    component: () => import(/* webpakChunkName: "contact-us" */ '@/views/ContactUs.vue')
+    component: () => ({
+      timeout: 60000,
+      delay: 1,
+      loading: PreLoader, 
+      error: NetworkError,
+      component: import(/* webpakChunkName: "contact-us", webpackPrefetch: true */ '@/views/ContactUs.vue')
+    })
   },
 
   {
-    path: "__admin",
+    path: "/__admin",
     name: "Admin",
-    component: () => import(/*  webpackChunkName: "admin" */ '@/views/Admin.vue')
+    component: () => ({
+      timeout: 60000,
+      delay: 1,
+      loading: PreLoader, 
+      error: NetworkError,
+      component: import(/*  webpackChunkName: "admin", webpackPrefetch: true */ '@/views/Admin.vue')
+    })
   },
 
   {

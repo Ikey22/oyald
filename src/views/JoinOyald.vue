@@ -138,12 +138,14 @@
                             <label for="membership-type">Select membership type*</label>
                             <b-form-select
                             :required="true"
-                            class="bg-primary-color text-white"
+                            class="bg-white text-black"
                             id="membership-type"
+                              v-model="$store.state.userPreferences.membershipType"
                             >
                               <b-form-select-option
                               :selected="true"
-                              value="active">Active member</b-form-select-option>
+                              value="active"
+                              >Active member</b-form-select-option>
                               <b-form-select-option value="associate">Associate member</b-form-select-option>
                             </b-form-select>
                           </b-form-group>

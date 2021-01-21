@@ -45,8 +45,8 @@
         <br />
         <b-button-toolbar>
           <b-button-group>
-            <b-button @click="setLanguage($event, 'en')" to="/home">English</b-button>
-            <b-button @click="setLanguage($event, 'fr')" to="/home">Français</b-button>
+            <b-button @click="setLanguage($event, 'en')" to="/home?lang=en">English</b-button>
+            <b-button @click="setLanguage($event, 'fr')" to="/home?lang=fr">Français</b-button>
           </b-button-group>
         </b-button-toolbar>
       </div>
@@ -63,6 +63,8 @@ export default {
     name: "LandingPage",
     methods: {
       setLanguage($event, lang){
+        $event = null;
+        $event = undefined;
         console.log($event);
         this.$store.commit('setLanguage', lang);
       }

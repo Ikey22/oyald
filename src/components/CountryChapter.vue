@@ -8,7 +8,7 @@
 
       <div class="row w-100">
 
-          <div v-for="(country, index) in countries.sort((a, b) => a.name - b.name)" :key="`country-${index}`" class="col-12 col-md-6 col-lg-6 col-xl-6">
+          <div v-for="(country, index) in countries" :key="`country-${index + 1}`" class="col-12 col-md-6 col-lg-6 col-xl-6">
               <div class="accordion w-100" role="tablist" visible>
                 <b-card no-body class="mb-1 w-100">
                   <b-card-header header-tag="header" class="p-1" role="tab">
@@ -16,10 +16,10 @@
                   </b-card-header>
                   <b-collapse :id="`accordion-${index}`" :accordion="`accordion-${index}`" role="tabpanel">
                     <b-card-body>
-                      <b-card-text>{{ country.representative }}</b-card-text>
-                      <b-card-text>{{ country.address }}</b-card-text>
-                      <b-card-text>{{ country.email }}</b-card-text>
-                      <b-card-text>{{ country.phoneNumber }}</b-card-text>
+                      <b-card-text>{{ country.representative || 'null' }}</b-card-text>
+                      <b-card-text>{{ country.address || 'null' }}</b-card-text>
+                      <b-card-text>{{ country.email || 'null' }}</b-card-text>
+                      <b-card-text>{{ country.phoneNumber || 'null' }}</b-card-text>
                     </b-card-body>
                   </b-collapse>
                 </b-card>
@@ -35,7 +35,6 @@ export default {
     name: "CountryChapter",
     data(){
         return {
-            JSON,
             countries: [
                 {
                     name: "Nigeria",
@@ -60,9 +59,6 @@ export default {
                 }
             ]
         }
-    },
-    mounted(){
-        return console.log(this.JSON);
     }
 }
 </script>

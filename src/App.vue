@@ -28,10 +28,7 @@ export default {
     PreHeader,
     HeaderComponent
     },
-  name: "App",
-  mounted(){
-    return console.log(this.$route.path);
-  }
+  name: "App"
 }
 </script>
 

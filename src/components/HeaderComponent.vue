@@ -2,7 +2,7 @@
   <b-navbar :sticky="true" toggleable="lg" type="dark" variant="success" style="background: var(--custom-primary-color) !important;">
     <b-navbar-brand to="/home" class="font-weight-bold navbar-brand">
       <div class="logo-img-wrapper">
-        <img class="logo-img" width="100" alt="OYALD Logo" src="@/assets/img/logo.jpeg">
+        <img class="logo-img" width="100" height="100" alt="OYALD Logo" src="@/assets/img/logo.jpeg">
         <br />
         <span class="logo-img-slogan text-white"><small class="font-weight-bold text-center d-none d-md-block d-lg-block d-xl-block">{{ $store.state.language === 'en' ? $store.state.englishStrings.inform : $store.state.frenchStrings.inform }}...{{ $store.state.language === 'en' ? $store.state.englishStrings.inspire : $store.state.frenchStrings.inspire }}<br />{{ $store.state.language === 'en' ? $store.state.englishStrings.involve : $store.state.frenchStrings.involve }}</small></span>
       </div>

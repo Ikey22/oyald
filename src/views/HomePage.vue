@@ -67,7 +67,29 @@
 
 <script>
 export default {
-  name: "HomePage"
+  name: "HomePage",
+  mounted(){
+    const $this = this;
+    switch ($this.$route.query.lang) {
+      case "fr":
+        (() => {
+          $this.$store.commit('setLanguage', 'fr');
+        })()
+        break;
+
+      case "en":
+        (() => {
+          $this.$store.commit('setLanguage', 'en');
+        })()
+        break;
+    
+      default:
+        (() => {
+          $this.$store.commit('setLanguage', 'en');
+        })()
+        break;
+    }
+  }
 }
 </script>
 

@@ -4,20 +4,14 @@ import store from './store';
 import router from './router';
 import portalVue from 'portal-vue';
 import 'popper.js';
-//window.jquery = window.jQuery = window.$ = require('jquery');
-
-import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
-
-// Import Bootstrap an BootstrapVue CSS files (order is important)
+window.jquery = window.jQuery = window.$ = require('jquery');
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
+import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
 import './registerServiceWorker';
 
-// Make BootstrapVue available throughout your project
 Vue.use(BootstrapVue);
-// Optionally install the BootstrapVue icon components plugin
 Vue.use(IconsPlugin);
-
 Vue.use(portalVue);
 
 Vue.config.productionTip = false;
