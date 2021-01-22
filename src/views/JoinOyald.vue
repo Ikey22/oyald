@@ -143,10 +143,15 @@
                               v-model="$store.state.userPreferences.membershipType"
                             >
                               <b-form-select-option
-                              :selected="true"
-                              value="active"
+                                :selected="true"
+                                value="active"
                               >Active member</b-form-select-option>
-                              <b-form-select-option value="associate">Associate member</b-form-select-option>
+                              <b-form-select-option
+                                value="associate"
+                                >Associate member</b-form-select-option>
+                              <b-form-select-option
+                                value=""
+                                >Partner</b-form-select-option>
                             </b-form-select>
                           </b-form-group>
                         </b-form-row>
@@ -169,7 +174,7 @@
                         class="bg-success w-100"
                         style="background-color: var(--custom-primary-color) !important;"
                         >Submit</b-button>
-                      </b-form>
+      </b-form>
 
       <br />
 

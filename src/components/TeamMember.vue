@@ -19,6 +19,19 @@
                                 <a v-if="socials.twitter" :href="socials.twitter.url || null"><b-icon icon="twitter"></b-icon></a>
                                 <a v-if="socials.instagram" :href="socials.instagram.url || null"><b-icon icon="instagram"></b-icon></a>
                             </div>
+                            <div
+                                class="admin-desicion"
+                                v-if="$route.path == '/__admin'"
+                                >
+                                <br />
+                                <b-button
+                                    variant="danger"
+                                    size="sm"
+                                    >
+                                    Remove
+                                    <b-icon icon="person-x" class="text-white" />
+                                </b-button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -75,7 +88,6 @@ export default {
  .member:hover .member-info {
     left: 0px;
     right: 0px;
-    height: 65%;
     background: #000;
 }
  .member h4 {

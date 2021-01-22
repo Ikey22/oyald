@@ -56,7 +56,7 @@ const $store = new Vuex.Store({
       stayConnected: 'Rester connecté',
       dontHesitateToReachOut: "N'hésitez pas à nous contacter"
     },
-    showLoadingOverlay: true
+    authAdmin: null
   },
   mutations: {
     setLanguage(state, language){

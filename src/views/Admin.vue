@@ -1,6 +1,19 @@
 <template>
-  <div class="w-100 container-fluid">
-    <p class="h1 text-primary-color text-center w-100 font-weight-bold">Admin</p>
+  <div class="w-100 m-0 p-0">
+
+    <!-- begin auth admin section -->
+    <div class="w-100 container-fluid" v-if="$store.state.authAdmin">
+    <p class="h1 text-primary-color text-center w-100 font-weight-bold">
+      Admin
+      </p>
+    <center>
+      <b-list-group style="max-width: 300px;">
+              <b-list-group-item class="d-flex align-items-center">
+                <b-avatar class="mr-3"></b-avatar>
+                <span class="mr-auto">Ikechukwu Achom</span>
+              </b-list-group-item>
+           </b-list-group>
+    </center>
     <br />
 
     <hr />
@@ -20,13 +33,14 @@
           <center>
             <bar-chart
             :height="400"
-            :labels="[`Members`, `New Membership Requests`, `Partners`, `Newsletter subscribtions`, `Unread Mails`]" 
+            :labels="labels" 
             datasetLabel="Statistical overview"
-            :datasetData="[16, 6, 1, 5, 3]"
+            :datasetData="datasetData"
             style="max-width: 950px !important;"
             />
           </center>
         </div>
+
       </b-tab>
       <!-- #End Overview -->
 
@@ -44,7 +58,7 @@
           <br />
 
           <b-button
-          type="button"
+          to="/membership"
           class="bg-primary-color"
           >Add new member <b-icon icon="person-plus" class="text-white" /></b-button>
 
@@ -97,7 +111,7 @@
           <br />
 
           <b-button
-          type="button"
+          to="/membership"
           class="bg-primary-color"
           >Add new partner <b-icon icon="person-plus-fill" class="text-white" /></b-button>
 
@@ -156,20 +170,31 @@
       </b-tab>
       <!-- End Nwsletter subscribion -->
 
-      <!-- Begin Mails -->
-      <b-tab>
-        <template #title>
-          <b-icon icon="envelope-fill" />
-          Mails
-          <span class="p-2 rounded-lg bg-danger text-white font-weight-bold">3</span>
-        </template>
-        <hr />
-
-        <div class="py-4">Mails</div>
-      </b-tab>
-      <!-- #End Mails -->
-
     </b-tabs>
+
+  </div>
+  <!-- #end auth admin section -->
+
+
+
+
+
+
+  <!-- begin login form -->
+  <div class="w-100 container-fluid" v-else-if="$store.state.authAdmin == null">
+    <br />
+    <p class="text-center w-100 font-weight-bold text-primary-color h2">Admin section, login!</p>
+    <br />
+
+    <b-form
+      @submit.stop.prevent
+      class="card shadow-md rounded p-3 d-block text-left"
+      >
+        <b-form-group></b-form-group>
+      </b-form>
+
+  </div>
+  <!-- #end login form -->
 
   </div>
 </template>
@@ -179,15 +204,23 @@ import BarChart from '../components/BarChart.vue'
 import TeamMember from '@/components/TeamMember.vue';
 import TeamMemberList from '@/components/TeamMemberList.vue';
 
+//import Overview from '@/components/Admin/Overview.vue';
+
 export default {
   components: {
     BarChart,
     TeamMember,
     TeamMemberList,
+    //Overview
   },
     name: "Admin",
     data(){
       return {
+        membershipRequests: 0,
+        members: [],
+        newsletterSubscribtions: 0,
+        datasetData: [],
+        labels: [`Members`, `New Membership Requests`, `Partners`, `Newsletter subscribtions`, `Unread Mails`],
         newsletterTableFields: [
           {
             key: "name",
@@ -209,11 +242,23 @@ export default {
             name: "John Matthew Doe",
             field_of_interest: "Sustainable development goals",
             email: "dohn.doe@gmail.com"
+          },
+          {
+            name: "Jane Matthew Doe",
+            field_of_interest: "Sustainable development goals",
+            email: "dohn.doe@gmail.com"
+          },
+          {
+            name: "James Matthew Doe",
+            field_of_interest: "Sustainable development goals",
+            email: "dohn.doe@gmail.com"
           }
         ]
       }
     },
-    mounted(){}
+    methods: {
+      makeDatabaseRequest(){}
+    }
 }
 </script>
 
