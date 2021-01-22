@@ -62,6 +62,9 @@ const $store = new Vuex.Store({
     setLanguage(state, language){
       state.language = language;
       return console.log(language);
+    },
+    setAuthAdmin(state, admin){
+      state.authAdmin = admin;
     }
   },
   actions: {

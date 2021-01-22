@@ -183,15 +183,66 @@
   <!-- begin login form -->
   <div class="w-100 container-fluid" v-else-if="$store.state.authAdmin == null">
     <br />
-    <p class="text-center w-100 font-weight-bold text-primary-color h2">Admin section, login!</p>
+    <p class="text-center w-100 font-weight-bold text-primary-color h2">
+      Admin section, login!
+      <b-icon icon="key-fill" />
+    </p>
     <br />
 
-    <b-form
-      @submit.stop.prevent
+    <center>
+      <b-form
+      @submit.prevent="adminLogin"
+      style="max-width: 550px;"
       class="card shadow-md rounded p-3 d-block text-left"
       >
-        <b-form-group></b-form-group>
+        <b-form-row>
+          <b-form-group
+            class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6"
+          >
+            <label for="email">Email</label>
+            <b-form-input
+              id="email"
+              type="email"
+              v-model="adminLoginDetails.email"
+              class="w-100"
+              placeholder="Type here..."
+              :required="true"
+            />
+            <b-form-text class="font-weight-bold text-danger">Please fill out this field, it's mandatory</b-form-text>
+          </b-form-group>
+
+          <b-form-group
+            class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6"
+          >
+            <label for="password">Password</label>
+            <b-form-input
+              id="password"
+              type="password"
+              v-model="adminLoginDetails.password"
+              class="w-100"
+              placeholder="Type here..."
+              :required="true"
+            />
+            <b-form-text class="font-weight-bold text-danger">Please fill out this field, it's mandatory</b-form-text>
+          </b-form-group>
+        </b-form-row>
+
+        <br />
+        
+        <b-form-row>
+          <b-button
+            type="button"
+            variant="danger"
+            class="col-6 font-weight-bold"
+            >Forgotten password?</b-button>
+
+          <b-button
+            type="submit"
+            class="bg-primary-color col-6 font-weight-bold"
+            >Login</b-button>
+        </b-form-row>
       </b-form>
+    </center>
 
   </div>
   <!-- #end login form -->
@@ -216,6 +267,10 @@ export default {
     name: "Admin",
     data(){
       return {
+        adminLoginDetails: {
+          email: "",
+          password: ""
+        },
         membershipRequests: 0,
         members: [],
         newsletterSubscribtions: 0,
@@ -257,7 +312,64 @@ export default {
       }
     },
     methods: {
-      makeDatabaseRequest(){}
+      makeDatabaseRequest(){},
+      adminLogin(){
+
+
+        const $this = this;
+        const { email, password } = $this.adminLoginDetails;
+        const matchPromise = $this.$firebase.firestore()
+                                    .collection('members')
+                                    .where('email', '==', email.toString().toLowerCase())
+                                    .where('password', '==', password.toString().toLowerCase())
+                                    .get({source: 'server'});
+
+        matchPromise.
+          then(match => {
+          const matchedUser = match.docs[0];
+
+          if(matchedUser.exists){
+                $this.store.commit('setAuthAdmin', matchedUser);
+                alert('Logged in successfully');
+                $this.adminLoginDetails = {
+                    email: '',
+                    password: ''
+                };
+          } else {
+            switch (matchedUser) {
+            case undefined:
+              (() => {alert('invalid login credentials')})();
+              break;
+
+            case null:
+              (() => {alert('invalid login credentials')})();
+              break;
+          
+            default:
+              (() => {
+                $this.store.commit('setAuthAdmin', matchedUser);
+                alert('Logged in successfully');
+                $this.adminLoginDetails = {
+                    email: '',
+                    password: ''
+                };
+              })();
+              break;
+          }
+          }
+
+        })
+          .catch(err => {
+            alert('network error');
+            console.error(err);
+            $this.adminLoginDetails = {
+              email: '',
+              password: ''
+            };
+          });
+
+
+      }
     }
 }
 </script>
