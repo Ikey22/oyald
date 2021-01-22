@@ -17,12 +17,15 @@
 
         <div class="py-4">
           <p class="text-primary-color font-weight-bold h3'">Overview</p>
-          <bar-chart
+          <center>
+            <bar-chart
             :height="400"
             :labels="[`Members`, `New Membership Requests`, `Partners`, `Newsletter subscribtions`, `Unread Mails`]" 
             datasetLabel="Statistical overview"
             :datasetData="[16, 6, 1, 5, 3]"
+            style="max-width: 950px !important;"
             />
+          </center>
         </div>
       </b-tab>
       <!-- #End Overview -->
@@ -37,6 +40,16 @@
         <hr />
 
         <div class="py-4">
+          
+          <br />
+
+          <b-button
+          type="button"
+          class="bg-primary-color"
+          >Add new member <b-icon icon="person-plus" class="text-white" /></b-button>
+
+          <br />
+          <br />
 
           <team-member-list>
             <team-member
@@ -81,6 +94,16 @@
 
         <div class="py-4">
           
+          <br />
+
+          <b-button
+          type="button"
+          class="bg-primary-color"
+          >Add new partner <b-icon icon="person-plus-fill" class="text-white" /></b-button>
+
+          <br />
+          <br />
+          
           <team-member-list>
             <team-member
                     v-for="x in 4"
@@ -111,20 +134,23 @@
 
         <div class="py-4">
           
-          <b-table
+          <center>
+            <b-table
             striped
+            class="w-100"
             bordered
             outlined
             caption-top
             sort-icon-left
             caption="List of individuals who signed up for the Newsletter"
-            responsive
+            responsive="sm"
             hover
             selectable
             select-mode="multi"
             :fields="newsletterTableFields"
             :items="newsletterSubscribtion"
             />
+          </center>
 
         </div>
       </b-tab>
