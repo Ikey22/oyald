@@ -10,7 +10,7 @@
       <b-list-group style="max-width: 300px;">
               <b-list-group-item class="d-flex align-items-center">
                 <b-avatar class="mr-3"></b-avatar>
-                <span class="mr-auto">Ikechukwu Achom</span>
+                <span class="mr-auto">{{ $store.state.authAdmin.firstName + ' ' + $store.state.authAdmin.surName }}</span>
               </b-list-group-item>
            </b-list-group>
     </center>
@@ -247,6 +247,30 @@
   </div>
   <!-- #end login form -->
 
+  <!-- begin newtork error modal -->
+  <b-modal v-model="showNetworkErrorModal">
+    <div class="w-100 h-100">
+      <p class="h1 text-center w-100 font-weight-bold text-danger">Network error!!!</p>
+    </div>
+  </b-modal>
+  <!-- #end network error modal -->
+
+  <!-- begin newtork error modal -->
+  <b-modal v-model="showSuccesfulLoginModal">
+    <div class="w-100 h-100">
+      <p class="h1 text-center w-100 font-weight-bold text-primary-color">Successful!!!!</p>
+    </div>
+  </b-modal>
+  <!-- #end network error modal -->
+
+  <!-- begin newtork error modal -->
+  <b-modal v-model="showInvalidLoginDetailsModal">
+    <div class="w-100 h-100">
+      <p class="h1 text-center w-100 font-weight-bold text-danger">Invalid credentials!!!</p>
+    </div>
+  </b-modal>
+  <!-- #end network error modal -->
+
   </div>
 </template>
 
@@ -272,6 +296,9 @@ export default {
           password: ""
         },
         membershipRequests: 0,
+        showNetworkErrorModal: true,
+        showInvalidLoginDetailsModal: true,
+        showSuccesfulLoginModal: true,
         members: [],
         newsletterSubscribtions: 0,
         datasetData: [],
@@ -315,8 +342,15 @@ export default {
       makeDatabaseRequest(){},
       adminLogin(){
 
-
         const $this = this;
+        const commit = matchedUser => {
+                $this.$store.commit('setAuthAdmin', matchedUser);
+                $this.showSuccesfulLoginModal = true;
+                $this.adminLoginDetails = {
+                    email: '',
+                    password: ''
+                };
+              };
         const { email, password } = $this.adminLoginDetails;
         const matchPromise = $this.$firebase.firestore()
                                     .collection('members')
@@ -329,16 +363,13 @@ export default {
           const matchedUser = match.docs[0];
 
           if(matchedUser.exists){
-                $this.store.commit('setAuthAdmin', matchedUser);
-                alert('Logged in successfully');
-                $this.adminLoginDetails = {
-                    email: '',
-                    password: ''
-                };
+                commit(matchedUser.data());
           } else {
             switch (matchedUser) {
             case undefined:
-              (() => {alert('invalid login credentials')})();
+              (() => {
+                $this.showInvalidLoginDetailsModal = true;
+              })();
               break;
 
             case null:
@@ -346,26 +377,16 @@ export default {
               break;
           
             default:
-              (() => {
-                $this.store.commit('setAuthAdmin', matchedUser);
-                alert('Logged in successfully');
-                $this.adminLoginDetails = {
-                    email: '',
-                    password: ''
-                };
-              })();
+              commit(matchedUser.data());
               break;
           }
           }
 
         })
           .catch(err => {
-            alert('network error');
+            $this.showNetworkErrorModal = true;
             console.error(err);
-            $this.adminLoginDetails = {
-              email: '',
-              password: ''
-            };
+            $this.adminLoginDetails.password = '';
           });
 
 
