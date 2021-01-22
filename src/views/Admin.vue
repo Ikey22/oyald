@@ -13,6 +13,13 @@
                 <span class="mr-auto">{{ $store.state.authAdmin.firstName + ' ' + $store.state.authAdmin.surName }}</span>
               </b-list-group-item>
            </b-list-group>
+           <br />
+           <b-button
+            class="bg-danger"
+            type="submit"
+            @click="adminLogout"
+            >Logout</b-button>
+           <br />
     </center>
     <br />
 
@@ -49,7 +56,7 @@
         <template #title>
           <b-icon icon="people-fill" />
           Members
-          <span class="p-2 rounded-lg bg-danger text-white font-weight-bold">16</span>
+          <b-badge variant="danger">16</b-badge>
         </template>
         <hr />
 
@@ -102,7 +109,7 @@
         <template #title>
           <b-icon icon="people" />
           Partners
-          <span class="p-2 rounded-lg bg-danger text-white font-weight-bold">5</span>
+          <b-badge variant="danger">5</b-badge>
         </template>
         <hr />
 
@@ -142,7 +149,7 @@
         <template #title>
           <b-icon icon="book-half" />
           Newsletter subcriptions
-          <span class="p-2 rounded-lg bg-danger text-white font-weight-bold">5</span>
+          <b-badge variant="danger">5</b-badge>
         </template>
         <hr />
 
@@ -236,10 +243,17 @@
             class="col-6 font-weight-bold"
             >Forgotten password?</b-button>
 
-          <b-button
-            type="submit"
-            class="bg-primary-color col-6 font-weight-bold"
-            >Login</b-button>
+          <b-overlay
+            :show="isLoggingIn"
+            rounded
+            opacity="0.6"
+            spinner-small
+            class="d-inline-block col-6">
+              <b-button
+                  type="submit"
+                  class="bg-primary-color font-weight-bold w-100 h-100"
+                  >Login</b-button>
+            </b-overlay>
         </b-form-row>
       </b-form>
     </center>
@@ -256,7 +270,7 @@
   <!-- #end network error modal -->
 
   <!-- begin newtork error modal -->
-  <b-modal v-model="showSuccesfulLoginModal">
+  <b-modal v-model="showSuccesfulModal">
     <div class="w-100 h-100">
       <p class="h1 text-center w-100 font-weight-bold text-primary-color">Successful!!!!</p>
     </div>
@@ -296,9 +310,10 @@ export default {
           password: ""
         },
         membershipRequests: 0,
-        showNetworkErrorModal: true,
-        showInvalidLoginDetailsModal: true,
-        showSuccesfulLoginModal: true,
+        showNetworkErrorModal: false,
+        showInvalidLoginDetailsModal: false,
+        showSuccesfulModal: false,
+        isLoggingIn: false,
         members: [],
         newsletterSubscribtions: 0,
         datasetData: [],
@@ -340,16 +355,31 @@ export default {
     },
     methods: {
       makeDatabaseRequest(){},
+      adminLogout(){
+        this.showSuccesfulModal = true;
+        this.$store.commit('setAuthAdmin', null);
+      },
       adminLogin(){
 
         const $this = this;
+        $this.isLoggingIn = true;
+
         const commit = matchedUser => {
+
                 $this.$store.commit('setAuthAdmin', matchedUser);
-                $this.showSuccesfulLoginModal = true;
+                $this.showSuccesfulModal = true;
+                $this.isLoggingIn = false;
                 $this.adminLoginDetails = {
                     email: '',
                     password: ''
                 };
+
+                $this.unsubscribeMembers = $this.$firestore
+                                                  .collection('members')
+                                                  .onSnapshot(snapshot => {
+                                                    snapshot.forEach(doc => {});
+                                                  });
+
               };
         const { email, password } = $this.adminLoginDetails;
         const matchPromise = $this.$firebase.firestore()
@@ -362,18 +392,22 @@ export default {
           then(match => {
           const matchedUser = match.docs[0];
 
-          if(matchedUser.exists){
+          if(matchedUser && matchedUser.exists){
                 commit(matchedUser.data());
           } else {
             switch (matchedUser) {
             case undefined:
               (() => {
                 $this.showInvalidLoginDetailsModal = true;
+                $this.isLoggingIn = false;
               })();
               break;
 
             case null:
-              (() => {alert('invalid login credentials')})();
+              (() => {
+                  alert('invalid login credentials');
+                  $this.isLoggingIn = false;
+                })();
               break;
           
             default:
@@ -387,6 +421,7 @@ export default {
             $this.showNetworkErrorModal = true;
             console.error(err);
             $this.adminLoginDetails.password = '';
+            $this.isLoggingIn = false;
           });
 
 

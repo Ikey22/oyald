@@ -84,7 +84,7 @@ export default {
   padding: 4px;
   border-radius: 10px;
   box-sizing: border-box;
-  transform: translateY(7.5px);
+  transform: translateY(3px);
 }
 
 .logo-img-slogan{
