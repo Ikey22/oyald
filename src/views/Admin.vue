@@ -190,7 +190,7 @@
   <!-- begin login form -->
   <div class="w-100 container-fluid" v-else-if="$store.state.authAdmin == null">
     <br />
-    <p class="text-center w-100 font-weight-bold text-primary-color h2">
+    <p class="text-center w-100 font-weight-bold text-primary-color h1">
       Admin section, login!
       <b-icon icon="key-fill" />
     </p>
@@ -374,10 +374,28 @@ export default {
                     password: ''
                 };
 
-                $this.unsubscribeMembers = $this.$firestore
+                $this.$firebase.firestore()
+                                    .collection('members')
+                                    .get()
+                                    .then(res => {
+                                                    const newMembersArray = [];
+
+                                                    res.docs.forEach(doc => {
+                                                      newMembersArray.push(doc);
+                                                    });
+
+                                                    $this.members = [...newMembersArray];
+                                                  });
+                $this.unsubscribeMembers = $this.$firstore()
                                                   .collection('members')
                                                   .onSnapshot(snapshot => {
-                                                    snapshot.forEach(doc => {});
+                                                    const newMembersArray = [];
+
+                                                    snapshot.forEach(doc => {
+                                                      newMembersArray.push(doc);
+                                                    });
+
+                                                    $this.members = [...newMembersArray];
                                                   });
 
               };
