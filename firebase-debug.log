@@ -1,13 +1,13 @@
-[debug] [2021-01-22T15:36:18.349Z] ----------------------------------------------------------------------
-[debug] [2021-01-22T15:36:18.368Z] Command:       /usr/bin/node /usr/local/bin/firebase init
-[debug] [2021-01-22T15:36:18.370Z] CLI Version:   9.2.2
-[debug] [2021-01-22T15:36:18.370Z] Platform:      linux
-[debug] [2021-01-22T15:36:18.371Z] Node Version:  v10.19.0
-[debug] [2021-01-22T15:36:18.373Z] Time:          Fri Jan 22 2021 16:36:18 GMT+0100 (West Africa Standard Time)
-[debug] [2021-01-22T15:36:18.373Z] ----------------------------------------------------------------------
-[debug] [2021-01-22T15:36:18.374Z] 
-[debug] [2021-01-22T15:36:18.415Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2021-01-22T15:36:18.417Z] > authorizing via signed-in user
+[debug] [2021-01-25T11:19:30.772Z] ----------------------------------------------------------------------
+[debug] [2021-01-25T11:19:30.785Z] Command:       /usr/bin/node /usr/local/bin/firebase init
+[debug] [2021-01-25T11:19:30.787Z] CLI Version:   9.2.2
+[debug] [2021-01-25T11:19:30.788Z] Platform:      linux
+[debug] [2021-01-25T11:19:30.788Z] Node Version:  v10.19.0
+[debug] [2021-01-25T11:19:30.789Z] Time:          Mon Jan 25 2021 12:19:30 GMT+0100 (West Africa Standard Time)
+[debug] [2021-01-25T11:19:30.790Z] ----------------------------------------------------------------------
+[debug] [2021-01-25T11:19:30.790Z] 
+[debug] [2021-01-25T11:19:30.817Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-01-25T11:19:30.819Z] > authorizing via signed-in user
 [info] 
      ######## #### ########  ######## ########     ###     ######  ########
      ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
@@ -26,84 +26,6 @@ You're about to initialize a Firebase project in this directory:
 [info] You can create multiple project aliases by running firebase use --add, 
 [info] but for now we'll just set up a default project.
 [info] 
-[debug] [2021-01-22T15:40:19.017Z] > refreshing access token with scopes: []
-[debug] [2021-01-22T15:40:19.032Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
- <request body omitted>
-[debug] [2021-01-22T15:40:36.937Z] <<< HTTP RESPONSE 200 {"date":"Fri, 22 Jan 2021 15:40:31 GMT","expires":"Mon, 01 Jan 1990 00:00:00 GMT","cache-control":"no-cache, no-store, max-age=0, must-revalidate","pragma":"no-cache","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
-[debug] [2021-01-22T15:40:37.033Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=100
-[debug] [2021-01-22T15:40:47.051Z] Failed to make request to https://firebase.googleapis.com/v1beta1/projects?pageSize=100
-[debug] [2021-01-22T15:41:40.357Z] FirebaseError: Failed to make request to https://firebase.googleapis.com/v1beta1/projects?pageSize=100
-    at Client.doRequest (/usr/local/lib/node_modules/firebase-tools/lib/apiv2.js:194:19)
-    at process._tickCallback (internal/process/next_tick.js:68:7)
-[error] 
-[error] Error: Failed to list Firebase projects. See firebase-debug.log for more info.
-[debug] [2021-01-22T15:43:21.511Z] ----------------------------------------------------------------------
-[debug] [2021-01-22T15:43:21.526Z] Command:       /usr/bin/node /usr/local/bin/firebase init
-[debug] [2021-01-22T15:43:21.529Z] CLI Version:   9.2.2
-[debug] [2021-01-22T15:43:21.529Z] Platform:      linux
-[debug] [2021-01-22T15:43:21.530Z] Node Version:  v10.19.0
-[debug] [2021-01-22T15:43:21.537Z] Time:          Fri Jan 22 2021 16:43:21 GMT+0100 (West Africa Standard Time)
-[debug] [2021-01-22T15:43:21.538Z] ----------------------------------------------------------------------
-[debug] [2021-01-22T15:43:21.538Z] 
-[debug] [2021-01-22T15:43:21.573Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2021-01-22T15:43:21.575Z] > authorizing via signed-in user
-[info] 
-     ######## #### ########  ######## ########     ###     ######  ########
-     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
-     ######    ##  ########  ######   ########  #########  ######  ######
-     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
-     ##       #### ##     ## ######## ########  ##     ##  ######  ########
-
-You're about to initialize a Firebase project in this directory:
-
-  /home/danroyal001/Documents/firebaseProjects/oyald
-
-[info] 
-=== Project Setup
-[info] 
-[info] First, let's associate this project directory with a Firebase project.
-[info] You can create multiple project aliases by running firebase use --add, 
-[info] but for now we'll just set up a default project.
-[info] 
-[debug] [2021-01-22T15:48:54.974Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=100
-[debug] [2021-01-22T15:49:05.126Z] Failed to make request to https://firebase.googleapis.com/v1beta1/projects?pageSize=100
-[debug] [2021-01-22T15:49:15.193Z] FirebaseError: Failed to make request to https://firebase.googleapis.com/v1beta1/projects?pageSize=100
-    at Client.doRequest (/usr/local/lib/node_modules/firebase-tools/lib/apiv2.js:194:19)
-    at process._tickCallback (internal/process/next_tick.js:68:7)
-[error] 
-[error] Error: Failed to list Firebase projects. See firebase-debug.log for more info.
-[debug] [2021-01-22T15:49:34.154Z] ----------------------------------------------------------------------
-[debug] [2021-01-22T15:49:34.187Z] Command:       /usr/bin/node /usr/local/bin/firebase init
-[debug] [2021-01-22T15:49:34.190Z] CLI Version:   9.2.2
-[debug] [2021-01-22T15:49:34.191Z] Platform:      linux
-[debug] [2021-01-22T15:49:34.191Z] Node Version:  v10.19.0
-[debug] [2021-01-22T15:49:34.192Z] Time:          Fri Jan 22 2021 16:49:34 GMT+0100 (West Africa Standard Time)
-[debug] [2021-01-22T15:49:34.193Z] ----------------------------------------------------------------------
-[debug] [2021-01-22T15:49:34.193Z] 
-[debug] [2021-01-22T15:49:34.239Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2021-01-22T15:49:34.245Z] > authorizing via signed-in user
-[info] 
-     ######## #### ########  ######## ########     ###     ######  ########
-     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
-     ######    ##  ########  ######   ########  #########  ######  ######
-     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
-     ##       #### ##     ## ######## ########  ##     ##  ######  ########
-
-You're about to initialize a Firebase project in this directory:
-
-  /home/danroyal001/Documents/firebaseProjects/oyald
-
-[info] 
-=== Project Setup
-[info] 
-[info] First, let's associate this project directory with a Firebase project.
-[info] You can create multiple project aliases by running firebase use --add, 
-[info] but for now we'll just set up a default project.
-[info] 
-[debug] [2021-01-22T15:49:46.480Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=100
-[debug] [2021-01-22T15:49:56.579Z] Failed to make request to https://firebase.googleapis.com/v1beta1/projects?pageSize=100
-[debug] [2021-01-22T15:50:06.665Z] FirebaseError: Failed to make request to https://firebase.googleapis.com/v1beta1/projects?pageSize=100
-    at Client.doRequest (/usr/local/lib/node_modules/firebase-tools/lib/apiv2.js:194:19)
-    at process._tickCallback (internal/process/next_tick.js:68:7)
-[error] 
-[error] Error: Failed to list Firebase projects. See firebase-debug.log for more info.
+[debug] [2021-01-25T11:27:14.367Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=100
+[debug] [2021-01-25T11:27:16.586Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2021-01-25T11:27:16.587Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
