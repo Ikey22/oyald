@@ -1,23 +1,36 @@
 <template>
-  <div class="preheader p-4 bg-success clearfix text-white d-none d-sm-block d-md-block d-lg-block d-xl-block">
-      <span class="float-left text-white">
-        <b-form inline>
-          <select-language-dropdown />
-        </b-form>
-      </span>
-      <a class="float-right text-white" href="mailto:info@oyald-ojlad.org"> <span class="text-white">&nbsp;|&nbsp;</span> {{ $store.state.language === 'en' ? $store.state.englishStrings.writeUs : $store.state.frenchStrings.writeUs }}: info@oyald-ojlad.org  </a>
+  <div class="preheader p-4 bg-success text-white d-none d-sm-block d-md-block d-lg-block d-xl-block">
+
+      <div class="d-flex align-items-center justify-content-between flex-row">
+        <span class="text-white">
+            <b-form inline>
+              <select-language />
+            </b-form>
+          </span>
+
+          <b-dropdown
+            text="join OYALD"
+            style="background-color: #002200 !important;"
+            >
+              <b-dropdown-item to="/membership">As a member</b-dropdown-item>
+              <b-dropdown-item to="/partnerhip">As a Partner</b-dropdown-item>
+          </b-dropdown>
+
+          <a class="text-white" href="mailto:info@oyald-ojlad.org"> <span class="text-white">&nbsp;|&nbsp;</span> {{ $store.state.language === 'en' ? $store.state.englishStrings.writeUs : $store.state.frenchStrings.writeUs }}: info@oyald-ojlad.org  </a>
+      </div>
+
       <br />
       <hr />
   </div>
 </template>
 
 <script>
-import SelectLanguageDropdown from '@/components/SelectLanguageDropdown.vue';
+import SelectLanguage from '@/components/SelectLanguage.vue';
 
 export default {
     name: "PreHeader",
     components: {
-      SelectLanguageDropdown
+      SelectLanguage
     }
 }
 </script>

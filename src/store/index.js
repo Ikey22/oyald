@@ -61,7 +61,7 @@ const $store = new Vuex.Store({
   mutations: {
     setLanguage(state, language){
       state.language = language;
-      return console.log(language);
+      return console.log(`Lang: ${language}`);
     },
     setAuthAdmin(state, admin){
       state.authAdmin = admin;

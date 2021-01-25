@@ -4,9 +4,9 @@
       <div class="logo-img-wrapper">
         <img class="logo-img" width="100" height="100" alt="OYALD Logo" src="@/assets/img/logo.jpeg">
         <br />
-        <span class="logo-img-slogan text-white"><small class="font-weight-bold text-center d-none d-md-block d-lg-block d-xl-block">{{ $store.state.language === 'en' ? $store.state.englishStrings.inform : $store.state.frenchStrings.inform }}...{{ $store.state.language === 'en' ? $store.state.englishStrings.inspire : $store.state.frenchStrings.inspire }}<br />{{ $store.state.language === 'en' ? $store.state.englishStrings.involve : $store.state.frenchStrings.involve }}</small></span>
+        <span class="logo-img-slogan text-white"><small class="font-weight-bold text-center d-none d-md-block d-lg-block d-xl-block">{{ $store.state.language === 'en' ? $store.state.englishStrings.inform : $store.state.frenchStrings.inform.toString().toUpperCase() }}...{{ $store.state.language === 'en' ? $store.state.englishStrings.inspire : $store.state.frenchStrings.inspire.toString().toUpperCase() }}<br />{{ $store.state.language === 'en' ? $store.state.englishStrings.involve : $store.state.frenchStrings.involve.toString().toUpperCase() }}</small></span>
       </div>
-      <span style="color: var(--yellow)" class="logo-text d-none d-md-block d-lg-block d-xl-block" v-html="$store.state.language === 'en' ? 'Organisation <small>of</small> Young African Leaders <small>for</small><br /> Development' : 'Organisation <small>des</small> Jeunes Leaders Africains<br /> <small>pour le</small> Développement'"></span>
+      <span style="color: var(--yellow)" class="logo-text d-none d-md-block d-lg-block d-xl-block" v-html="$store.state.language === 'en' ? 'Organisation <small>of</small> Young African Leaders <small>for</small> Development' : 'Organisation <small>des</small> Jeunes Leaders Africains <small>pour le</small> Développement'"></span>
       <span style="color: var(--yellow)" class="logo-text d-block d-md-none d-lg-none d-xl-none">{{ $store.state.appNameShort }}</span>
     </b-navbar-brand>
 
@@ -90,7 +90,7 @@ export default {
 .logo-img-slogan{
   font-weight: 600;
   font-size: 12px;
-  transform: translate(2px, -6px);
+  transform: translate(2px, -14px);
 }
 
 .logo-text{

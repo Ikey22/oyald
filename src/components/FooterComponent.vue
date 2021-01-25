@@ -30,7 +30,7 @@
         <p class="h5 u">{{ $store.state.language === 'en' ? $store.state.englishStrings.usefulLinks.toString().toUpperCase() : $store.state.frenchStrings.usefulLinks.toString().toUpperCase() }}</p>
         <p>
           <b-form inline>
-            <select-language-dropdown />
+            <select-language />
           </b-form>
         </p>
         <p> <router-link class="text-white" to="/home"> <b-icon icon="caret-right-fill"></b-icon> {{ $store.state.language === 'en' ? $store.state.englishStrings.home.toString().toUpperCase() : $store.state.frenchStrings.home.toString().toUpperCase() }} </router-link> </p>
@@ -72,12 +72,12 @@
 </template>
 
 <script>
-import SelectLanguageDropdown from '@/components/SelectLanguageDropdown.vue';
+import SelectLanguage from '@/components/SelectLanguage.vue';
 
 export default {
     name: "FooterComponent",
     components: {
-      SelectLanguageDropdown
+      SelectLanguage
     },
     data(){
       return {

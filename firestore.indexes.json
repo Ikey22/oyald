@@ -1,19 +1,4 @@
 {
-  "indexes": [
-    {
-      "collectionGroup": "members",
-      "queryScope": "COLLECTION",
-      "fields": [
-        {
-          "fieldPath": "email",
-          "order": "ASCENDING"
-        },
-        {
-          "fieldPath": "password",
-          "order": "ASCENDING"
-        }
-      ]
-    }
-  ],
+  "indexes": [],
   "fieldOverrides": []
 }
