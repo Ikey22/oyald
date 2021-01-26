@@ -1,10 +1,10 @@
 <template>
   <b-navbar :sticky="true" toggleable="lg" type="dark" variant="success" style="background: var(--custom-primary-color) !important;">
-    <b-navbar-brand to="/home" class="font-weight-bold navbar-brand">
+    <b-navbar-brand to="/about" class="font-weight-bold navbar-brand">
       <div class="logo-img-wrapper">
         <img class="logo-img" width="100" height="100" alt="OYALD Logo" src="@/assets/img/logo.jpeg">
         <br />
-        <span class="logo-img-slogan text-white"><small class="font-weight-bold text-center d-none d-md-block d-lg-block d-xl-block">{{ $store.state.language === 'en' ? $store.state.englishStrings.inform : $store.state.frenchStrings.inform.toString().toUpperCase() }}...{{ $store.state.language === 'en' ? $store.state.englishStrings.inspire : $store.state.frenchStrings.inspire.toString().toUpperCase() }}<br />{{ $store.state.language === 'en' ? $store.state.englishStrings.involve : $store.state.frenchStrings.involve.toString().toUpperCase() }}</small></span>
+        <span class="logo-img-slogan text-white"><marquee scrollamount="4" class="font-weight-bold text-justified d-none d-md-block d-lg-block d-xl-block">{{ $store.state.language === 'en' ? $store.state.englishStrings.inform : $store.state.frenchStrings.inform.toString().toUpperCase() }}...{{ $store.state.language === 'en' ? $store.state.englishStrings.inspire : $store.state.frenchStrings.inspire.toString().toUpperCase() }}...{{ $store.state.language === 'en' ? $store.state.englishStrings.involve : $store.state.frenchStrings.involve.toString().toUpperCase() }}</marquee></span>
       </div>
       <span style="color: var(--yellow)" class="logo-text d-none d-md-block d-lg-block d-xl-block" v-html="$store.state.language === 'en' ? 'Organisation <small>of</small> Young African Leaders <small>for</small> Development' : 'Organisation <small>des</small> Jeunes Leaders Africains <small>pour le</small> Développement'"></span>
       <span style="color: var(--yellow)" class="logo-text d-block d-md-none d-lg-none d-xl-none">{{ $store.state.appNameShort }}</span>
@@ -15,14 +15,12 @@
     <b-collapse id="nav-collapse" is-nav>
 
       <b-navbar-nav class="ml-auto" align="center">
-        <b-nav-item to="/home">{{ $store.state.language === 'en' ? $store.state.englishStrings.home : $store.state.frenchStrings.home }}</b-nav-item>
-        <b-nav-item-dropdown :text="$store.state.language === 'en' ? $store.state.englishStrings.about : $store.state.frenchStrings.about" right>
-          <b-dropdown-item to="/about">{{ $store.state.language === 'en' ? $store.state.englishStrings.aboutUs : $store.state.frenchStrings.aboutUs }}</b-dropdown-item>
-          <b-dropdown-item to="/initiatives">{{ $store.state.language === 'en' ? $store.state.englishStrings.ourInitiatives : $store.state.frenchStrings.ourInitiatives }}</b-dropdown-item>
-        </b-nav-item-dropdown>
+        <b-nav-item to="/about">{{ $store.state.language === 'en' ? $store.state.englishStrings.home : $store.state.frenchStrings.home }}</b-nav-item>
+        <b-nav-item to="/about-africa">ABOUT AFRICA</b-nav-item>
+        <b-nav-item to="/initiatives">{{ $store.state.language === 'en' ? $store.state.englishStrings.ourInitiatives : $store.state.frenchStrings.ourInitiatives }}</b-nav-item>
         <b-nav-item-dropdown :text="$store.state.language === 'en' ? 'OUR TEAM' : 'Notre équipe'" right>
-          <b-dropdown-item to="/team">{{ $store.state.language === 'en' ? 'MEET OUR TEAM' : 'Rencontrez notre équipe' }}</b-dropdown-item>
-          <b-dropdown-item to="/membership">{{ $store.state.language === 'en' ? 'OUR MEMBERSHIP' : 'Notre adhésion' }}</b-dropdown-item>
+          <b-dropdown-item to="/team#general-secretariat">Our General Sceretariat</b-dropdown-item>
+          <b-dropdown-item to="/team#national-coordinators">Our National Coordinators/Country Secretaries</b-dropdown-item>
         </b-nav-item-dropdown>
         <b-nav-item to="/contact">{{ $store.state.language === 'en' ? 'CONTACT US' : 'Nous contacter' }}</b-nav-item>
       </b-navbar-nav>
@@ -91,6 +89,11 @@ export default {
   font-weight: 600;
   font-size: 12px;
   transform: translate(2px, -14px);
+  word-wrap: nowrap;
+}
+
+.logo-img-slogan{
+  width: 100px;
 }
 
 .logo-text{
