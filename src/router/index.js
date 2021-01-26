@@ -24,7 +24,7 @@ const routes = [
   },
 
   {
-    path: '/about',
+    path: '/home-page',
     alias: '/about-page',
     name: 'AboutPage',
     component: () => ({

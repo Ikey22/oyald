@@ -4,9 +4,8 @@
     <br />
     <br id="team-tag" />
 
-    <h1 class="w-100 text-success font-weight-bold text-center" style="color: var(--custom-primary-color) !important;">{{ $store.state.language === 'en' ? $store.state.englishStrings.meetOurTeam : $store.state.frenchStrings.meetOurTeam }}</h1>
+    <h1 id="general-secretariat" class="w-100 text-success font-weight-bold text-center" style="color: var(--custom-primary-color) !important;">General Secretariat</h1>
     <br />
-    <p class="text-secondary font-weight-bold w-100 text-center">Admin</p> 
     <br >
 
     <team-member-list>
@@ -28,9 +27,10 @@
 
     <br />
     <br />
+    <br />
 
-
-    <p class="text-secondary font-weight-bold w-100 text-center">Others</p>
+    <h1 id="national-coordinators" class="w-100 text-success font-weight-bold text-center" style="color: var(--custom-primary-color) !important;">National Coordinators</h1>
+    <br />
     <br >
 
     <team-member-list>
@@ -53,7 +53,7 @@
     <br />
     <br id="partners-tag" />
 
-    <h1 class="w-100 text-success font-weight-bold text-center" style="color: var(--custom-primary-color) !important;">Our partners</h1>
+    <h1 id="partners" class="w-100 text-success font-weight-bold text-center" style="color: var(--custom-primary-color) !important;">Our partners</h1>
     <br />
 
      <team-member-list>

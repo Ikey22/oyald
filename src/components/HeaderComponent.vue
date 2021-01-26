@@ -15,12 +15,13 @@
     <b-collapse id="nav-collapse" is-nav>
 
       <b-navbar-nav class="ml-auto" align="center">
-        <b-nav-item to="/about">{{ $store.state.language === 'en' ? $store.state.englishStrings.home : $store.state.frenchStrings.home }}</b-nav-item>
+        <b-nav-item to="/home-page">{{ $store.state.language === 'en' ? $store.state.englishStrings.home : $store.state.frenchStrings.home }}</b-nav-item>
         <b-nav-item to="/about-africa">ABOUT AFRICA</b-nav-item>
         <b-nav-item to="/initiatives">{{ $store.state.language === 'en' ? $store.state.englishStrings.ourInitiatives : $store.state.frenchStrings.ourInitiatives }}</b-nav-item>
         <b-nav-item-dropdown :text="$store.state.language === 'en' ? 'OUR TEAM' : 'Notre équipe'" right>
           <b-dropdown-item to="/team#general-secretariat">Our General Sceretariat</b-dropdown-item>
           <b-dropdown-item to="/team#national-coordinators">Our National Coordinators/Country Secretaries</b-dropdown-item>
+          <b-dropdown-item to="/team#partners">Our Partners</b-dropdown-item>
         </b-nav-item-dropdown>
         <b-nav-item to="/contact">{{ $store.state.language === 'en' ? 'CONTACT US' : 'Nous contacter' }}</b-nav-item>
       </b-navbar-nav>

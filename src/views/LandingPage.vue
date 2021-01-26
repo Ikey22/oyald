@@ -45,8 +45,8 @@
         <br />
         <b-button-toolbar>
           <b-button-group>
-            <b-button @click="setLanguage($event, 'en')" to="/home?lang=en">English</b-button>
-            <b-button @click="setLanguage($event, 'fr')" to="/home?lang=fr">Français</b-button>
+            <b-button @click="setLanguage($event, 'en')" to="/home-page?lang=en">English</b-button>
+            <b-button @click="setLanguage($event, 'fr')" to="/home-page?lang=fr">Français</b-button>
           </b-button-group>
         </b-button-toolbar>
       </div>

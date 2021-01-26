@@ -10,7 +10,7 @@
 
           <b-dropdown
             text="join OYALD"
-            style="background-color: #002200 !important;"
+            variant="warning"
             >
               <b-dropdown-item to="/membership">As a member</b-dropdown-item>
               <b-dropdown-item to="/partnerhip">As a Partner</b-dropdown-item>

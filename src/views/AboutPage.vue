@@ -1,6 +1,83 @@
 <template>
   <div class="container-fluid">
 
+    
+
+    <div class="row w-100">
+      <section class="col-12 col-md-6 col-lg-8 col-xl-8">
+      <h1 class="w-100 text-center text-success font-weight-bold">Why OYALD?</h1>
+        <ul>
+          <li>
+            <p>
+              Given the commitments made by the African Heads of State to support the implementation of the main development Agenda in Africa; 
+            </p>
+          </li>
+
+          <li>
+            <p>
+              Acknowledging the importance of the Agenda 2063, <b>"The Africa We Want"</b> in building a united and prosperous Africa; 
+            </p>
+          </li>
+
+          <li>
+            <p>
+              Understanding the strategic contributions of the Agenda 2030, <b>"Leaving No One Behind"</b> to the enhancement of the living conditions of Africans; 
+            </p>
+          </li>
+        </ul>
+        <b-collapse id="collapse-1" class="mt-2">
+          <ul>
+            <li>
+              <p><img
+        class="w-100 p-2 p-lg-4"
+        alt="Elliptical Image depicting the 17 sustainable development goals as laid down by the United Nations Organisation"
+        width="300"
+        src="@/assets/img/sdg-circle.jpeg"
+        />
+                Considering the critical role of young Africans in ameliorating the narrative through their meaningful participation in, and contributions to, the decisions on the continent; 
+              </p>
+            </li>
+
+            <li>
+              <p>
+                Convinced that collaboration between young Africans, the Civil Society Organizations (CSO), and other decision makers in the region can influence policies and enable better life for all; 
+              </p>
+            </li>
+
+            <li>
+              <p>
+                With the resolve, as young Africans, to contribute to the positive transformation of our communities, and the improvement of the living conditions of our people; 
+              </p>
+            </li>
+          </ul>
+
+          <br />
+
+          <p>
+            OYALD was established to unite young leaders, professionals and entrepreneurs as collaborators towards the achievement of sustainable development in Africa. 
+          </p>
+        </b-collapse>
+
+        <br />
+        <b-button v-b-toggle.collapse-1 variant="success" class="bg-success" @click="readMoreText === 'Read More' ? readMoreText = 'Read Less' : readMoreText = 'Read More'">{{ readMoreText }}</b-button>
+
+      </section>
+
+      <!-- <section class="col-12 col-md-6 col-lg-4 col-xl-4">
+        <img
+        class="w-100 p-2 p-lg-4"
+        alt="Elliptical Image depicting the 17 sustainable development goals as laid down by the United Nations Organisation"
+        width="300"
+        src="@/assets/img/sdg-circle.jpeg"
+        />
+      </section> -->
+    </div>
+
+    <br />
+    <br />
+    <hr />
+    <br />
+    
     <div class="w-100 row">
       <section class="col-12 col-md-6 col-lg-4 col-xl-4">
         <img
@@ -32,76 +109,6 @@
     <br />
     <hr />
     <br />
-    <br />
-
-    <div class="row w-100">
-      <section class="col-12 col-md-6 col-lg-8 col-xl-8">
-      <h1 class="w-100 text-center text-success font-weight-bold">Why OYALD?</h1>
-        <ul>
-          <li>
-            <p>
-              Given the commitments made by the African Heads of State to support the implementation of the main development Agenda in Africa; 
-            </p>
-          </li>
-
-          <li>
-            <p>
-              Acknowledging the importance of the Agenda 2063, <b>"The Africa We Want"</b> in building a united and prosperous Africa; 
-            </p>
-          </li>
-
-          <li>
-            <p>
-              Understanding the strategic contributions of the Agenda 2030, <b>"Leaving No One Behind"</b> to the enhancement of the living conditions of Africans; 
-            </p>
-          </li>
-        </ul>
-
-        <br />
-        <b-button v-b-toggle.collapse-1 variant="success" class="bg-success">Read more</b-button>
-        <b-collapse id="collapse-1" class="mt-2">
-          <ul>
-            <li>
-              <p>
-                Considering the critical role of young Africans in ameliorating the narrative through their meaningful participation in, and contributions to, the decisions on the continent; 
-              </p>
-            </li>
-
-            <li>
-              <p>
-                *Convinced that collaboration between young Africans, the Civil Society Organizations (CSO), and other decision makers in the region can influence policies and enable better life for all; 
-              </p>
-            </li>
-
-            <li>
-              <p>
-                With the resolve, as young Africans, to contribute to the positive transformation of our communities, and the improvement of the living conditions of our people; 
-              </p>
-            </li>
-          </ul>
-
-          <br />
-
-          <p>
-            OYALD was established to unite young leaders, professionals and entrepreneurs as collaborators towards the achievement of sustainable development in Africa. 
-          </p>
-        </b-collapse>
-
-      </section>
-
-      <section class="col-12 col-md-6 col-lg-4 col-xl-4">
-        <img
-        class="w-100 p-2 p-lg-4"
-        alt="Elliptical Image depicting the 17 sustainable development goals as laid down by the United Nations Organisation"
-        width="300"
-        src="@/assets/img/sdg-circle.jpeg"
-        />
-      </section>
-    </div>
-
-    <br />
-    <br />
-    <hr />
     <br />
 
       <section>
@@ -150,7 +157,12 @@
 
 <script>
 export default {
-    name: "AboutPage"
+    name: "AboutPage",
+    data(){
+      return {
+        readMoreText: 'Read More'
+      }
+    }
 }
 </script>
 
