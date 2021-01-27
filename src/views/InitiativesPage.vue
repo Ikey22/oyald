@@ -9,10 +9,10 @@
       <div class="row w-100">
 
           <div class="col-12 col-md-6 col-lg-6 col-xl-6">
-              <div class="accordion w-100" role="tablist">
+              <div class="accordion w-100" role="tablist"> 
                 <b-card no-body class="mb-1 w-100">
                   <b-card-header header-tag="header" class="p-1" role="tab">
-                    <b-button block v-b-toggle.accordion-1 variant="sucess" class="bg-success text-white">Leaders<wbr />4<wbr />Development<wbr /> Training <b-icon icon="caret-down-fill" /> </b-button>
+                    <b-button block v-b-toggle.accordion-1 variant="sucess" class="bg-success text-white">Leaders<wbr />4<wbr />Development<wbr /> Training <b-icon icon="caret-right-fill" /> </b-button>
                   </b-card-header>
                   <b-collapse id="accordion-1" visible accordion="accordion-1" role="tabpanel">
                     <b-card-body>
@@ -135,13 +135,13 @@
               <div class="accordion w-100" role="tablist">
                 <b-card no-body class="mb-1 w-100">
                   <b-card-header header-tag="header" class="p-1" role="tab">
-                    <b-button block v-b-toggle.accordion-2 variant="sucess" class="bg-success text-white">Do you know Africa? <b-icon icon="caret-down-fill" /> </b-button>
+                    <b-button block v-b-toggle.accordion-2 variant="sucess" class="bg-success text-white">Do you know Africa? <b-icon icon="caret-right-fill" /> </b-button>
                   </b-card-header>
                   <b-collapse id="accordion-2" visible accordion="accordion-2" role="tabpanel">
                     <b-card-body>
-                      <b-card-text class="w-100 font-weight-bold text-center">African union anthem</b-card-text>
                       <center class="p-l-r">
-          <p class="text-size-15">Let us all unite and celebrate together<br />
+                        <p></p>
+          <!-- <p class="text-size-15">Let us all unite and celebrate together<br />
             The victories won for our liberation<br />
             Let us dedicate ourselves to rise together<br />
             To defend our liberty and unity</p>
@@ -166,7 +166,7 @@
 
           <p class="text-size-15"><i>O Sons and Daughters of Africa<br />
             Flesh of the Sun and Flesh of the Sky<br />
-            Let us make Africa the tree of life</i></p>
+            Let us make Africa the tree of life</i></p> -->
           </center>
                     </b-card-body>
                   </b-collapse>
@@ -181,10 +181,31 @@
 <script>
 export default {
     name: "InitiativesPage",
+    methods: {
+      toggleInitiativeCaret(x){
+        switch (this.initiativeCarets[x]) {
+          case true:
+            (() => {
+              this.initiativeCarets[x] = false;
+              })();
+            break;
+
+          case false:
+            (() => {
+              this.initiativeCarets[x] = true;
+              })();
+            break;
+        
+          default:
+            break;
+        }
+      }
+    },
     data(){
       return {
         fieldOfInterestCount: 1,
-        fieldsOfInterest: {}
+        fieldsOfInterest: {},
+        initiativeCarets: [true, true]
       }
     }
 }
