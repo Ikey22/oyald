@@ -140,33 +140,17 @@
                   <b-collapse id="accordion-2" visible accordion="accordion-2" role="tabpanel">
                     <b-card-body>
                       <center class="p-l-r">
-                        <p></p>
-          <!-- <p class="text-size-15">Let us all unite and celebrate together<br />
-            The victories won for our liberation<br />
-            Let us dedicate ourselves to rise together<br />
-            To defend our liberty and unity</p>
-
-          <p class="text-size-15"><i>O Sons and Daughters of Africa<br />
-            Flesh of the Sun and Flesh of the Sky<br />
-            Let us make Africa the tree of life</i></p>
-
-          <p class="text-size-15">Let us all unite and sing together<br />
-            To uphold the bonds that frame our destiny<br />
-            Let us dedicate ourselves to fight together<br />
-            For lasting peace and justice on the earth</p>
-
-          <p class="text-size-15"><i>O Sons and Daughters of Africa<br />
-            Flesh of the Sun and Flesh of the Sky<br />
-            Let us make Africa the tree of life</i></p>
-
-          <p class="text-size-15">Let us all unite and toil together<br />
-            To give the best we have to Africa<br />
-            The cradle of mankind and fount of culture<br />
-            Our pride and hope at break of dawn</p>
-
-          <p class="text-size-15"><i>O Sons and Daughters of Africa<br />
-            Flesh of the Sun and Flesh of the Sky<br />
-            Let us make Africa the tree of life</i></p> -->
+                        <p class="text-left">In this initiative, OYALD regular historical information and current events updates about Africa on our social media channels. This serves as a readily available source of relevant knowledge about our African heritage, and helps to keep our social media followers up-to-date on the happenings in the continent.</p>
+                        <p class="text-left">Kindly follow us on, and subscribe to, our social media pages/profiles to get these information updates about Africa.</p>
+                        <b-form >
+                          <b-form-group class="w-100">
+                            <label for="newsletter-email" class="w-100 text-left">Your email</label>
+                            <b-form-input
+                              type="email"
+                              class="w-100 text-left"
+                              placeholder="Type here..." />
+                          </b-form-group>
+                        </b-form>
           </center>
                     </b-card-body>
                   </b-collapse>
@@ -181,31 +165,10 @@
 <script>
 export default {
     name: "InitiativesPage",
-    methods: {
-      toggleInitiativeCaret(x){
-        switch (this.initiativeCarets[x]) {
-          case true:
-            (() => {
-              this.initiativeCarets[x] = false;
-              })();
-            break;
-
-          case false:
-            (() => {
-              this.initiativeCarets[x] = true;
-              })();
-            break;
-        
-          default:
-            break;
-        }
-      }
-    },
     data(){
       return {
         fieldOfInterestCount: 1,
-        fieldsOfInterest: {},
-        initiativeCarets: [true, true]
+        fieldsOfInterest: {}
       }
     }
 }
