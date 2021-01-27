@@ -4,52 +4,28 @@
     
 
     <div class="row w-100">
-      <section class="col-12 col-md-6 col-lg-8 col-xl-8">
-      <h1 class="w-100 text-center text-success font-weight-bold">Why OYALD?</h1>
-        <ul>
-          <li>
-            <p>
-              Given the commitments made by the African Heads of State to support the implementation of the main development Agenda in Africa; 
-            </p>
-          </li>
-
-          <li>
-            <p>
-              Acknowledging the importance of the Agenda 2063, <b>"The Africa We Want"</b> in building a united and prosperous Africa; 
-            </p>
-          </li>
-
-          <li>
-            <p>
-              Understanding the strategic contributions of the Agenda 2030, <b>"Leaving No One Behind"</b> to the enhancement of the living conditions of Africans; 
-            </p>
-          </li>
-        </ul>
-        <b-collapse id="collapse-1" class="mt-2">
-          <ul>
-            <li>
-              <p><img
-        class="w-100 p-2 p-lg-4"
-        alt="Elliptical Image depicting the 17 sustainable development goals as laid down by the United Nations Organisation"
-        width="300"
-        src="@/assets/img/sdg-circle.jpeg"
+      <section class="col-12">
+      <h1 class="w-100 text-left text-success font-weight-bold">Why OYALD?</h1>
+      <p class="pl-4 text-justify">
+        <img
+          class="w-100 p-2 p-lg-4"
+          alt="Elliptical Image depicting the 17 sustainable development goals as laid down by the United Nations Organisation"
+          width="300"
+          align="right"
+          style="width: 100%; max-width: 350px;"
+          src="@/assets/img/sdg-circle.jpeg"
         />
-                Considering the critical role of young Africans in ameliorating the narrative through their meaningful participation in, and contributions to, the decisions on the continent; 
-              </p>
-            </li>
-
-            <li>
-              <p>
-                Convinced that collaboration between young Africans, the Civil Society Organizations (CSO), and other decision makers in the region can influence policies and enable better life for all; 
-              </p>
-            </li>
-
-            <li>
-              <p>
-                With the resolve, as young Africans, to contribute to the positive transformation of our communities, and the improvement of the living conditions of our people; 
-              </p>
-            </li>
-          </ul>
+        <b-icon icon="caret-right-fill" /> Given the commitments made by the African Heads of State to support the implementation of the main development Agenda in Africa;  <br /><br />
+        <b-icon icon="caret-right-fill" /> Acknowledging the importance of the Agenda 2063, <b>"The Africa We Want"</b> in building a united and prosperous Africa;  <br /><br />
+        <b-icon icon="caret-right-fill" /> Understanding the strategic contributions of the Agenda 2030, <b>"Leaving No One Behind"</b> to the enhancement of the living conditions of Africans;  <br />
+      </p>
+      
+        <b-collapse id="collapse-1" class="mt-2">
+          <p class="pl-4 text-justify">
+            <b-icon icon="caret-right-fill" /> Considering the critical role of young Africans in ameliorating the narrative through their meaningful participation in, and contributions to, the decisions on the continent;  <br /><br />
+            <b-icon icon="caret-right-fill" /> Convinced that collaboration between young Africans, the Civil Society Organizations (CSO), and other decision makers in the region can influence policies and enable better life for all;  <br /><br />
+            <b-icon icon="caret-right-fill" /> With the resolve, as young Africans, to contribute to the positive transformation of our communities, and the improvement of the living conditions of our people; <br />
+          </p>
 
           <br />
 
@@ -62,15 +38,7 @@
         <b-button v-b-toggle.collapse-1 variant="success" class="bg-success" @click="readMoreText === 'Read More' ? readMoreText = 'Read Less' : readMoreText = 'Read More'">{{ readMoreText }}</b-button>
 
       </section>
-
-      <!-- <section class="col-12 col-md-6 col-lg-4 col-xl-4">
-        <img
-        class="w-100 p-2 p-lg-4"
-        alt="Elliptical Image depicting the 17 sustainable development goals as laid down by the United Nations Organisation"
-        width="300"
-        src="@/assets/img/sdg-circle.jpeg"
-        />
-      </section> -->
+      
     </div>
 
     <br />
@@ -90,15 +58,15 @@
       </section>
 
       <section class="col-12 col-md-6 col-lg-8 col-xl-8">
-        <h1 class="text-center text-success font-weight-bold w-100">
-          Who we are?
+        <h1 class="text-left text-success font-weight-bold w-100">
+          Who we are
         </h1>
 
-        <p>
+        <p class="text-justify">
           OYALD is a non-partisan, not-for-profit, and non-discriminatory network established to equip young Africans for the inclusive transformation of the continent. 
         </p>
 
-        <p>
+        <p class="text-justify">
            Comprising young leaders, professionals and entrepreneurs of African descent/citizenship collaborating for sustainable development, we are a union of national chapters, organized and registered in the countries of Africa. 
         </p>
       </section>
@@ -111,8 +79,8 @@
     <br />
     <br />
 
-      <section>
-        <h1 class="w-100 font-weight-bold text-success text-center">
+      <section class="text-justify">
+        <h1 class="w-100 font-weight-bold text-success text-left">
           What we do
         </h1>
 

@@ -12,12 +12,12 @@
               <div class="accordion w-100" role="tablist">
                 <b-card no-body class="mb-1 w-100">
                   <b-card-header header-tag="header" class="p-1" role="tab">
-                    <b-button block v-b-toggle.accordion-1 variant="sucess" class="bg-success text-white">Leadersh<wbr />4<wbr />Development<wbr /> Training <b-icon icon="caret-down-fill" /> </b-button>
+                    <b-button block v-b-toggle.accordion-1 variant="sucess" class="bg-success text-white">Leaders<wbr />4<wbr />Development<wbr /> Training <b-icon icon="caret-down-fill" /> </b-button>
                   </b-card-header>
                   <b-collapse id="accordion-1" visible accordion="accordion-1" role="tabpanel">
                     <b-card-body>
-                      <b-card-text>OYALD is planning to conduct a series of training and capacity development to empower our members for impactful contributions to sustainable development in Africa. </b-card-text>
-                      <b-card-text>To know the list of the upcoming trainings kindly subscribe to our Newsletter:</b-card-text>
+                      <b-card-text>OYALD is organising a series of training and capacity development programmes to empower young people for impactful contributions to sustainable in Africa. </b-card-text>
+                      <b-card-text>You can join the initiative as a trainee by filling the form below.</b-card-text>
                       <hr />
                       <b-form @submit.stop.prevent>
                         <div class="row w-100">
