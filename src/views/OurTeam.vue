@@ -11,10 +11,10 @@
     <team-member-list>
 
                 <team-member
-                    v-for="x in 4"
-                    :key="`team-admin-${x}`"
-                    name="Admin"
-                    role="Administrator"
+                    v-for="(x, index) in generalSecretariat"
+                    :key="`general-secretariat-member-${index + 1}`"
+                    :name="`${x.data().firstName + ' ' + (x.data().middleName || '') + ' ' + x.data().surName}`"
+                    :role="x.data().role"
                     :socials="{
                         facebook: true,
                         linkedin: true,
@@ -97,9 +97,31 @@ import TeamMemberList from '@/components/TeamMemberList.vue';
 export default {
   components: {
       TeamMember,
-      TeamMemberList,
+      TeamMemberList
     },
-    name: "OurTeam"
+    data(){
+      return {
+        generalSecretariat: [],
+        countryCoordinators: []
+      }
+    },
+    name: "OurTeam",
+    methods: {
+      getGeneralSecretariat(){
+        const ref = this.$firebase.firestore()
+            .collection('members')
+            .where('category', '==', 'general-secretariat');
+
+        ref.get()
+          .then(res => {
+            this.generalSecretariat = res.docs;
+          })
+          .catch(() => alert('Network Error'));
+      }
+    },
+    mounted(){
+      this.getGeneralSecretariat();
+    }
 }
 </script>
 

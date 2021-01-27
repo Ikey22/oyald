@@ -151,7 +151,14 @@
                               placeholder="Type here..." />
                           </b-form-group>
                         </b-form>
-          </center>
+                      </center>
+                      <br />
+                      <p class="d-flex align-items-center justify-content-around w-100">
+                        <a :href="null" class="text-center" style="color: #004400 !important;"><b-icon font-scale="2" icon="facebook" /></a>
+                        <a :href="null" class="text-center" style="color: #004400 !important;"><b-icon font-scale="2" icon="twitter" /></a>
+                        <a :href="null" class="text-center" style="color: #004400 !important;"><b-icon font-scale="2" icon="instagram" /></a>
+                        <a :href="null" class="text-center" style="color: #004400 !important;"><b-icon font-scale="2" icon="linkedin" /></a>
+                      </p>
                     </b-card-body>
                   </b-collapse>
                 </b-card>

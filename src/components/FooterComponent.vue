@@ -64,7 +64,7 @@
     <hr class="bordered border-light" />
 
     <div class="text-light d-flex flex-column flex-lg-row align-items-center justify-content-around">
-      <span>OYALD &copy; {{ year }}</span>
+      <small>Organisation of Young African Leaders for Development &copy;  2011 -  {{ year }}</small>
     </div><br/>
 
   </div>
