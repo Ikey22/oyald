@@ -25,6 +25,7 @@
                             <label for="first-name">First Name*</label>
                             <b-form-input
                             id="first-name"
+                            class="w-100"
                             placeholder="type here..."
                             type="text"
                             autocomplete="given-name"
@@ -36,6 +37,7 @@
                             <label for="surname">Surname*</label>
                             <b-form-input
                             id="surname"
+                            class="w-100"
                             placeholder="type here..."
                             type="text"
                             autocomplete="family-name"
@@ -47,6 +49,7 @@
                             <label for="middle-name">Middle/other Names</label>
                             <b-form-input
                             id="middle-name"
+                            class="w-100"
                             placeholder="type here..."
                             type="text"
                             />
@@ -85,7 +88,10 @@
                           </b-form-group>
                         </b-form-row>
 
-                        <b-form-group>
+                        <b-form-group
+                          v-for="x in fieldOfInterestCount"
+                          :key="`field-of-interest-${x}`"
+                            >
                             <label for="first-name">Field of interest*</label>
                             <b-form-input
                             id="field-of-interest"
@@ -94,6 +100,14 @@
                             :required="true"
                             />
                         </b-form-group>
+
+                        <b-button-toolbar class="w-100">
+                          <b-button-group class="w-100">
+                            <b-button @click="--fieldOfInterestCount" variant="danger">Remove field</b-button>
+                            <b-button @click="++fieldOfInterestCount" class="bg-primary-color">Add another field of interest</b-button>
+                          </b-button-group>
+                        </b-button-toolbar>
+                        <br />
 
                         <b-form-group>
                             <label for="email">Email address*</label>
@@ -166,7 +180,13 @@
 
 <script>
 export default {
-    name: "InitiativesPage"
+    name: "InitiativesPage",
+    data(){
+      return {
+        fieldOfInterestCount: 1,
+        fieldsOfInterest: {}
+      }
+    }
 }
 </script>
 
