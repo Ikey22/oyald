@@ -3,10 +3,10 @@
                     <div class="member">
                       <div class="member-img">
                           <img
-                            :src="imgUrl || '/img/logo.jpeg'"
+                            :src="imgURL || '/img/logo.jpeg'"
                             width="200"
                             height="200"
-                            class="img-fluid"
+                            class="img-fluid team-member-avatar"
                             alt="Team mate"
                             />
                       </div>
@@ -49,7 +49,7 @@ export default {
             type: String,
             required: true
         },
-        imgUrl: {
+        imgURL: {
             type: String,
             required: false
         },
@@ -65,6 +65,10 @@ export default {
 .text-secondary{
   color: var(--custom-secondary-color) !important;
 }
+.team-member-avatar{
+    /*object-fit: cover !important;*/
+    max-height: 200px !important;
+}
  .member {
     margin-bottom: 20px;
     position: relative;
@@ -78,7 +82,7 @@ export default {
     display: block;
     position: absolute;
     bottom: 0px;
-    /*left: -200px;*/
+    bottom: -50px !important;
     transition: 0.4s ease-in;
     padding: 15px 0;
     left: 0px;
@@ -86,8 +90,7 @@ export default {
     background: #0e2401d2;
 }
  .member:hover .member-info {
-    left: 0px;
-    right: 0px;
+    bottom: 0px !important;
     background: #000;
 }
  .member h4 {

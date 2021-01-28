@@ -3,7 +3,7 @@
       <hr />
       <br />      
       <br />
-      <h1 class="text-green text-center font-weight-bold w-100">Country chapters</h1>
+      <h1 class="text-green text-center font-weight-bold w-100">Country chapters' contact details</h1>
 
 
       <div class="row w-100">

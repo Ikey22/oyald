@@ -8,13 +8,7 @@
             </b-form>
           </span>
 
-          <b-dropdown
-            text="join OYALD"
-            variant="warning"
-            >
-              <b-dropdown-item to="/membership">As a member</b-dropdown-item>
-              <b-dropdown-item to="/partnerhip">As a Partner</b-dropdown-item>
-          </b-dropdown>
+          <JoinOYALDButton />
 
           <a class="text-white" href="mailto:info@oyald-ojlad.org"> <span class="text-white">&nbsp;|&nbsp;</span> {{ $store.state.language === 'en' ? $store.state.englishStrings.writeUs : $store.state.frenchStrings.writeUs }}: info@oyald-ojlad.org  </a>
       </div>
@@ -26,11 +20,13 @@
 
 <script>
 import SelectLanguage from '@/components/SelectLanguage.vue';
+import JoinOYALDButton from '@/components/JoinOYALDButton.vue';
 
 export default {
     name: "PreHeader",
     components: {
-      SelectLanguage
+      SelectLanguage,
+      JoinOYALDButton
     }
 }
 </script>

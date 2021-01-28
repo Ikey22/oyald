@@ -35,7 +35,6 @@ const $store = new Vuex.Store({
       writeUs: 'write us',
       usefulLinks: 'Useful links',
       stayConnected: 'Stay Connected',
-      dontHesitateToReachOut: "Don't hesitate to reach out"
     },
     frenchStrings: {
       language: 'Langue',
@@ -54,7 +53,6 @@ const $store = new Vuex.Store({
       writeUs: 'Écrivez-nous un email',
       usefulLinks: 'Hyperliens utiles',
       stayConnected: 'Rester connecté',
-      dontHesitateToReachOut: "N'hésitez pas à nous contacter"
     },
     authAdmin: null
   },

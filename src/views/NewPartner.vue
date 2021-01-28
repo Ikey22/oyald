@@ -1,8 +1,6 @@
 <template>
   <div class="container-fluid w-100">
-      <h1 class="text-success w-100 text-center font-weight-bold" style="color: var(--custom-primary-color) !important;">{{ $store.state.language === 'en' ? $store.state.englishStrings.ourMembership : $store.state.frenchStrings.ourMembership }}</h1>
-      <br />
-      <p class="text-white text-center w-100 text-dark">Join OYALD</p>
+      <h1 class="text-success w-100 text-center font-weight-bold" style="color: var(--custom-primary-color) !important;">PARTNER WITH OYALD </h1>
       <br />
       <p><span class="p-1 bg-danger text-white font-weight-bold rounded">Note:</span> Fields labelled with asterisk (*) are mandatory, the rest are optional</p>
       <b-form
@@ -10,16 +8,6 @@
       class="card shadow-md rounded p-3 d-block text-left"
       >
                         <div class="row w-100">
-                          <b-form-group class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
-                            <label for="first-name">First Name*</label>
-                            <b-form-input
-                            id="first-name"
-                            placeholder="type here..."
-                            type="text"
-                            autocomplete="given-name"
-                            :required="true"
-                            />
-                          </b-form-group>
 
                           <b-form-group class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
                             <label for="surname">Surname*</label>
@@ -32,6 +20,17 @@
                             />
                           </b-form-group>
 
+                          <b-form-group class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+                            <label for="first-name">First Name*</label>
+                            <b-form-input
+                            id="first-name"
+                            placeholder="type here..."
+                            type="text"
+                            autocomplete="given-name"
+                            :required="true"
+                            />
+                          </b-form-group>
+
                           <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
                             <label for="middle-name">Middle/other Names</label>
                             <b-form-input
@@ -40,11 +39,12 @@
                             type="text"
                             />
                           </b-form-group>
+
                         </div>
 
                         <b-form-row class="row w-100">
                           <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
-                            <label for="country">Country*</label>
+                            <label for="country">Nationality*</label>
                             <b-form-select
                             id="country"
                             placeholder="Select country..."
@@ -74,8 +74,44 @@
                           </b-form-group>
                         </b-form-row>
 
+
+
                         <b-form-row class="row w-100">
-                          <b-form-group class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                          <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                            <label for="address1">Residential Address 1 *</label>
+                            <b-form-input
+                            id="address1"
+                            placeholder="type here..."
+                            type="text"
+                            autocomplete="address-line-1"
+                            :required="true"
+                            />
+                          </b-form-group>
+
+                          <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                            <label for="address2">Residential Address 2 (optional)</label>
+                            <b-form-input
+                            id="address2"
+                            placeholder="type here..."
+                            type="text"
+                            autocomplete="address-line-2"
+                            />
+                          </b-form-group>
+
+                          <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                            <label for="address3">Residential Address 3 (optional)</label>
+                            <b-form-input
+                            id="address3"
+                            placeholder="type here..."
+                            type="text"
+                            autocomplete="address-line-3"
+                            />
+                          </b-form-group>
+                        </b-form-row>
+
+                        <b-form-row class="row w-100">
+
+                          <b-form-group class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
                             <label for="phone-number">Phone Number*</label>
                             <b-form-input
                             id="phone-number"
@@ -86,16 +122,29 @@
                             />
                           </b-form-group>
 
-                          <b-form-group class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                            <label for="zip-code">Zip code</label>
+                          <b-form-group class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                            <label for="title">Title of Appellation</label>
+                            <b-form-select
+                              class=""
+                              >
+                              <b-form-select-option selected value="mr">Mr</b-form-select-option>
+                              <b-form-select-option value="mrs">Mrs</b-form-select-option>
+                              <b-form-select-option value="dr">Dr</b-form-select-option>
+                              <b-form-select-option value="prof">Prof</b-form-select-option>
+                              <b-form-select-option value="engr">Engr</b-form-select-option>
+                            </b-form-select>
+                          </b-form-group>
+
+                          <b-form-group class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                            <label for="zip">Zip/Postal code</label>
                             <b-form-input
-                            id="zip-code"
+                            id="zip"
                             placeholder="type here..."
-                            type="number"
-                            :required="true"
-                            autocomplete="zip-code"
+                            type="zip"
+                            autocomplete="zip"
                             />
                           </b-form-group>
+
                         </b-form-row>
 
                         <b-form-row class="row w-100">
@@ -111,12 +160,10 @@
                           </b-form-group>
 
                           <b-form-group class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                            <label for="date-of-birth">Date of birth (18 to 50 years)</label>
+                            <label for="date-of-birth">Date of birth*</label>
                             <b-form-datepicker
                             id="date-of-birth"
                             placeholder="select date..."
-                            type="date"
-                            :max="new Date(`${(new Date).getFullYear() - 18}-12-31`)"
                             :required="true"
                             autocomplete="date-of-birth"
                             />
@@ -135,7 +182,7 @@
                           </b-form-group>
 
                           <b-form-group class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                            <label for="membership-type">Select membership type*</label>
+                            <label for="membership-type">Membership Category*</label>
                             <b-form-select
                             :required="true"
                             class="bg-white text-black"
@@ -150,14 +197,15 @@
                                 value="associate"
                                 >Associate member</b-form-select-option>
                               <b-form-select-option
-                                value=""
-                                >Partner</b-form-select-option>
+                                value="honorary"
+                                >Honorary member</b-form-select-option>
                             </b-form-select>
                           </b-form-group>
                         </b-form-row>
 
                         <b-form-group>
-                          <label for="self-description">Brief description of yourself</label>
+                          <br />
+                          <label for="self-description">Brief description of yourself (including your qualifications, skills and competencies, professional and volunteer activities)*</label>
                           <b-form-textarea
                           style="height: 200px;"
                           :required="true"
@@ -167,9 +215,24 @@
                         </b-form-group>
 
                         <br />
+                        
+                        
+                        <b-form-group>
+                          <b-form-checkbox
+                          class="d-inline"
+                                id="toc"
+                                :value="true"
+                                :unchecked-value="false"
+                              />
+                          <label class="d-inline" for="toc">I have read and agreed to  the <b><a href="javascript:void(0)" @click="$refs.tocModal.show()"><q>terms and conditions of OYALD membership</q></a></b></label>
+                        </b-form-group>
+
+
+                        <br />
 
                         <b-button
                         type="submit"
+                        id="submit"
                         variant="success"
                         class="bg-success w-100"
                         style="background-color: var(--custom-primary-color) !important;"
@@ -178,19 +241,17 @@
 
       <br />
 
-      <CountryChapter />
+      <b-modal ref="tocModal">
+        <header class="h1" style="color: var(--custom-primary-color) !important;">Terms and Conditions</header>
+        <p>Lorem Ipsum Dolor Set Amet</p>
+      </b-modal>
 
   </div>
 </template>
 
 <script>
-import CountryChapter from '@/components/CountryChapter';
-
 export default {
-    name: "JoinOyald",
-    components: {
-      CountryChapter
-    }
+    name: "NewPartner"
 }
 </script>
 

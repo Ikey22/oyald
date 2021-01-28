@@ -1,33 +1,39 @@
 <template>
-    <div class="hello">
-        <div>
-            <ul>
-                <li>
-                    <select v-model="user.country" @changed="computeState">
-                        <option v-for="country in countries" :key="country.id" :value="country.name"> {{ country.name }}</option>
-                    </select>
-                </li>
-                <li>
-                    <select v-if="user.state !== ''" v-model='user.state' @changed="computeCity">
-                        <option v-for="state in states" :key="state.id" :value="state.name"> {{ state.name }}</option>
-                    </select>
-                </li>
-                <li>
-                    <select v-if="user.city !== ''" v-model='user.city' @changed="displayData">
-                        <option v-for="city in cities" :key="city.id" :value="city.name"> {{ city.name }}</option>
-                    </select>
-                </li>
-                <li v-if="done"> Name: <u> {{ name }} </u>, Country:  <u> {{ country }} </u>, State:  <u> {{ state }} </u>, City:  <u> {{ city }} </u>.</li>
-                <li>
-                    <button @click="hideData">Reset</button>
-                </li>
-            </ul>
-        </div>
-    </div>
+    <b-form-row class="row w-100">
+                          <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                            <label for="country">Nationality*</label>
+                            <b-form-select
+                            id="country"
+                            placeholder="Select country..."
+                            autocomplete="country"
+                            :required="true"
+                            />
+                          </b-form-group>
+
+                          <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                            <label for="region">State/Region*</label>
+                            <b-form-select
+                            id="region"
+                            placeholder="Select State/Region..."
+                            autocomplete="region"
+                            :required="true"
+                            />
+                          </b-form-group>
+
+                          <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                            <label for="lga">District/L.G.A*</label>
+                            <b-form-select
+                            id="lga"
+                            placeholder="Select District/L.G.A..."
+                            autocomplete="country"
+                            :required="true"
+                            />
+                          </b-form-group>
+                        </b-form-row>
 </template>
 <script>
     export default {
-        name: 'HelloWorld',
+        name: 'CountryStateCity',
         data () {
             return {
                 countries: [
@@ -39,12 +45,7 @@
                 cities: [
                     {name: 'Loading...'},
                 ],
-                done: false,
-                user: {
-                    country: '',
-                    state: '',
-                    city: ''
-                }
+                done: false
             }
         },
         beforeCreate() {
@@ -77,25 +78,3 @@
           }
     }
 </script>
-<style scoped>
-    h1, h2 {
-        font-weight: normal;
-    }
-    ul {
-        list-style-type: none;
-        padding: 0;
-    }
-    li {
-        display: inline-block;
-        margin: 0 10px;
-    }
-    a, button {
-        color: #42B983;
-    }
-    input, textarea{
-        width: 600px;
-    }
-    textarea {
-        height: 200px;
-    }
-</style>

@@ -33,11 +33,15 @@
             <select-language />
           </b-form>
         </p>
-        <p> <router-link class="text-white" to="/home"> <b-icon icon="caret-right-fill"></b-icon> {{ $store.state.language === 'en' ? $store.state.englishStrings.home.toString().toUpperCase() : $store.state.frenchStrings.home.toString().toUpperCase() }} </router-link> </p>
         <p> <router-link class="text-white" to="/about"> <b-icon icon="caret-right-fill"></b-icon> {{ $store.state.language === 'en' ? $store.state.englishStrings.aboutUs.toString().toUpperCase() : $store.state.frenchStrings.aboutUs.toString().toUpperCase() }} </router-link> </p>
         <p> <router-link class="text-white" to="/initiatives"> <b-icon icon="caret-right-fill"></b-icon> {{ $store.state.language === 'en' ? $store.state.englishStrings.ourInitiatives.toString().toUpperCase() : $store.state.frenchStrings.ourInitiatives.toString().toUpperCase() }} </router-link> </p>
-        <p> <router-link class="text-white" to="/contact"> <b-icon icon="caret-right-fill"></b-icon> {{ $store.state.language === 'en' ? $store.state.englishStrings.contactUs.toString().toUpperCase() : $store.state.frenchStrings.contactUs.toString().toUpperCase() }} </router-link> </p>
-        <p> <router-link class="text-white" to="/partners"> <b-icon icon="caret-right-fill"></b-icon> {{ $store.state.language === 'en' ? $store.state.englishStrings.ourPartners.toString().toUpperCase() : $store.state.frenchStrings.ourPartners.toString().toUpperCase() }} </router-link> </p>
+        <p> <router-link class="text-white" to="/team#general-secretariat"> <b-icon icon="caret-right-fill"></b-icon> OUR GENERAL SECRETARIAT </router-link> </p>
+        <p> <router-link class="text-white" to="/team#national-coordinators"> <b-icon icon="caret-right-fill"></b-icon> OUR NAIONAL COORDINATORS </router-link> </p>
+        <p> <router-link class="text-white" to="/team#country-chapters"> <b-icon icon="caret-right-fill"></b-icon> OUR COUNTRY CHAPTERS </router-link> </p>
+        <p> <router-link class="text-white" to="/team/partners"> <b-icon icon="caret-right-fill"></b-icon> OUR PARTNERS </router-link> </p>
+        <p> <a> <b-icon icon="caret-right-fill"></b-icon>
+          <JoinOYALDButton />
+        </a> </p>
       </div>
 
       <div class="col-12 col-md-6 col-lg-4 container-lg pt-2 pb-2">
@@ -50,7 +54,7 @@
     <hr class="bordered border-light"/>
 
     <div class="text-light d-flex flex-column flex-lg-row align-items-center justify-content-between">
-      <span class="h4 font-weight-bold"> <i class="text-success fa fa-envelope-open"></i> OUR NEWSLETTER</span>
+      <span class="h5 font-weight-bold"> <i class="text-success fa fa-envelope-open"></i> SUBSCRIBE TO OUR NEWSLETTER </span>
       <form @submit.stop.prevent method="POST"  action="#" target="_blank" class="d-flex flex-xl-row flex-lg-row flex-md-row flex-sm-column">
         <div class="input-group rounded-lg">
           <input required type="email" class="form-control" id="inlineFormInputGroupUsername" :placeholder="$store.state.language === 'en' ? 'your email address' : 'Quelle est ton adresse email'">
@@ -73,11 +77,13 @@
 
 <script>
 import SelectLanguage from '@/components/SelectLanguage.vue';
+import JoinOYALDButton from '@/components/JoinOYALDButton.vue';
 
 export default {
     name: "FooterComponent",
     components: {
-      SelectLanguage
+      SelectLanguage,
+      JoinOYALDButton
     },
     data(){
       return {

@@ -8,13 +8,14 @@
     <br />
     <br >
 
-    <team-member-list>
+    <team-member-list v-if="generalSecretariat.length && (!generalSecretariatError)">
 
                 <team-member
                     v-for="(x, index) in generalSecretariat"
                     :key="`general-secretariat-member-${index + 1}`"
                     :name="`${x.data().firstName + ' ' + (x.data().middleName || '') + ' ' + x.data().surName}`"
                     :role="x.data().role"
+                    :imgURL="x.data().imgURL"
                     :socials="{
                         facebook: true,
                         linkedin: true,
@@ -23,6 +24,13 @@
                     }" 
                     />
 
+    </team-member-list>
+    <team-member-list v-else-if="generalSecretariat.length < 1">
+      <p class="h1 text-center w-100 text-white font-weight-bold">Loading, Please wait</p>
+    </team-member-list>
+    <team-member-list v-else-if="generalSecretariatError" class="d-flex align-items-center justify-content-around flex-column">
+      <p class="h1 text-danger text-center">Network Error</p>
+      <p class="h3 text-danger text-center">Unable to fetch General secretariat, Please wait while we try to reconnect. If nothing happens within 20 seconds, please refresh your browser or check your network</p>
     </team-member-list>
 
     <br />
@@ -102,7 +110,8 @@ export default {
     data(){
       return {
         generalSecretariat: [],
-        countryCoordinators: []
+        countryCoordinators: [],
+        generalSecretariatError: null
       }
     },
     name: "OurTeam",

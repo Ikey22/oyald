@@ -52,13 +52,25 @@ const routes = [
   {
     path: '/membership',
     alias: '/join-oyald',
-    name: 'JoinOyald',
+    name: 'NewMember',
     component: () => ({
       timeout: 60000,
       delay: 1,
       loading: PreLoader, 
       error: NetworkError,
-      component: import(/* webpackChunkName: "join-oyald" */ '@/views/JoinOyald.vue')
+      component: import(/* webpackChunkName: "membership" */ '@/views/NewMember.vue')
+    })
+  },
+
+  {
+    path: '/partnership',
+    name: 'NewPartner',
+    component: () => ({
+      timeout: 60000,
+      delay: 1,
+      loading: PreLoader, 
+      error: NetworkError,
+      component: import(/* webpackChunkName: "membership" */ '@/views/NewPartner.vue')
     })
   },
 
