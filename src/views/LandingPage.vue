@@ -5,8 +5,7 @@
 
       <b-carousel
       class="w-100 h-100 absolute"
-      id="carousel-1"
-      v-model="slide"
+      id="landing-page-carousel"
       img-height="500"
       img-width="600"
       :interval="5000"
@@ -30,7 +29,7 @@
         <b-navbar>
           <b-navbar-brand
             style="color: var(--custom-secondary-color);"
-            class="w-100 font-weight-bold text-center n-brand">
+            class="w-100 font-weight-bold text-center n-brand d-flex align-items-center justify-content-center flex-column">
             <img
               src="@/assets/img/logo.jpeg"
               class="call-to-action-logo"
@@ -45,8 +44,8 @@
         <br />
         <b-button-toolbar>
           <b-button-group>
-            <b-button @click="setLanguage($event, 'en')" to="/home-page?lang=en">English</b-button>
-            <b-button @click="setLanguage($event, 'fr')" to="/home-page?lang=fr">Français</b-button>
+            <b-button variant="warning" @click="setLanguage($event, 'en')" to="/home-page?lang=en">English</b-button>
+            <b-button variant="warning" @click="setLanguage($event, 'fr')" to="/home-page?lang=fr">Français</b-button>
           </b-button-group>
         </b-button-toolbar>
       </div>

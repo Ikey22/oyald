@@ -8,10 +8,10 @@
     <br />
     <br >
 
-    <team-member-list v-if="generalSecretariat.length && (!generalSecretariatError)">
+    <team-member-list v-if="(fetchData.length > 0) && !fetchDataError">
 
                 <team-member
-                    v-for="(x, index) in generalSecretariat"
+                    v-for="(x, index) in fetchData"
                     :key="`general-secretariat-member-${index + 1}`"
                     :name="`${x.data().firstName + ' ' + (x.data().middleName || '') + ' ' + x.data().surName}`"
                     :role="x.data().role"
@@ -25,61 +25,13 @@
                     />
 
     </team-member-list>
-    <team-member-list v-else-if="generalSecretariat.length < 1">
+    <team-member-list v-else-if="(fetchData.length < 1) && !fetchDataError">
       <p class="h1 text-center w-100 text-white font-weight-bold">Loading, Please wait</p>
     </team-member-list>
-    <team-member-list v-else-if="generalSecretariatError" class="d-flex align-items-center justify-content-around flex-column">
-      <p class="h1 text-danger text-center">Network Error</p>
-      <p class="h3 text-danger text-center">Unable to fetch General secretariat, Please wait while we try to reconnect. If nothing happens within 20 seconds, please refresh your browser or check your network</p>
+    <team-member-list v-else-if="fetchDataError" class="d-flex align-items-center justify-content-around flex-column">
+      <p class="h1 text-danger text-center w-100 font-weight-bold">Network Error</p>
+      <p class="h3 text-danger text-center w-100">Unable to fetch General secretariat, Please wait while we try to reconnect. If nothing happens within 10 seconds, please <b-button @click="refresh" variant="warning">refresh</b-button> your browser or check your network</p>
     </team-member-list>
-
-    <br />
-    <br />
-    <br />
-
-    <h1 id="national-coordinators" class="w-100 text-success font-weight-bold text-center" style="color: var(--custom-primary-color) !important;">National Coordinators</h1>
-    <br />
-    <br >
-
-    <team-member-list>
-
-                <team-member
-                    v-for="x in 12"
-                    :key="`team-member-${x}`"
-                    name="John Doe"
-                    role="Regular Member"
-                    :socials="{
-                        facebook: true,
-                        linkedin: true,
-                        twitter: true,
-                        instagram: true
-                    }" 
-                    />
-
-    </team-member-list>
-
-    <br />
-    <br id="partners-tag" />
-
-    <h1 id="partners" class="w-100 text-success font-weight-bold text-center" style="color: var(--custom-primary-color) !important;">Our partners</h1>
-    <br />
-
-     <team-member-list>
-
-                <team-member
-                    v-for="x in 4"
-                    :key="`team-partner-${x}`"
-                    name="Aleko Media"
-                    role="Media company"
-                    :socials="{
-                        facebook: true,
-                        linkedin: true,
-                        twitter: true,
-                        instagram: true
-                    }" 
-                    />
-
-     </team-member-list>
 
     <br />
     <br />
@@ -109,30 +61,49 @@ export default {
     },
     data(){
       return {
-        generalSecretariat: [],
-        countryCoordinators: [],
-        generalSecretariatError: null
+        fetchData: [],
+        fetchDataError: null
       }
     },
     name: "OurTeam",
     methods: {
-      getGeneralSecretariat(){
-        const ref = this.$firebase.firestore()
+      successCallback(res){
+              this.fetchData = res.docs;
+              this.fetchDataError = false;
+            },
+      errorCallback(err){
+              this.fetchDataError = true
+              this.getfetchData();
+              return console.error(err);
+            },
+      getfetchData(){
+
+        const $this = this;
+
+        const ref = $this.$firebase.firestore()
             .collection('members')
-            .where('category', '==', 'general-secretariat');
+            .where('category', '==', 'general-secretariat')
+            .orderBy('order');
 
         ref.get()
-          .then(res => {
-            this.generalSecretariat = res.docs;
-          })
-          .catch(() => alert('Network Error'));
+          .then($this.successCallback, $this.errorCallback)
+          .catch(err => {
+              $this.errorCallback(err)
+              return $this.getfetchData();
+            });
+          
+      },
+      refresh(){
+        return window.location.reload(true);
       }
     },
     mounted(){
-      this.getGeneralSecretariat();
+      const $this = this;
+      try {
+        $this.getfetchData(); 
+      } catch (err) {
+        $this.errorCallback(err);
+      }
     }
 }
 </script>
-
-<style scoped>
-  </style>

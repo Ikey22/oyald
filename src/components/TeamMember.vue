@@ -1,11 +1,11 @@
 <template>
-  <div class="col-lg-3 col-md-6">
+  <div class="col-12 col-sm-12 col-lg-6 col-md-6">
                     <div class="member">
                       <div class="member-img">
                           <img
                             :src="imgURL || '/img/logo.jpeg'"
-                            width="200"
-                            height="200"
+                            width="400"
+                            height="400"
                             class="img-fluid team-member-avatar"
                             alt="Team mate"
                             />
@@ -24,8 +24,17 @@
                                 v-if="$route.path == '/__admin'"
                                 >
                                 <br />
-                                <b-button-toolbar>
-                                    <b-button-group>
+                                <center>
+                                <b-button-toolbar class="w-100">
+                                    <b-button-group class="w-100">
+                                        <b-button
+                                            variant="warning"
+                                            class="w-50"
+                                            size="sm"
+                                            >
+                                            Edit
+                                            <b-icon icon="file-earmark-person-fill" />
+                                        </b-button>
                                         <b-button
                                             variant="danger"
                                             class="w-50"
@@ -36,6 +45,7 @@
                                         </b-button>
                                     </b-button-group>
                                 </b-button-toolbar>
+                                </center>
                             </div>
                         </div>
                     </div>
@@ -72,7 +82,7 @@ export default {
 }
 .team-member-avatar{
     /*object-fit: cover !important;*/
-    max-height: 200px !important;
+    max-height: 400px !important;
 }
  .member {
     margin-bottom: 20px;
