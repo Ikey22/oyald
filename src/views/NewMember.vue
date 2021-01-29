@@ -42,39 +42,7 @@
 
                         </div>
 
-                        <b-form-row class="row w-100">
-                          <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
-                            <label for="country">Nationality*</label>
-                            <b-form-select
-                            id="country"
-                            placeholder="Select country..."
-                            autocomplete="country"
-                            :required="true"
-                            />
-                          </b-form-group>
-
-                          <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
-                            <label for="region">State/Region*</label>
-                            <b-form-select
-                            id="region"
-                            placeholder="Select State/Region..."
-                            autocomplete="region"
-                            :required="true"
-                            />
-                          </b-form-group>
-
-                          <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
-                            <label for="lga">District/L.G.A*</label>
-                            <b-form-select
-                            id="lga"
-                            placeholder="Select District/L.G.A..."
-                            autocomplete="country"
-                            :required="true"
-                            />
-                          </b-form-group>
-                        </b-form-row>
-
-
+                        <country-state-city />
 
                         <b-form-row class="row w-100">
                           <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
@@ -240,11 +208,13 @@
 
 <script>
 import TitleOfAppelation from '@/components/TitleOfAppelation.vue';
+import CountryStateCity from '@/components/CountryStateCity.vue';
 
 export default {
     name: "NewMember",
     components: {
-      TitleOfAppelation
+      TitleOfAppelation,
+      CountryStateCity
     }
 }
 </script>
