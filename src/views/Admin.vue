@@ -386,7 +386,7 @@ export default {
 
                                                     $this.members = [...newMembersArray];
                                                   });
-                $this.unsubscribeMembers = $this.$firstore()
+                $this.unsubscribeMembers = $this.$firebase.firestore()
                                                   .collection('members')
                                                   .onSnapshot(snapshot => {
                                                     const newMembersArray = [];

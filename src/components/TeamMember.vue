@@ -24,13 +24,18 @@
                                 v-if="$route.path == '/__admin'"
                                 >
                                 <br />
-                                <b-button
-                                    variant="danger"
-                                    size="sm"
-                                    >
-                                    Remove
-                                    <b-icon icon="person-x" class="text-white" />
-                                </b-button>
+                                <b-button-toolbar>
+                                    <b-button-group>
+                                        <b-button
+                                            variant="danger"
+                                            class="w-50"
+                                            size="sm"
+                                            >
+                                            Remove
+                                            <b-icon icon="person-x" class="text-white" />
+                                        </b-button>
+                                    </b-button-group>
+                                </b-button-toolbar>
                             </div>
                         </div>
                     </div>

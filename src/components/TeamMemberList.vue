@@ -29,8 +29,8 @@ export default {
     padding: 0px 0px 15px;
 }
 .team-member-list p {
-    font-size: 15px;
-    font-style: italic;
+    /*font-size: 15px;
+    font-style: italic;*/
     padding: 0px;
     margin: 25px 0px 40px;
 }
