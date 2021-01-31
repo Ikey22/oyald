@@ -56,43 +56,13 @@
                           </b-form-group>
                         </div>
 
-                        <b-form-row class="row w-100">
-                          <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
-                            <label for="country">Country*</label>
-                            <b-form-select
-                            id="country"
-                            placeholder="Select country..."
-                            autocomplete="country"
-                            :required="true"
-                            />
-                          </b-form-group>
-
-                          <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
-                            <label for="region">State/Region*</label>
-                            <b-form-select
-                            id="region"
-                            placeholder="Select State/Region..."
-                            autocomplete="region"
-                            :required="true"
-                            />
-                          </b-form-group>
-
-                          <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
-                            <label for="lga">District/L.G.A*</label>
-                            <b-form-select
-                            id="lga"
-                            placeholder="Select District/L.G.A..."
-                            autocomplete="country"
-                            :required="true"
-                            />
-                          </b-form-group>
-                        </b-form-row>
+                        <country-state-city />
 
                         <b-form-group
                           v-for="x in fieldOfInterestCount"
                           :key="`field-of-interest-${x}`"
                             >
-                            <label for="first-name">Field of interest*</label>
+                            <label for="field-of-interest">Field of interest*</label>
                             <b-form-input
                             id="field-of-interest"
                             placeholder="type here..."
@@ -154,10 +124,7 @@
                       </center>
                       <br />
                       <p class="d-flex align-items-center justify-content-around w-100">
-                        <a :href="null" class="text-center" style="color: #004400 !important;"><b-icon font-scale="2" icon="facebook" /></a>
-                        <a :href="null" class="text-center" style="color: #004400 !important;"><b-icon font-scale="2" icon="twitter" /></a>
-                        <a :href="null" class="text-center" style="color: #004400 !important;"><b-icon font-scale="2" icon="instagram" /></a>
-                        <a :href="null" class="text-center" style="color: #004400 !important;"><b-icon font-scale="2" icon="linkedin" /></a>
+                        <a v-for="(handle, index) in $store.state.socialHandles" target="_blank" :key="`initiatives-social-handle-${index + 1}`" :href="handle.url" class="text-center" style="color: #004400 !important;"><b-icon font-scale="2" :icon="handle.icon" /></a>
                       </p>
                     </b-card-body>
                   </b-collapse>
@@ -170,7 +137,9 @@
 </template>
 
 <script>
+import CountryStateCity from '../components/CountryStateCity.vue'
 export default {
+  components: { CountryStateCity },
     name: "InitiativesPage",
     data(){
       return {

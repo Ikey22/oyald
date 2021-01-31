@@ -4,6 +4,7 @@
                             <label for="country">Nationality*</label>
                             <b-form-select
                             id="country"
+                            @change="setCountry($event)"
                             placeholder="Select country..."
                             autocomplete="country"
                             :required="true"
@@ -14,6 +15,7 @@
                             <label for="region">State/Region*</label>
                             <b-form-select
                             id="region"
+                            @change="setState($event)"
                             placeholder="Select State/Region..."
                             autocomplete="region"
                             :required="true"
@@ -24,6 +26,7 @@
                             <label for="lga">District/L.G.A*</label>
                             <b-form-select
                             id="lga"
+                            @change="setCity($event)"
                             placeholder="Select District/L.G.A..."
                             autocomplete="country"
                             :required="true"
@@ -45,7 +48,10 @@
                 cities: [
                     {name: 'Loading...'},
                 ],
-                done: false
+                done: false,
+                country: '',
+                state: '',
+                city: ''
             }
         },
         beforeCreate() {
@@ -57,24 +63,28 @@
            })
            .then(json => {
                $this.countries = json;
+               return $this.countries
            })
-           .catch(err => console.error("API Error", err))
+           .catch(err => console.error("API Error", err));
         },
         methods: {
-          computeState (){
-            this.states = this.countries.filter(country => country.name === this.user.country)[0].states;
-            },
-         computeCity (){
-            this.cities = this.states.filter(state => state.name === this.user.state)[0].cities;
-            },
-         displayData (){
-             this.done = true;
+         setCountry($event){
+             this.states = this.countries.filter(country => country.name === $event.target.value)[0].states;
+             this.country = $event.target.value;
          },
-         hideData (){
-             this.user.name = this.user.countries = this.user.city = this.user.state  =  '';
-             this.done = false;
-             alert("Start Over")
-         }
-          }
+         setState($event){
+            this.cities = this.states.filter(state => state.name === $event.target.value)[0].cities;
+            this.state = $event.target.value;
+            },
+         setCity($event){
+            const $this = this;
+            $this.city = $event.target.value;
+            $this.$emit('value', {
+                country: $this.country,
+                state: $this.state,
+                city: $this.city
+            });
+            }
+        }
     }
 </script>

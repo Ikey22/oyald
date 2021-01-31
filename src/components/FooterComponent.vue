@@ -20,10 +20,7 @@
 
       <div class="col-12 col-md-6 col-lg-4 container-lg pt-2 pb-2">
         <p class="h5 u">{{ $store.state.language === 'en' ? $store.state.englishStrings.stayConnected.toString().toUpperCase() : $store.state.frenchStrings.stayConnected.toString().toUpperCase() }}</p>
-        <p> <a class="text-white" href="https://fc.xdd/"> <b-icon icon="facebook"></b-icon> Facebook </a> </p>
-        <p> <a class="text-white" href="https://fc.xdd/"> <b-icon icon="twitter"></b-icon> Twitter </a> </p>
-        <p> <a class="text-white" href="https://fc.xdd/"> <b-icon icon="instagram"></b-icon> Instagram </a> </p>
-        <p> <a class="text-white" href="https://fc.xdd/"> <b-icon icon="linkedin"></b-icon> Linkedin </a> </p>
+        <p v-for="(handle, index) in $store.state.socialHandles" :key="`social-handle-${index + 1}`"> <a class="text-white" target="_blank" :href="handle.url"> <b-icon :icon="handle.icon"></b-icon> {{ handle.name }} </a> </p>
       </div>
 
       <div class="col-12 col-md-6 col-lg-4 container-lg pt-2 pb-2">
@@ -33,12 +30,12 @@
             <select-language />
           </b-form>
         </p>
-        <p> <router-link class="text-white" to="/about"> <b-icon icon="caret-right-fill"></b-icon> {{ $store.state.language === 'en' ? $store.state.englishStrings.aboutUs.toString().toUpperCase() : $store.state.frenchStrings.aboutUs.toString().toUpperCase() }} </router-link> </p>
+        <p> <router-link class="text-white" to="/home-page"> <b-icon icon="caret-right-fill"></b-icon> {{ $store.state.language === 'en' ? $store.state.englishStrings.aboutUs.toString().toUpperCase() : $store.state.frenchStrings.aboutUs.toString().toUpperCase() }} </router-link> </p>
         <p> <router-link class="text-white" to="/initiatives"> <b-icon icon="caret-right-fill"></b-icon> {{ $store.state.language === 'en' ? $store.state.englishStrings.ourInitiatives.toString().toUpperCase() : $store.state.frenchStrings.ourInitiatives.toString().toUpperCase() }} </router-link> </p>
-        <p> <router-link class="text-white" to="/team#general-secretariat"> <b-icon icon="caret-right-fill"></b-icon> OUR GENERAL SECRETARIAT </router-link> </p>
-        <p> <router-link class="text-white" to="/team#national-coordinators"> <b-icon icon="caret-right-fill"></b-icon> OUR NAIONAL COORDINATORS </router-link> </p>
-        <p> <router-link class="text-white" to="/team#country-chapters"> <b-icon icon="caret-right-fill"></b-icon> OUR COUNTRY CHAPTERS </router-link> </p>
-        <p> <router-link class="text-white" to="/team/partners"> <b-icon icon="caret-right-fill"></b-icon> OUR PARTNERS </router-link> </p>
+        <p> <router-link class="text-white" to="/general-secretariat"> <b-icon icon="caret-right-fill"></b-icon> OUR GENERAL SECRETARIAT </router-link> </p>
+        <p> <router-link class="text-white" to="/national-coordinators"> <b-icon icon="caret-right-fill"></b-icon> OUR NAIONAL COORDINATORS </router-link> </p>
+        <p> <router-link class="text-white" to="/country-chapters"> <b-icon icon="caret-right-fill"></b-icon> OUR COUNTRY CHAPTERS </router-link> </p>
+        <p> <router-link class="text-white" to="/partners"> <b-icon icon="caret-right-fill"></b-icon> OUR PARTNERS </router-link> </p>
         <p> <a> <b-icon icon="caret-right-fill"></b-icon>
           <JoinOYALDButton />
         </a> </p>

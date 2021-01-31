@@ -10,7 +10,10 @@
                             alt="Team mate"
                             />
                       </div>
-                        <div class="member-info">
+                        <div
+                            class="member-info"
+                            :style="{bottom: $route.path == '/__admin'}"
+                            >
                             <h4>{{ name }}</h4>
                             <span>{{ role }}</span>
                             <div class="social-links">
@@ -81,7 +84,7 @@ export default {
   color: var(--custom-secondary-color) !important;
 }
 .team-member-avatar{
-    /*object-fit: cover !important;*/
+    object-fit: cover !important;
     max-height: 400px !important;
 }
  .member {

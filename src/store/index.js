@@ -54,7 +54,29 @@ const $store = new Vuex.Store({
       usefulLinks: 'Hyperliens utiles',
       stayConnected: 'Rester connecté',
     },
-    authAdmin: null
+    authAdmin: null,
+    socialHandles: [
+      {
+        name: 'Linkedin',
+        url: 'https://linkedin.com/oyald.ojlad',
+        icon: "linkedin"
+      },
+      {
+        name: 'Facebook',
+        url: 'https://facebook.com/oyald.ojlad',
+        icon: "facebook"
+      },
+      {
+        name: 'Twitter',
+        url: 'https://twitter.com/oyald.ojlad',
+        icon: "twitter"
+      },
+      {
+        name: 'Instagram',
+        url: 'https://instagram.com/oyald.ojlad',
+        icon: "instagram"
+      }
+    ]
   },
   mutations: {
     setLanguage(state, language){

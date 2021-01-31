@@ -88,9 +88,16 @@ export default {
         ref.get()
           .then($this.successCallback, $this.errorCallback)
           .catch(err => {
-              $this.errorCallback(err)
-              return $this.getfetchData();
+              return $this.errorCallback(err);
             });
+
+        ref.onSnapshot(snapshot => {
+          if(snapshot.docs.length){
+            //
+          }
+        }, err => {
+          console.error(err);
+        });
           
       },
       refresh(){

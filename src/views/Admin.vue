@@ -367,6 +367,7 @@ export default {
         const commit = matchedUser => {
 
                 $this.$store.commit('setAuthAdmin', matchedUser);
+                $this.$firebase.analytics().logEvent('admin_login', JSON.parse(JSON.stringify(matchedUser)));
                 $this.showSuccesfulModal = true;
                 $this.isLoggingIn = false;
                 $this.adminLoginDetails = {

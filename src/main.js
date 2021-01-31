@@ -38,9 +38,11 @@ const firebaseVuePlugin = vueApp => {
   vueApp.$firebase = vueApp.prototype.$firebase = firebase;
 };
 
-firebase.firestore().settings({
-  cacheSizeBytes: firebase.firestore.CACHE_SIZE_UNLIMITED
-});
+//firebase.firestore().settings({
+//  cacheSizeBytes: firebase.firestore.CACHE_SIZE_UNLIMITED
+//});
+
+firebase.analytics();
 
 firebase.firestore().enablePersistence()
   .catch(function(err) {

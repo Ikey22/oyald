@@ -7,78 +7,37 @@
       @submit.stop.prevent
       class="card shadow-md rounded p-3 d-block text-left"
       >
-                        <div class="row w-100">
-
-                          <b-form-group class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
-                            <label for="surname">Surname*</label>
-                            <b-form-input
-                            id="surname"
-                            placeholder="type here..."
-                            type="text"
-                            autocomplete="family-name"
-                            :required="true"
-                            />
-                          </b-form-group>
-
-                          <b-form-group class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
-                            <label for="first-name">First Name*</label>
-                            <b-form-input
-                            id="first-name"
-                            placeholder="type here..."
-                            type="text"
-                            autocomplete="given-name"
-                            :required="true"
-                            />
-                          </b-form-group>
-
-                          <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
-                            <label for="middle-name">Middle/other Names</label>
-                            <b-form-input
-                            id="middle-name"
-                            placeholder="type here..."
-                            type="text"
-                            />
-                          </b-form-group>
-
-                        </div>
-
                         <b-form-row class="row w-100">
-                          <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
-                            <label for="country">Nationality*</label>
-                            <b-form-select
-                            id="country"
-                            placeholder="Select country..."
-                            autocomplete="country"
+
+                          <b-form-group class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                            <label for="surname">Company name*</label>
+                            <b-form-input
+                            id="company-name"
+                            placeholder="type here..."
+                            type="text"
                             :required="true"
                             />
                           </b-form-group>
 
-                          <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
-                            <label for="region">State/Region*</label>
-                            <b-form-select
-                            id="region"
-                            placeholder="Select State/Region..."
-                            autocomplete="region"
+                          <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                            <label for="company-category">Company category*</label>
+                            <b-form-input
+                            id="company-category"
+                            placeholder="type here..."
+                            type="text"
                             :required="true"
                             />
                           </b-form-group>
 
-                          <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
-                            <label for="lga">District/L.G.A*</label>
-                            <b-form-select
-                            id="lga"
-                            placeholder="Select District/L.G.A..."
-                            autocomplete="country"
-                            :required="true"
-                            />
-                          </b-form-group>
                         </b-form-row>
 
+                        <country-state-city />
+
 
 
                         <b-form-row class="row w-100">
                           <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
-                            <label for="address1">Residential Address 1 *</label>
+                            <label for="address1">Address 1*</label>
                             <b-form-input
                             id="address1"
                             placeholder="type here..."
@@ -89,7 +48,7 @@
                           </b-form-group>
 
                           <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
-                            <label for="address2">Residential Address 2 (optional)</label>
+                            <label for="address2">Address 2 (optional)</label>
                             <b-form-input
                             id="address2"
                             placeholder="type here..."
@@ -99,7 +58,7 @@
                           </b-form-group>
 
                           <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
-                            <label for="address3">Residential Address 3 (optional)</label>
+                            <label for="address3">Address 3 (optional)</label>
                             <b-form-input
                             id="address3"
                             placeholder="type here..."
@@ -112,7 +71,7 @@
                         <b-form-row class="row w-100">
 
                           <b-form-group class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
-                            <label for="phone-number">Phone Number*</label>
+                            <label for="phone-number">Company Phone Number*</label>
                             <b-form-input
                             id="phone-number"
                             placeholder="type here..."
@@ -123,16 +82,13 @@
                           </b-form-group>
 
                           <b-form-group class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
-                            <label for="title">Title of Appellation</label>
-                            <b-form-select
-                              class=""
-                              >
-                              <b-form-select-option selected value="mr">Mr</b-form-select-option>
-                              <b-form-select-option value="mrs">Mrs</b-form-select-option>
-                              <b-form-select-option value="dr">Dr</b-form-select-option>
-                              <b-form-select-option value="prof">Prof</b-form-select-option>
-                              <b-form-select-option value="engr">Engr</b-form-select-option>
-                            </b-form-select>
+                            <label for="company-email">Company Email</label>
+                            <b-form-input
+                            id="company-email"
+                            placeholder="type here..."
+                            type="zip"
+                            autocomplete="zip"
+                            />
                           </b-form-group>
 
                           <b-form-group class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
@@ -148,69 +104,24 @@
                         </b-form-row>
 
                         <b-form-row class="row w-100">
-                          <b-form-group class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                            <label for="email">Email*</label>
-                            <b-form-input
-                            id="email"
-                            placeholder="type here..."
-                            type="email"
-                            autocomplete="email"
-                            :required="true"
-                            />
-                          </b-form-group>
-
-                          <b-form-group class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                            <label for="date-of-birth">Date of birth*</label>
-                            <b-form-datepicker
-                            id="date-of-birth"
-                            placeholder="select date..."
-                            :required="true"
-                            autocomplete="date-of-birth"
-                            />
-                          </b-form-group>
-                        </b-form-row>
-
-                        <b-form-row class="row w-100">
-                          <b-form-group class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                            <label for="passport">Passport-size photograph*</label>
+                          <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                            <label for="company-logo">Company logo*</label>
                             <b-form-file
-                            id="passport"
+                            id="company-logo"
                             placeholder="Select file..."
                             accept="image/*"
                             :required="true"
                             />
                           </b-form-group>
-
-                          <b-form-group class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                            <label for="membership-type">Membership Category*</label>
-                            <b-form-select
-                            :required="true"
-                            class="bg-white text-black"
-                            id="membership-type"
-                              v-model="$store.state.userPreferences.membershipType"
-                            >
-                              <b-form-select-option
-                                :selected="true"
-                                value="active"
-                              >Active member</b-form-select-option>
-                              <b-form-select-option
-                                value="associate"
-                                >Associate member</b-form-select-option>
-                              <b-form-select-option
-                                value="honorary"
-                                >Honorary member</b-form-select-option>
-                            </b-form-select>
-                          </b-form-group>
                         </b-form-row>
 
                         <b-form-group>
                           <br />
-                          <label for="self-description">Brief description of yourself (including your qualifications, skills and competencies, professional and volunteer activities)*</label>
+                          <label for="notes">Additional notes</label>
                           <b-form-textarea
                           style="height: 200px;"
-                          :required="true"
                           placeholder="Type here..."
-                          id="self-description"
+                          id="notes"
                           />
                         </b-form-group>
 
@@ -250,7 +161,9 @@
 </template>
 
 <script>
+import CountryStateCity from '../components/CountryStateCity.vue'
 export default {
+  components: { CountryStateCity },
     name: "NewPartner"
 }
 </script>
