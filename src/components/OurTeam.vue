@@ -4,7 +4,7 @@
     <br />
     <br id="team-tag" />
 
-    <h1 id="general-secretariat" class="w-100 text-success font-weight-bold text-center" style="color: var(--custom-primary-color) !important;">General Secretariat</h1>
+    <h1 id="general-secretariat" class="w-100 text-success font-weight-bold text-center" style="color: var(--custom-primary-color) !important;">{{ query == 'general-secretariat' ? 'Our General Secretariat' : query == 'country-secretaries' ? 'Our Nationlal Coordinators / Country secretaries' : query == 'partners' ? 'Our Partners' : '' }}</h1>
     <br />
     <br >
 
@@ -59,6 +59,16 @@ export default {
       TeamMember,
       TeamMemberList
     },
+    props: {
+      query: {
+        type: String,
+        required: true,
+        default: 'general-secretariat',
+        validate(val){
+          return (typeof val == 'string') && (val != '');
+        }
+      }
+    },
     data(){
       return {
         fetchData: [],
@@ -82,18 +92,18 @@ export default {
 
         const ref = $this.$firebase.firestore()
             .collection('members')
-            .where('category', '==', 'general-secretariat')
+            .where('category', '==', $this.query)
             .orderBy('order');
 
         ref.get()
           .then($this.successCallback, $this.errorCallback)
           .catch(err => {
-              return $this.errorCallback(err);
+              return setTimeout(() => $this.errorCallback(err), 3000);
             });
 
         ref.onSnapshot(snapshot => {
           if(snapshot.docs.length){
-            //
+            $this.successCallback(snapshot);
           }
         }, err => {
           console.error(err);

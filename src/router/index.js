@@ -75,15 +75,38 @@ const routes = [
   },
 
   {
-    path: "/team",
-    alias: "/our-team",
-    name: "OurTeam",
+    path: "/general-secretariat",
+    name: "GeneralSecretariat",
     component: () => ({
       timeout: 60000,
       delay: 1,
       loading: PreLoader, 
       error: NetworkError,
-      component: import(/* webpackChunkName: "our-team", webpackPrefetch: true */ '@/views/OurTeam.vue')
+      component: import(/* webpackChunkName: "our-team", webpackPrefetch: true */ '@/views/Generalsecretariat.vue')
+    })
+  },
+
+  {
+    path: "/country-secretaries",
+    name: "CountrySecretaries",
+    component: () => ({
+      timeout: 60000,
+      delay: 1,
+      loading: PreLoader, 
+      error: NetworkError,
+      component: import(/* webpackChunkName: "our-team", webpackPrefetch: true */ '@/views/CountrySecretaries.vue')
+    })
+  },
+
+  {
+    path: "/partners",
+    name: "Partners",
+    component: () => ({
+      timeout: 60000,
+      delay: 1,
+      loading: PreLoader, 
+      error: NetworkError,
+      component: import(/* webpackChunkName: "our-team", webpackPrefetch: true */ '@/views/Partners.vue')
     })
   },
 

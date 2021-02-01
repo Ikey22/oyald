@@ -5,7 +5,7 @@
       <br />
       <p><span class="p-1 bg-danger text-white font-weight-bold rounded">Note:</span> Fields labelled with asterisk (*) are mandatory, the rest are optional</p>
       <b-form
-      @submit.stop.prevent
+      @submit.stop.prevent="submitContactForm"
       class="card shadow-md rounded p-3 d-block text-left"
       >
                         <b-form-row class="row w-100">
@@ -14,6 +14,7 @@
                             <label for="surname">Surname*</label>
                             <b-form-input
                             id="surname"
+                            v-model="$store.state.userPreferences.surName"
                             placeholder="type here..."
                             type="text"
                             autocomplete="family-name"
@@ -25,6 +26,7 @@
                             <label for="first-name">First Name*</label>
                             <b-form-input
                             id="first-name"
+                            v-model="$store.state.userPreferences.firstName"
                             placeholder="type here..."
                             type="text"
                             autocomplete="given-name"
@@ -36,6 +38,7 @@
                             <label for="middle-name">Middle/other Names</label>
                             <b-form-input
                             id="middle-name"
+                            v-model="$store.state.userPreferences.middleName"
                             placeholder="type here..."
                             type="text"
                             />
@@ -48,6 +51,7 @@
                             <label for="phone-number">Phone Number*</label>
                             <b-form-input
                             id="phone-number"
+                            v-model="$store.state.userPreferences.phoneNumber"
                             placeholder="type here..."
                             type="tel"
                             autocomplete="tel"
@@ -59,6 +63,7 @@
                             <label for="email">Email*</label>
                             <b-form-input
                             id="email"
+                            v-model="$store.state.userPreferences.email"
                             placeholder="type here..."
                             type="email"
                             autocomplete="email"
@@ -72,6 +77,7 @@
                             <label for="zip-code">Zip code*</label>
                             <b-form-input
                             id="zip-code"
+                            v-model="$store.state.userPreferences.zipCode"
                             placeholder="type here..."
                             type="number"
                             :required="true"
@@ -112,6 +118,9 @@ import TitleOfAppelation from '@/components/TitleOfAppelation.vue';
 
 export default {
   name: "ContactUs",
+  methods: {
+    submitContactForm(){}
+  },
   components: {
     CountryChapters,
     TitleOfAppelation

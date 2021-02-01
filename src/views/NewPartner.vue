@@ -4,7 +4,7 @@
       <br />
       <p><span class="p-1 bg-danger text-white font-weight-bold rounded">Note:</span> Fields labelled with asterisk (*) are mandatory, the rest are optional</p>
       <b-form
-      @submit.stop.prevent
+      @submit.prevent="submitNewPartnerForm"
       class="card shadow-md rounded p-3 d-block text-left"
       >
                         <b-form-row class="row w-100">
@@ -13,6 +13,7 @@
                             <label for="surname">Company name*</label>
                             <b-form-input
                             id="company-name"
+                            v-model="$store.state.userPreferences.companyName"
                             placeholder="type here..."
                             type="text"
                             :required="true"
@@ -23,6 +24,7 @@
                             <label for="company-category">Company category*</label>
                             <b-form-input
                             id="company-category"
+                            v-model="$store.state.userPreferences.companyCategory"
                             placeholder="type here..."
                             type="text"
                             :required="true"
@@ -40,6 +42,7 @@
                             <label for="address1">Address 1*</label>
                             <b-form-input
                             id="address1"
+                            v-model="$store.state.userPreferences.companyAddress1"
                             placeholder="type here..."
                             type="text"
                             autocomplete="address-line-1"
@@ -51,6 +54,7 @@
                             <label for="address2">Address 2 (optional)</label>
                             <b-form-input
                             id="address2"
+                            v-model="$store.state.userPreferences.companyAddress2"
                             placeholder="type here..."
                             type="text"
                             autocomplete="address-line-2"
@@ -61,6 +65,7 @@
                             <label for="address3">Address 3 (optional)</label>
                             <b-form-input
                             id="address3"
+                            v-model="$store.state.userPreferences.companyAddress3"
                             placeholder="type here..."
                             type="text"
                             autocomplete="address-line-3"
@@ -74,6 +79,7 @@
                             <label for="phone-number">Company Phone Number*</label>
                             <b-form-input
                             id="phone-number"
+                            v-model="$store.state.userPreferences.companyPhoneNumber"
                             placeholder="type here..."
                             type="tel"
                             autocomplete="tel"
@@ -85,6 +91,7 @@
                             <label for="company-email">Company Email</label>
                             <b-form-input
                             id="company-email"
+                            v-model="$store.state.userPreferences.companyEmail"
                             placeholder="type here..."
                             type="zip"
                             autocomplete="zip"
@@ -95,6 +102,7 @@
                             <label for="zip">Zip/Postal code</label>
                             <b-form-input
                             id="zip"
+                            v-model="$store.state.userPreferences.zipCode"
                             placeholder="type here..."
                             type="zip"
                             autocomplete="zip"
@@ -108,6 +116,7 @@
                             <label for="company-logo">Company logo*</label>
                             <b-form-file
                             id="company-logo"
+                            v-model="$store.state.userPreferences.companyLogo"
                             placeholder="Select file..."
                             accept="image/*"
                             :required="true"
@@ -120,6 +129,7 @@
                           <label for="notes">Additional notes</label>
                           <b-form-textarea
                           style="height: 200px;"
+                            v-model="$store.state.userPreferences.companyNotes"
                           placeholder="Type here..."
                           id="notes"
                           />
@@ -133,6 +143,7 @@
                           class="d-inline"
                                 id="toc"
                                 :value="true"
+                                v-model="$store.state.userPreferences.agreedToc"
                                 :unchecked-value="false"
                               />
                           <label class="d-inline" for="toc">I have read and agreed to  the <b><a href="javascript:void(0)" @click="$refs.tocModal.show()"><q>terms and conditions of OYALD membership</q></a></b></label>
@@ -164,6 +175,9 @@
 import CountryStateCity from '../components/CountryStateCity.vue'
 export default {
   components: { CountryStateCity },
+  methods: {
+    submitNewPartnerForm(){}
+  },
     name: "NewPartner"
 }
 </script>

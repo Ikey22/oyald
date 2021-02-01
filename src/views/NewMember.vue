@@ -4,7 +4,7 @@
       <br />
       <p><span class="p-1 bg-danger text-white font-weight-bold rounded">Note:</span> Fields labelled with asterisk (*) are mandatory, the rest are optional</p>
       <b-form
-      @submit.stop.prevent
+      @submit.prevent="submitNewMemberForm"
       class="card shadow-md rounded p-3 d-block text-left"
       >
                         <div class="row w-100">
@@ -13,6 +13,7 @@
                             <label for="surname">Surname*</label>
                             <b-form-input
                             id="surname"
+                            v-model="$store.state.userPreferences.surName"
                             placeholder="type here..."
                             type="text"
                             autocomplete="family-name"
@@ -24,6 +25,7 @@
                             <label for="first-name">First Name*</label>
                             <b-form-input
                             id="first-name"
+                            v-model="$store.state.userPreferences.firstName"
                             placeholder="type here..."
                             type="text"
                             autocomplete="given-name"
@@ -35,6 +37,7 @@
                             <label for="middle-name">Middle/other Names</label>
                             <b-form-input
                             id="middle-name"
+                            v-model="$store.state.userPreferences.middleName"
                             placeholder="type here..."
                             type="text"
                             />
@@ -49,6 +52,7 @@
                             <label for="address1">Residential Address 1 *</label>
                             <b-form-input
                             id="address1"
+                            v-model="$store.state.userPreferences.address1"
                             placeholder="type here..."
                             type="text"
                             autocomplete="address-line-1"
@@ -60,6 +64,7 @@
                             <label for="address2">Residential Address 2 (optional)</label>
                             <b-form-input
                             id="address2"
+                            v-model="$store.state.userPreferences.address2"
                             placeholder="type here..."
                             type="text"
                             autocomplete="address-line-2"
@@ -70,6 +75,7 @@
                             <label for="address3">Residential Address 3 (optional)</label>
                             <b-form-input
                             id="address3"
+                            v-model="$store.state.userPreferences.address3"
                             placeholder="type here..."
                             type="text"
                             autocomplete="address-line-3"
@@ -83,6 +89,7 @@
                             <label for="phone-number">Phone Number*</label>
                             <b-form-input
                             id="phone-number"
+                            v-model="$store.state.userPreferences.phoneNumber"
                             placeholder="type here..."
                             type="tel"
                             autocomplete="tel"
@@ -96,6 +103,7 @@
                             <label for="zip">Zip/Postal code</label>
                             <b-form-input
                             id="zip"
+                            v-model="$store.state.userPreferences.zipCode"
                             placeholder="type here..."
                             type="zip"
                             autocomplete="zip"
@@ -109,6 +117,7 @@
                             <label for="email">Email*</label>
                             <b-form-input
                             id="email"
+                            v-model="$store.state.userPreferences.email"
                             placeholder="type here..."
                             type="email"
                             autocomplete="email"
@@ -120,6 +129,7 @@
                             <label for="date-of-birth">Date of birth*</label>
                             <b-form-datepicker
                             id="date-of-birth"
+                            v-model="$store.state.userPreferences.dob"
                             placeholder="select date..."
                             :required="true"
                             autocomplete="date-of-birth"
@@ -132,6 +142,7 @@
                             <label for="passport">Passport-size photograph*</label>
                             <b-form-file
                             id="passport"
+                            v-model="$store.state.userPreferences.passport"
                             placeholder="Select file..."
                             accept="image/*"
                             :required="true"
@@ -142,9 +153,9 @@
                             <label for="membership-type">Membership Category*</label>
                             <b-form-select
                             :required="true"
+                            v-model="$store.state.userPreferences.membershipCategory"
                             class="bg-white text-black"
                             id="membership-type"
-                              v-model="$store.state.userPreferences.membershipType"
                             >
                               <b-form-select-option
                                 :selected="true"
@@ -165,6 +176,7 @@
                           <label for="self-description">Brief description of yourself (including your qualifications, skills and competencies, professional and volunteer activities)*</label>
                           <b-form-textarea
                           style="height: 200px;"
+                            v-model="$store.state.userPreferences.description"
                           :required="true"
                           placeholder="Type here..."
                           id="self-description"
@@ -178,6 +190,7 @@
                           <b-form-checkbox
                           class="d-inline"
                                 id="toc"
+                                v-model="$store.state.userPreferences.agreedToc"
                                 :value="true"
                                 :unchecked-value="false"
                               />
@@ -212,6 +225,9 @@ import CountryStateCity from '@/components/CountryStateCity.vue';
 
 export default {
     name: "NewMember",
+    methods: {
+      sumbitNewMemberForm(){}
+    },
     components: {
       TitleOfAppelation,
       CountryStateCity

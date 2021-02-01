@@ -52,11 +52,11 @@
 
     <div class="text-light d-flex flex-column flex-lg-row align-items-center justify-content-between">
       <span class="h5 font-weight-bold"> <i class="text-success fa fa-envelope-open"></i> SUBSCRIBE TO OUR NEWSLETTER </span>
-      <form @submit.stop.prevent method="POST"  action="#" target="_blank" class="d-flex flex-xl-row flex-lg-row flex-md-row flex-sm-column">
+      <form @submit.prevent="$store.commit('submitNewsletterForm')" target="_blank" class="d-flex flex-xl-row flex-lg-row flex-md-row flex-sm-column">
         <div class="input-group rounded-lg">
-          <input required type="email" class="form-control" id="inlineFormInputGroupUsername" :placeholder="$store.state.language === 'en' ? 'your email address' : 'Quelle est ton adresse email'">
+          <input required v-model="$store.state.userPreferences.email" type="email" class="form-control" id="inlineFormInputGroupUsername" :placeholder="$store.state.language === 'en' ? 'your email address' : 'Quelle est ton adresse email'">
           <div class="input-group-append">
-            <button type="submit" role="button" class="btn btn-success bg-yellow input-group-text"><b-icon icon="arrow-right-square-fill"></b-icon></button>
+            <button type="submit" role="button" class="btn btn-success bg-warning input-group-text"><b-icon icon="arrow-right-square-fill"></b-icon></button>
           </div>
         </div>
       </form>
@@ -93,11 +93,6 @@ export default {
 <style scope>
 .text-yellow{
   color: #b99e00 !important;
-}
-
-.bg-yellow{
-  background-color: #b99e00 !important;
-  color: var(--custom-primary-color) !important;
 }
 
 .bg-green{

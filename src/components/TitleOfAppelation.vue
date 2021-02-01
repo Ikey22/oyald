@@ -2,7 +2,7 @@
 <b-form-group>
                             <label for="title">Title of Appellation</label>
                             <b-form-select
-                              class=""
+                              v-model="$store.state.userPreferences.titleOfAppelation"
                               :options="titles"
                               />
                           </b-form-group>
