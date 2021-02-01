@@ -73,8 +73,8 @@
 
                         <b-button-toolbar class="w-100">
                           <b-button-group class="w-100">
-                            <b-button @click="--fieldOfInterestCount" variant="danger">Remove field</b-button>
-                            <b-button @click="++fieldOfInterestCount" class="bg-primary-color">Add another field of interest</b-button>
+                            <b-button @click="decrementFieldOfInterestCount" variant="danger" :class="[canRemoveField ? '' : 'disabled']">Remove field</b-button>
+                            <b-button @click="incrementFieldOfInterestCount" class="bg-primary-color">Add another field of interest</b-button>
                           </b-button-group>
                         </b-button-toolbar>
                         <br />
@@ -141,8 +141,23 @@ import CountryStateCity from '../components/CountryStateCity.vue'
 export default {
   components: { CountryStateCity },
     name: "InitiativesPage",
+    methods: {
+      incrementFieldOfInterestCount(){
+        ++this.fieldOfInterestCount;
+        this.canRemoveField = true;
+      },
+      decrementFieldOfInterestCount(){
+        if (this.fieldOfInterestCount > 1) {
+          --this.fieldOfInterestCount;
+          this.canRemoveField = true;
+        } else if(this.fieldOfInterestCount == 1) {
+          this.canRemoveField = false;
+        }
+      }
+    },
     data(){
       return {
+        canRemoveField: true,
         fieldOfInterestCount: 1,
         fieldsOfInterest: {}
       }

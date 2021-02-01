@@ -59,7 +59,7 @@
                 city: ''
             }
         },
-        beforeCreate() {
+        created() {
             return this.fetchData();
         },
         methods: {
@@ -73,8 +73,9 @@
                return $this.countries
            })
            .catch(err => {
-               console.error("API Error", err)
-               return $this.fetchData();
+               console.error("Unable to get list of countrie, states and cities: ", err);
+               $this.countries = {name: 'Trying to connect'};
+               return setTimeout($this.fetchData, 5000);
                });
          },
          setCountry($event){
