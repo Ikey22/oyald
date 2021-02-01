@@ -45,6 +45,7 @@
         name: 'CountryStateCity',
         data () {
             return {
+                url: 'https://raw.githubusercontent.com/dr5hn/countries-states-cities-database/master/countries%2Bstates%2Bcities.json',
                 countries: [
                     {name: 'Loading...'},
                 ],
@@ -66,7 +67,7 @@
          fetchData(){
             const $this = this;
 
-           fetch('https://raw.githubusercontent.com/dr5hn/countries-states-cities-database/master/countries%2Bstates%2Bcities.json')
+           fetch($this.url)
            .then(res => res.json())
            .then(json => {
                $this.countries = json;

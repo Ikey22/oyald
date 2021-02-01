@@ -63,7 +63,7 @@
                 </small></li>
                 <li>
                   <small>
-                    Images: <a href="https://www.weforum.org/agenda/2020/01/the-children-s-continent/">https://www.weforum.org/agenda/2020/01/the-children-s-continent/</a>, <a></a>
+                    Images: <a href="https://www.weforum.org/agenda/2020/01/the-children-s-continent/">https://www.weforum.org/agenda/2020/01/the-children-s-continent/</a>, <a href="https://istockphoto.com">https://istockphoto.com</a>
                   </small>
                 </li>
                 </ol>
