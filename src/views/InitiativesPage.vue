@@ -19,13 +19,14 @@
                       <b-card-text>OYALD is organising a series of training and capacity development programmes to empower young people for impactful contributions to sustainable in Africa. </b-card-text>
                       <b-card-text>You can join the initiative as a trainee by filling the form below.</b-card-text>
                       <hr />
-                      <b-form @submit.stop.prevent>
+                      <b-form @submit.prevent="submitCapacityBuildingForm">
                         <div class="row w-100">
                           <b-form-group class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
                             <label for="first-name">First Name*</label>
                             <b-form-input
                             id="first-name"
                             class="w-100"
+                            v-model="$store.state.userPreferences.firstName"
                             placeholder="type here..."
                             type="text"
                             autocomplete="given-name"
@@ -38,6 +39,7 @@
                             <b-form-input
                             id="surname"
                             class="w-100"
+                            v-model="$store.state.userPreferences.surName"
                             placeholder="type here..."
                             type="text"
                             autocomplete="family-name"
@@ -50,6 +52,7 @@
                             <b-form-input
                             id="middle-name"
                             class="w-100"
+                            v-model="$store.state.userPreferences.middleName"
                             placeholder="type here..."
                             type="text"
                             />
@@ -66,6 +69,7 @@
                             <b-form-input
                             id="field-of-interest"
                             placeholder="type here..."
+                            v-model="$store.state.userPreferences.fieldsOfInterest[x]"
                             type="text"
                             :required="true"
                             />
@@ -85,6 +89,7 @@
                             id="email"
                             placeholder="type here..."
                             type="email"
+                            v-model="$store.state.userPreferences.email"
                             :required="true"
                             />
                         </b-form-group>
@@ -118,6 +123,7 @@
                             <b-form-input
                               type="email"
                               class="w-100 text-left"
+                              v-model="$store.state.userPreferences.email"
                               placeholder="Type here..." />
                           </b-form-group>
                         </b-form>
@@ -150,7 +156,9 @@ export default {
         if (this.fieldOfInterestCount > 1) {
           --this.fieldOfInterestCount;
           this.canRemoveField = true;
-        } else if(this.fieldOfInterestCount == 1) {
+        } else if(this.fieldOfInterestCount == 2){
+          this.canRemoveField = false;
+        } else if(this.fieldOfInterestCount < 2) {
           this.canRemoveField = false;
         }
       }
