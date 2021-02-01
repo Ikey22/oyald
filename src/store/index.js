@@ -15,7 +15,12 @@ const $store = new Vuex.Store({
       firstName: "",
       middleName: "",
       surName: "",
-      membershipType: "active",
+      email: "",
+      address1: "",
+      address2: "",
+      address3: "",
+      fieldsOfInterest: [],
+      membershipCategory: "active",
       dob: ""
     },
     englishStrings: {
@@ -85,6 +90,9 @@ const $store = new Vuex.Store({
     },
     setAuthAdmin(state, admin){
       state.authAdmin = admin;
+    },
+    async submitNewsletterForm(){
+      //
     }
   },
   actions: {

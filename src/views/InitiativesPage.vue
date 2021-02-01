@@ -69,7 +69,7 @@
                             <b-form-input
                             id="field-of-interest"
                             placeholder="type here..."
-                            v-model="$store.state.userPreferences.fieldsOfInterest[x]"
+                            v-model="$store.state.userPreferences.fieldsOfInterest[x -1]"
                             type="text"
                             :required="true"
                             />
@@ -78,7 +78,7 @@
                         <b-button-toolbar class="w-100">
                           <b-button-group class="w-100">
                             <b-button @click="decrementFieldOfInterestCount" variant="danger" :class="[canRemoveField ? '' : 'disabled']">Remove field</b-button>
-                            <b-button @click="incrementFieldOfInterestCount" class="bg-primary-color">Add another field of interest</b-button>
+                            <b-button @click="incrementFieldOfInterestCount" class="bg-success" variant="success">Add another field of interest</b-button>
                           </b-button-group>
                         </b-button-toolbar>
                         <br />
@@ -117,20 +117,36 @@
                       <center class="p-l-r">
                         <p class="text-left">In this initiative, OYALD regular historical information and current events updates about Africa on our social media channels. This serves as a readily available source of relevant knowledge about our African heritage, and helps to keep our social media followers up-to-date on the happenings in the continent.</p>
                         <p class="text-left">Kindly follow us on, and subscribe to, our social media pages/profiles to get these information updates about Africa.</p>
-                        <b-form >
+                        <b-form @submit.prevent="$store.commit('submitNewsletterForm')">
                           <b-form-group class="w-100">
                             <label for="newsletter-email" class="w-100 text-left">Your email</label>
                             <b-form-input
                               type="email"
                               class="w-100 text-left"
                               v-model="$store.state.userPreferences.email"
-                              placeholder="Type here..." />
+                              placeholder="Type here..." 
+                              />
                           </b-form-group>
+                          <br />
+                          <b-button
+                            class="bg-success"
+                            block
+                            variant="success"
+                            type="submit"
+                            >Submit</b-button>
                         </b-form>
                       </center>
                       <br />
                       <p class="d-flex align-items-center justify-content-around w-100">
-                        <a v-for="(handle, index) in $store.state.socialHandles" target="_blank" :key="`initiatives-social-handle-${index + 1}`" :href="handle.url" class="text-center" style="color: #004400 !important;"><b-icon font-scale="2" :icon="handle.icon" /></a>
+                        <a
+                          v-for="(handle, index) in $store.state.socialHandles"
+                          target="_blank"
+                          :key="`initiatives-social-handle-${index + 1}`"
+                          :href="handle.url"
+                          class="text-center"
+                          variant="success"
+                          style="color: #004400 !important;"
+                          ><b-icon font-scale="2" :icon="handle.icon" /></a>
                       </p>
                     </b-card-body>
                   </b-collapse>
@@ -160,6 +176,15 @@ export default {
           this.canRemoveField = false;
         } else if(this.fieldOfInterestCount < 2) {
           this.canRemoveField = false;
+        }
+      },
+      async submitCapacityBuildingForm(){
+        const fields = this.$store.state.userPreferences;
+
+        if (fields.firstName && fields.surName && fields.fieldsOfInterest && fields.email && fields.country && fields.state && fields.city){
+          alert('ready to submit');
+        } else {
+          //
         }
       }
     },
