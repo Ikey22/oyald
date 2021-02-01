@@ -26,12 +26,12 @@
       <h1 class="text-left font-weight-bold w-100" style="color: var(--custom-primary-color) !important;">Africa's future: A vibrant young population</h1>
       <br />
       <p> <img
-          src="@/assets/img/istockphoto-globe.jpg"
+          src="@/assets/img/vibrant-young-population.jpg"
           style="width: 100%; max-width: 400px;"
           class="pl-2 pr-2 pl-lg-4 pr-lg-4"
           width="300"
           align="left"
-          alt="Colourful Image of afria sourced from isock photos depicting the rich cultural diversit of africa"
+          alt="Image depicting africa's vibrant young population - sourced from https://www.weforum.org/agenda/2020/01/the-children-s-continent/"
           /> With 60 percent of Africa’s population currently aged 24 and below, it is clear that Africa is a continent of young people. Acknowledging this fact, the leaders of the world decided to give a priority to the young population. This is translated into both the Agenda 2063 of the African Union, and the Agenda 2030 of the United Nations. </p>
           <p>The responsibility to build this continent rests with each and every African citizen, especially young leaders at the continental level, and within our countries; responsibility to ensure that decision makers adequately put priority where it is needed. Thus, there is an emphatic call on governments in Africa to transform education and skills development, health and well being, empowerment, employment and entrepreneurship, which lie at the heart of the march of Africa towards progress, sustainable peace and development. </p>
       <br />
@@ -61,6 +61,11 @@
                 <li><small>
                   Worldometer. (n.d). Population of Africa (2021). Retrieved January 1, 2021 from <a target="_blank" href="https://www.worldometers.info/world-population/">https://www.worldometers.info/world-population/africa-population/</a>
                 </small></li>
+                <li>
+                  <small>
+                    Images: <a href="https://www.weforum.org/agenda/2020/01/the-children-s-continent/">https://www.weforum.org/agenda/2020/01/the-children-s-continent/</a>, <a></a>
+                  </small>
+                </li>
                 </ol>
               </cite>
               <br />

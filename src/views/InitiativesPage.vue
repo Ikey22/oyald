@@ -179,10 +179,18 @@ export default {
         }
       },
       async submitCapacityBuildingForm(){
+        const $this = this;
         const fields = this.$store.state.userPreferences;
 
         if (fields.firstName && fields.surName && fields.fieldsOfInterest && fields.email && fields.country && fields.state && fields.city){
-          alert('ready to submit');
+          const { firstName, middleName,  surName, fieldsOfInterest, email, phoneNumber, country, state, city } = fields;
+          const data = { firstName, middleName, surName, fieldsOfInterest, email, phoneNumber, country, state, city }
+          const serializedData = JSON.parse(JSON.stringify(data));
+          $this.$firebase.firestore()
+              .collection('capacityBuilding')
+              .add(serializedData)
+              .then(() => alert('successfully submitted'))
+              .catch(console.error.bind(console));
         } else {
           //
         }
