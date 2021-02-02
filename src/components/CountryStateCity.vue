@@ -80,26 +80,37 @@
                });
          },
          setCountry($event){
-             this.states = this.countries.filter(country => country.name === $event.target.value)[0].states;
-             this.country = $event.target.value;
+            this.country = $event.target.value;
+            const foundIndex = this.countries.findIndex(country => country.name = $event.target.value);
+            this.states = this.countries[foundIndex];
             return this.emitValue();
          },
          setState($event){
-            this.cities = this.states.filter(state => state.name === $event.target.value)[0].cities;
             this.state = $event.target.value;
+            const foundIndex = this.states.findIndex(state => state.name = $event.target.value);
+            this.cities = this.states[foundIndex];
             return this.emitValue();
             },
          setCity($event){
-            this.city = $event.target.value;
+             this.city = $event.target.value;
             return this.emitValue();
             },
          emitValue(){
             const $this = this;
-            $this.$emit('value', {
+
+            const obj = {
                 country: $this.country,
                 state: $this.state,
                 city: $this.city
-            });
+            };
+
+            console.log(obj);
+
+            $this.$emit('value', obj);
+            $this.$store.state.userPreferences.country = $this.country;
+            $this.$store.state.userPreferences.state = $this.state;
+            $this.$store.state.userPreferences.city = $this.city;
+            return true;
          }
         }
     }
