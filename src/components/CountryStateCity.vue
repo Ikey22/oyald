@@ -61,7 +61,7 @@
             }
         },
         created() {
-            return this.fetchData();
+            return setTimeout(() => this.fetchData(), 1);
         },
         methods: {
          fetchData(){
