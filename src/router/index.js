@@ -17,10 +17,14 @@ const routes = [
   },
 
   {
-    path: '/home',
-    alias: '/about-africa',
+    path: '/about-africa',
     name: 'HomePage',
     component: HomePage
+  },
+
+  {
+    path: '/home',
+    redirect: '/home-page'
   },
 
   {

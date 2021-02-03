@@ -84,12 +84,15 @@ export default {
   border-radius: 10px;
   box-sizing: border-box;
   transform: translateY(3px);
+  -moz-transform: translateY(3px);
 }
 
 .logo-img-slogan{
   font-weight: 600;
   font-size: 12px;
-  transform: translate(2px, -14px);
+  transform: translate(45%, -14px);
+  -moz-transform: translate(45%, 10px);
+  -ms-transform: translate(45%, -14px);
   word-wrap: nowrap;
 }
 
@@ -99,11 +102,15 @@ export default {
 
 .logo-text{
   transform: translateY(-14px);
+  -ms-transform: translateY(-14px);
+  -moz-transform: translateY(-14px);
 }
 
 @media screen and (max-width: 767px){
   .logo-text{
     transform: translateY(0px);
+    -moz-transform: translateY(0px);
+    -ms-transform: translateY(0px);
   }
 }
 </style>

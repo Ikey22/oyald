@@ -27,7 +27,7 @@
 
       <div class="call-to-action p-5 shadow-lg">
         <b-navbar>
-          <b-navbar-brand
+          <div
             style="color: var(--custom-secondary-color);"
             class="w-100 font-weight-bold text-center n-brand d-flex align-items-center justify-content-center flex-column">
             <img
@@ -38,8 +38,9 @@
               />
             <br />
             <br />
-            <span>OYALD</span>
-          </b-navbar-brand>
+            <br />
+            <span class="font-weight-bold w-100 h3 text-center">OYALD</span>
+          </div>
         </b-navbar>
         <br />
         <b-button-toolbar>

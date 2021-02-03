@@ -7,6 +7,7 @@
                             @change="setCountry($event)"
                             placeholder="Select country..."
                             autocomplete="country"
+                            v-model="country"
                             :required="true"
                             >
                                 <b-form-select-option v-for="(x, index) in countries" :key="`country-${index + 1}`" :value="x.name">{{x.name}}</b-form-select-option>
@@ -19,7 +20,7 @@
                             id="region"
                             @change="setState($event)"
                             placeholder="Select State/Region..."
-                            autocomplete="region"
+                            v-model="state"
                             :required="true"
                             >
                                 <b-form-select-option v-for="(x, index) in states" :key="`state-${index + 1}`" :value="x.name">{{x.name}}</b-form-select-option>
@@ -32,7 +33,7 @@
                             id="lga"
                             @change="setCity($event)"
                             placeholder="Select District/L.G.A..."
-                            autocomplete="country"
+                            v-model="city"
                             :required="true"
                             >
                                 <b-form-select-option v-for="(x, index) in cities" :key="`cities-${index + 1}`" :value="x.name">{{x.name}}</b-form-select-option>
@@ -70,25 +71,25 @@
            fetch($this.url)
            .then(res => res.json())
            .then(json => {
-               $this.countries = json;
+               $this.countries = [...json];
                return $this.countries
            })
            .catch(err => {
                console.error("Unable to get list of countrie, states and cities: ", err);
-               $this.countries = {name: 'Trying to connect'};
+               $this.countries = [{name: 'Trying to connect'}];
                return setTimeout($this.fetchData, 5000);
                });
          },
          setCountry($event){
             this.country = $event.target.value;
             const foundIndex = this.countries.findIndex(country => country.name = $event.target.value);
-            this.states = this.countries[foundIndex];
+            this.states = this.countries[foundIndex].states;
             return this.emitValue();
          },
          setState($event){
             this.state = $event.target.value;
             const foundIndex = this.states.findIndex(state => state.name = $event.target.value);
-            this.cities = this.states[foundIndex];
+            this.cities = this.states[foundIndex].city;
             return this.emitValue();
             },
          setCity($event){
@@ -97,19 +98,20 @@
             },
          emitValue(){
             const $this = this;
+            const { country, state, city } = $this;
 
             const obj = {
-                country: $this.country,
-                state: $this.state,
-                city: $this.city
+                country,
+                state,
+                city
             };
 
             console.log(obj);
 
             $this.$emit('value', obj);
-            $this.$store.state.userPreferences.country = $this.country;
-            $this.$store.state.userPreferences.state = $this.state;
-            $this.$store.state.userPreferences.city = $this.city;
+            $this.$store.state.userPreferences.country = country;
+            $this.$store.state.userPreferences.state = state;
+            $this.$store.state.userPreferences.city = city;
             return true;
          }
         }
