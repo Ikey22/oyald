@@ -15,7 +15,7 @@
            </b-list-group>
            <br />
            <b-button
-            class="bg-danger"
+            variant="danger"
             type="submit"
             @click="adminLogout"
             >Logout</b-button>
@@ -39,12 +39,14 @@
           <p class="text-primary-color font-weight-bold h3'">Overview</p>
           <center>
             <bar-chart
+            v-if="shouldRenderChart"
             :height="400"
             :labels="labels" 
-            datasetLabel="Statistical overview"
-            :datasetData="datasetData"
-            style="max-width: 950px !important;"
+             datasetLabel="Statistical overview"
+            :datasetData="[this.members.length, this.membership_requests.length, this.partners.length, this.partnership_requests.length, this.newsletter_subscribtions.length]"
+             style="max-width: 950px !important;"
             />
+            <p v-else class="w-100 text-center h1 text-primary-color font-weight-bold">Loading</p>
           </center>
         </div>
 
@@ -56,7 +58,7 @@
         <template #title>
           <b-icon icon="people-fill" />
           Members
-          <b-badge variant="danger">16</b-badge>
+          <b-badge variant="danger"> {{ members.length }} </b-badge>
         </template>
         <hr />
 
@@ -74,29 +76,12 @@
 
           <team-member-list>
             <team-member
-                    v-for="x in 4"
-                    :key="`team-admin-${x}`"
-                    name="Admin"
-                    role="Administrator"
-                    :socials="{
-                        facebook: true,
-                        linkedin: true,
-                        twitter: true,
-                        instagram: true
-                    }" 
-                    />
-                    
-            <team-member
-                    v-for="x in 12"
-                    :key="`team-member-${x}`"
-                    name="John Doe"
-                    role="Regular"
-                    :socials="{
-                        facebook: true,
-                        linkedin: true,
-                        twitter: true,
-                        instagram: true
-                    }" 
+                    v-for="(x, index) in members.filter(m => m.category == 'general-secretariat')"
+                    :key="`general-secretariat-member-${index + 1}`"
+                    :name="`${x.firstName + ' ' + (x.middleName || '') + ' ' + (x.surName || '')}`"
+                    :role="x.role"
+                    :imgURL="x.imgURL"
+                    :socials="x.socials || {}"
                     />
           </team-member-list>
 
@@ -109,7 +94,7 @@
         <template #title>
           <b-icon icon="people" />
           Partners
-          <b-badge variant="danger">5</b-badge>
+          <b-badge variant="danger"> {{ partners.length }} </b-badge>
         </template>
         <hr />
 
@@ -149,7 +134,7 @@
         <template #title>
           <b-icon icon="book-half" />
           Newsletter subcriptions
-          <b-badge variant="danger">5</b-badge>
+          <b-badge variant="danger"> {{ newsletter_subscribtions.length }} </b-badge>
         </template>
         <hr />
 
@@ -261,29 +246,13 @@
   </div>
   <!-- #end login form -->
 
-  <!-- begin newtork error modal -->
-  <b-modal v-model="showNetworkErrorModal">
-    <div class="w-100 h-100">
-      <p class="h1 text-center w-100 font-weight-bold text-danger">Network error!!!</p>
-    </div>
-  </b-modal>
-  <!-- #end network error modal -->
-
-  <!-- begin newtork error modal -->
-  <b-modal v-model="showSuccesfulModal">
-    <div class="w-100 h-100">
-      <p class="h1 text-center w-100 font-weight-bold text-primary-color">Successful!!!!</p>
-    </div>
-  </b-modal>
-  <!-- #end network error modal -->
-
-  <!-- begin newtork error modal -->
-  <b-modal v-model="showInvalidLoginDetailsModal">
+  <!-- begin invalid credentials modal -->
+  <b-modal v-model="showInvalidLoginDetailsModal"> 
     <div class="w-100 h-100">
       <p class="h1 text-center w-100 font-weight-bold text-danger">Invalid credentials!!!</p>
     </div>
   </b-modal>
-  <!-- #end network error modal -->
+  <!-- #end invalid credentials modal -->
 
   </div>
 </template>
@@ -303,21 +272,36 @@ export default {
     //Overview
   },
     name: "Admin",
+    computed: {
+      partners: {
+        get(){
+          return this.members.filter(member => member.category == 'partner');
+        }
+      },
+      datasetData: {
+        get(){
+          return [this.members.length, this.membership_requests.length, this.partners.length, this.partnership_requests.length, this.newsletter_subscribtions.length];
+        }
+      }
+    },
     data(){
       return {
+        members: [],
+        membership_requests: [],
+        partnership_requests: [],
+        newsletter_subscribtions: [],
+
+        shouldRenderChart: false,
+
+        unsubscribe: {},
         adminLoginDetails: {
           email: "",
           password: ""
         },
-        membershipRequests: 0,
-        showNetworkErrorModal: false,
         showInvalidLoginDetailsModal: false,
-        showSuccesfulModal: false,
         isLoggingIn: false,
-        members: [],
-        newsletterSubscribtions: 0,
-        datasetData: [],
-        labels: [`Members`, `New Membership Requests`, `Partners`, `Newsletter subscribtions`, `Unread Mails`],
+        
+        labels: [`Members`, `New Membership Requests`, `Partners`, `New Partnership Requests`, `Newsletter subscribtions`],
         newsletterTableFields: [
           {
             key: "name",
@@ -354,9 +338,8 @@ export default {
       }
     },
     methods: {
-      makeDatabaseRequest(){},
       adminLogout(){
-        this.showSuccesfulModal = true;
+        this.$store.commit('showSuccessModal', true);
         this.$store.commit('setAuthAdmin', null);
       },
       adminLogin(){
@@ -365,47 +348,80 @@ export default {
         $this.isLoggingIn = true;
 
         const commit = matchedUser => {
-
-                $this.$store.commit('setAuthAdmin', matchedUser);
-                $this.$firebase.analytics().logEvent('admin_login', JSON.parse(JSON.stringify(matchedUser)));
-                $this.showSuccesfulModal = true;
+          
+                const prevettedUser =  JSON.parse(JSON.stringify(matchedUser));
+                const vettedUser = { ...prevettedUser }
+                vettedUser.password = null;
+                $this.$store.commit('setAuthAdmin', vettedUser);
+                $this.$firebase.analytics().logEvent('admin_login', vettedUser);
+                $this.$store.commit('showSuccessModal', true);
                 $this.isLoggingIn = false;
                 $this.adminLoginDetails = {
                     email: '',
                     password: ''
                 };
 
-                $this.$firebase.firestore()
-                                    .collection('members')
-                                    .get()
-                                    .then(res => {
-                                                    const newMembersArray = [];
+
+
+
+
+
+
+
+                const subscribeTo = collectionName => {
+
+                  const ref = $this.$firebase.firestore()
+                                    .collection(collectionName);
+
+                    ref.get().then(res => {
+                                                    const newArray = [];
 
                                                     res.docs.forEach(doc => {
-                                                      newMembersArray.push(doc);
+                                                      newArray.push(doc.data());
                                                     });
 
-                                                    $this.members = [...newMembersArray];
-                                                  });
-                $this.unsubscribeMembers = $this.$firebase.firestore()
-                                                  .collection('members')
-                                                  .onSnapshot(snapshot => {
-                                                    const newMembersArray = [];
+                                                    $this[collectionName] = [...newArray];
+                                                    $this.shouldRenderChart = true;
+                                                  }).catch(() => subscribeTo(collectionName));
 
-                                                    snapshot.forEach(doc => {
-                                                      newMembersArray.push(doc);
+                    $this.unsubscribeListener = ref.onSnapshot(snapshot => {
+                                                    const newArray = [];
+
+                                                    if (snapshot.docs.length) snapshot.docs.forEach(doc => {
+                                                      newArray.push(doc.data());
                                                     });
 
-                                                    $this.members = [...newMembersArray];
+                                                    $this[collectionName] = [...newArray];
+                                                    $this.shouldRenderChart = true;
                                                   });
 
+
+                    return $this.unsubscribeListener;
+
+                };
+
+
+
+
+
+
+
+
+
+              subscribeTo('members');
+              subscribeTo('membership_requests');
+              subscribeTo('partnerhip_requests');
+              subscribeTo('newsletter_subscribtions');
+
+              
               };
+
         const { email, password } = $this.adminLoginDetails;
         const matchPromise = $this.$firebase.firestore()
                                     .collection('members')
                                     .where('email', '==', email.toString().toLowerCase())
                                     .where('password', '==', password.toString().toLowerCase())
-                                    .get({source: 'server'});
+                                    .get();
 
         matchPromise.
           then(match => {
@@ -437,7 +453,7 @@ export default {
 
         })
           .catch(err => {
-            $this.showNetworkErrorModal = true;
+            $this.$store.commit('showNetworkErrorModal', true);
             console.error(err);
             $this.adminLoginDetails.password = '';
             $this.isLoggingIn = false;

@@ -13,7 +13,7 @@
                 <team-member
                     v-for="(x, index) in fetchData"
                     :key="`general-secretariat-member-${index + 1}`"
-                    :name="`${x.data().firstName + ' ' + (x.data().middleName || '') + ' ' + x.data().surName}`"
+                    :name="`${x.data().firstName + ' ' + (x.data().middleName || '') + ' ' + (x.data().surName || '')}`"
                     :role="x.data().role"
                     :imgURL="x.data().imgURL"
                     :socials="{

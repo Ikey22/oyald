@@ -1,6 +1,5 @@
 <template>
-  <div
-      class="root w-100 h-100">
+  <div class="root w-100 h-100">
 
     <pre-header />
 
@@ -8,9 +7,28 @@
 
     <br />
 
-    <router-view />
+    <keep-alive>
+      <router-view />
+    </keep-alive>
 
     <br v-for="x in 3" :key="`pre-footer-line-break-${x}`" />
+
+  <!-- begin newtork error modal -->
+  <b-modal v-model="$store.state.networkErrorModal">
+    <div class="w-100 h-100">
+      <p class="h1 text-center w-100 font-weight-bold text-danger">Network error!!!</p>
+    </div>
+  </b-modal>
+  <!-- #end network error modal -->
+
+  <!-- begin success modal -->
+  <b-modal v-model="$store.state.successModal">
+    <div class="w-100 h-100">
+      <p class="h1 text-center w-100 font-weight-bold text-primary-color">Successful!!!!</p>
+    </div>
+  </b-modal>
+  <!-- #end success modal -->
+
 
     <footer-component />
 

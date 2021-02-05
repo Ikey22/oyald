@@ -1,7 +1,8 @@
 <script>
-import { Bar } from 'vue-chartjs'
+import { Line } from 'vue-chartjs'
 
 export default {
+  extends: Line,
   name: "BarChart",
   props: {
       datasetBackgroundColor: {
@@ -22,7 +23,6 @@ export default {
           required: false
       }
   },
-  extends: Bar,
   mounted () {
     
     const $this = this;

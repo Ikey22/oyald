@@ -16,17 +16,22 @@ const routes = [
     component: LandingPage
   },
 
+
+
   {
     path: '/about-africa',
     name: 'HomePage',
     component: HomePage
   },
-
   {
     path: '/home',
     redirect: '/home-page'
   },
-
+  {
+    path: '/home.html',
+    alias: '/home-page.html',
+    redirect: '/home-page'
+  },
   {
     path: '/home-page',
     alias: '/about-page',
@@ -40,6 +45,18 @@ const routes = [
     })
   },
 
+
+
+  {
+    path: '/initiatives.html',
+    alias: 'our-initiatives.html',
+    redirect: '/initiatives'
+  },
+  {
+    path: '/ourinitiative',
+    alias: 'ourinitiatives.html',
+    redirect: '/initiatives'
+  },
   {
     path: '/initiatives',
     alias: '/initiatives-page',
@@ -52,6 +69,8 @@ const routes = [
       component: import(/* webpackChunkName: "about", webpackPrefetch: true */ '@/views/InitiativesPage.vue')
     })
   },
+
+
 
   {
     path: '/membership',
@@ -66,6 +85,8 @@ const routes = [
     })
   },
 
+
+
   {
     path: '/partnership',
     name: 'NewPartner',
@@ -77,6 +98,8 @@ const routes = [
       component: import(/* webpackChunkName: "membership" */ '@/views/NewPartner.vue')
     })
   },
+
+
 
   {
     path: "/general-secretariat",
@@ -90,6 +113,8 @@ const routes = [
     })
   },
 
+
+
   {
     path: "/country-secretaries",
     name: "CountrySecretaries",
@@ -102,6 +127,8 @@ const routes = [
     })
   },
 
+
+
   {
     path: "/partners",
     name: "Partners",
@@ -113,6 +140,8 @@ const routes = [
       component: import(/* webpackChunkName: "our-team", webpackPrefetch: true */ '@/views/Partners.vue')
     })
   },
+
+
 
   {
     path: "/contact",
@@ -127,6 +156,8 @@ const routes = [
     })
   },
 
+
+
   {
     path: "/__admin",
     name: "Admin",
@@ -138,6 +169,8 @@ const routes = [
       component: import(/*  webpackChunkName: "admin", webpackPrefetch: true */ '@/views/Admin.vue')
     })
   },
+
+  
 
   {
     path: "*",
@@ -153,6 +186,12 @@ const router = new VueRouter({
   scrollBehavior () {
     return { x: 0, y: 0 };
   }
+});
+
+router.beforeEach((to, from, next) => {
+  console.log(to, from);
+  console.clear();
+  return next();
 });
 
 window.__$router = router;

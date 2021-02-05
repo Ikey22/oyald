@@ -99,7 +99,10 @@ const $store = new Vuex.Store({
         url: 'https://instagram.com/oyald.ojlad',
         icon: "instagram"
       }
-    ]
+    ],
+    successModal: false,
+    networkErrorModal: false,
+    emailAlreadyInNewsletterModal: false
   },
   mutations: {
     setLanguage(state, language){
@@ -109,8 +112,41 @@ const $store = new Vuex.Store({
     setAuthAdmin(state, admin){
       state.authAdmin = admin;
     },
+    showSuccessModal(state, boolValue){
+      state.successModal = boolValue;
+    },
+    showEmailAlreadyInNewsletterModal(state, boolValue){
+      state.emailAlreadyInNewsletterModal = boolValue;
+    },
+    showNetworkErrorModal(state, boolValue){
+      state.networkErrorModal = boolValue;
+    },
     async submitNewsletterForm(){
-      //
+      const ref = this.$firebase.firestore().collection('newsletter-subscribtion');
+      const email = this.$store.state.userPreferences.email;
+      const addEmailToNewsletterSubscribtion = email => {
+        ref.add({email})
+          .then(() => this.$store.commit('showSuccessModal', true))
+          .catch(() => this.$store.commit('showNetworkErrorModal', true));
+      }
+
+      ref.where('email', '==', email)
+        .limit(1)
+        .get()
+        .then(snapshot => {
+          if (snapshot.docs){
+            if (snapshot.docs.length && snapshot.docs[0]){
+              this.$store.commit('showEmailAlreadyInNewsletterModal', true);
+            } else {
+              addEmailToNewsletterSubscribtion(email);
+            }
+          } else {
+            addEmailToNewsletterSubscribtion(email);
+          }
+        })
+        .catch(() => {
+          this.$tore.commit('showNetworkErrorModal', true);
+        })
     }
   },
   actions: {

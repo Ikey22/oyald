@@ -199,14 +199,13 @@ export default {
 
           const serializedData = JSON.parse(JSON.stringify(data));
 
-          $this.$firebase.firestore()
-              .collection('capacityBuilding')
-              .add(serializedData)
+          const ref = $this.$firebase.firestore()
+              .collection('capacityBuilding');
+
+              ref.add(serializedData)
               .then(() => alert('successfully submitted'))
               .catch(console.error.bind(console));
               
-        } else {
-          //
         }
       }
     },
