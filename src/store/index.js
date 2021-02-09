@@ -78,6 +78,7 @@ const $store = new Vuex.Store({
       stayConnected: 'Rester connecté',
     },
     authAdmin: null,
+    isAddingToNewsletter: false,
     socialHandles: [
       {
         name: 'Linkedin',
@@ -121,13 +122,22 @@ const $store = new Vuex.Store({
     showNetworkErrorModal(state, boolValue){
       state.networkErrorModal = boolValue;
     },
-    async submitNewsletterForm(){
-      const ref = this.$firebase.firestore().collection('newsletter-subscribtion');
+    async submitNewsletterForm(state){
+      state.isAddingToNewsletter = true;
+
+      const ref = this.$firebase.firestore().collection('newsletter_subscribtion');
       const email = this.$store.state.userPreferences.email;
+
       const addEmailToNewsletterSubscribtion = email => {
-        ref.add({email})
-          .then(() => this.$store.commit('showSuccessModal', true))
-          .catch(() => this.$store.commit('showNetworkErrorModal', true));
+        if (/\S@\S.\S/.test(email)) ref.add({email})
+          .then(() => {
+            state.isAddingToNewsletter = false;
+            this.$store.commit('showSuccessModal', true)
+          })
+          .catch(() => {
+            state.isAddingToNewsletter = false;
+            this.$store.commit('showNetworkErrorModal', true)
+          });
       }
 
       ref.where('email', '==', email)
@@ -136,6 +146,7 @@ const $store = new Vuex.Store({
         .then(snapshot => {
           if (snapshot.docs){
             if (snapshot.docs.length && snapshot.docs[0]){
+              state.isAddingToNewsletter = false;
               this.$store.commit('showEmailAlreadyInNewsletterModal', true);
             } else {
               addEmailToNewsletterSubscribtion(email);
@@ -145,6 +156,7 @@ const $store = new Vuex.Store({
           }
         })
         .catch(() => {
+          state.isAddingToNewsletter = false;
           this.$tore.commit('showNetworkErrorModal', true);
         })
     }

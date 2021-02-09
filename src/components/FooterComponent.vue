@@ -52,6 +52,12 @@
 
     <div class="text-light d-flex flex-column flex-lg-row align-items-center justify-content-between">
       <span class="h5 font-weight-bold"> <i class="text-success fa fa-envelope-open"></i> SUBSCRIBE TO OUR NEWSLETTER </span>
+      <b-overlay
+            :show="$store.state.isAddingToNewsletter"
+            rounded
+            opacity="0.6"
+            spinner-small
+            class="d-inline-block col-6">
       <form @submit.prevent="$store.commit('submitNewsletterForm')" class="d-flex flex-xl-row flex-lg-row flex-md-row flex-sm-column">
         <div class="input-group rounded-lg">
           <input required v-model="$store.state.userPreferences.email" type="email" class="form-control" id="inlineFormInputGroupUsername" :placeholder="$store.state.language === 'en' ? 'your email address' : 'Quelle est ton adresse email'">
@@ -60,6 +66,7 @@
           </div>
         </div>
       </form>
+      </b-overlay>
     </div> 
 
     <hr class="bordered border-light" />
