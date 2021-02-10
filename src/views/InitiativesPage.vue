@@ -128,12 +128,19 @@
                               />
                           </b-form-group>
                           <br />
+                          <b-overlay
+                            :show="$store.state.isAddingToNewsletter"
+                            rounded
+                            opacity="0.6"
+                            spinner-small
+                            class="w-100">
                           <b-button
                             class="bg-success"
                             block
                             variant="success"
                             type="submit"
                             >Submit</b-button>
+                          </b-overlay>
                         </b-form>
                       </center>
                       <br />
