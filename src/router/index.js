@@ -49,12 +49,12 @@ const routes = [
 
   {
     path: '/initiatives.html',
-    alias: 'our-initiatives.html',
+    alias: '/our-initiatives.html',
     redirect: '/initiatives'
   },
   {
     path: '/ourinitiative',
-    alias: 'ourinitiatives.html',
+    alias: '/ourinitiatives.html',
     redirect: '/initiatives'
   },
   {

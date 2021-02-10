@@ -204,12 +204,26 @@ export default {
 
               ref.where('email', '==', serializedData.email)
                 .get()
-                .then(() => {})
-                .catch(() => {});
+                .then(snapshot => {
+                  const docs = snapshot.docs;
 
-              ref.add(serializedData)
-              .then(() => alert('successfully submitted'))
-              .catch(console.error.bind(console));
+                  if(docs.length){
+                    if (docs[0] && docs[0].exists){
+                      // todo
+                    } else {
+                      ref.add(serializedData)
+                        .then(() => {
+                          // todo
+                        })
+                        .catch(() => {
+                          $this.$store.commit('showNetworkErrorModal', true);
+                        });
+                    }
+                  }
+                })
+                .catch(() => {
+                  $this.$store.commit('showNetworkErrorModal', true);
+                });
               
         } else {
           return this.$tore.commit('showIncompleteFormModal', true);

@@ -81,14 +81,15 @@
                });
          },
          setCountry(){
-             console.log(this.countries);
-            const foundIndex = this.countries.findIndex(country => country.name = this.country);
+            window.countries = this.countries;
+            console.log(this.countries);
+            const foundIndex = this.countries.findIndex(country => country.name === this.country);
             this.states = this.countries[foundIndex].states;
             return this.emitValue();
          },
          setState(){
-            const foundIndex = this.states.findIndex(state => state.name = this.state);
-            this.cities = this.states[foundIndex].city;
+            const foundIndex = this.states.findIndex(state => state.name === this.state);
+            this.cities = this.states[foundIndex].cities;
             return this.emitValue();
             },
          setCity(){
@@ -103,8 +104,6 @@
                 state,
                 city
             };
-
-            console.log(obj);
 
             $this.$emit('value', obj);
             $this.$store.state.userPreferences.country = country;
