@@ -16,7 +16,7 @@
   <!-- begin newtork error modal -->
   <b-modal v-model="$store.state.networkErrorModal">
     <div class="w-100 h-100">
-      <p class="h1 text-center w-100 font-weight-bold text-danger">Network error!!!</p>
+      <p class="h3 text-center w-100 font-weight-bold text-danger">Network error!!!</p>
     </div>
   </b-modal>
   <!-- #end network error modal -->
@@ -24,7 +24,7 @@
   <!-- begin success modal -->
   <b-modal v-model="$store.state.successModal">
     <div class="w-100 h-100">
-      <p class="h1 text-center w-100 font-weight-bold text-primary-color">Successful!!!!</p>
+      <p class="h3 text-center w-100 font-weight-bold text-primary-color">Successful!!!!</p>
     </div>
   </b-modal>
   <!-- #end success modal -->
@@ -32,7 +32,7 @@
   <!-- begin email already in newsletter modal -->
   <b-modal v-model="$store.state.emailAlreadyInNewsletterModal">
     <div class="w-100 h-100">
-      <p class="h1 text-center w-100 font-weight-bold text-primary-color">You've already signed up for our newsletter!!!!</p>
+      <p class="h3 text-center w-100 font-weight-bold text-primary-color">You've already signed up for our newsletter!!!!</p>
     </div>
   </b-modal>
   <!-- #end email already in newsletter modal -->

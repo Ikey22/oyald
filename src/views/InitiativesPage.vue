@@ -200,12 +200,19 @@ export default {
           const serializedData = JSON.parse(JSON.stringify(data));
 
           const ref = $this.$firebase.firestore()
-              .collection('capacityBuilding');
+              .collection('capacity_building');
+
+              ref.where('email', '==', serializedData.email)
+                .get()
+                .then(() => {})
+                .catch(() => {});
 
               ref.add(serializedData)
               .then(() => alert('successfully submitted'))
               .catch(console.error.bind(console));
               
+        } else {
+          return this.$tore.commit('showIncompleteFormModal', true);
         }
       }
     },

@@ -25,7 +25,7 @@ const $store = new Vuex.Store({
       dob: "",
       phoneNumber: "",
       zipCode: "",
-      country: "Nigeria",
+      country: "",
       state: "",
       city: "",
       passport: [],
@@ -125,18 +125,19 @@ const $store = new Vuex.Store({
     async submitNewsletterForm(state){
       state.isAddingToNewsletter = true;
 
-      const ref = this.$firebase.firestore().collection('newsletter_subscribtion');
-      const email = this.$store.state.userPreferences.email;
+
+      const ref = window.__$vm.$firebase.firestore().collection('newsletter_subscribtion');
+      const email = state.userPreferences.email;
 
       const addEmailToNewsletterSubscribtion = email => {
         if (/\S@\S.\S/.test(email)) ref.add({email})
           .then(() => {
             state.isAddingToNewsletter = false;
-            this.$store.commit('showSuccessModal', true)
+            window.__$store.commit('showSuccessModal', true)
           })
           .catch(() => {
             state.isAddingToNewsletter = false;
-            this.$store.commit('showNetworkErrorModal', true)
+            window.__$store.commit('showNetworkErrorModal', true)
           });
       }
 
@@ -147,7 +148,7 @@ const $store = new Vuex.Store({
           if (snapshot.docs){
             if (snapshot.docs.length && snapshot.docs[0]){
               state.isAddingToNewsletter = false;
-              this.$store.commit('showEmailAlreadyInNewsletterModal', true);
+              window.__$store.commit('showEmailAlreadyInNewsletterModal', true);
             } else {
               addEmailToNewsletterSubscribtion(email);
             }

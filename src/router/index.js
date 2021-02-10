@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import HomePage from '@/views/HomePage.vue';
+import AboutAfrica from '@/views/AboutAfrica.vue';
 import LandingPage from '@/views/LandingPage.vue';
 import NotFound404 from '@/views/NotFound404.vue';
 import PreLoader from '@/components/Preloader.vue';
@@ -20,8 +20,8 @@ const routes = [
 
   {
     path: '/about-africa',
-    name: 'HomePage',
-    component: HomePage
+    name: 'AboutAfrica',
+    component: AboutAfrica
   },
   {
     path: '/home',
@@ -34,14 +34,14 @@ const routes = [
   },
   {
     path: '/home-page',
-    alias: '/about-page',
-    name: 'AboutPage',
+    alias: '/about-us',
+    name: 'HomePage',
     component: () => ({
       timeout: 60000,
       delay: 1,
       loading: PreLoader,
       error: NetworkError,
-      component: import(/* webpackChunkName: "about", webpackPrefetch: true */ '@/views/AboutPage.vue')
+      component: import(/* webpackChunkName: "about", webpackPrefetch: true */ '@/views/HomePage.vue')
     })
   },
 

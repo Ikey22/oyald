@@ -4,7 +4,7 @@
                             <label for="country">Nationality*</label>
                             <b-form-select
                             id="country"
-                            @change="setCountry($event)"
+                            @change="setCountry"
                             placeholder="Select country..."
                             autocomplete="country"
                             v-model="country"
@@ -18,7 +18,7 @@
                             <label for="region">State/Region*</label>
                             <b-form-select
                             id="region"
-                            @change="setState($event)"
+                            @change="setState"
                             placeholder="Select State/Region..."
                             v-model="state"
                             :required="true"
@@ -31,7 +31,7 @@
                             <label for="lga">District/L.G.A*</label>
                             <b-form-select
                             id="lga"
-                            @change="setCity($event)"
+                            @change="setCity"
                             placeholder="Select District/L.G.A..."
                             v-model="city"
                             :required="true"
@@ -46,15 +46,15 @@
         name: 'CountryStateCity',
         data () {
             return {
-                url: 'https://raw.githubusercontent.com/dr5hn/countries-states-cities-database/master/countries%2Bstates%2Bcities.json',
+                url: '/country-state-city.json',//'https://raw.githubusercontent.com/dr5hn/countries-states-cities-database/master/countries%2Bstates%2Bcities.json',
                 countries: [
                     {name: 'Loading...'},
                 ],
                 states: [
-                    {name: '__Select Country first__'},
+                    {name: 'Select Country first'},
                 ],
                 cities: [
-                    {name: '__Select State first__'},
+                    {name: 'Select State first'},
                 ],
                 country: '',
                 state: '',
@@ -80,21 +80,19 @@
                return setTimeout($this.fetchData, 5000);
                });
          },
-         setCountry($event){
-            this.country = $event.target.value;
-            const foundIndex = this.countries.findIndex(country => country.name = $event.target.value);
+         setCountry(){
+             console.log(this.countries);
+            const foundIndex = this.countries.findIndex(country => country.name = this.country);
             this.states = this.countries[foundIndex].states;
             return this.emitValue();
          },
-         setState($event){
-            this.state = $event.target.value;
-            const foundIndex = this.states.findIndex(state => state.name = $event.target.value);
+         setState(){
+            const foundIndex = this.states.findIndex(state => state.name = this.state);
             this.cities = this.states[foundIndex].city;
             return this.emitValue();
             },
-         setCity($event){
-             this.city = $event.target.value;
-            return this.emitValue();
+         setCity(){
+             return this.emitValue();
             },
          emitValue(){
             const $this = this;

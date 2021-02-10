@@ -51,13 +51,13 @@
     <hr class="bordered border-light"/>
 
     <div class="text-light d-flex flex-column flex-lg-row align-items-center justify-content-between">
-      <span class="h5 font-weight-bold"> <i class="text-success fa fa-envelope-open"></i> SUBSCRIBE TO OUR NEWSLETTER </span>
+      <span class="h5 font-weight-bold text-center"> <i class="text-success fa fa-envelope-open"></i> SUBSCRIBE TO OUR NEWSLETTER </span>
       <b-overlay
             :show="$store.state.isAddingToNewsletter"
             rounded
             opacity="0.6"
             spinner-small
-            class="d-inline-block col-6">
+            class="d-flex flex-xl-row flex-lg-row flex-md-row flex-sm-column">
       <form @submit.prevent="$store.commit('submitNewsletterForm')" class="d-flex flex-xl-row flex-lg-row flex-md-row flex-sm-column">
         <div class="input-group rounded-lg">
           <input required v-model="$store.state.userPreferences.email" type="email" class="form-control" id="inlineFormInputGroupUsername" :placeholder="$store.state.language === 'en' ? 'your email address' : 'Quelle est ton adresse email'">
@@ -72,7 +72,7 @@
     <hr class="bordered border-light" />
 
     <div class="text-light d-flex flex-column flex-lg-row align-items-center justify-content-around">
-      <small>Organisation of Young African Leaders for Development &copy;  2011 -  {{ year }}</small>
+      <small class="w-100 text-center">Organisation of Young African Leaders for Development &copy;  2011 -  {{ year }}</small>
     </div><br/>
 
   </div>
