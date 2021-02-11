@@ -176,6 +176,20 @@ const routes = [
     path: "*",
     name: "NotFound404",
     component: NotFound404
+  },
+
+  
+
+  {
+    path: "/hover-calender",
+    name: "HoverCalender",
+    component: () => ({
+      timeout: 60000,
+      delay: 1,
+      loading: PreLoader, 
+      error: NetworkError,
+      component: import(/*  webpackChunkName: "admin", webpackPrefetch: true */ '@/views/HoverCalendar.vue')
+    })
   }
 ];
 

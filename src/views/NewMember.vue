@@ -193,6 +193,7 @@
                                 v-model="$store.state.userPreferences.agreedToc"
                                 :value="true"
                                 :unchecked-value="false"
+                                :required="true"
                               />
                           <label class="d-inline" for="toc">I have read and agreed to  the <b><a href="javascript:void(0)" @click="$refs.tocModal.show()"><q>terms and conditions of OYALD membership</q></a></b></label>
                         </b-form-group>
