@@ -1,5 +1,5 @@
 <template>
-    <div class="row w-100">
+    <b-form-row class="row w-100">
                           <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
                             <label for="country">Nationality*</label>
                             <b-form-select
@@ -39,7 +39,7 @@
                                 <b-form-select-option v-for="(x, index) in cities" :key="`cities-${index + 1}`" :value="x.name">{{x.name}}</b-form-select-option>
                             </b-form-select>
                           </b-form-group>
-                        </div>
+                        </b-form-row>
 </template>
 <script>
     export default {
@@ -62,7 +62,7 @@
             }
         },
         created() {
-            return setTimeout(() => this.fetchData(), 1);
+            return setTimeout(async () => this.fetchData(), 1);
         },
         methods: {
          fetchData(){
@@ -82,9 +82,9 @@
          },
          setCountry(){
             window.countries = this.countries;
-            console.log(this.countries);
             const foundIndex = this.countries.findIndex(country => country.name === this.country);
             this.states = this.countries[foundIndex].states;
+            this.cities = [{name: 'select Stat First!'}];
             return this.emitValue();
          },
          setState(){

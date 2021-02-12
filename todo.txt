@@ -1,4 +1,4 @@
-
-twitter.com/oojlad
-linkedin.com/company/oyald-ojlad
-
+* add OYALD in bracket in the header
+* get citation for images
+* Fix the arrows on the INITIATIVES page
+* justify the text

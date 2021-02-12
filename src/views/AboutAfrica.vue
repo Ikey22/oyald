@@ -4,7 +4,15 @@
     <section class="text-justify">
       <h1 class="text-left font-weight-bold w-100" style="color: var(--custom-primary-color) !important;">Africa, our continent!</h1>
       <br />
-      <p> <img src="@/assets/img/istockphoto-africa-colorful.jpg" style="width: 100%; max-width: 400px;" class="pl-2 pr-2 pl-lg-4 pr-lg-4" align="right"> Africa is the second largest continent, spanning about one-fifth of the total land surface of the earth. It is bounded on the West by the Atlantic Ocean, the Mediterranean Sea on the North, the Red Sea and Indian Ocean on the East, and on the South by the mingling waters of the Atlantic and Indian Oceans. Africa has a total land mass of approximately 11,724,000 square miles (30,365,000 km²), and measures about 5,000 miles (8,000 km) from the north to south, and about 4,600 miles (7,400 km) from east to west. </p>
+      <p> 
+        <figure class="float-right">
+          <img src="@/assets/img/istockphoto-africa-colorful.jpg" style="width: 100%; max-width: 400px;" class="pl-2 pr-2 pl-lg-4 pr-lg-4" />
+          <figcaption class="ml-4">Source: </figcaption>
+        </figure>
+        
+        Africa is the second largest continent, spanning about one-fifth of the total land surface of the earth. It is bounded on the West by the Atlantic Ocean, the Mediterranean Sea on the North, the Red Sea and Indian Ocean on the East, and on the South by the mingling waters of the Atlantic and Indian Oceans. Africa has a total land mass of approximately 11,724,000 square miles (30,365,000 km²), and measures about 5,000 miles (8,000 km) from the north to south, and about 4,600 miles (7,400 km) from east to west.
+      <!-- eslint-disable-next-line vue/no-parsing-error -->
+      </p>
       <p> Africa is divided almost equally in two by the equator, making most of the continent lying within the tropical region, which is bounded on the north by the Tropic of Cancer and on the south by the tropic of Capricorn. Due to the bulge formed by West Africa, the greater part of the continent’s territory lies north of the equator.</p>
 
       <b-collapse id="collapse-1" class="mt-2">
@@ -47,7 +55,7 @@
       <cite class="card p-2 rounded-lg">
                 <br />
                 <hr />
-                <u><p><small>Sources:</small></p></u>
+                <u><p><small>Information Sources:</small></p></u>
                 <ol>
                   <li><small>
                   African Union Commission Directorate on Information and Communication (2017). Harnessing the demographic dividend through investments in youth, AUEcho, Issue1. Ethiopia: African Union Commission. Retrieved from <a target="_blank" href="https://au.int/sites/default/files/documents/32665-doc-au-echo-magazine-2017-23june17-1.pdf">https://au.int/sites/default/files/documents/32665-doc-au-echo-magazine-2017-23june17-1.pdf</a>

@@ -115,33 +115,8 @@
                   <b-collapse id="accordion-2" visible accordion="accordion-2" role="tabpanel">
                     <b-card-body>
                       <center class="p-l-r">
-                        <p class="text-left">In this initiative, OYALD regular historical information and current events updates about Africa on our social media channels. This serves as a readily available source of relevant knowledge about our African heritage, and helps to keep our social media followers up-to-date on the happenings in the continent.</p>
+                        <p class="text-left">In this initiative, OYALD provides regular historical information and current events updates about Africa on our social media channels. This serves as a readily available source of relevant knowledge about our African heritage, and helps to keep our social media followers up-to-date on the happenings in the continent.</p>
                         <p class="text-left">Kindly follow us on, and subscribe to, our social media pages/profiles to get these information updates about Africa.</p>
-                        <b-form @submit.prevent="$store.commit('submitNewsletterForm')">
-                          <b-form-group class="w-100">
-                            <label for="newsletter-email" class="w-100 text-left">Your email</label>
-                            <b-form-input
-                              type="email"
-                              class="w-100 text-left"
-                              v-model="$store.state.userPreferences.email"
-                              placeholder="Type here..." 
-                              />
-                          </b-form-group>
-                          <br />
-                          <b-overlay
-                            :show="$store.state.isAddingToNewsletter"
-                            rounded
-                            opacity="0.6"
-                            spinner-small
-                            class="w-100">
-                          <b-button
-                            class="bg-success"
-                            block
-                            variant="success"
-                            type="submit"
-                            >Submit</b-button>
-                          </b-overlay> 
-                        </b-form>
                       </center>
                       <br />
                       <p class="d-flex align-items-center justify-content-around w-100">

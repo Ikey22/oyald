@@ -23,6 +23,7 @@
           <b-dropdown-item to="/country-secretaries">Our National Coordinators/Country Secretaries</b-dropdown-item>
           <b-dropdown-item to="/partners">Our Partners</b-dropdown-item>
         </b-nav-item-dropdown>
+        <JoinOYALDButton />
         <b-nav-item to="/contact">{{ $store.state.language === 'en' ? 'CONTACT US' : 'Nous contacter' }}</b-nav-item>
       </b-navbar-nav>
 
@@ -55,8 +56,13 @@
 </template>
 
 <script>
+import JoinOYALDButton from '@/components/JoinOYALDButton.vue';
+
 export default {
-    name: "HeaderComponent"
+    name: "HeaderComponent",
+    components: {
+      JoinOYALDButton
+    }
 }
 </script>
 
