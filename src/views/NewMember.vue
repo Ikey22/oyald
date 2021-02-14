@@ -7,9 +7,12 @@
       @submit.prevent="submitNewMemberForm"
       class="card shadow-md rounded p-3 d-block text-left"
       >
-                        <div class="row w-100">
+                        
+                        <b-form-row clas="row w-100">
 
-                          <b-form-group class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+                          <title-of-appelation class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6" />
+
+                          <b-form-group class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
                             <label for="surname">Surname*</label>
                             <b-form-input
                             id="surname"
@@ -21,7 +24,11 @@
                             />
                           </b-form-group>
 
-                          <b-form-group class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+                        </b-form-row>
+                        
+                        <b-form-row class="row w-100">
+
+                          <b-form-group class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
                             <label for="first-name">First Name*</label>
                             <b-form-input
                             id="first-name"
@@ -33,7 +40,7 @@
                             />
                           </b-form-group>
 
-                          <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                          <b-form-group class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
                             <label for="middle-name">Middle/other Names</label>
                             <b-form-input
                             id="middle-name"
@@ -43,12 +50,27 @@
                             />
                           </b-form-group>
 
-                        </div>
+                        </b-form-row>
+
+                        <b-form-row class="row w-100">
+
+                          <b-form-group class="col-12 col-sm-12 col-md-212 col-lg-12 col-xl-12">
+                            <label for="date-of-birth">Date of birth*</label>
+                            <b-form-datepicker
+                            id="date-of-birth"
+                            v-model="$store.state.userPreferences.dob"
+                            placeholder="select date..."
+                            :required="true"
+                            autocomplete="date-of-birth"
+                            />
+                          </b-form-group>
+
+                        </b-form-row>
 
                         <country-state-city />
 
                         <b-form-row class="row w-100">
-                          <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                          <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                             <label for="address1">Residential Address 1 *</label>
                             <b-form-input
                             id="address1"
@@ -60,7 +82,7 @@
                             />
                           </b-form-group>
 
-                          <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                          <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                             <label for="address2">Residential Address 2 (optional)</label>
                             <b-form-input
                             id="address2"
@@ -71,7 +93,7 @@
                             />
                           </b-form-group>
 
-                          <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                          <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                             <label for="address3">Residential Address 3 (optional)</label>
                             <b-form-input
                             id="address3"
@@ -81,6 +103,21 @@
                             autocomplete="address-line-3"
                             />
                           </b-form-group>
+                        </b-form-row>
+
+                        <b-form-row class="w-100 row">
+
+                          <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                            <label for="zip">Zip/Postal code</label>
+                            <b-form-input
+                            id="zip"
+                            v-model="$store.state.userPreferences.zipCode"
+                            placeholder="type here..."
+                            type="zip"
+                            autocomplete="zip"
+                            />
+                          </b-form-group>
+
                         </b-form-row>
 
                         <b-form-row class="row w-100">
@@ -99,17 +136,6 @@
 
                           <title-of-appelation class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4" />
 
-                          <b-form-group class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
-                            <label for="zip">Zip/Postal code</label>
-                            <b-form-input
-                            id="zip"
-                            v-model="$store.state.userPreferences.zipCode"
-                            placeholder="type here..."
-                            type="zip"
-                            autocomplete="zip"
-                            />
-                          </b-form-group>
-
                         </b-form-row>
 
                         <b-form-row class="row w-100">
@@ -122,17 +148,6 @@
                             type="email"
                             autocomplete="email"
                             :required="true"
-                            />
-                          </b-form-group>
-
-                          <b-form-group class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                            <label for="date-of-birth">Date of birth*</label>
-                            <b-form-datepicker
-                            id="date-of-birth"
-                            v-model="$store.state.userPreferences.dob"
-                            placeholder="select date..."
-                            :required="true"
-                            autocomplete="date-of-birth"
                             />
                           </b-form-group>
                         </b-form-row>

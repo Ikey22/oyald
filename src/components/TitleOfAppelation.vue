@@ -1,9 +1,10 @@
 <template>
 <b-form-group>
-                            <label for="title">Title of Appellation</label>
+                            <label for="title">Title of Appellation*</label>
                             <b-form-select
                               v-model="$store.state.userPreferences.titleOfAppelation"
                               :options="titles"
+                              :required="true"
                               />
                           </b-form-group>
 </template>
