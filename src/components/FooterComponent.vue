@@ -18,12 +18,12 @@
 
     <div class="row text-light">
 
-      <div class="col-12 col-md-6 col-lg-4 container-lg pt-2 pb-2">
+      <div class="col-12 col-md-6 col-lg-6 container-lg pt-2 pb-2">
         <p class="h5 u">{{ $store.state.language === 'en' ? $store.state.englishStrings.stayConnected.toString().toUpperCase() : $store.state.frenchStrings.stayConnected.toString().toUpperCase() }}</p>
         <p v-for="(handle, index) in $store.state.socialHandles" :key="`social-handle-${index + 1}`"> <a class="text-white" target="_blank" :href="handle.url"> <b-icon :icon="handle.icon"></b-icon> {{ handle.name }} </a> </p>
       </div>
 
-      <div class="col-12 col-md-6 col-lg-4 container-lg pt-2 pb-2">
+      <div class="col-12 col-md-6 col-lg-6 container-lg pt-2 pb-2">
         <p class="h5 u">{{ $store.state.language === 'en' ? $store.state.englishStrings.usefulLinks.toString().toUpperCase() : $store.state.frenchStrings.usefulLinks.toString().toUpperCase() }}</p>
         <p>
           <b-form inline>
@@ -33,25 +33,25 @@
         <p> <router-link class="text-white" to="/home-page"> <b-icon icon="caret-right-fill"></b-icon> {{ $store.state.language === 'en' ? $store.state.englishStrings.aboutUs.toString().toUpperCase() : $store.state.frenchStrings.aboutUs.toString().toUpperCase() }} </router-link> </p>
         <p> <router-link class="text-white" to="/initiatives"> <b-icon icon="caret-right-fill"></b-icon> {{ $store.state.language === 'en' ? $store.state.englishStrings.ourInitiatives.toString().toUpperCase() : $store.state.frenchStrings.ourInitiatives.toString().toUpperCase() }} </router-link> </p>
         <p> <router-link class="text-white" to="/general-secretariat"> <b-icon icon="caret-right-fill"></b-icon> OUR GENERAL SECRETARIAT </router-link> </p>
-        <p> <router-link class="text-white" to="/national-coordinators"> <b-icon icon="caret-right-fill"></b-icon> OUR NAIONAL COORDINATORS </router-link> </p>
-        <p> <router-link class="text-white" to="/country-chapters"> <b-icon icon="caret-right-fill"></b-icon> OUR COUNTRY CHAPTERS </router-link> </p>
+        <p> <router-link class="text-white" to="/national-coordinators"> <b-icon icon="caret-right-fill"></b-icon> OUR NATIONAL COORDINATORS </router-link> </p>
         <p> <router-link class="text-white" to="/partners"> <b-icon icon="caret-right-fill"></b-icon> OUR PARTNERS </router-link> </p>
         <p> <a> <b-icon icon="caret-right-fill"></b-icon>
           <JoinOYALDButton />
         </a> </p>
       </div>
 
-      <div class="col-12 col-md-6 col-lg-4 container-lg pt-2 pb-2">
+      <!-- <div class="col-12 col-md-6 col-lg-4 container-lg pt-2 pb-2">
         <p class="h5 u">{{ $store.state.language === 'en' ? $store.state.englishStrings.contactUs.toString().toUpperCase() : $store.state.frenchStrings.contactUs.toString().toUpperCase() }}</p>
         <p> <a class="text-white" target="_blank" href="mailto:info@oyald-ojlad.org"> <b-icon icon="chat-left-dots-fill"></b-icon> info@oyald-ojlad.org </a> </p>
-      </div>
+      </div> -->
 
     </div>
 
     <hr class="bordered border-light"/>
 
     <div class="text-light d-flex flex-column flex-lg-row align-items-center justify-content-between">
-      <span class="h5 font-weight-bold text-center"> <i class="text-success fa fa-envelope-open"></i> SUBSCRIBE TO OUR NEWSLETTER </span>
+      <span class="h5 font-weight-bold text-center">SUBSCRIBE TO OUR NEWSLETTER</span>
+
       <b-overlay
             :show="$store.state.isAddingToNewsletter"
             rounded
@@ -67,12 +67,14 @@
         </div>
       </form>
       </b-overlay>
+
+      <a class="text-white" href="mailto:info@oyald-ojlad.org" target="_blank"> <b-icon icon="chat-left-dots-fill" /> Send us an email</a>
     </div> 
 
     <hr class="bordered border-light" />
 
     <div class="text-light d-flex flex-column flex-lg-row align-items-center justify-content-around">
-      <small class="w-100 text-center">Organisation of Young African Leaders for Development &copy;  2011 -  {{ year }}</small>
+      <small class="w-100 text-center"> &copy; Organisation of Young African Leaders for Development (OYALD) 2011 - {{ year }} </small>
     </div><br/>
 
   </div>

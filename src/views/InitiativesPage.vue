@@ -12,9 +12,9 @@
               <div class="accordion w-100" role="tablist"> 
                 <b-card no-body class="mb-1 w-100">
                   <b-card-header header-tag="header" class="p-1" role="tab">
-                    <b-button block v-b-toggle.accordion-1 variant="sucess" class="bg-success text-white">Leaders<wbr />4<wbr />Development<wbr /> Training <b-icon icon="caret-right-fill" /> </b-button>
+                    <b-button @click="openedInitiatives[0] = !openedInitiatives[0]" block v-b-toggle.accordion-1 variant="sucess" class="bg-success text-white">Leaders<wbr />4<wbr />Development<wbr /> Training <span v-if="openedInitiatives[0]" class="h5"><b-icon icon="caret-up-fill" /></span><span class="h5" v-else><b-icon icon="caret-down-fill" /></span> </b-button>
                   </b-card-header>
-                  <b-collapse id="accordion-1" visible accordion="accordion-1" role="tabpanel">
+                  <b-collapse id="accordion-1" visible accordion="accordion-1" role="tabpanel" class="text-justify">
                     <b-card-body>
                       <b-card-text>OYALD is organising a series of training and capacity development programmes to empower young people for impactful contributions to sustainable in Africa. </b-card-text>
                       <b-card-text>You can join the initiative as a trainee by filling the form below.</b-card-text>
@@ -78,7 +78,7 @@
                         <b-button-toolbar class="w-100">
                           <b-button-group class="w-100">
                             <b-button @click="decrementFieldOfInterestCount" variant="danger" :class="[canRemoveField ? '' : 'disabled']">Remove field</b-button>
-                            <b-button @click="incrementFieldOfInterestCount" class="bg-success" variant="success">Add another field of interest</b-button>
+                            <b-button @click="incrementFieldOfInterestCount" class="bg-success" :class="[canAddField ? '' : 'disabled']" variant="success">Add another field of interest</b-button>
                           </b-button-group>
                         </b-button-toolbar>
                         <br />
@@ -110,13 +110,13 @@
               <div class="accordion w-100" role="tablist">
                 <b-card no-body class="mb-1 w-100">
                   <b-card-header header-tag="header" class="p-1" role="tab">
-                    <b-button block v-b-toggle.accordion-2 variant="sucess" class="bg-success text-white">Do you know Africa? <b-icon icon="caret-right-fill" /> </b-button>
+                    <b-button @click="openedInitiatives[1] = !openedInitiatives[1]" block v-b-toggle.accordion-2 variant="sucess" class="bg-success text-white">Do you know Africa? <span v-if="openedInitiatives[1]" class="h5"><b-icon icon="caret-up-fill" /></span><span class="h5" v-else><b-icon icon="caret-down-fill" /></span> </b-button>
                   </b-card-header>
                   <b-collapse id="accordion-2" visible accordion="accordion-2" role="tabpanel">
                     <b-card-body>
                       <center class="p-l-r">
-                        <p class="text-left">In this initiative, OYALD provides regular historical information and current events updates about Africa on our social media channels. This serves as a readily available source of relevant knowledge about our African heritage, and helps to keep our social media followers up-to-date on the happenings in the continent.</p>
-                        <p class="text-left">Kindly follow us on, and subscribe to, our social media pages/profiles to get these information updates about Africa.</p>
+                        <p class="text-justify">In this initiative, OYALD provides regular historical information and current events updates about Africa on our social media channels. This serves as a readily available source of relevant knowledge about our African heritage, and helps to keep our social media followers up-to-date on the happenings in the continent.</p>
+                        <p class="text-justify">Kindly follow us on, and subscribe to, our social media pages/profiles to get these information updates about Africa.</p>
                       </center>
                       <br />
                       <p class="d-flex align-items-center justify-content-around w-100">
@@ -147,17 +147,27 @@ export default {
     name: "InitiativesPage",
     methods: {
       incrementFieldOfInterestCount(){
-        ++this.fieldOfInterestCount;
+        if(this.fieldOfInterestCount >= 5){
+          this.canAddField = false;
+        } else {
+          this.canAddField = true;
+          ++this.fieldOfInterestCount;
+        }
         this.canRemoveField = true;
       },
       decrementFieldOfInterestCount(){
         if (this.fieldOfInterestCount > 1) {
           --this.fieldOfInterestCount;
           this.canRemoveField = true;
+          this.canAddField = true;
         } else if(this.fieldOfInterestCount == 2){
           this.canRemoveField = false;
+          this.canAddField = true;
         } else if(this.fieldOfInterestCount < 2) {
           this.canRemoveField = false;
+          this.canAddField = true;
+        } else {
+          this.canAddField = false;
         }
       },
       async submitCapacityBuildingForm(){
@@ -215,8 +225,13 @@ export default {
     data(){
       return {
         canRemoveField: true,
+        canAddField: true,
         fieldOfInterestCount: 1,
-        fieldsOfInterest: {}
+        fieldsOfInterest: {},
+        openedInitiatives: {
+          0:true,
+          1:true
+        }
       }
     }
 }

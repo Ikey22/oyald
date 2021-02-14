@@ -31,6 +31,7 @@ const $store = new Vuex.Store({
       passport: [],
       description: "",
       agreedToc: true,
+      agreedTruth: true,
       countryName: "",
       countryAddress1: "",
       countryAddress2: "",
@@ -82,7 +83,7 @@ const $store = new Vuex.Store({
     socialHandles: [
       {
         name: 'Linkedin',
-        url: 'https://linkedin.com/oyald.ojlad',
+        url: 'https://linkedin.com/company/oyald-ojlad',
         icon: "linkedin"
       },
       {
@@ -97,7 +98,7 @@ const $store = new Vuex.Store({
       },
       {
         name: 'Instagram',
-        url: 'https://instagram.com/oyald.ojlad',
+        url: 'https://instagram.com/oojlad',
         icon: "instagram"
       }
     ],

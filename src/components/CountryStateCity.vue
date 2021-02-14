@@ -75,9 +75,9 @@
                return $this.countries
            })
            .catch(err => {
-               console.error("Unable to get list of countrie, states and cities: ", err);
+               console.error("Unable to get list of countries, states and cities: ", err);
                $this.countries = [{name: 'Trying to connect'}];
-               return setTimeout($this.fetchData, 5000);
+               return setTimeout($this.fetchData, 3000);
                });
          },
          setCountry(){

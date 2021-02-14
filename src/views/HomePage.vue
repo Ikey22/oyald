@@ -7,7 +7,8 @@
       <section class="col-12">
       <h1 class="w-100 text-left text-success font-weight-bold">Why OYALD?</h1>
       <p class="pl-4 text-justify">
-        <img
+        <figure class="float-right">
+          <img
           class="w-100 p-2 p-lg-4"
           alt="Elliptical Image depicting the 17 sustainable development goals as laid down by the United Nations Organisation"
           width="300"
@@ -15,9 +16,12 @@
           style="width: 100%; max-width: 350px;"
           src="@/assets/img/sdg-circle.jpeg"
         />
+          <figcaption class="ml-4"><small>Image source:</small> </figcaption>
+        </figure>
         <b-icon icon="caret-right-fill" /> Given the commitments made by the African Heads of State to support the implementation of the main development Agenda in Africa;  <br /><br />
         <b-icon icon="caret-right-fill" /> Acknowledging the importance of the Agenda 2063, <b>"The Africa We Want"</b> in building a united and prosperous Africa;  <br /><br />
         <b-icon icon="caret-right-fill" /> Understanding the strategic contributions of the Agenda 2030, <b>"Leaving No One Behind"</b> to the enhancement of the living conditions of Africans;  <br />
+        <!-- eslint-disable-next-line vue/no-parsing-error -->
       </p>
       
         <b-collapse id="collapse-1" class="mt-2">

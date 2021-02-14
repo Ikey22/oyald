@@ -4,7 +4,7 @@
     <br />
     <br id="team-tag" />
 
-    <h1 id="general-secretariat" class="w-100 text-success font-weight-bold text-center" style="color: var(--custom-primary-color) !important;">{{ query == 'general-secretariat' ? 'Our General Secretariat' : query == 'country-secretaries' ? 'Our Nationlal Coordinators / Country secretaries' : query == 'partners' ? 'Our Partners' : '' }}</h1>
+    <h1 id="general-secretariat" class="w-100 text-success font-weight-bold text-center" style="color: var(--custom-primary-color) !important;">{{ query == 'general-secretariat' ? 'Our General Secretariat' : query == 'country-secretaries' ? 'Our National Coordinators / Country secretaries' : query == 'partners' ? 'Our Partners' : '' }}</h1>
     <br />
     <br >
 
@@ -30,7 +30,7 @@
     </team-member-list>
     <team-member-list v-else-if="fetchDataError" class="d-flex align-items-center justify-content-around flex-column">
       <p class="h1 text-danger text-center w-100 font-weight-bold">Network Error</p>
-      <p class="h3 text-danger text-center w-100">Unable to fetch General secretariat, Please wait while we try to reconnect. If nothing happens within 10 seconds, please <b-button @click="refresh" variant="warning">refresh</b-button> your browser or check your network</p>
+      <p class="h3 text-danger text-center w-100 font-weight-bold">Unable to fetch data, Please wait while we try to reconnect.<br />If nothing happens within 10 seconds, please <b-button @click="refresh" variant="warning">refresh</b-button> or check your network</p>
     </team-member-list>
 
     <br />
@@ -116,10 +116,17 @@ export default {
     },
     mounted(){
       const $this = this;
-      try {
-        $this.getfetchData(); 
-      } catch (err) {
-        $this.errorCallback(err);
+      if (window.navigator.onLine){
+          try {
+            $this.getfetchData(); 
+          } catch (err) {
+            $this.errorCallback(err);
+          }
+      } else {
+        $this.fetchDataError = true;
+        window.addEventListener('online', () => {
+          $this.getfetchData();
+        });
       }
     }
 }

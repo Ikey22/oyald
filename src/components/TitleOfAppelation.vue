@@ -14,13 +14,16 @@ export default {
     data(){
       return {
         titles: [
-          'Mr',
-          'Mrs',
-          'Engr',
-          'Pst',
-          'Rev',
-          'Dr',
-          'Hon',
+          'Mr.',
+          'Mrs.',
+          'Miss.',
+          'Alh.',
+          'Engr.',
+          'Pst.',
+          'Rev.',
+          'Dr.',
+          'Hon.',
+          'Prof',
           'other'
         ]
       }

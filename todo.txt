@@ -1,4 +1,4 @@
-* add OYALD in bracket in the header
 * get citation for images
-* Fix the arrows on the INITIATIVES page
-* justify the text
+* On the "General secretariat" page, remove references to countries and link social handles of each admin
+* get all the missing images
+* refer to document for what should be done on the "Join as a member" and "jon as a partner" and "contact us" pages

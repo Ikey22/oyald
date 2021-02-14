@@ -23,6 +23,9 @@ const routes = [
     name: 'AboutAfrica',
     component: AboutAfrica
   },
+
+
+  
   {
     path: '/home',
     redirect: '/home-page'

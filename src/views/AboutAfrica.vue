@@ -7,7 +7,7 @@
       <p> 
         <figure class="float-right">
           <img src="@/assets/img/istockphoto-africa-colorful.jpg" style="width: 100%; max-width: 400px;" class="pl-2 pr-2 pl-lg-4 pr-lg-4" />
-          <figcaption class="ml-4">Source: </figcaption>
+          <figcaption class="ml-4"><small>Image source:</small> </figcaption>
         </figure>
         
         Africa is the second largest continent, spanning about one-fifth of the total land surface of the earth. It is bounded on the West by the Atlantic Ocean, the Mediterranean Sea on the North, the Red Sea and Indian Ocean on the East, and on the South by the mingling waters of the Atlantic and Indian Oceans. Africa has a total land mass of approximately 11,724,000 square miles (30,365,000 km²), and measures about 5,000 miles (8,000 km) from the north to south, and about 4,600 miles (7,400 km) from east to west.
@@ -33,14 +33,20 @@
     <section class="text-justify">
       <h1 class="text-left font-weight-bold w-100" style="color: var(--custom-primary-color) !important;">Africa's future: A vibrant young population</h1>
       <br />
-      <p> <img
+      <p> 
+        <figure class="float-left">
+          <img
           src="@/assets/img/vibrant-young-population.jpg"
           style="width: 100%; max-width: 400px;"
           class="pl-2 pr-2 pl-lg-4 pr-lg-4"
           width="300"
           align="left"
           alt="Image depicting africa's vibrant young population - sourced from https://www.weforum.org/agenda/2020/01/the-children-s-continent/"
-          /> With 60 percent of Africa’s population currently aged 24 and below, it is clear that Africa is a continent of young people. Acknowledging this fact, the leaders of the world decided to give a priority to the young population. This is translated into both the Agenda 2063 of the African Union, and the Agenda 2030 of the United Nations. </p>
+          />
+          <figcaption class="ml-4"><small>Image source:</small> </figcaption>
+        </figure>
+        <!-- eslint-disable-next-line vue/no-parsing-error -->
+           With 60 percent of Africa’s population currently aged 24 and below, it is clear that Africa is a continent of young people. Acknowledging this fact, the leaders of the world decided to give a priority to the young population. This is translated into both the Agenda 2063 of the African Union, and the Agenda 2030 of the United Nations. </p>
           <p>The responsibility to build this continent rests with each and every African citizen, especially young leaders at the continental level, and within our countries; responsibility to ensure that decision makers adequately put priority where it is needed. Thus, there is an emphatic call on governments in Africa to transform education and skills development, health and well being, empowerment, employment and entrepreneurship, which lie at the heart of the march of Africa towards progress, sustainable peace and development. </p>
       <br />
       <!-- <b-button v-b-toggle.collapse-2 variant="success" class="bg-success">Read more</b-button>
@@ -71,7 +77,7 @@
                 </small></li>
                 <li>
                   <small>
-                    Images: <a href="https://www.weforum.org/agenda/2020/01/the-children-s-continent/">https://www.weforum.org/agenda/2020/01/the-children-s-continent/</a>, <a href="https://istockphoto.com">https://istockphoto.com</a>
+                    Images: <a target="_blank" href="https://www.weforum.org/agenda/2020/01/the-children-s-continent/">https://www.weforum.org/agenda/2020/01/the-children-s-continent/</a>, <a target="_blank" href="https://istockphoto.com">https://istockphoto.com</a>
                   </small>
                 </li>
                 </ol>
