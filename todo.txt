@@ -1,5 +1,4 @@
-* get citation for images
-* get social handles of each admin via whatsapp
-* get all the missing images
-* refer to document for what should be done on the "join as a partner" and "contact us" pages
+* citation for images
+* social handles of each admin via whatsapp
+* the missing images (for partners and admin)
 * Change the "Ok and CANCEL" buttons on modals to just "OK"

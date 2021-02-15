@@ -5,7 +5,7 @@
       <br />
       <p><span class="p-1 bg-danger text-white font-weight-bold rounded">Note:</span> Fields labelled with asterisk (*) are mandatory, the rest are optional</p>
       <b-form
-      @submit.stop.prevent="submitContactForm"
+      @submit.prevent="submitContactForm"
       class="card shadow-md rounded p-3 d-block text-left"
       >
                         <b-form-row class="row w-100">

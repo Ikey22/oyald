@@ -90,7 +90,7 @@
 
                         <b-form-row class="row w-100">
 
-                          <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                          <b-form-group class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
                             <label for="phone-number">Official Phone Number*</label>
                             <b-form-input
                             id="phone-number"
@@ -102,14 +102,68 @@
                             />
                           </b-form-group>
 
-                          <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                          <b-form-group class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
                             <label for="company-email">Official Email</label>
                             <b-form-input
                             id="company-email"
                             v-model="$store.state.userPreferences.companyEmail"
                             placeholder="type here..."
-                            type="zip"
+                            type="email"
                             autocomplete="zip"
+                            />
+                          </b-form-group>
+
+                        </b-form-row>
+
+                        <b-form-row class="w-100">
+
+                          <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                            <label for="company-website">Organisation's  website link</label>
+                            <b-form-input
+                            id="company-website"
+                            v-model="$store.state.userPreferences.companyWebsite"
+                            placeholder="type here..."
+                            type="url"
+                            />
+                          </b-form-group>
+
+                          <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                            <label for="company-facebook">Link to Facebook page</label>
+                            <b-form-input
+                            id="company-facebook"
+                            v-model="$store.state.userPreferences.companyFacebook"
+                            placeholder="type here..."
+                            type="url"
+                            />
+                          </b-form-group>
+
+                          <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                            <label for="company-linkedin">Link to Linkedin profile</label>
+                            <b-form-input
+                            id="company-linkedin"
+                            v-model="$store.state.userPreferences.companyLinkedin"
+                            placeholder="type here..."
+                            type="url"
+                            />
+                          </b-form-group>
+
+                          <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                            <label for="company-instagram">Link to Instagram profile</label>
+                            <b-form-input
+                            id="company-instagram"
+                            v-model="$store.state.userPreferences.companyInstagram"
+                            placeholder="type here..."
+                            type="url"
+                            />
+                          </b-form-group>
+
+                          <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                            <label for="company-twitter">Link to Twitter profile</label>
+                            <b-form-input
+                            id="company-Twitter"
+                            v-model="$store.state.userPreferences.companyTwitter"
+                            placeholder="type here..."
+                            type="url"
                             />
                           </b-form-group>
 
@@ -136,8 +190,35 @@
                             v-model="$store.state.userPreferences.companyNotes"
                           placeholder="Type here..."
                           id="notes"
+                          :required="true"
                           />
                         </b-form-group>
+
+                        <b-form-row class="w-100 row">
+
+                          <b-form-group class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-16">
+                            <label for="company-officer">Name of organisation's officer proposing the partnership with OYALD*</label>
+                            <b-form-input
+                            id="company-officer"
+                            v-model="$store.state.userPreferences.companyOfficer"
+                            placeholder="type here..."
+                            type="text"
+                            :required="true"
+                            />
+                          </b-form-group>
+
+                          <b-form-group class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-16">
+                            <label for="company-officer-position">Position of the Offcer*</label>
+                            <b-form-input
+                            id="company-officer-position"
+                            v-model="$store.state.userPreferences.companyOfficerPosition"
+                            placeholder="type here..."
+                            type="text"
+                            :required="true"
+                            />
+                          </b-form-group>
+
+                        </b-form-row>
 
                         <br />
                         
@@ -145,13 +226,13 @@
                         <b-form-group>
                           <b-form-checkbox
                           class="d-inline"
-                                id="toc"
+                                id="truthOfCredentials"
+                                v-model="$store.state.userPreferences.agreedTruthOfCredentials"
                                 :value="true"
-                                v-model="$store.state.userPreferences.agreedToc"
                                 :unchecked-value="false"
                                 :required="true"
-                              /> 
-                          <label class="d-inline" for="toc">I have read and agreed to  the <b><a href="javascript:void(0)" @click="$refs.tocModal.show()"><q>terms and conditions of OYALD membership</q></a></b></label>
+                              />
+                          <label class="d-inline" for="truthOfCredentials">I declare that all the information provided herein by me are, to the best of my knowledge, correct and truthful. I hereby indemnify OYALD from any issues arising from inaccuracy or falsehood in the supplied information.*</label>
                         </b-form-group>
 
 

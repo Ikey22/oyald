@@ -39,6 +39,13 @@ const $store = new Vuex.Store({
       countryCategory: "",
       countryEmail: "",
       countryPhoneNumber: "",
+      companyFacebook: "",
+      companyTwitter: "",
+      companyInstagram: "",
+      companyYoutube: "",
+      companyWebsite: "",
+      companyOfficer: "",
+      companyOfficerPosition: "",
       companyLogo: [],
       companyNotes: ""
     },

@@ -222,7 +222,7 @@
                                 :unchecked-value="false"
                                 :required="true"
                               />
-                          <label class="d-inline" for="truthOfCredentials"> declare that all the information provided herein by me are, to the best of my knowledge, correct and truthful. I hereby indemnify OYALD from any issues arising from inaccuracy or falsehood in the supplied information.*</label>
+                          <label class="d-inline" for="truthOfCredentials">I declare that all the information provided herein by me are, to the best of my knowledge, correct and truthful. I hereby indemnify OYALD from any issues arising from inaccuracy or falsehood in the supplied information.*</label>
                         </b-form-group>
 
 

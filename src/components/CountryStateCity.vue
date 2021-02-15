@@ -68,8 +68,7 @@
          fetchData(){
             const $this = this;
 
-           fetch($this.url)
-           .then(res => res.json())
+           $this.$worker.run(url => fetch(url).then(res => res.json()), ['/country-state-city.json'])
            .then(json => {
                $this.countries = [...json];
                return $this.countries

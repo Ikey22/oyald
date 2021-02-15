@@ -17,6 +17,7 @@ import "firebase/firestore";
 //import "firebase/storage";
 import "firebase/messaging";
 //import "firebase/functions";
+import VueWorker from 'vue-worker';
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -60,6 +61,7 @@ firebase.firestore().enablePersistence()
 Vue.use(BootstrapVue);
 Vue.use(IconsPlugin);
 Vue.use(portalVue);
+Vue.use(VueWorker);
 Vue.use(firebaseVuePlugin);
 
 Vue.config.productionTip = false;
