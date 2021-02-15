@@ -10,7 +10,9 @@
       >
                         <b-form-row class="row w-100">
 
-                          <b-form-group class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+                          <title-of-appelation class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6" />
+
+                          <b-form-group class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
                             <label for="surname">Surname*</label>
                             <b-form-input
                             id="surname"
@@ -22,7 +24,11 @@
                             />
                           </b-form-group>
 
-                          <b-form-group class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+                        </b-form-row>
+
+                        <b-form-row class="row w-100">
+
+                          <b-form-group class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
                             <label for="first-name">First Name*</label>
                             <b-form-input
                             id="first-name"
@@ -34,7 +40,7 @@
                             />
                           </b-form-group>
 
-                          <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                          <b-form-group class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
                             <label for="middle-name">Middle/other Names</label>
                             <b-form-input
                             id="middle-name"
@@ -43,10 +49,7 @@
                             type="text"
                             />
                           </b-form-group>
-
-                        </b-form-row>
-
-                        <b-form-row class="row w-100">
+                          
                           <b-form-group class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
                             <label for="phone-number">Phone Number*</label>
                             <b-form-input
@@ -73,28 +76,26 @@
                         </b-form-row>
 
                         <b-form-row class="row w-100">
-                          <b-form-group class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                            <label for="zip-code">Zip code*</label>
+                          <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                            <label for="subject">Subject*</label>
                             <b-form-input
-                            id="zip-code"
-                            v-model="$store.state.userPreferences.zipCode"
+                            id="subject"
+                            v-model="subject"
                             placeholder="type here..."
-                            type="number"
+                            type="text"
                             :required="true"
-                            autocomplete="zip-code"
                             />
                           </b-form-group> 
-
-                          <title-of-appelation class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6" />
                         </b-form-row>
 
                         <b-form-group>
-                          <label for="self-description">Message*</label>
+                          <label for="message">Message*</label>
                           <b-form-textarea
                           style="height: 200px;"
                           :required="true"
                           placeholder="Type here..."
-                          id="self-description"
+                          v-model="message"
+                          id="message"
                           />
                         </b-form-group>
 

@@ -42,6 +42,10 @@
                         </b-form-row>
 </template>
 <script>
+import Worker from "worker-loader!../workers/fetch-and-parse-countries.js";
+
+const fetchInBackground = new Worker();
+
     export default {
         name: 'CountryStateCity',
         data () {
@@ -62,22 +66,45 @@
             }
         },
         created() {
-            return setTimeout(async () => this.fetchData(), 1);
+            return setTimeout(this.fetchData, 1);
         },
         methods: {
          fetchData(){
-            const $this = this;
+           /*  const $this = this;
 
-           $this.$worker.run(url => fetch(url).then(res => res.json()), ['/country-state-city.json'])
+           fetch($this.url)
+           .then(res => res.json())
            .then(json => {
-               $this.countries = [...json];
+               $this.countries = json;
                return $this.countries
            })
            .catch(err => {
                console.error("Unable to get list of countries, states and cities: ", err);
                $this.countries = [{name: 'Trying to connect'}];
                return setTimeout($this.fetchData, 3000);
-               });
+               }); */
+
+               fetchInBackground.onmesage = e => {
+                       console.log(e);
+                   if (e.data){
+                       const jData = JSON.parse(e.data)
+                       if (jData.status == 'success'){
+                           console.log(e.data);
+                           this.countries = jData.payload;
+                       } else if (jData.status == 'error'){
+                           this.countries = [{name: 'Trying to connect'}];
+                           console.trace(jData.payload);
+                           this.fetchData();
+                       }
+                   }
+               };
+
+               fetchInBackground.onerror = e => {
+                   console.error(e);
+               };
+
+               fetchInBackground.postMessage(this.url);
+
          },
          setCountry(){
             window.countries = this.countries;

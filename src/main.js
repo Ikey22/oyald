@@ -64,6 +64,8 @@ Vue.use(portalVue);
 Vue.use(VueWorker);
 Vue.use(firebaseVuePlugin);
 
+const isDev = process.env.NODE_ENV !== "production";
+Vue.config.performance = isDev;
 Vue.config.productionTip = false;
 
 window.__$vm = new Vue({
@@ -73,3 +75,9 @@ window.__$vm = new Vue({
 }).$mount('#app');
 
 console.log('Welcome to OYALD');
+
+try {
+  window.__$vm.firebase.auth().signInAnonymously().then(console.log).catch(console.error.bind);
+} catch(e){
+  console.log(e);
+}
