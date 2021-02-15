@@ -39,7 +39,7 @@
 
                         <b-form-row class="row w-100">
                           <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                            <label for="address1">Address 1*</label>
+                            <label for="address1">Office Address 1*</label>
                             <b-form-input
                             id="address1"
                             v-model="$store.state.userPreferences.companyAddress1"
@@ -51,7 +51,7 @@
                           </b-form-group>
 
                           <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                            <label for="address2">Address 2 (optional)</label>
+                            <label for="address2">Office Address 2 (optional)</label>
                             <b-form-input
                             id="address2"
                             v-model="$store.state.userPreferences.companyAddress2"
@@ -62,7 +62,7 @@
                           </b-form-group>
 
                           <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                            <label for="address3">Address 3 (optional)</label>
+                            <label for="address3">Office Address 3 (optional)</label>
                             <b-form-input
                             id="address3"
                             v-model="$store.state.userPreferences.companyAddress3"
@@ -73,10 +73,25 @@
                           </b-form-group>
                         </b-form-row>
 
+                        <b-form-row class="w-100 row">
+                          
+                          <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                            <label for="zip">Zip/Postal code</label>
+                            <b-form-input
+                            id="zip"
+                            v-model="$store.state.userPreferences.zipCode"
+                            placeholder="type here..."
+                            type="zip"
+                            autocomplete="zip"
+                            />
+                          </b-form-group>
+
+                        </b-form-row>
+
                         <b-form-row class="row w-100">
 
-                          <b-form-group class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
-                            <label for="phone-number">Company Phone Number*</label>
+                          <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                            <label for="phone-number">Official Phone Number*</label>
                             <b-form-input
                             id="phone-number"
                             v-model="$store.state.userPreferences.companyPhoneNumber"
@@ -87,22 +102,11 @@
                             />
                           </b-form-group>
 
-                          <b-form-group class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
-                            <label for="company-email">Company Email</label>
+                          <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                            <label for="company-email">Official Email</label>
                             <b-form-input
                             id="company-email"
                             v-model="$store.state.userPreferences.companyEmail"
-                            placeholder="type here..."
-                            type="zip"
-                            autocomplete="zip"
-                            />
-                          </b-form-group>
-
-                          <b-form-group class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
-                            <label for="zip">Zip/Postal code</label>
-                            <b-form-input
-                            id="zip"
-                            v-model="$store.state.userPreferences.zipCode"
                             placeholder="type here..."
                             type="zip"
                             autocomplete="zip"
