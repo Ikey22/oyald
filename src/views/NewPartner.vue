@@ -10,7 +10,7 @@
                         <b-form-row class="row w-100">
 
                           <b-form-group class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                            <label for="surname">Company name*</label>
+                            <label for="surname">Name of Company/Orrganisation*</label>
                             <b-form-input
                             id="company-name"
                             v-model="$store.state.userPreferences.companyName"
@@ -21,7 +21,7 @@
                           </b-form-group>
 
                           <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
-                            <label for="company-category">Company category*</label>
+                            <label for="company-category">Type/Category of Organisation*</label>
                             <b-form-input
                             id="company-category"
                             v-model="$store.state.userPreferences.companyCategory"
@@ -38,7 +38,7 @@
 
 
                         <b-form-row class="row w-100">
-                          <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                          <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                             <label for="address1">Address 1*</label>
                             <b-form-input
                             id="address1"
@@ -50,7 +50,7 @@
                             />
                           </b-form-group>
 
-                          <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                          <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                             <label for="address2">Address 2 (optional)</label>
                             <b-form-input
                             id="address2"
@@ -61,7 +61,7 @@
                             />
                           </b-form-group>
 
-                          <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                          <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                             <label for="address3">Address 3 (optional)</label>
                             <b-form-input
                             id="address3"

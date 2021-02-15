@@ -31,7 +31,7 @@ const $store = new Vuex.Store({
       passport: [],
       description: "",
       agreedToc: true,
-      agreedTruth: true,
+      agreedTruthOfCredentials: true,
       countryName: "",
       countryAddress1: "",
       countryAddress2: "",

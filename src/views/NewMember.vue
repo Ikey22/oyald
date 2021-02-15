@@ -113,7 +113,7 @@
                             id="zip"
                             v-model="$store.state.userPreferences.zipCode"
                             placeholder="type here..."
-                            type="zip"
+                            type="text"
                             autocomplete="zip"
                             />
                           </b-form-group>
@@ -122,7 +122,7 @@
 
                         <b-form-row class="row w-100">
 
-                          <b-form-group class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                          <b-form-group class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
                             <label for="phone-number">Phone Number*</label>
                             <b-form-input
                             id="phone-number"
@@ -134,11 +134,6 @@
                             />
                           </b-form-group>
 
-                          <title-of-appelation class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4" />
-
-                        </b-form-row>
-
-                        <b-form-row class="row w-100">
                           <b-form-group class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
                             <label for="email">Email*</label>
                             <b-form-input
@@ -149,6 +144,7 @@
                             autocomplete="email"
                             :required="true"
                             />
+
                           </b-form-group>
                         </b-form-row>
 
@@ -210,7 +206,23 @@
                                 :unchecked-value="false"
                                 :required="true"
                               />
-                          <label class="d-inline" for="toc">I have read and agreed to  the <b><a href="javascript:void(0)" @click="$refs.tocModal.show()"><q>terms and conditions of OYALD membership</q></a></b></label>
+                          <label class="d-inline" for="toc">I have read and agreed to  the <b><a href="javascript:void(0)" @click="$refs.tocModal.show()"><q>terms and conditions of OYALD membership</q></a></b>*</label>
+                        </b-form-group>
+
+
+                        <br />
+                        
+                        
+                        <b-form-group>
+                          <b-form-checkbox
+                          class="d-inline"
+                                id="truthOfCredentials"
+                                v-model="$store.state.userPreferences.agreedTruthOfCredentials"
+                                :value="true"
+                                :unchecked-value="false"
+                                :required="true"
+                              />
+                          <label class="d-inline" for="truthOfCredentials"> declare that all the information provided herein by me are, to the best of my knowledge, correct and truthful. I hereby indemnify OYALD from any issues arising from inaccuracy or falsehood in the supplied information.*</label>
                         </b-form-group>
 
 

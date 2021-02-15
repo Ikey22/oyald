@@ -1,4 +1,5 @@
 * get citation for images
 * On the "General secretariat" page, remove references to countries and link social handles of each admin
 * get all the missing images
-* refer to document for what should be done on the "Join as a member" and "jon as a partner" and "contact us" pages
+* refer to document for what should be done on the "join as a partner" and "contact us" pages
+* Change the "Ok and CANCEL" buttons on modals to just "OK"
