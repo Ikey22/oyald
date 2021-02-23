@@ -42,9 +42,9 @@
                         </b-form-row>
 </template>
 <script>
-import Worker from "worker-loader!../workers/fetch-and-parse-countries.js";
+import FetchInBG from "worker-loader!../workers/fetch-and-parse-countries.js";
 
-const fetchInBackground = new Worker();
+const fetchInBackground = new Worker("/js/fetch-and-parse-countries.worker.js") || new FetchInBG();
 
     export default {
         name: 'CountryStateCity',
@@ -66,11 +66,11 @@ const fetchInBackground = new Worker();
             }
         },
         created() {
-            return setTimeout(this.fetchData, 1);
+            return setTimeout(() => this.fetchData(), 1);
         },
         methods: {
          fetchData(){
-           /*  const $this = this;
+           const $this = this;/*
 
            fetch($this.url)
            .then(res => res.json())
@@ -84,23 +84,21 @@ const fetchInBackground = new Worker();
                return setTimeout($this.fetchData, 3000);
                }); */
 
-               fetchInBackground.onmesage = e => {
-                       console.log(e);
+               fetchInBackground.onmessage = e => {
+                       //console.log(e.data);
                    if (e.data){
-                       const jData = JSON.parse(e.data)
-                       if (jData.status == 'success'){
-                           console.log(e.data);
-                           this.countries = jData.payload;
-                       } else if (jData.status == 'error'){
-                           this.countries = [{name: 'Trying to connect'}];
-                           console.trace(jData.payload);
-                           this.fetchData();
+                       if (e.data.status == 'success'){
+                           $this.countries = e.data.payload;
+                       } else if (e.data.status == 'error'){
+                           $this.countries = [{name: 'Trying to connect'}];
+                           console.trace(e.data.payload);
+                           $this.fetchData();
                        }
                    }
                };
 
                fetchInBackground.onerror = e => {
-                   console.error(e);
+                   console.trace(e);
                };
 
                fetchInBackground.postMessage(this.url);

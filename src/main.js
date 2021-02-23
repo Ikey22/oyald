@@ -12,7 +12,7 @@ import './registerServiceWorker';
 // Firebase App (the core Firebase SDK) is always required and must be listed first
 import firebase from "firebase/app";
 import "firebase/analytics";
-//import "firebase/auth";
+import "firebase/auth";
 import "firebase/firestore";
 //import "firebase/storage";
 import "firebase/messaging";
@@ -77,7 +77,7 @@ window.__$vm = new Vue({
 console.log('Welcome to OYALD');
 
 try {
-  window.__$vm.firebase.auth().signInAnonymously().then(console.log).catch(console.error.bind);
+  window.__$vm.$firebase.auth().signInAnonymously().then(console.log).catch(console.error.bind);
 } catch(e){
-  console.log(e);
+  console.trace(e);
 }

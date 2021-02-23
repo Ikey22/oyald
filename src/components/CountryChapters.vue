@@ -8,7 +8,7 @@
 
       <div class="row w-100">
 
-          <div v-for="(country, index) in countries" :key="`country-${index + 1}`" class="col-12 col-md-6 col-lg-6 col-xl-6">
+          <div v-for="(country, index) in sortedCountries" :key="`country-${index + 1}`" class="col-12 col-md-6 col-lg-6 col-xl-6">
               <div class="accordion w-100" role="tablist" visible>
                 <b-card no-body class="mb-1 w-100">
                   <b-card-header header-tag="header" class="p-1" role="tab">
@@ -33,6 +33,11 @@
 <script>
 export default {
     name: "CountryChapter",
+    computed: {
+      sortedCountries: {get(){
+        return this.countries.sort((a, b) => a.name.charCodeAt(0) - b.name.charCodeAt(0));
+      }}
+    },
     data(){
         return {
             countries: [
