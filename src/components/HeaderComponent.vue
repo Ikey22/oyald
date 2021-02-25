@@ -46,7 +46,10 @@
         </b-nav-item-dropdown>
       </b-navbar-nav> -->
         </b-nav-item-dropdown>
-        <JoinOYALDButton />
+        <b-nav-item-dropdown text="Join OYALD" right>
+          <b-dropdown-item to="/memberhip">As a Member</b-dropdown-item>
+          <b-dropdown-item to="/partnership">As a partner</b-dropdown-item>
+        </b-nav-item-dropdown>
         <b-nav-item to="/contact">{{ $store.state.language === 'en' ? 'CONTACT US' : 'Nous contacter' }}</b-nav-item>
       </b-navbar-nav>
 
@@ -79,12 +82,9 @@
 </template>
 
 <script>
-import JoinOYALDButton from '@/components/JoinOYALDButton.vue';
-
 export default {
     name: "HeaderComponent",
     components: {
-      JoinOYALDButton
     }
 }
 </script>
