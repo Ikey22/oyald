@@ -6,8 +6,8 @@
         <br />
         <span class="logo-img-slogan text-white"><marquee scrollamount="4" class="font-weight-bold text-justified d-none d-md-block d-lg-block d-xl-block">{{ $store.state.language === 'en' ? $store.state.englishStrings.inform : $store.state.frenchStrings.inform.toString().toUpperCase() }}...{{ $store.state.language === 'en' ? $store.state.englishStrings.inspire : $store.state.frenchStrings.inspire.toString().toUpperCase() }}...{{ $store.state.language === 'en' ? $store.state.englishStrings.involve : $store.state.frenchStrings.involve.toString().toUpperCase() }}</marquee></span>
       </div>
-      <span style="color: var(--yellow)" class="logo-text d-none d-md-block d-lg-block d-xl-block" v-html="$store.state.language === 'en' ? 'Organisation <small>of</small> Young African Leaders <small>for</small> Development <br /><small>(OYALD)</small>' : 'Organisation <small>des</small> Jeunes Leaders Africains <small>pour le</small> Développement <br /><small>(OJLAD)</small>'"></span>
-      <span style="color: var(--yellow)" class="logo-text d-block d-md-none d-lg-none d-xl-none">{{ $store.state.appNameShort }}</span>
+      <span style="color: var(--yellow)" class="logo-text d-none d-sm-none d-md-block d-lg-none d-xl-block" v-html="$store.state.language === 'en' ? 'Organisation <small>of</small> Young African Leaders <small>for</small> Development <br /><small>(OYALD)</small>' : 'Organisation <small>des</small> Jeunes Leaders Africains <small>pour le</small> Développement <small>(OJLAD)</small>'"></span>
+      <span style="color: var(--yellow)" class="logo-text d-block d-sm-block d-md-none d-lg-block d-xl-none">{{ $store.state.appNameShort }}</span>
     </b-navbar-brand>
 
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
