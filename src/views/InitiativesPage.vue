@@ -16,7 +16,7 @@
                   </b-card-header>
                   <b-collapse id="accordion-1" visible accordion="accordion-1" role="tabpanel" class="text-justify">
                     <b-card-body>
-                      <b-card-text>OYALD is organising a series of training and capacity development programmes to empower young people for impactful contributions to sustainable in Africa. </b-card-text>
+                      <b-card-text>OYALD is organising a series of training and capacity development programmes to empower young people for impactful contributions to sustainable development in Africa. </b-card-text>
                       <b-card-text>You can join the initiative as a trainee by filling the form below.</b-card-text>
                       <hr />
                       <b-form @submit.prevent="submitCapacityBuildingForm">

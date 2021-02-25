@@ -46,8 +46,8 @@
         </b-nav-item-dropdown>
       </b-navbar-nav> -->
         </b-nav-item-dropdown>
-        <b-nav-item-dropdown text="Join OYALD" right>
-          <b-dropdown-item to="/memberhip">As a Member</b-dropdown-item>
+        <b-nav-item-dropdown text="JOIN OYALD" right>
+          <b-dropdown-item to="/membership">As a Member</b-dropdown-item>
           <b-dropdown-item to="/partnership">As a partner</b-dropdown-item>
         </b-nav-item-dropdown>
         <b-nav-item to="/contact">{{ $store.state.language === 'en' ? 'CONTACT US' : 'Nous contacter' }}</b-nav-item>

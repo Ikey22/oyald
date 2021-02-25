@@ -101,12 +101,12 @@ const $store = new Vuex.Store({
       },
       {
         name: 'Twitter',
-        url: 'https://twitter.com/oyald.ojlad',
+        url: 'https://twitter.com/oojlad',
         icon: "twitter"
       },
       {
         name: 'Instagram',
-        url: 'https://instagram.com/oojlad',
+        url: 'https://instagram.com/oyald.ojlad',
         icon: "instagram"
       }
     ],
