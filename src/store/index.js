@@ -6,6 +6,7 @@ Vue.use(Vuex);
 const $store = new Vuex.Store({
   state: {
     primaryColor: "#002200",
+    email: "oyald.ojlad@gmail.com",
     appNameShort: "OYALD",
     appNameLong: "Organisation of Young African Leaders for Development",
     appNameLongFrench: "Organisation des jeunes leaders africains pour le développement",
@@ -111,8 +112,7 @@ const $store = new Vuex.Store({
     ],
     successModal: false,
     networkErrorModal: false,
-    emailAlreadyInNewsletterModal: false,
-    email: "oyald.ojlad@gmail.com"
+    emailAlreadyInNewsletterModal: false
   },
   mutations: {
     setLanguage(state, language){
