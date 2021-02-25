@@ -35,7 +35,7 @@ export default {
     name: "CountryChapter",
     computed: {
       sortedCountries: {get(){
-        return this.countries.sort((a, b) => a.name.charCodeAt(0) - b.name.charCodeAt(0));
+        return this.countries.slice(0).sort((a, b) => a.name.charCodeAt(0) - b.name.charCodeAt(0));
       }}
     },
     data(){

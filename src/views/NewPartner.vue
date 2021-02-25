@@ -2,10 +2,12 @@
   <div class="container-fluid w-100">
       <h1 class="text-success w-100 text-center font-weight-bold" style="color: var(--custom-primary-color) !important;">PARTNER WITH OYALD </h1>
       <br />
-      <p><span class="p-1 bg-danger text-white font-weight-bold rounded">Note:</span> Fields labelled with asterisk (*) are mandatory, the rest are optional</p>
+      <p class="w-100 text-center"><span class="p-1 bg-danger text-white font-weight-bold rounded">Note:</span> Fields labelled with asterisk (*) are mandatory, the rest are optional</p>
+      <center> 
       <b-form
       @submit.prevent="submitNewPartnerForm"
-      class="card shadow-md rounded p-3 d-block text-left"
+      style="max-width: 1050px !important;"
+      class="card shadow-lg rounded p-3 d-block text-left"
       >
                         <b-form-row class="row w-100">
 
@@ -81,8 +83,8 @@
                             id="zip"
                             v-model="$store.state.userPreferences.zipCode"
                             placeholder="type here..."
-                            type="zip"
-                            autocomplete="zip"
+                            type="text"
+                            autocomplete="text"
                             />
                           </b-form-group>
 
@@ -246,6 +248,7 @@
                         style="background-color: var(--custom-primary-color) !important;"
                         >Submit</b-button>
       </b-form>
+      </center>
 
       <br />
 

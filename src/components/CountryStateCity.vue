@@ -5,6 +5,7 @@
                             <b-form-select
                             id="country"
                             @change="setCountry"
+                            @input="setCountry"
                             placeholder="Select country..."
                             autocomplete="country"
                             v-model="country"
@@ -19,6 +20,7 @@
                             <b-form-select
                             id="region"
                             @change="setState"
+                            @input="setState"
                             placeholder="Select State/Region..."
                             v-model="state"
                             :required="true"
@@ -32,6 +34,7 @@
                             <b-form-select
                             id="lga"
                             @change="setCity"
+                            @input="setCity"
                             placeholder="Select District/L.G.A..."
                             v-model="city"
                             :required="true"
@@ -70,19 +73,7 @@ const fetchInBackground = new Worker("/js/fetch-and-parse-countries.worker.js") 
         },
         methods: {
          fetchData(){
-           const $this = this;/*
-
-           fetch($this.url)
-           .then(res => res.json())
-           .then(json => {
-               $this.countries = json;
-               return $this.countries
-           })
-           .catch(err => {
-               console.error("Unable to get list of countries, states and cities: ", err);
-               $this.countries = [{name: 'Trying to connect'}];
-               return setTimeout($this.fetchData, 3000);
-               }); */
+           const $this = this;
 
                fetchInBackground.onmessage = e => {
                        //console.log(e.data);

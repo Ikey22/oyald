@@ -77,7 +77,7 @@ window.__$vm = new Vue({
 console.log('Welcome to OYALD');
 
 try {
-  window.__$vm.$firebase.auth().signInAnonymously().then(console.log).catch(console.error.bind);
+  (() => window.__$vm.$firebase.auth().signInAnonymously().then(console.log).catch(console.error.bind))();
 } catch(e){
   console.trace(e);
 }

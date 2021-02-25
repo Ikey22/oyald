@@ -59,7 +59,11 @@ export default {
 </script>
 
 <style>
-:root{--custom-primary-color: #002200;--custom-secondary-color: #b99e00;--custom-gradient: linear-gradient(to right, var(--custom-green), var(--custom-gold) 80%);}
+:root{
+  --custom-primary-color: #002200;
+  --custom-secondary-color: #b99e00;
+  --custom-gradient: linear-gradient(to right, var(--custom-green), var(--custom-gold) 80%);
+}
 
 *{
   box-sizing: border-box;font-family:
@@ -91,9 +95,13 @@ hr{
   border-bottom: 1px dotted #ffffff !important;
 }
 
+.box-shadow{
+  box-shadow: 5px 5px 5px 5px #999  !iimportant;
+}
+
 *, #root{
   animation-name: fadeIn;
-  animation-duration: .25s;
+  animation-duration: .55s;
   animation-delay: 0s;
   animation-timing-function: ease-in;
 }

@@ -111,7 +111,8 @@ const $store = new Vuex.Store({
     ],
     successModal: false,
     networkErrorModal: false,
-    emailAlreadyInNewsletterModal: false
+    emailAlreadyInNewsletterModal: false,
+    email: "oyald.ojlad@gmail.com"
   },
   mutations: {
     setLanguage(state, language){

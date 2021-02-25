@@ -3,10 +3,12 @@
       <h1 class="text-center font-weight-bold w-100 text-success" style="color: var(--custom-primary-color) !important;">{{ $store.state.language === 'en' ? $store.state.englishStrings.contactUs : $store.state.frenchStrings.contactUs }}</h1>
       <p class="text-center w-100 font-weight-bold"> Please drop us a note </p>
       <br />
-      <p><span class="p-1 bg-danger text-white font-weight-bold rounded">Note:</span> Fields labelled with asterisk (*) are mandatory, the rest are optional</p>
+      <p class="w-100 text-center"><span class="p-1 bg-danger text-white font-weight-bold rounded">Note:</span> Fields labelled with asterisk (*) are mandatory, the rest are optional</p>
+      <center>
       <b-form
+      style="max-width: 1050px !important;"
       @submit.prevent="submitContactForm"
-      class="card shadow-md rounded p-3 d-block text-left"
+      class="card rounded p-3 d-block text-left shadow-lg"
       >
                         <b-form-row class="row w-100">
 
@@ -106,6 +108,7 @@
                         class="bg-green w-100"
                         >Submit</b-button>
                       </b-form>
+                      </center>
 
                       <br />
 
@@ -119,6 +122,12 @@ import TitleOfAppelation from '@/components/TitleOfAppelation.vue';
 
 export default {
   name: "ContactUs",
+  data(){
+    return {
+        subject: "",
+        message: ""
+      }
+  },
   methods: {
     submitContactForm(){}
   },
@@ -132,5 +141,9 @@ export default {
 <style scoped>
 .bg-green{
   background-color: var(--custom-primary-color) !important;
+}
+
+.box-shadow{
+  box-shadow: 5px 5px 5px 5px #999  !iimportant;
 }
 </style>

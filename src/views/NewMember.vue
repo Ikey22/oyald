@@ -2,10 +2,12 @@
   <div class="container-fluid w-100">
       <h1 class="text-success w-100 text-center font-weight-bold" style="color: var(--custom-primary-color) !important;"> BECOME A MEMBER OF OYALD </h1>
       <br />
-      <p><span class="p-1 bg-danger text-white font-weight-bold rounded">Note:</span> Fields labelled with asterisk (*) are mandatory, the rest are optional</p>
+      <p class="w-100 text-center"><span class="p-1 bg-danger text-white font-weight-bold rounded">Note:</span> Fields labelled with asterisk (*) are mandatory, the rest are optional</p>
+      <center>
       <b-form
       @submit.prevent="submitNewMemberForm"
-      class="card shadow-md rounded p-3 d-block text-left"
+      style="max-width: 1050px !important;"
+      class="card rounded p-3 d-block text-left shadow-lg"
       >
                         
                         <b-form-row clas="row w-100">
@@ -236,6 +238,7 @@
                         style="background-color: var(--custom-primary-color) !important;"
                         >Submit</b-button>
       </b-form>
+      </center>
 
       <br />
 
@@ -276,5 +279,9 @@ export default {
 
 .text-success{
   color: var(--custom-primary-color) !important;
+}
+
+.box-shadow{
+  box-shadow: 5px 5px 5px 5px #999  !iimportant;
 }
 </style>
