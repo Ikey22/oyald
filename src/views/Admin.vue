@@ -176,7 +176,7 @@
   <div class="w-100 container-fluid" v-else-if="$store.state.authAdmin == null">
     <br />
     <p class="text-center w-100 font-weight-bold text-primary-color h1">
-      Admin section, login!
+      Admin section. login!
       <b-icon icon="key-fill" />
     </p>
     <br />
@@ -185,7 +185,7 @@
       <b-form
       @submit.prevent="adminLogin"
       style="max-width: 550px;"
-      class="card shadow-md rounded p-3 d-block text-left"
+      class="card shadow-lg rounded p-3 d-block text-left"
       >
         <b-form-row>
           <b-form-group
@@ -248,7 +248,7 @@
 
   <!-- begin invalid credentials modal -->
   <b-modal v-model="showInvalidLoginDetailsModal"> 
-    <div class="w-100 h-100">
+    <div class="w-100 h-100" ok-only>
       <p class="h1 text-center w-100 font-weight-bold text-danger">Invalid credentials!!!</p>
     </div>
   </b-modal>
