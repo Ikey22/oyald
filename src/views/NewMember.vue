@@ -208,7 +208,7 @@
                                 :unchecked-value="false"
                                 :required="true"
                               />
-                          <label class="d-inline" for="toc">I have read and agreed to  the <b><a href="javascript:void(0)" @click="$refs.tocModal.show()"><q>terms and conditions of OYALD membership</q></a></b>*</label>
+                          <label class="d-inline" for="toc">I have read and agreed to  the <b><a href="javascript:void(0)" @click="$store.commit(`showTOCModal`, true)"><q>terms and conditions of OYALD membership</q></a></b>*</label>
                         </b-form-group>
 
 
@@ -241,11 +241,6 @@
       </center>
 
       <br />
-
-      <b-modal ref="tocModal">
-        <header class="h1" style="color: var(--custom-primary-color) !important;">Terms and Conditions</header>
-        <p>Lorem Ipsum Dolor Set Amet</p>
-      </b-modal>
 
   </div>
 </template>

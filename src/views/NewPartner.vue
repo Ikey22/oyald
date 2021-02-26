@@ -6,7 +6,7 @@
       <center> 
       <b-form
       @submit.prevent="submitNewPartnerForm"
-      style="max-width: 1050px !important;"
+      style="max-width: 1050px !important;" 
       class="card shadow-lg rounded p-3 d-block text-left"
       >
                         <b-form-row class="row w-100">
@@ -228,15 +228,35 @@
                         <b-form-group>
                           <b-form-checkbox
                           class="d-inline"
+                                id="trueRepresentative"
+                                v-model="$store.state.userPreferences.trueRepresentative"
+                                :value="true"
+                                :unchecked-value="false"
+                                :checked-value="true"
+                                :required="true"
+                              />
+                          <label class="d-inline" for="trueRepresentative">I hereby confirm that I am a representative of the above named organisation and that I am authorized to propose partnership on with OYALD on the organisation's behalf*</label>
+                          
+                        </b-form-group>
+
+
+                        <br />
+                        
+                        
+                        <b-form-group>
+                          <b-form-checkbox
+                          class="d-inline"
                                 id="truthOfCredentials"
                                 v-model="$store.state.userPreferences.agreedTruthOfCredentials"
                                 :value="true"
                                 :unchecked-value="false"
+                                :checked-value="true"
                                 :required="true"
                               />
                           <label class="d-inline" for="truthOfCredentials">I declare that all the information provided herein by me are, to the best of my knowledge, correct and truthful. I hereby indemnify OYALD from any issues arising from inaccuracy or falsehood in the supplied information.*</label>
-                        </b-form-group>
 
+
+                        </b-form-group>
 
                         <br />
 
@@ -251,11 +271,6 @@
       </center>
 
       <br />
-
-      <b-modal ref="tocModal">
-        <header class="h1" style="color: var(--custom-primary-color) !important;">Terms and Conditions</header>
-        <p>Lorem Ipsum Dolor Set Amet</p>
-      </b-modal>
 
   </div>
 </template>

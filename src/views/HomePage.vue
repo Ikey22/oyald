@@ -58,7 +58,7 @@
         alt="Image depicting young happy Africans - https://www.un.org/en/africa/osaa/images/youth-mali.jpg"
         src="/img/youths.jpeg"
         />
-        <small class="pl-2 pl-lg-4 d-block w-100">Image source: <a href="https://www.un.org/en/africa/osaa/peace/youth.shtml">https://www.un.org/en/<wbr />africa/osaa/peace/<wbr />youth.shtml</a></small>
+        <small class="pl-2 pl-lg-4 d-block w-100">Image source: <a href="https://www.un.org/en/africa/osaa/peace/youth.shtml" target="_blank">https://www.un.org/en/<wbr />africa/osaa/peace/<wbr />youth.shtml</a></small>
       </section>
 
       <section class="col-12 col-md-6 col-lg-8 col-xl-8">

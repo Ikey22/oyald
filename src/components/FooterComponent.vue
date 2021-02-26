@@ -19,12 +19,12 @@
     <div class="row text-light">
 
       <div class="col-12 col-md-6 col-lg-6 container-lg pt-2 pb-2">
-        <p class="h5 u">{{ $store.state.language === 'en' ? $store.state.englishStrings.stayConnected.toString().toUpperCase() : $store.state.frenchStrings.stayConnected.toString().toUpperCase() }}</p>
+        <p class="h5 u font-weight-bold">{{ $store.state.language === 'en' ? $store.state.englishStrings.stayConnected.toString().toUpperCase() : $store.state.frenchStrings.stayConnected.toString().toUpperCase() }}</p>
         <p v-for="(handle, index) in $store.state.socialHandles" :key="`social-handle-${index + 1}`"> <a class="text-white" target="_blank" :href="handle.url"> <b-icon :icon="handle.icon"></b-icon> {{ handle.name }} </a> </p>
       </div>
 
       <div class="col-12 col-md-6 col-lg-6 container-lg pt-2 pb-2">
-        <p class="h5 u">{{ $store.state.language === 'en' ? $store.state.englishStrings.usefulLinks.toString().toUpperCase() : $store.state.frenchStrings.usefulLinks.toString().toUpperCase() }}</p>
+        <p class="h5 u font-weight-bold">{{ $store.state.language === 'en' ? $store.state.englishStrings.usefulLinks.toString().toUpperCase() : $store.state.frenchStrings.usefulLinks.toString().toUpperCase() }}</p>
         <p>
           <b-form inline>
             <select-language />
@@ -74,7 +74,7 @@
     <hr class="bordered border-light" />
 
     <div class="text-light d-flex flex-column flex-lg-row align-items-center justify-content-around">
-      <small class="w-100 text-center"> &copy; Organisation of Young African Leaders for Development (OYALD) 2011 - {{ year }} </small>
+      <small class="w-100 text-center font-weight-bold"> &copy; Organisation of Young African Leaders for Development (OYALD) 2011 - {{ year }} </small>
     </div><br/>
 
   </div>

@@ -40,6 +40,7 @@ const $store = new Vuex.Store({
       countryCategory: "",
       countryEmail: "",
       countryPhoneNumber: "",
+
       companyFacebook: "",
       companyTwitter: "",
       companyInstagram: "",
@@ -48,7 +49,8 @@ const $store = new Vuex.Store({
       companyOfficer: "",
       companyOfficerPosition: "",
       companyLogo: [],
-      companyNotes: ""
+      companyNotes: "",
+      trueRepresentative: true,
     },
     englishStrings: {
       language: 'Language',
@@ -112,7 +114,8 @@ const $store = new Vuex.Store({
     ],
     successModal: false,
     networkErrorModal: false,
-    emailAlreadyInNewsletterModal: false
+    emailAlreadyInNewsletterModal: false,
+    tocModal: false
   },
   mutations: {
     setLanguage(state, language){
@@ -130,6 +133,9 @@ const $store = new Vuex.Store({
     },
     showNetworkErrorModal(state, boolValue){
       state.networkErrorModal = boolValue;
+    },
+    showTOCModal(state, trueOrFalse) {
+      state.tocModal = trueOrFalse;
     },
     async submitNewsletterForm(state){
       state.isAddingToNewsletter = true;

@@ -14,7 +14,7 @@
     <br v-for="x in 3" :key="`pre-footer-line-break-${x}`" />
 
   <!-- begin newtork error modal -->
-  <b-modal v-model="$store.state.networkErrorModal">
+  <b-modal v-model="$store.state.networkErrorModal" ok-only ok-variant="success" size="xl" centered>
     <div class="w-100 h-100">
       <p class="h3 text-center w-100 font-weight-bold text-danger">Network error!!!</p>
     </div>
@@ -22,7 +22,7 @@
   <!-- #end network error modal -->
 
   <!-- begin success modal -->
-  <b-modal v-model="$store.state.successModal">
+  <b-modal v-model="$store.state.successModal" ok-only ok-variant="success" size="xl" centered>
     <div class="w-100 h-100">
       <p class="h3 text-center w-100 font-weight-bold text-primary-color">Successful!!!!</p>
     </div>
@@ -30,12 +30,37 @@
   <!-- #end success modal -->
 
   <!-- begin email already in newsletter modal -->
-  <b-modal v-model="$store.state.emailAlreadyInNewsletterModal">
+  <b-modal v-model="$store.state.emailAlreadyInNewsletterModal" ok-only ok-variant="success" size="xl" centered>
     <div class="w-100 h-100">
       <p class="h3 text-center w-100 font-weight-bold text-primary-color">You've already signed up for our newsletter!!!!</p>
     </div>
   </b-modal>
   <!-- #end email already in newsletter modal -->
+
+  <!-- #begin toc modal -->
+  <b-modal v-model="$store.state.tocModal" id="toc-modal" ok-only ok-variant="success" size="xl" centered scrollable>
+    <template #modal-title><header class="h1" style="color: var(--custom-primary-color) !important;">Terms and Conditions</header></template>
+    <p>Membership of OYALD is open to all citizens of African countries and all persons of African descent who:</p>
+    <br />
+    <ul>
+      <li>Are aged between the minimum legal age of maturity in their respective countries of citizenship, and 50 years.</li>
+      <li>Have functional literacy in English or French.</li>
+      <li>Are engaged professionally, or as volunteers, in development related activities, or who have demonstrated credible support for sustainable development in Africa.</li>
+    </ul>
+    <br />
+    <p>The membership categories are:</p>
+    <br />
+    <ul>
+      <li><b>Active Members:</b> These shall be dues-paying members who undertake, and are obliged, to participate, as much as possible, in all activities of OYALD.</li>
+      <li><b>Associate Members:</b> These shall be dues paying members who may not be able to participate in all activities of OYALD.</li>
+      <li><b>Honorary Members:</b> These shall be persons who might not satisfy all the criteria for OYALD membership, but who have demonstrated a record of sustainable development practice, and who are supportive of OYALD and its objectives. Honorary members shall not be obliged to pay dues.</li>
+    </ul>
+    <br />
+    <p>While all members of OYALD are obliged to pay registration fees of five US Dollars ($5) once, within the three (3) months following their acceptance into OYALD, Active and Associate members shall pay annual dues of five ($5) USD, to be paid by March of each year. In the case of a new member, the annual dues shall be pro-rated, and shall be paid within 3 months from the date of acceptance into OYALD.</p>
+    <br />
+    <p>In addition to the above, all members of OYALD are obliged to abide by the provisions in OYALD's constitution and regulations.</p>
+  </b-modal>
+  <!-- #end toc modal -->
 
 
     <footer-component />
@@ -65,9 +90,15 @@ export default {
   --custom-gradient: linear-gradient(to right, var(--custom-green), var(--custom-gold) 80%);
 }
 
+@font-face{
+  font-family: 'PT Sans Narrow', sans-serif;
+  src: url('/font/sans-narrow.ttf');
+}
+
 *{
-  box-sizing: border-box;font-family:
-  'Times New Roman', Times, serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-style: normal;
+  box-sizing: border-box;
 }
 
 .bg-success, .bg-primary-color, .bg-green{
@@ -96,7 +127,7 @@ hr{
 }
 
 .box-shadow{
-  box-shadow: 5px 5px 5px 5px #999  !iimportant;
+  box-shadow: 5px 5px 5px 5px #999  !important;
 }
 
 *, #root{

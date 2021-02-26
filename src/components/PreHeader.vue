@@ -49,4 +49,5 @@ export default {
 .bg-secondary{
   background-color: var(--custom-secondary-color) !important;
 }
+
 </style>
