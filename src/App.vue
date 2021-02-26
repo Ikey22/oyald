@@ -132,7 +132,7 @@ hr{
 
 *, #root{
   animation-name: fadeIn;
-  animation-duration: .55s;
+  animation-duration: .35s;
   animation-delay: 0s;
   animation-timing-function: ease-in;
 }

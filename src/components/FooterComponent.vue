@@ -74,7 +74,9 @@
     <hr class="bordered border-light" />
 
     <div class="text-light d-flex flex-column flex-lg-row align-items-center justify-content-around">
+      <span>.</span>
       <small class="w-100 text-center font-weight-bold"> &copy; Organisation of Young African Leaders for Development (OYALD) 2011 - {{ year }} </small>
+      <router-link to="/__admin" class="p-2"><span> &nbsp; . &nbsp; </span></router-link>
     </div><br/>
 
   </div>
