@@ -11,7 +11,7 @@
                             v-model="country"
                             :required="true"
                             >
-                                <b-form-select-option v-for="(x, index) in countries" :key="`country-${index + 1}`" :value="x.name">{{x.name}}</b-form-select-option>
+                                <b-form-select-option v-for="(x, index) in countries" :key="`country-${index + 1}`" :value="x.name">{{x.name}}{{ x.emoji }}</b-form-select-option>
                             </b-form-select>
                           </b-form-group>
 

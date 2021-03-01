@@ -67,7 +67,7 @@
           <br />
 
           <b-button
-          to="/membership"
+          @click="addMemberModal = true"
           class="bg-primary-color"
           >Add new member <b-icon icon="person-plus" class="text-white" /></b-button>
 
@@ -103,7 +103,7 @@
           <br />
 
           <b-button
-          to="/membership"
+          @click="addPartnerModal = true"
           class="bg-primary-color"
           >Add new partner <b-icon icon="person-plus-fill" class="text-white" /></b-button>
 
@@ -247,12 +247,28 @@
   <!-- #end login form -->
 
   <!-- begin invalid credentials modal -->
-  <b-modal v-model="showInvalidLoginDetailsModal"> 
-    <div class="w-100 h-100" ok-only>
+  <b-modal v-model="showInvalidLoginDetailsModal" ok-only ok-variant="success" size="xl" centered> 
+    <div class="w-100 h-100">
       <p class="h1 text-center w-100 font-weight-bold text-danger">Invalid credentials!!!</p>
     </div>
   </b-modal>
   <!-- #end invalid credentials modal -->
+
+  <!-- #begin add new member form -->
+  <b-modal v-model="addMemberModal" size="xl" centered scrollable>
+    <template #modal-title><center class="w-100 h1 text-center text-primary-color">Add new member</center></template>
+    <new-member-form />
+    <template #modal-footer> - &nbsp;</template>
+  </b-modal>
+  <!-- #end add new member form -->
+
+  <!-- #begin add new partner form -->
+  <b-modal v-model="addPartnerModal" size="xl" centered scrollable>
+    <template #modal-title><center class="w-100 h1 text-center text-primary-color">Add new partner</center></template>
+    <new-partner-form />
+    <template #modal-footer> - &nbsp;</template>
+  </b-modal>
+  <!-- #end add new partner form -->
 
   </div>
 </template>
@@ -261,6 +277,8 @@
 import BarChart from '../components/BarChart.vue'
 import TeamMember from '@/components/TeamMember.vue';
 import TeamMemberList from '@/components/TeamMemberList.vue';
+import NewMemberForm from '../components/NewMemberForm.vue';
+import NewPartnerForm from "../components/NewPartnerForm.vue";
 
 //import Overview from '@/components/Admin/Overview.vue';
 
@@ -269,6 +287,8 @@ export default {
     BarChart,
     TeamMember,
     TeamMemberList,
+    NewPartnerForm,
+    NewMemberForm,
     //Overview
   },
     name: "Admin",
@@ -286,6 +306,9 @@ export default {
     },
     data(){
       return {
+        addMemberModal: false,
+        addPartnerModal: false,
+
         members: [],
         membership_requests: [],
         partnership_requests: [],
