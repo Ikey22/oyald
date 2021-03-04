@@ -18,7 +18,6 @@ import "firebase/firestore";
 import "firebase/messaging";
 //import "firebase/functions";
 import VueWorker from 'vue-worker';
-import vuejsStorage from 'vuejs-storage';
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -64,7 +63,6 @@ Vue.use(IconsPlugin);
 Vue.use(portalVue);
 Vue.use(VueWorker);
 Vue.use(firebaseVuePlugin);
-Vue.use(vuejsStorage)
 
 const isDev = process.env.NODE_ENV !== "production";
 Vue.config.performance = isDev;
@@ -73,18 +71,7 @@ Vue.config.productionTip = false;
 window.__$vm = new Vue({
   store,
   router,
-  storage: {
-    keys: ['count'],
-    //keep data.count in localStorage
-    namespace: 'my-namespace'
-  },
   render: createApp => createApp(App)
 }).$mount('#app');
 
 console.log('Welcome to OYALD');
-
-/* try {
-  (() => window.__$vm.$firebase.auth().signInAnonymously().then(console.log).catch(console.error.bind))();
-} catch(e){
-  console.trace(e);
-} */

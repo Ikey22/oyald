@@ -154,7 +154,7 @@
             selectable
             select-mode="multi"
             :fields="newsletterTableFields"
-            :items="newsletterSubscribtion"
+            :items="newsletter_subscribtions"
             />
           </center>
 
@@ -312,7 +312,17 @@ export default {
         members: [],
         membership_requests: [],
         partnership_requests: [],
-        newsletter_subscribtions: [],
+        newsletter_subscribtion:  [
+          {
+            subscribed_on: 1,
+            email: "dohn.doe@gmail.com"
+          },
+          {
+            subscribed_on: 2,
+            email: "dohn.doe@gmail.com"
+          }
+        ],
+        capacity_building: [],
 
         shouldRenderChart: false,
 
@@ -328,35 +338,12 @@ export default {
         labels: [`Members`, `New Membership Requests`, `Partners`, `New Partnership Requests`, `Newsletter subscribtions`],
         newsletterTableFields: [
           {
-            key: "name",
-            label: "Name in full",
-            sortable: true,
-          },
-          {
-            key: "field_of_interest",
-            label: "Field of interest",
-            sortable: true
-          },
-          {
             key: "email",
             sortable: true
-          }
-        ],
-        newsletterSubscribtion: [
-          {
-            name: "John Matthew Doe",
-            field_of_interest: "Sustainable development goals",
-            email: "dohn.doe@gmail.com"
           },
           {
-            name: "Jane Matthew Doe",
-            field_of_interest: "Sustainable development goals",
-            email: "dohn.doe@gmail.com"
-          },
-          {
-            name: "James Matthew Doe",
-            field_of_interest: "Sustainable development goals",
-            email: "dohn.doe@gmail.com"
+            key: "subcribed_on:",
+            sortable: true,
           }
         ]
       }
@@ -367,6 +354,8 @@ export default {
         this.$firebase.auth().signOut().then(() => {
               $this.$store.commit('showSuccessModal', true);
               $this.$store.commit('setAuthAdmin', null);
+              const listeners = $this.unsubscribeListeners
+              Object.values(listeners).forEach(listener => listener());
           }).catch((error) => {
             console.trace(error);
           });
@@ -407,7 +396,7 @@ export default {
                                                     $this.shouldRenderChart = true;
                                                   }).catch(() => subscribeTo(collectionName));
 
-                    $this.unsubscribeListener = ref.onSnapshot(snapshot => {
+                    const unsubscribeListener = ref.onSnapshot(snapshot => {
                                                     const newArray = [];
 
                                                     if (snapshot.docs.length) snapshot.docs.forEach(doc => {
@@ -419,7 +408,7 @@ export default {
                                                   });
 
 
-                    return $this.unsubscribeListener;
+                    return unsubscribeListener;
 
                 };
 
@@ -431,10 +420,11 @@ export default {
 
 
 
-              subscribeTo('members');
-              subscribeTo('membership_requests');
-              subscribeTo('partnerhip_requests');
-              subscribeTo('newsletter_subscribtions');
+              $this.unsubscribeListeners[0] = subscribeTo('members');
+              $this.unsubscribeListeners[1] = subscribeTo('membership_requests');
+              $this.unsubscribeListeners[2] = subscribeTo('partnerhip_requests');
+              $this.unsubscribeListeners[3] = subscribeTo('newsletter_subscribtion');
+              $this.unsubscribeListeners[4] = subscribeTo('capacity_building');
 
               
               };
@@ -459,6 +449,7 @@ export default {
                   })
                   .catch((error) => {
                     console.trace(error);
+                    $this.isLoggingIn = false;
                     $this.$store.commit('showNetworkErrorModal', true);
                     // var errorCode = error.code;
                     // var errorMessage = error.message;

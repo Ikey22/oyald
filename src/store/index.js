@@ -1,10 +1,18 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+// import vuejsStorage from "vuejs-storage";
 
 
 Vue.use(Vuex);
+// Vue.use(vuejsStorage);
 
 const $store = new Vuex.Store({
+  /* plugins: [
+    vuejsStorage({
+      keys: ['authAdmin'],
+      namespace: '_oyald_ojlad'
+    })
+  ], */
   state: {
     primaryColor: "#002200",
     email: "oyald.ojlad@gmail.com",
@@ -125,6 +133,8 @@ const $store = new Vuex.Store({
     },
     setAuthAdmin(state, admin){
       state.authAdmin = admin;
+      localStorage.setItem('authAdmin', JSON.stringify(admin));
+      console.log(JSON.stringify(admin));
     },
     showSuccessModal(state, boolValue){
       state.successModal = boolValue;
@@ -146,7 +156,7 @@ const $store = new Vuex.Store({
       const email = state.userPreferences.email;
 
       const addEmailToNewsletterSubscribtion = email => {
-        if (/\S@\S.\S/.test(email)) ref.add({email})
+        if (/\S@\S.\S/.test(email)) ref.add({email, subscribed_on: Date.now() || (new Date()).getTime()})
           .then(() => {
             state.isAddingToNewsletter = false;
             window.__$store.commit('showSuccessModal', true)
@@ -183,6 +193,18 @@ const $store = new Vuex.Store({
   modules: {
   }
 });
+
+/* const checkStorageForAuthAdmin = () => {
+  if (localStorage.authAdmin){
+    if ($store){
+      $store.commit('setAuthAdmin', JSON.parse(localStorage.authAdmin));
+    }
+  }
+}
+
+window.addEventListener('load', () => checkStorageForAuthAdmin());
+window.addEventListener('DOMContentLoaded', () => checkStorageForAuthAdmin());
+window.addEventListener('ready', () => checkStorageForAuthAdmin()) */
 
 window.__$store = $store;
 
