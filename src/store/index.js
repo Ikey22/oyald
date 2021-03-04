@@ -133,8 +133,8 @@ const $store = new Vuex.Store({
     },
     setAuthAdmin(state, admin){
       state.authAdmin = admin;
-      localStorage.setItem('authAdmin', JSON.stringify(admin));
-      console.log(JSON.stringify(admin));
+      // localStorage.setItem('authAdmin', JSON.stringify(admin));
+      // console.log(JSON.stringify(admin));
     },
     showSuccessModal(state, boolValue){
       state.successModal = boolValue;

@@ -43,7 +43,7 @@
             :height="400"
             :labels="labels" 
              datasetLabel="Statistical overview"
-            :datasetData="[this.members.length, this.membership_requests.length, this.partners.length, this.partnership_requests.length, this.newsletter_subscribtions.length]"
+            :datasetData="[this.members.length, this.membership_requests.length, this.partners.length, this.partnership_requests.length, this.newsletter_subscribtion.length]"
              style="max-width: 950px !important;"
             />
             <p v-else class="w-100 text-center h1 text-primary-color font-weight-bold">Loading</p>
@@ -54,6 +54,7 @@
       <!-- #End Overview -->
 
       <!-- Begin Members -->
+
       <b-tab>
         <template #title>
           <b-icon icon="people-fill" />
@@ -134,7 +135,7 @@
         <template #title>
           <b-icon icon="book-half" />
           Newsletter subcriptions
-          <b-badge variant="danger"> {{ newsletter_subscribtions.length }} </b-badge>
+          <b-badge variant="danger"> {{ newsletter_subscribtion.length }} </b-badge>
         </template>
         <hr />
 
@@ -142,6 +143,7 @@
           
           <center>
             <b-table
+            v-if="shouldRenderTable"
             striped
             class="w-100"
             bordered
@@ -154,8 +156,12 @@
             selectable
             select-mode="multi"
             :fields="newsletterTableFields"
-            :items="newsletter_subscribtions"
-            />
+            :items="newsletter_subscribtion"
+            >
+              <template #cell(subscribed_on)="data" >
+                {{ new Date(data.value) || 'unknown' }}
+              </template>
+            </b-table>
           </center>
 
         </div>
@@ -300,7 +306,7 @@ export default {
       },
       datasetData: {
         get(){
-          return [this.members.length, this.membership_requests.length, this.partners.length, this.partnership_requests.length, this.newsletter_subscribtions.length];
+          return [this.members.length, this.membership_requests.length, this.partners.length, this.partnership_requests.length, this.newsletter_subscribtion.length];
         }
       }
     },
@@ -312,19 +318,11 @@ export default {
         members: [],
         membership_requests: [],
         partnership_requests: [],
-        newsletter_subscribtion:  [
-          {
-            subscribed_on: 1,
-            email: "dohn.doe@gmail.com"
-          },
-          {
-            subscribed_on: 2,
-            email: "dohn.doe@gmail.com"
-          }
-        ],
+        newsletter_subscribtion:  [],
         capacity_building: [],
 
         shouldRenderChart: false,
+        shouldRenderTable: false,
 
         unsubscribeListeners: {},
 
@@ -342,7 +340,7 @@ export default {
             sortable: true
           },
           {
-            key: "subcribed_on:",
+            key: "subscribed_on:",
             sortable: true,
           }
         ]
@@ -393,7 +391,8 @@ export default {
                                                     });
 
                                                     $this[collectionName] = [...newArray];
-                                                    $this.shouldRenderChart = true;
+                                                    $this.shouldRenderChart = $this.shouldRenderTable = false;
+                                                    $this.shouldRenderChart = $this.shouldRenderTable = true;
                                                   }).catch(() => subscribeTo(collectionName));
 
                     const unsubscribeListener = ref.onSnapshot(snapshot => {
@@ -404,7 +403,8 @@ export default {
                                                     });
 
                                                     $this[collectionName] = [...newArray];
-                                                    $this.shouldRenderChart = true;
+                                                    $this.shouldRenderChart = $this.shouldRenderTable = false;
+                                                    $this.shouldRenderChart = $this.shouldRenderTable = true;
                                                   });
 
 
