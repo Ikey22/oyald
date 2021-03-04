@@ -48,6 +48,16 @@
             />
             <p v-else class="w-100 text-center h1 text-primary-color font-weight-bold">Loading</p>
           </center>
+
+          <br />
+
+          <p class="w-100 font-weight-bold">Active Members: 15</p> <br />
+          <p class="w-100 font-weight-bold">Associate Members: 15</p> <br />
+          <p class="w-100 font-weight-bold">Honorary Members: 15</p> <br />
+          <p class="w-100 font-weight-bold">Honorary Members: 15</p> <br />
+          <p class="w-100 font-weight-bold">New membersip requests: 15</p> <br />
+          <p class="w-100 font-weight-bold">New partnership requests: 15</p> <br />
+
         </div>
 
       </b-tab>
