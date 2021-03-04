@@ -1,7 +1,7 @@
 <template>
   <center> 
       <b-form
-      @submit.prevent="submitNewPartnerForm"
+      @submit.prevent="submitForm"
       style="max-width: 1050px !important;" 
       class="card shadow-lg rounded p-3 d-block text-left"
       >
@@ -273,7 +273,16 @@ import CountryStateCity from '@/components/CountryStateCity.vue';
 export default {
   components: { CountryStateCity },
   methods: {
-    submitNewPartnerForm(){}
+    submitForm(){
+      const params = {};
+      this.action(params);
+    }
+  },
+  props: {
+    action: {
+      type: Function,
+      required: true
+    }
   },
     name: "NwePartnerForm"
 }

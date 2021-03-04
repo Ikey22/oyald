@@ -1,7 +1,7 @@
 <template>
   <center>
       <b-form
-      @submit.prevent="submitNewMemberForm"
+      @submit.prevent="submitForm"
       style="max-width: 1050px !important;"
       class="card rounded p-3 d-block text-left shadow-lg"
       >
@@ -244,11 +244,20 @@ import CountryStateCity from '@/components/CountryStateCity.vue';
 export default {
     name: "NewMemberForm",
     methods: {
-      sumbitNewMemberForm(){}
+      sumbitForm(){
+        const params = {};
+        this.action(params);
+      }
     },
     components: {
       TitleOfAppelation,
       CountryStateCity
+    },
+    props: {
+      action: {
+        type: Function,
+        required: true
+      }
     }
 }
 </script>

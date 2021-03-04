@@ -7,7 +7,7 @@
       
       
       
-      <new-member-form />
+      <new-member-form :action="submitNewMemberForm" />
 
 
 
@@ -22,8 +22,10 @@ import NewMemberForm from "../components/NewMemberForm.vue";
 
 export default {
     name: "NewMember",
-    methods: {
-      sumbitNewMemberForm(){}
+    data(){
+      return {
+        submitNewMemberForm(){}
+      }
     },
     components: {
       NewMemberForm

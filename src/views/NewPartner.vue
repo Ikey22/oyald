@@ -7,7 +7,7 @@
       
       
       
-      <new-partner-form />
+      <new-partner-form :action="submitNewPartnerForm" />
 
 
 
@@ -25,8 +25,10 @@ export default {
     //CountryStateCity,
     NewPartnerForm
     },
-  methods: {
-    submitNewPartnerForm(){}
+  data(){
+    return {
+      submitNewPartnerForm(){}
+    }
   },
     name: "NewPartner"
 }

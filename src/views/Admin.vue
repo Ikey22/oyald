@@ -9,7 +9,7 @@
     <center>
       <b-list-group style="max-width: 300px;">
               <b-list-group-item class="d-flex align-items-center">
-                <b-avatar class="mr-3"></b-avatar>
+                <b-avatar class="mr-3" :src="$firebase.auth().currentUser.photoURL || null"></b-avatar>
                 <span class="mr-auto">{{ $store.state.authAdmin.firstName + ' ' + $store.state.authAdmin.surName }}</span>
               </b-list-group-item>
            </b-list-group>
@@ -166,7 +166,7 @@
 
         </div>
       </b-tab>
-      <!-- End Nwsletter subscribion -->
+      <!-- End Newsletter subscribion -->
 
     </b-tabs>
 
@@ -378,6 +378,11 @@ export default {
                 };
 
 
+                const reRender = () => {
+                  $this.shouldRenderChart = $this.shouldRenderTable = false;
+                  setTimeout(() => {$this.shouldRenderChart = $this.shouldRenderTable = true}, 500);
+                }
+
                 const subscribeTo = collectionName => {
 
                   const ref = $this.$firebase.firestore()
@@ -391,8 +396,7 @@ export default {
                                                     });
 
                                                     $this[collectionName] = [...newArray];
-                                                    $this.shouldRenderChart = $this.shouldRenderTable = false;
-                                                    $this.shouldRenderChart = $this.shouldRenderTable = true;
+                                                    reRender();
                                                   }).catch(() => subscribeTo(collectionName));
 
                     const unsubscribeListener = ref.onSnapshot(snapshot => {
@@ -403,8 +407,7 @@ export default {
                                                     });
 
                                                     $this[collectionName] = [...newArray];
-                                                    $this.shouldRenderChart = $this.shouldRenderTable = false;
-                                                    $this.shouldRenderChart = $this.shouldRenderTable = true;
+                                                    reRender();
                                                   });
 
 
