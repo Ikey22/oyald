@@ -2,7 +2,7 @@
   <div class="w-100 m-0 p-0">
 
     <!-- begin auth admin section -->
-    <div class="w-100 container-fluid" v-if="$store.state.authAdmin">
+    <div class="w-100 container-fluid" v-if="$store.state.authAdmin && $firebase.auth().currentUser">
     <p class="h1 text-primary-color text-center w-100 font-weight-bold">
       Admin
       </p>
@@ -316,7 +316,8 @@ export default {
 
         shouldRenderChart: false,
 
-        unsubscribe: {},
+        unsubscribeListeners: {},
+
         adminLoginDetails: {
           email: "",
           password: ""
@@ -362,8 +363,13 @@ export default {
     },
     methods: {
       adminLogout(){
-        this.$store.commit('showSuccessModal', true);
-        this.$store.commit('setAuthAdmin', null);
+        const $this = this;
+        this.$firebase.auth().signOut().then(() => {
+              $this.$store.commit('showSuccessModal', true);
+              $this.$store.commit('setAuthAdmin', null);
+          }).catch((error) => {
+            console.trace(error);
+          });
       },
       adminLogin(){
 
@@ -383,12 +389,6 @@ export default {
                     email: '',
                     password: ''
                 };
-
-
-
-
-
-
 
 
                 const subscribeTo = collectionName => {
@@ -451,7 +451,18 @@ export default {
           const matchedUser = match.docs[0];
 
           if(matchedUser && matchedUser.exists){
-                commit(matchedUser.data());
+                $this.$firebase.auth().signInWithEmailAndPassword(email, password)
+                  .then((userCredentials) => {
+                    // Signed in
+                    // const user = userCredentials.user;
+                    commit({ ...matchedUser.data(), firebaseUser: userCredentials.user });
+                  })
+                  .catch((error) => {
+                    console.trace(error);
+                    $this.$store.commit('showNetworkErrorModal', true);
+                    // var errorCode = error.code;
+                    // var errorMessage = error.message;
+                  });
           } else {
             switch (matchedUser) {
             case undefined:
@@ -469,7 +480,11 @@ export default {
               break;
           
             default:
-              commit(matchedUser.data());
+              //commit(matchedUser.data());
+              (() => {
+                console.error("unable to login");
+                $this.isLoggingIn = false;
+              })()
               break;
           }
           }

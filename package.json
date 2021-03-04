@@ -22,6 +22,7 @@
     "vue-chartjs": "^3.5.1",
     "vue-router": "^3.2.0",
     "vue-worker": "^1.2.1",
+    "vuejs-storage": "^3.1.0",
     "vuex": "^3.4.0"
   },
   "devDependencies": {
