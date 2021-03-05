@@ -23,7 +23,7 @@
     </center>
     <br />
 
-    <hr />{{$firebase.auth().currentUser}}
+    <hr />
 
     <b-tabs align="center" pills fill justified>
 
@@ -51,9 +51,9 @@
 
           <br />
 
-          <p v-if="shouldRender" class="w-100 text-left font-weight-bold">Active Members: {{ members.filter(member => member.slice(0).membership_type === "active").length }}  </p> <br />
-          <p v-if="shouldRender" class="w-100 text-left font-weight-bold">Associate Members: {{ members.filter(member => member.slice(0).membership_type === "associate").length }} </p> <br />
-          <p v-if="shouldRender" class="w-100 text-left font-weight-bold">Honorary Members: {{ members.filter(member => member.slice(0).membership_type === "honorary").length }} </p> <br />
+          <p v-if="shouldRender" class="w-100 text-left font-weight-bold">Active Members: {{ members.slice(0).filter(member => member.membership_type === "active").length }}  </p> <br />
+          <p v-if="shouldRender" class="w-100 text-left font-weight-bold">Associate Members: {{ members.slice(0).filter(member => member.membership_type === "associate").length }} </p> <br />
+          <p v-if="shouldRender" class="w-100 text-left font-weight-bold">Honorary Members: {{ members.slice(0).filter(member => member.membership_type === "honorary").length }} </p> <br />
           <p v-if="shouldRender" class="w-100 text-left font-weight-bold">Members (Total): {{ members.length }} </p> <br />
           <p v-if="shouldRender" class="w-100 text-left font-weight-bold">New membersip requests: {{ membership_requests.length }} </p> <br />
           <p v-if="shouldRender" class="w-100 text-left font-weight-bold">New partnership requests: {{ partnership_requests.length }} </p> <br />
@@ -183,6 +183,38 @@
 
   </div>
   <!-- #end auth admin section -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -361,6 +393,8 @@ export default {
     methods: {
       adminLogout(){
         const $this = this;
+        window.scollTo(0, 0);
+        $this.$firebase.analytics().logEvent("admin_logout", $this.$store.state.authAdmin);
         this.$firebase.auth().signOut().then(() => {
               $this.$store.commit('showSuccessModal', true);
               $this.$store.commit('setAuthAdmin', null);
@@ -408,7 +442,7 @@ export default {
                                                     reRender();
                                                   }).catch(error => {
                                                       reRender();
-                                                      $this.unsubscribeListeners.push(subscribeTo(collectionName));
+                                                      if ($this.$store.state.authAdmin && $this.$firebase.auth().currentUser) $this.unsubscribeListeners.push(subscribeTo(collectionName));
                                                       console.error(error);
                                                     });
 
@@ -425,7 +459,7 @@ export default {
                                                   }, error => {
                                                     console.error(error)
                                                     reRender();
-                                                    $this.unsubscribeListeners.push(subscribeTo(collectionName));
+                                                    if ($this.$store.state.authAdmin && $this.$firebase.auth().currentUser) $this.unsubscribeListeners.push(subscribeTo(collectionName));
                                                   });
 
 
@@ -440,6 +474,7 @@ export default {
               $this.unsubscribeListeners.push(subscribeTo('partnerhip_requests'));
               $this.unsubscribeListeners.push(subscribeTo('newsletter_subscribtion'));
               $this.unsubscribeListeners.push(subscribeTo('capacity_building'));
+              reRender();
 
               
               };
