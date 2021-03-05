@@ -39,7 +39,7 @@
           <p class="text-primary-color font-weight-bold h3'">Overview</p>
           <center>
             <bar-chart
-            v-if="shouldRenderChart"
+            v-if="shouldRender"
             :height="400"
             :labels="labels" 
              datasetLabel="Statistical overview"
@@ -153,7 +153,7 @@
           
           <center>
             <b-table
-            v-if="shouldRenderTable"
+            v-if="shouldRender"
             striped
             class="w-100"
             bordered
@@ -167,7 +167,7 @@
             select-mode="multi"
             :fields="newsletterTableFields"
             :items="newsletter_subscribtion"
-            >
+            > 
               <template #cell(subscribed_on)="data" >
                 {{ new Date(data.value) || 'unknown' }}
               </template>
@@ -322,6 +322,8 @@ export default {
     },
     data(){
       return {
+        Date,
+        
         addMemberModal: false,
         addPartnerModal: false,
 
@@ -331,8 +333,7 @@ export default {
         newsletter_subscribtion:  [],
         capacity_building: [],
 
-        shouldRenderChart: false,
-        shouldRenderTable: false,
+        shouldRender: false,
 
         unsubscribeListeners: {},
 
@@ -389,8 +390,8 @@ export default {
 
 
                 const reRender = () => {
-                  $this.shouldRenderChart = $this.shouldRenderTable = false;
-                  setTimeout(() => {$this.shouldRenderChart = $this.shouldRenderTable = true}, 500);
+                  $this.shouldRender = false;
+                  setTimeout(() => {$this.shouldRender = true}, 100);
                 }
 
                 const subscribeTo = collectionName => {
@@ -398,7 +399,7 @@ export default {
                   const ref = $this.$firebase.firestore()
                                     .collection(collectionName);
 
-                    ref.get().then(res => {
+                    /* ref.get().then(res => {
                                                     const newArray = [];
 
                                                     res.docs.forEach(doc => {
@@ -407,7 +408,9 @@ export default {
 
                                                     $this[collectionName] = [...newArray];
                                                     reRender();
-                                                  }).catch(() => subscribeTo(collectionName));
+                                                  }).catch(() => subscribeTo(collectionName)); */
+
+// 
 
                     const unsubscribeListener = ref.onSnapshot(snapshot => {
                                                     const newArray = [];

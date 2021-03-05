@@ -2,7 +2,7 @@
 <footer class="w-100 bg-green text-dark">
   <br />
   <h1 class="w-100 text-center font-weight-bold text-white">Our Vision</h1>
-  <p class="text-center text-white font-weight-bold w-100">
+  <p class="text-center text-white w-100 px-3">
     We envision a united, peaceful, inclusive, and sustainably prosperous Africa, driven by the joint transformational efforts of Africans, across generations.
   </p>
   <br />
@@ -10,7 +10,7 @@
   <div class="container-fluid">
     <div class="d-flex flex-column flex-med-row flex-lg-row align-items-start justify-content-between text-yellow">
       <center class="pt-4 pb-1">
-        <span style="padding-left: 0 !important; margin-left: 0 !important; padding-right: 0 !important; margin-right: 0 !important; color:; var(--yellow) !important;" class="h2 font-weight-bold"> OYALD</span>
+        <span style="padding-left: 0 !important; margin-left: 0 !important; padding-right: 0 !important; margin-right: 0 !important; /*color:; var(--yellow) !important;*/" class="h2 font-weight-bold text-warning">OYALD</span>
       </center>
       <center class="pt-4 px-3 pb-2 row d-flex flex-row align-items-center justify-content-between">
       </center>
@@ -49,8 +49,8 @@
 
     <hr class="bordered border-light"/>
 
-    <div class="text-light d-flex flex-column flex-lg-row align-items-center justify-content-between">
-      <span class="h5 font-weight-bold text-center">SUBSCRIBE TO OUR NEWSLETTER</span>
+    <div class="text-light d-flex flex-row flex-lg-row align-items-center justify-content-between">
+      <span class="d-none d-lg-block h5 font-weight-bold text-center">SUBSCRIBE TO OUR NEWSLETTER</span>
 
       <b-overlay
             :show="$store.state.isAddingToNewsletter"
@@ -60,7 +60,7 @@
             class="d-flex flex-xl-row flex-lg-row flex-md-row flex-sm-column">
       <form @submit.prevent="$store.commit('submitNewsletterForm')" class="d-flex flex-xl-row flex-lg-row flex-md-row flex-sm-column">
         <div class="input-group rounded-lg">
-          <input required v-model="$store.state.userPreferences.email" type="email" class="form-control" id="inlineFormInputGroupUsername" :placeholder="$store.state.language === 'en' ? 'your email address' : 'Quelle est ton adresse email'">
+          <input required v-model="$store.state.userPreferences.email" type="email" class="form-control" id="inlineFormInputGroupUsername" placeholder="Subscribe to our newsletter with your email">
           <div class="input-group-append">
             <button type="submit" role="button" class="btn btn-success bg-warning input-group-text"><b-icon icon="arrow-right-square-fill"></b-icon></button>
           </div>
@@ -73,7 +73,7 @@
 
     <hr class="bordered border-light" />
 
-    <div class="text-light d-flex flex-column flex-lg-row align-items-center justify-content-around">
+    <div class="text-light d-flex flex-crow flex-lg-row align-items-center justify-content-around">
       <span>.</span>
       <small class="w-100 text-center font-weight-bold"> &copy; Organisation of Young African Leaders for Development (OYALD) 2011 - {{ year }} </small>
       <router-link to="/__admin" class="text-white p-2"><span> &nbsp; . &nbsp; </span></router-link>
