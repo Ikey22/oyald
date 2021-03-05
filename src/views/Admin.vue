@@ -2,7 +2,7 @@
   <div class="w-100 m-0 p-0">
 
     <!-- begin auth admin section -->
-    <div class="w-100 container-fluid" v-if="$store.state.authAdmin && $firebase.auth().currentUser">
+    <div class="w-100 container-fluid" v-if="$firebase.auth().currentUser">
     <p class="h1 text-primary-color text-center w-100 font-weight-bold">
       Admin
       </p>
@@ -23,7 +23,7 @@
     </center>
     <br />
 
-    <hr />
+    <hr />{{$firebase.auth().currentUser}}
 
     <b-tabs align="center" pills fill justified>
 
@@ -51,12 +51,13 @@
 
           <br />
 
-          <p class="w-100 text-left font-weight-bold">Active Members: {{ members.filter(member => member.slice(0).membership_type === "active").length }}  </p> <br />
-          <p class="w-100 text-left font-weight-bold">Associate Members: {{ members.filter(member => member.slice(0).membership_type === "associate").length }} </p> <br />
-          <p class="w-100 text-left font-weight-bold">Honorary Members: {{ members.filter(member => member.slice(0).membership_type === "honorary").length }} </p> <br />
-          <p class="w-100 text-left fot-weight-bold">Members (Total): {{ members.length }} </p>
-          <p class="w-100 text-left font-weight-bold">New membersip requests: {{ membership_requests.length }} </p> <br />
-          <p class="w-100 text-left font-weight-bold">New partnership requests: {{ partnership_requests.length }} </p> <br />
+          <p v-if="shouldRender" class="w-100 text-left font-weight-bold">Active Members: {{ members.filter(member => member.slice(0).membership_type === "active").length }}  </p> <br />
+          <p v-if="shouldRender" class="w-100 text-left font-weight-bold">Associate Members: {{ members.filter(member => member.slice(0).membership_type === "associate").length }} </p> <br />
+          <p v-if="shouldRender" class="w-100 text-left font-weight-bold">Honorary Members: {{ members.filter(member => member.slice(0).membership_type === "honorary").length }} </p> <br />
+          <p v-if="shouldRender" class="w-100 text-left font-weight-bold">Members (Total): {{ members.length }} </p> <br />
+          <p v-if="shouldRender" class="w-100 text-left font-weight-bold">New membersip requests: {{ membership_requests.length }} </p> <br />
+          <p v-if="shouldRender" class="w-100 text-left font-weight-bold">New partnership requests: {{ partnership_requests.length }} </p> <br />
+          <p v-if="shouldRender" class="w-100 text-left font-weight-bold">Newsletter subscribtions: {{ newsletter_subscribtion.length }} </p> <br />
 
         </div>
 
@@ -333,7 +334,7 @@ export default {
         newsletter_subscribtion:  [],
         capacity_building: [],
 
-        shouldRender: true,
+        shouldRender: true, 
 
         unsubscribeListeners: [],
 
@@ -388,7 +389,7 @@ export default {
 
                 const reRender = () => {
                   $this.shouldRender = false;
-                  setTimeout(() => {$this.shouldRender = true}, 100);
+                  setTimeout(() => {$this.shouldRender = true}, 200);
                 }
 
                 const subscribeTo = collectionName => {
@@ -423,6 +424,7 @@ export default {
                                                     reRender();
                                                   }, error => {
                                                     console.error(error)
+                                                    reRender();
                                                     $this.unsubscribeListeners.push(subscribeTo(collectionName));
                                                   });
 
