@@ -46,17 +46,17 @@
             :datasetData="[this.members.length, this.membership_requests.length, this.partners.length, this.partnership_requests.length, this.newsletter_subscribtion.length]"
              style="max-width: 950px !important;"
             />
-            <p v-else class="w-100 text-center h1 text-primary-color font-weight-bold">Loading</p>
+            <p v-else class="w-100 text-center h3 text-primary-color font-weight-bold">Loading</p>
           </center>
 
           <br />
 
-          <p class="w-100 font-weight-bold">Active Members: 15</p> <br />
-          <p class="w-100 font-weight-bold">Associate Members: 15</p> <br />
-          <p class="w-100 font-weight-bold">Honorary Members: 15</p> <br />
-          <p class="w-100 font-weight-bold">Honorary Members: 15</p> <br />
-          <p class="w-100 font-weight-bold">New membersip requests: 15</p> <br />
-          <p class="w-100 font-weight-bold">New partnership requests: 15</p> <br />
+          <p class="w-100 text-left font-weight-bold">Active Members: {{ members.filter(member => member.slice(0).membership_type === "active").length }}  </p> <br />
+          <p class="w-100 text-left font-weight-bold">Associate Members: {{ members.filter(member => member.slice(0).membership_type === "associate").length }} </p> <br />
+          <p class="w-100 text-left font-weight-bold">Honorary Members: {{ members.filter(member => member.slice(0).membership_type === "honorary").length }} </p> <br />
+          <p class="w-100 text-left fot-weight-bold">Members (Total): {{ members.length }} </p>
+          <p class="w-100 text-left font-weight-bold">New membersip requests: {{ membership_requests.length }} </p> <br />
+          <p class="w-100 text-left font-weight-bold">New partnership requests: {{ partnership_requests.length }} </p> <br />
 
         </div>
 
@@ -323,7 +323,7 @@ export default {
     data(){
       return {
         Date,
-        
+
         addMemberModal: false,
         addPartnerModal: false,
 
@@ -335,7 +335,7 @@ export default {
 
         shouldRender: false,
 
-        unsubscribeListeners: {},
+        unsubscribeListeners: [],
 
         adminLoginDetails: {
           email: "",
@@ -363,8 +363,8 @@ export default {
         this.$firebase.auth().signOut().then(() => {
               $this.$store.commit('showSuccessModal', true);
               $this.$store.commit('setAuthAdmin', null);
-              const listeners = $this.unsubscribeListeners
-              Object.values(listeners).forEach(listener => listener());
+              console.clear();
+              $this.unsubscribeListeners.forEach(listener => listener());
           }).catch((error) => {
             console.trace(error);
           });
@@ -374,19 +374,16 @@ export default {
         const $this = this;
         $this.isLoggingIn = true;
 
-        const commit = matchedUser => {
+        const commitAdmin = matchedUser => {
           
                 const prevettedUser =  JSON.parse(JSON.stringify(matchedUser));
                 const vettedUser = { ...prevettedUser }
                 vettedUser.password = null;
                 $this.$store.commit('setAuthAdmin', vettedUser);
-                $this.$firebase.analytics().logEvent('admin_login', vettedUser);
+                $this.$firebase.analytics().logEvent('admin_login', JSON.stringify(vettedUser));
                 $this.$store.commit('showSuccessModal', true);
                 $this.isLoggingIn = false;
-                $this.adminLoginDetails = {
-                    email: '',
-                    password: ''
-                };
+                $this.adminLoginDetails.password = '';
 
 
                 const reRender = () => {
@@ -399,7 +396,7 @@ export default {
                   const ref = $this.$firebase.firestore()
                                     .collection(collectionName);
 
-                    /* ref.get().then(res => {
+                    ref.get().then(res => {
                                                     const newArray = [];
 
                                                     res.docs.forEach(doc => {
@@ -408,9 +405,11 @@ export default {
 
                                                     $this[collectionName] = [...newArray];
                                                     reRender();
-                                                  }).catch(() => subscribeTo(collectionName)); */
+                                                  }).catch(error => {
+                                                      $this.unsubscribeListeners.push(subscribeTo(collectionName));
+                                                      console.error(error);
+                                                    });
 
-// 
 
                     const unsubscribeListener = ref.onSnapshot(snapshot => {
                                                     const newArray = [];
@@ -421,6 +420,9 @@ export default {
 
                                                     $this[collectionName] = [...newArray];
                                                     reRender();
+                                                  }, error => {
+                                                    console.error(error)
+                                                    $this.unsubscribeListeners.push(subscribeTo(collectionName));
                                                   });
 
 
@@ -430,20 +432,16 @@ export default {
 
 
 
-
-
-
-
-
-
-              $this.unsubscribeListeners[0] = subscribeTo('members');
-              $this.unsubscribeListeners[1] = subscribeTo('membership_requests');
-              $this.unsubscribeListeners[2] = subscribeTo('partnerhip_requests');
-              $this.unsubscribeListeners[3] = subscribeTo('newsletter_subscribtion');
-              $this.unsubscribeListeners[4] = subscribeTo('capacity_building');
+              $this.unsubscribeListeners.push(subscribeTo('members'));
+              $this.unsubscribeListeners.push(subscribeTo('membership_requests'));
+              $this.unsubscribeListeners.push(subscribeTo('partnerhip_requests'));
+              $this.unsubscribeListeners.push(subscribeTo('newsletter_subscribtion'));
+              $this.unsubscribeListeners.push(subscribeTo('capacity_building'));
 
               
               };
+
+              //
 
         const { email, password } = $this.adminLoginDetails;
         const matchPromise = $this.$firebase.firestore()
@@ -461,7 +459,12 @@ export default {
                   .then((userCredentials) => {
                     // Signed in
                     // const user = userCredentials.user;
-                    commit({ ...matchedUser.data(), firebaseUser: userCredentials.user });
+                    const _user = { ...matchedUser.data(), firebaseUser: userCredentials.user };
+                    if ($this.$firebase.auth().currentUser) {
+                      commitAdmin(_user);
+                    } else {
+                      commitAdmin(_user);
+                    }
                   })
                   .catch((error) => {
                     console.trace(error);
