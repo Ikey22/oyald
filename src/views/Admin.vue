@@ -333,7 +333,7 @@ export default {
         newsletter_subscribtion:  [],
         capacity_building: [],
 
-        shouldRender: false,
+        shouldRender: true,
 
         unsubscribeListeners: [],
 
@@ -406,6 +406,7 @@ export default {
                                                     $this[collectionName] = [...newArray];
                                                     reRender();
                                                   }).catch(error => {
+                                                      reRender();
                                                       $this.unsubscribeListeners.push(subscribeTo(collectionName));
                                                       console.error(error);
                                                     });
@@ -460,10 +461,11 @@ export default {
                     // Signed in
                     // const user = userCredentials.user;
                     const _user = { ...matchedUser.data(), firebaseUser: userCredentials.user };
-                    if ($this.$firebase.auth().currentUser) {
+                    if ($this.$firebase.auth().currentUser !== null) {
                       commitAdmin(_user);
                     } else {
-                      commitAdmin(_user);
+                      $this.$store.state.commit("setAuthAdmin", null);
+                      $this.adminLogin();
                     }
                   })
                   .catch((error) => {
