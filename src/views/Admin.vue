@@ -10,7 +10,7 @@
       <b-list-group style="max-width: 300px;">
               <b-list-group-item class="d-flex align-items-center">
                 <b-avatar class="mr-3" :src="$firebase.auth().currentUser.photoURL || null"></b-avatar>
-                <span class="mr-auto">{{ $store.state.authAdmin.firstName + ' ' + $store.state.authAdmin.surName }}</span>
+                <span class="mr-auto">{{ $firebase.auth().currentUser.displayName }}</span>
               </b-list-group-item>
            </b-list-group>
            <br />
@@ -405,11 +405,78 @@ export default {
               $this.$store.commit('showSuccessModal', true);
               $this.$store.commit('setAuthAdmin', null);
               console.clear();
-              $this.unsubscribeListeners.forEach(listener => listener());
+              $this.unSubscribe();
           }).catch((error) => {
             console.trace(error);
           });
       },
+
+      subscribe(){
+        const $this = this; 
+
+              $this.unsubscribeListeners.push($this.subscribeTo('members'));
+              $this.unsubscribeListeners.push($this.subscribeTo('membership_requests'));
+              $this.unsubscribeListeners.push($this.subscribeTo('partnership_requests'));
+              $this.unsubscribeListeners.push($this.subscribeTo('newsletter_subscribtion'));
+              $this.unsubscribeListeners.push($this.subscribeTo('capacity_building'));
+              $this.reRender();
+      },
+
+      unSubscribe(){
+        this.unsubscribeListeners.forEach(listener => listener());
+      },
+
+      subscribeTo(collectionName){
+        const $this = this;
+
+                  const ref = $this.$firebase.firestore()
+                                    .collection(collectionName);
+
+                    /* ref.get().then(res => {
+                                                    const newArray = [];
+
+                                                    res.docs.forEach(doc => {
+                                                      newArray.push(doc.data());
+                                                    });
+
+                                                    $this[collectionName] = [...newArray];
+                                                    reRender();
+                                                  }).catch(error => {
+                                                      reRender();
+                                                      if ($this.$store.state.authAdmin && $this.$firebase.auth().currentUser) $this.unsubscribeListeners.push(subscribeTo(collectionName));
+                                                      console.error(error);
+                                                    }); */
+
+      //
+
+
+                    const unsubscribeListener = ref.onSnapshot(snapshot => {
+                                                    const newArray = [];
+
+                                                    if (snapshot.docs.length) snapshot.docs.forEach(doc => {
+                                                      newArray.push(doc.data());
+                                                    });
+
+                                                    $this[collectionName] = [...newArray];
+                                                    $this.reRender();
+                                                  }, error => {
+                                                    console.error(error)
+                                                    $this.reRender();
+                                                    if ($this.$store.state.authAdmin && $this.$firebase.auth().currentUser) $this.unsubscribeListeners.push($this.subscribeTo(collectionName));
+                                                  });
+
+
+                    return unsubscribeListener;
+
+                },
+
+      rerender(){
+        const $this = this;
+
+                  $this.shouldRender = false;
+                  setTimeout(() => {$this.shouldRender = true}, 150);
+                },
+
       adminLogin(){
 
         const $this = this;
@@ -427,60 +494,9 @@ export default {
                 $this.adminLoginDetails.password = '';
 
 
-                const reRender = () => {
-                  $this.shouldRender = false;
-                  setTimeout(() => {$this.shouldRender = true}, 200);
-                }
-
-                const subscribeTo = collectionName => {
-
-                  const ref = $this.$firebase.firestore()
-                                    .collection(collectionName);
-
-                    ref.get().then(res => {
-                                                    const newArray = [];
-
-                                                    res.docs.forEach(doc => {
-                                                      newArray.push(doc.data());
-                                                    });
-
-                                                    $this[collectionName] = [...newArray];
-                                                    reRender();
-                                                  }).catch(error => {
-                                                      reRender();
-                                                      if ($this.$store.state.authAdmin && $this.$firebase.auth().currentUser) $this.unsubscribeListeners.push(subscribeTo(collectionName));
-                                                      console.error(error);
-                                                    });
 
 
-                    const unsubscribeListener = ref.onSnapshot(snapshot => {
-                                                    const newArray = [];
-
-                                                    if (snapshot.docs.length) snapshot.docs.forEach(doc => {
-                                                      newArray.push(doc.data());
-                                                    });
-
-                                                    $this[collectionName] = [...newArray];
-                                                    reRender();
-                                                  }, error => {
-                                                    console.error(error)
-                                                    reRender();
-                                                    if ($this.$store.state.authAdmin && $this.$firebase.auth().currentUser) $this.unsubscribeListeners.push(subscribeTo(collectionName));
-                                                  });
-
-
-                    return unsubscribeListener;
-
-                };
-
-
-
-              -$this.unsubscribeListeners.push(subscribeTo('members'));
-              $this.unsubscribeListeners.push(subscribeTo('membership_requests'));
-              $this.unsubscribeListeners.push(subscribeTo('partnerhip_requests'));
-              $this.unsubscribeListeners.push(subscribeTo('newsletter_subscribtion'));
-              $this.unsubscribeListeners.push(subscribeTo('capacity_building'));
-              reRender();
+              $this.subscribe();
 
               
               };
@@ -554,6 +570,7 @@ export default {
 
 
       }
+      
     }
 }
 </script>
