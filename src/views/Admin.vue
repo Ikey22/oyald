@@ -47,7 +47,7 @@
              style="max-width: 950px !important;"
             />
             <center v-else class="w-100 text-center">
-              <p class="w-100 h3 text-center text-primary-color font-weight-bold"></p>
+              <p class="w-100 h3 text-center text-primary-color font-weight-bold">Loading...</p>
               <br />
               <b-spinner variant="success" />
             </center>
@@ -55,7 +55,21 @@
 
           <br />
 
-          <p v-if="shouldRender" class="w-100 text-left font-weight-bold">Active Members: {{ members.slice(0).filter(member => member.membership_type === "active").length }}  </p> <br />
+          <table class="table">
+            <thead class="thead-light">
+              <tr>
+                <th scope="col">Description</th>
+                <th scope="col">Count</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Active Members</th>
+                <th scope="row">{{ members.slice(0).filter(member => member.membership_type === "active").length }}</th>
+              </tr>
+            </tbody>
+          </table>
+
           <p v-if="shouldRender" class="w-100 text-left font-weight-bold">Associate Members: {{ members.slice(0).filter(member => member.membership_type === "associate").length }} </p> <br />
           <p v-if="shouldRender" class="w-100 text-left font-weight-bold">Honorary Members: {{ members.slice(0).filter(member => member.membership_type === "honorary").length }} </p> <br />
           <p v-if="shouldRender" class="w-100 text-left font-weight-bold">Members (Total): {{ members.length }} </p> <br />
@@ -187,27 +201,6 @@
 
   </div>
   <!-- #end auth admin section -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -439,13 +432,9 @@ export default {
       this.reRender();
     },
 
-    created(){
+    /* updated(){
       if (this.$firebase.auth().currentUser) this.subscribe();
-    },
-
-    updated(){
-      if (this.$firebase.auth().currentUser) this.subscribe();
-    },
+    }, */
 
     methods: {
       adminLogout(){
@@ -470,7 +459,9 @@ export default {
             }).catch(function(error) {
               $this.passwordResetDetails.isSending = false;
               console.error(error);
-              alert("an error occurred")
+               if (error.code == "auth/network-request-failed") {
+                 $this.showNetworkErrorModal = true;
+               } else alert("an error occurred")
             });
       },
 
