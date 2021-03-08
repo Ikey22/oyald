@@ -327,9 +327,9 @@
   <!-- #end send password reset modal -->
 
   <!-- begin invalid credentials modal -->
-  <b-modal v-model="showInvalidLoginDetailsModal" ok-only ok-variant="success" size="xl" centered> 
+  <b-modal v-model="showInvalidLoginDetailsModal" ok-only ok-variant="success" size="md" centered> 
     <template #modal-title>
-      <p class="h1 text-center w-100 font-weight-bold text-danger">Invalid credentials!!!</p>
+      <p class="h3 text-center w-100 text-center w-100 font-weight-bold text-danger">Invalid credentials!!!</p>
     </template>
   </b-modal>
   <!-- #end invalid credentials modal -->
@@ -469,8 +469,8 @@ export default {
               alert("a link has been sent to your email address")
             }).catch(function(error) {
               $this.passwordResetDetails.isSending = false;
-              console.trace(error);
-              alert("an eror occurred")
+              console.error(error);
+              alert("an error occurred")
             });
       },
 
@@ -593,6 +593,9 @@ export default {
                     // var errorCode = error.code;
                     // var errorMessage = error.message;
                   });
+          } if (!matchedUser.exists) {
+            $this.isLogingIn = false;
+            $this.showInvalidLoginDetailsModal = true;
           } else {
             switch (matchedUser) {
             case undefined:
@@ -613,6 +616,7 @@ export default {
               //commit(matchedUser.data());
               (() => {
                 console.error("unable to login");
+                alert("Unable to login for an unknown reason, it could be due to poor internet or a proxy");
                 $this.isLoggingIn = false;
               })()
               break;
