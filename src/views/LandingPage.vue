@@ -39,7 +39,7 @@
             <br />
             <br />
             <br />
-            <span class="font-weight-bold w-100 h3 text-center">OYALD</span>
+            <span class="font-weight-bold w-100 h3 text-warning text-center">OYALD</span>
           </div>
         </b-navbar>
         <br />

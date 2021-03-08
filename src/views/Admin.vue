@@ -46,7 +46,11 @@
             :datasetData="[this.members.length, this.membership_requests.length, this.partners.length, this.partnership_requests.length, this.newsletter_subscribtion.length]"
              style="max-width: 950px !important;"
             />
-            <p v-else class="w-100 text-center h3 text-primary-color font-weight-bold">Loading</p>
+            <center v-else class="w-100 text-center">
+              <p class="w-100 h3 text-center text-primary-color font-weight-bold"></p>
+              <br />
+              <b-spinner variant="success" />
+            </center>
           </center>
 
           <br />
@@ -274,6 +278,7 @@
           <b-button
             type="button"
             variant="danger"
+            @click="showPasswordResetModal = true"
             class="col-6 font-weight-bold"
             >Forgotten password?</b-button>
 
@@ -375,6 +380,7 @@ export default {
           password: ""
         },
         showInvalidLoginDetailsModal: false,
+        showPasswordResetModal: true,
         isLoggingIn: false,
         
         labels: [`Members`, `New Membership Requests`, `Partners`, `New Partnership Requests`, `Newsletter subscribtions`],
@@ -469,7 +475,7 @@ export default {
 
 
 
-              $this.unsubscribeListeners.push(subscribeTo('members'));
+              -$this.unsubscribeListeners.push(subscribeTo('members'));
               $this.unsubscribeListeners.push(subscribeTo('membership_requests'));
               $this.unsubscribeListeners.push(subscribeTo('partnerhip_requests'));
               $this.unsubscribeListeners.push(subscribeTo('newsletter_subscribtion'));
