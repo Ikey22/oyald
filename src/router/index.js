@@ -207,11 +207,6 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
   console.log(to, from);
-  /* window.__$vm.$firebase.analytics().logEvent("public-impression", {
-    to: to ? to.path : null,
-    from: from ? from.path : null,
-    time: `${new Date()}`
-  }); */
   console.clear();
   return next();
 });

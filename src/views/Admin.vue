@@ -278,7 +278,7 @@
           <b-button
             type="button"
             variant="danger"
-            @click="showPasswordResetModal = true"
+            @click="showSendPasswordResetEmailModal = true"
             class="col-6 font-weight-bold"
             >Forgotten password?</b-button>
 
@@ -300,11 +300,37 @@
   </div>
   <!-- #end login form -->
 
+  <!-- #begin send password reset modal -->
+  <b-modal v-model="showSendPasswordResetEmailModal" ize="md">
+    <template #modal-title>
+      <p class="h4 text-center w-100 font-weight-bold">Type your email below, we will send you a reset link</p>
+    </template>
+    <b-form class="w-100 h-100 p-0 m-0" @submit.prevent="sendPasswordResetEmail">
+      <b-form-group>
+        <label for="password-reset-email">Email Address</label>
+        <b-form-input 
+          id="password-reet-email"
+          type="email"
+          placeholder="Type your email here"
+          v-model="passwordResetDetails.email"
+        />
+      </b-form-group>
+      <br />
+      <b-button
+        variant="succes"
+        type="submit"
+        block
+        class="bg-primary-color text-white">Submit</b-button>
+    </b-form>
+    <template #modal-footer> - &nbsp; </template> 
+  </b-modal>
+  <!-- #end send password reset modal -->
+
   <!-- begin invalid credentials modal -->
   <b-modal v-model="showInvalidLoginDetailsModal" ok-only ok-variant="success" size="xl" centered> 
-    <div class="w-100 h-100">
+    <template #modal-title>
       <p class="h1 text-center w-100 font-weight-bold text-danger">Invalid credentials!!!</p>
-    </div>
+    </template>
   </b-modal>
   <!-- #end invalid credentials modal -->
 
@@ -380,8 +406,15 @@ export default {
           password: ""
         },
         showInvalidLoginDetailsModal: false,
-        showPasswordResetModal: true,
+        showPasswordResetModal: false,
+        showSendPasswordResetEmailModal: false,
         isLoggingIn: false,
+
+        passwordResetDetails: {
+          email: "",
+          isSending: false,
+          sent: false
+        },
         
         labels: [`Members`, `New Membership Requests`, `Partners`, `New Partnership Requests`, `Newsletter subscribtions`],
         newsletterTableFields: [
@@ -396,11 +429,28 @@ export default {
         ]
       }
     },
+
+    beforeDestroy(){
+      this.unSubscribe();
+    },
+
+    mounted(){
+      if (this.$firebase.auth().currentUser) this.subscribe();
+      this.reRender();
+    },
+
+    created(){
+      if (this.$firebase.auth().currentUser) this.subscribe();
+    },
+
+    updated(){
+      if (this.$firebase.auth().currentUser) this.subscribe();
+    },
+
     methods: {
       adminLogout(){
         const $this = this;
-        window.scollTo(0, 0);
-        $this.$firebase.analytics().logEvent("admin_logout", $this.$store.state.authAdmin);
+        $this.$firebase.analytics().logEvent("admin_logout", { ...$this.$store.state.authAdmin, date: (Date.now() || (new Date()).getTime()) });
         this.$firebase.auth().signOut().then(() => {
               $this.$store.commit('showSuccessModal', true);
               $this.$store.commit('setAuthAdmin', null);
@@ -409,6 +459,19 @@ export default {
           }).catch((error) => {
             console.trace(error);
           });
+      },
+
+      sendPasswordResetEmail(){
+        const $this = this;
+
+            this.$firebase.auth().sendPasswordResetEmail($this.passwordResetDetails.email).then(function() {
+              $this.passwordResetDetails.isSending = false;
+              alert("a link has been sent to your email address")
+            }).catch(function(error) {
+              $this.passwordResetDetails.isSending = false;
+              console.trace(error);
+              alert("an eror occurred")
+            });
       },
 
       subscribe(){
@@ -423,7 +486,7 @@ export default {
       },
 
       unSubscribe(){
-        this.unsubscribeListeners.forEach(listener => listener());
+        if (this.unsubscribeListeners.length) this.unsubscribeListeners.forEach(listener => listener());
       },
 
       subscribeTo(collectionName){
@@ -470,7 +533,7 @@ export default {
 
                 },
 
-      rerender(){
+      reRender(){
         const $this = this;
 
                   $this.shouldRender = false;
@@ -488,17 +551,13 @@ export default {
                 const vettedUser = { ...prevettedUser }
                 vettedUser.password = null;
                 $this.$store.commit('setAuthAdmin', vettedUser);
-                $this.$firebase.analytics().logEvent('admin_login', JSON.stringify(vettedUser));
+                $this.$firebase.analytics().logEvent('admin_login', { ...vettedUser, date: (Date.now() || (new Date()).getTime())});
                 $this.$store.commit('showSuccessModal', true);
                 $this.isLoggingIn = false;
                 $this.adminLoginDetails.password = '';
 
-
-
-
               $this.subscribe();
 
-              
               };
 
               //
@@ -570,7 +629,7 @@ export default {
 
 
       }
-      
+
     }
 }
 </script>
