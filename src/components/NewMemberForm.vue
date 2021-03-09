@@ -52,7 +52,7 @@
 
                         <b-form-row class="row w-100">
 
-                          <b-form-group class="col-12 col-sm-12 col-md-212 col-lg-12 col-xl-12">
+                          <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                             <label for="date-of-birth">Date of birth*</label>
                             <b-form-datepicker
                             id="date-of-birth"

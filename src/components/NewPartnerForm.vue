@@ -8,7 +8,7 @@
                         <b-form-row class="row w-100">
 
                           <b-form-group class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                            <label for="surname">Name of Company/Orrganisation*</label>
+                            <label for="surname">Name of Company/Organisation*</label>
                             <b-form-input
                             id="company-name"
                             v-model="$store.state.userPreferences.companyName"
@@ -18,7 +18,7 @@
                             />
                           </b-form-group>
 
-                          <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                          <b-form-group class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
                             <label for="company-category">Type/Category of Organisation*</label>
                             <b-form-input
                             id="company-category"
@@ -194,7 +194,7 @@
 
                         <b-form-row class="w-100 row">
 
-                          <b-form-group class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-16">
+                          <b-form-group class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
                             <label for="company-officer">Name of organisation's officer proposing the partnership with OYALD*</label>
                             <b-form-input
                             id="company-officer"
@@ -205,7 +205,7 @@
                             />
                           </b-form-group>
 
-                          <b-form-group class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-16">
+                          <b-form-group class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
                             <label for="company-officer-position">Position of the Offcer*</label>
                             <b-form-input
                             id="company-officer-position"
