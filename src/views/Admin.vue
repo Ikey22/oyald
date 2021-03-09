@@ -309,11 +309,20 @@
         />
       </b-form-group>
       <br />
-      <b-button
-        variant="succes"
-        type="submit"
-        block
-        class="bg-primary-color text-white">Submit</b-button>
+      <b-overlay
+          :show="passwordResetDetails.isSending"
+          rounded
+          opacity="0.6"
+          spinner-small
+          spinner-variant="succes"
+          class="d-inline-block w-100"
+          >
+            <b-button
+              variant="succes"
+              type="submit"
+              block
+              class="bg-primary-color text-white">Submit</b-button>
+        </b-overlay>
     </b-form>
     <template #modal-footer> - &nbsp; </template> 
   </b-modal>
@@ -452,6 +461,8 @@ export default {
 
       sendPasswordResetEmail(){
         const $this = this;
+
+        $this.passwordResetDetails.isSending = true;
 
             this.$firebase.auth().sendPasswordResetEmail($this.passwordResetDetails.email).then(function() {
               $this.passwordResetDetails.isSending = false;
