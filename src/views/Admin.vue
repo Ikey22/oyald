@@ -68,33 +68,27 @@
                 <th scope="row">{{ members.slice(0).filter(member => member.membership_type === "active").length }}</th>
               </tr>
               <tr>
-                <th scope="row">Associate Members</th>
-                <th scope="row">{{ members.slice(0).filter(member => member.membership_type === "associate").length }}</th>
+                <th scope="row">Honorary Members</th>
+                <th scope="row">{{ members.slice(0).filter(member => member.membership_type === "honorary").length }}</th>
               </tr>
               <tr>
-                <th scope="row">Active Members</th>
-                <th scope="row">{{ members.slice(0).filter(member => member.membership_type === "active").length }}</th>
+                <th scope="row">Members (Total)</th>
+                <th scope="row">{{ members.length }}</th>
               </tr>
               <tr>
-                <th scope="row">Active Members</th>
-                <th scope="row">{{ members.slice(0).filter(member => member.membership_type === "active").length }}</th>
+                <th scope="row">New membersip requests</th>
+                <th scope="row">{{ membership_requests.length }}</th>
               </tr>
               <tr>
-                <th scope="row">Active Members</th>
-                <th scope="row">{{ members.slice(0).filter(member => member.membership_type === "active").length }}</th>
+                <th scope="row">New partnership requests</th>
+                <th scope="row">{{ partnership_requests.length }}</th>
               </tr>
               <tr>
-                <th scope="row">Active Members</th>
-                <th scope="row">{{ members.slice(0).filter(member => member.membership_type === "active").length }}</th>
+                <th scope="row">Newsletter subscribtions</th>
+                <th scope="row">{{ newsletter_subscribtion.length }}</th>
               </tr>
             </tbody>
           </table>
-
-          <p v-if="shouldRender" class="w-100 text-left font-weight-bold">Honorary Members: {{ members.slice(0).filter(member => member.membership_type === "honorary").length }} </p> <br />
-          <p v-if="shouldRender" class="w-100 text-left font-weight-bold">Members (Total): {{ members.length }} </p> <br />
-          <p v-if="shouldRender" class="w-100 text-left font-weight-bold">New membersip requests: {{ membership_requests.length }} </p> <br />
-          <p v-if="shouldRender" class="w-100 text-left font-weight-bold">New partnership requests: {{ partnership_requests.length }} </p> <br />
-          <p v-if="shouldRender" class="w-100 text-left font-weight-bold">Newsletter subscribtions: {{ newsletter_subscribtion.length }} </p> <br />
 
         </div>
 
