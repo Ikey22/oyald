@@ -100,7 +100,7 @@ export default {
     display: block;
     position: absolute;
     bottom: 0px;
-    bottom: -50px !important;
+    bottom: -85px !important;
     transition: 0.4s ease-in;
     padding: 15px 0;
     left: 0px;

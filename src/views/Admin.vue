@@ -55,7 +55,7 @@
 
           <br />
 
-          <table class="table">
+          <table class="table table-striped table-bordered table-hover">
             <thead class="thead-light">
               <tr>
                 <th scope="col">Description</th>

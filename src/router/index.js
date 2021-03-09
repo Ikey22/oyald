@@ -193,6 +193,20 @@ const routes = [
       error: NetworkError,
       component: import(/*  webpackChunkName: "admin", webpackPrefetch: true */ '@/views/HoverCalendar.vue')
     })
+  },
+
+  
+
+  {
+    path: "/auth-handler",
+    name: "AuthHandler",
+    component: () => ({
+      timeout: 60000,
+      delay: 1,
+      loading: PreLoader, 
+      error: NetworkError,
+      component: import(/*  webpackChunkName: "AuthHandler" */ '@/views/AuthHandler.vue')
+    })
   }
 ];
 
