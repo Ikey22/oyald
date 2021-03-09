@@ -55,7 +55,11 @@
 
           <br />
 
-          <table class="table table-striped table-bordered table-hover">
+          <center>
+          <table
+            class="table table-striped table-bordered table-hover"
+            style="max-width: 950px !important;"
+            >
             <thead class="thead-light">
               <tr>
                 <th scope="col">Description</th>
@@ -89,6 +93,7 @@
               </tr>
             </tbody>
           </table>
+          </center>
 
         </div>
 
