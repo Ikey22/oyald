@@ -4,7 +4,9 @@
     <br />
     <br id="team-tag" />
 
-    <h1 id="general-secretariat" class="w-100 text-success font-weight-bold text-center" style="color: var(--custom-primary-color) !important;">{{ query == 'general-secretariat' ? 'Our General Secretariat' : query == 'country-secretaries' ? 'Our National Coordinators / Country secretaries' : query == 'partners' ? 'Our Partners' : '' }}</h1>
+    <h1 id="general-secretariat" class="w-100 text-success font-weight-bold text-center" style="color: var(--custom-primary-color) !important;">
+      {{ query == 'general-secretariat' ? 'Our General Secretariat' : query == 'country-secretaries' ? 'Our National Coordinators / Country secretaries' : query == 'partners' ? 'Our Partners' : '' }}
+    </h1>
     <br />
     <br >
 

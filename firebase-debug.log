@@ -1,73 +1,57 @@
-[debug] [2021-03-09T11:15:49.903Z] ----------------------------------------------------------------------
-[debug] [2021-03-09T11:15:49.912Z] Command:       /snap/node/3790/bin/node /usr/local/bin/firebase deploy
-[debug] [2021-03-09T11:15:49.914Z] CLI Version:   9.5.0
-[debug] [2021-03-09T11:15:49.914Z] Platform:      linux
-[debug] [2021-03-09T11:15:49.915Z] Node Version:  v14.16.0
-[debug] [2021-03-09T11:15:49.916Z] Time:          Tue Mar 09 2021 12:15:49 GMT+0100 (West Africa Standard Time)
-[debug] [2021-03-09T11:15:49.917Z] ----------------------------------------------------------------------
-[debug] [2021-03-09T11:15:49.918Z] 
-[debug] [2021-03-09T11:15:49.946Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2021-03-09T11:15:49.949Z] > authorizing via signed-in user
-[debug] [2021-03-09T11:15:49.950Z] [iam] checking project oyald-ojlad for permissions ["datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasehosting.sites.update","firebaserules.releases.create","firebaserules.releases.update","firebaserules.rulesets.create"]
-[debug] [2021-03-09T11:15:49.965Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
-[debug] [2021-03-09T11:15:49.970Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+[debug] [2021-03-09T12:04:55.706Z] ----------------------------------------------------------------------
+[debug] [2021-03-09T12:04:55.715Z] Command:       /snap/node/3790/bin/node /usr/local/bin/firebase deploy
+[debug] [2021-03-09T12:04:55.718Z] CLI Version:   9.5.0
+[debug] [2021-03-09T12:04:55.718Z] Platform:      linux
+[debug] [2021-03-09T12:04:55.719Z] Node Version:  v14.16.0
+[debug] [2021-03-09T12:04:55.720Z] Time:          Tue Mar 09 2021 13:04:55 GMT+0100 (West Africa Standard Time)
+[debug] [2021-03-09T12:04:55.721Z] ----------------------------------------------------------------------
+[debug] [2021-03-09T12:04:55.721Z] 
+[debug] [2021-03-09T12:04:55.749Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-03-09T12:04:55.752Z] > authorizing via signed-in user
+[debug] [2021-03-09T12:04:55.753Z] [iam] checking project oyald-ojlad for permissions ["datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2021-03-09T12:04:55.763Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/oyald-ojlad:testIamPermissions  
+ {"permissions":["datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2021-03-09T12:04:57.119Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Tue, 09 Mar 2021 12:04:56 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=633","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-03-09T12:04:57.131Z] > refreshing access token with scopes: []
+[debug] [2021-03-09T12:04:57.132Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
  <request body omitted>
-[debug] [2021-03-09T11:16:04.873Z] <<< HTTP RESPONSE 200 {"date":"Tue, 09 Mar 2021 11:16:04 GMT","cache-control":"no-cache, no-store, max-age=0, must-revalidate","pragma":"no-cache","expires":"Mon, 01 Jan 1990 00:00:00 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
-[debug] [2021-03-09T11:16:04.975Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/oyald-ojlad:testIamPermissions  
- {"permissions":["datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasehosting.sites.update","firebaserules.releases.create","firebaserules.releases.update","firebaserules.rulesets.create"]}
-[debug] [2021-03-09T11:16:23.132Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Tue, 09 Mar 2021 11:16:23 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=564","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
-[debug] [2021-03-09T11:16:23.152Z] > refreshing access token with scopes: []
-[debug] [2021-03-09T11:16:23.153Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
- <request body omitted>
-[debug] [2021-03-09T11:16:25.292Z] <<< HTTP RESPONSE 200 {"pragma":"no-cache","expires":"Mon, 01 Jan 1990 00:00:00 GMT","cache-control":"no-cache, no-store, max-age=0, must-revalidate","date":"Tue, 09 Mar 2021 11:16:25 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
-[debug] [2021-03-09T11:16:25.410Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/oyald-ojlad [none]
-[debug] [2021-03-09T11:16:33.702Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/oyald-ojlad 200
-[debug] [2021-03-09T11:16:33.712Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/oyald-ojlad {"projectId":"oyald-ojlad","projectNumber":"171369652432","displayName":"oyald-ojlad","name":"projects/oyald-ojlad","resources":{"hostingSite":"oyald-ojlad","storageBucket":"oyald-ojlad.appspot.com","locationId":"europe-west"},"state":"ACTIVE"}
+[debug] [2021-03-09T12:04:57.882Z] <<< HTTP RESPONSE 200 {"date":"Tue, 09 Mar 2021 12:04:57 GMT","expires":"Mon, 01 Jan 1990 00:00:00 GMT","pragma":"no-cache","cache-control":"no-cache, no-store, max-age=0, must-revalidate","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-03-09T12:04:57.975Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/oyald-ojlad [none]
+[debug] [2021-03-09T12:04:58.668Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/oyald-ojlad 200
+[debug] [2021-03-09T12:04:58.671Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/oyald-ojlad {"projectId":"oyald-ojlad","projectNumber":"171369652432","displayName":"oyald-ojlad","name":"projects/oyald-ojlad","resources":{"hostingSite":"oyald-ojlad","storageBucket":"oyald-ojlad.appspot.com","locationId":"europe-west"},"state":"ACTIVE"}
 [info] 
 [info] === Deploying to 'oyald-ojlad'...
 [info] 
-[info] i  deploying storage, firestore, hosting 
-[debug] [2021-03-09T11:16:33.742Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
-[debug] [2021-03-09T11:16:33.743Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+[info] i  deploying firestore, hosting 
+[info] i  firestore: reading indexes from firestore.indexes.json... 
+[info] i  cloud.firestore: checking firestore.rules for compilation errors... 
+[debug] [2021-03-09T12:04:58.692Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2021-03-09T12:04:58.693Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
  <request body omitted>
-[debug] [2021-03-09T11:16:35.180Z] <<< HTTP RESPONSE 200 {"date":"Tue, 09 Mar 2021 11:16:35 GMT","cache-control":"no-cache, no-store, max-age=0, must-revalidate","pragma":"no-cache","expires":"Mon, 01 Jan 1990 00:00:00 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
-[debug] [2021-03-09T11:16:35.265Z] >>> HTTP REQUEST GET https://appengine.googleapis.com/v1/apps/oyald-ojlad  
+[debug] [2021-03-09T12:04:59.280Z] <<< HTTP RESPONSE 200 {"cache-control":"no-cache, no-store, max-age=0, must-revalidate","expires":"Mon, 01 Jan 1990 00:00:00 GMT","date":"Tue, 09 Mar 2021 12:04:59 GMT","pragma":"no-cache","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-03-09T12:04:59.331Z] >>> HTTP REQUEST POST https://firebaserules.googleapis.com/v1/projects/oyald-ojlad:test  
+ {"source":{"files":[{"name":"firestore.rules","content":"rules_version = '2';\nservice cloud.firestore {\n  match /databases/{database}/documents {\n    match /{document=**} {\n      allow read, write: if true;\n    }\n  }\n}"}]}}
+[debug] [2021-03-09T12:05:00.853Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Tue, 09 Mar 2021 12:05:00 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] ✔  cloud.firestore: rules file firestore.rules compiled successfully 
+[debug] [2021-03-09T12:05:00.872Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/oyald-ojlad/versions  
+ {"config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2021-03-09T12:05:03.130Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Tue, 09 Mar 2021 12:05:02 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-03-09T12:05:03.148Z] >>> HTTP REQUEST GET https://firebaserules.googleapis.com/v1/projects/oyald-ojlad/releases?pageSize=10&pageToken=  
  
-[info] 
-
-There was an issue deploying your functions. Verify that your project has a Google App Engine instance setup at https://console.cloud.google.com/appengine and try again. If this issue persists, please contact support.
-[debug] [2021-03-09T11:19:30.285Z] Error: connect ETIMEDOUT 216.58.201.234:443
-    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1146:16)
-[error] 
-[error] Error: Server Error. connect ETIMEDOUT 216.58.201.234:443
-[debug] [2021-03-09T11:24:20.975Z] ----------------------------------------------------------------------
-[debug] [2021-03-09T11:24:21.004Z] Command:       /snap/node/3790/bin/node /usr/local/bin/firebase deploy
-[debug] [2021-03-09T11:24:21.006Z] CLI Version:   9.5.0
-[debug] [2021-03-09T11:24:21.007Z] Platform:      linux
-[debug] [2021-03-09T11:24:21.007Z] Node Version:  v14.16.0
-[debug] [2021-03-09T11:24:21.015Z] Time:          Tue Mar 09 2021 12:24:21 GMT+0100 (West Africa Standard Time)
-[debug] [2021-03-09T11:24:21.017Z] ----------------------------------------------------------------------
-[debug] [2021-03-09T11:24:21.017Z] 
-[debug] [2021-03-09T11:24:21.067Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2021-03-09T11:24:21.070Z] > authorizing via signed-in user
-[debug] [2021-03-09T11:24:21.072Z] [iam] checking project oyald-ojlad for permissions ["datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasehosting.sites.update","firebaserules.releases.create","firebaserules.releases.update","firebaserules.rulesets.create"]
-[debug] [2021-03-09T11:24:21.084Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/oyald-ojlad:testIamPermissions  
- {"permissions":["datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasehosting.sites.update","firebaserules.releases.create","firebaserules.releases.update","firebaserules.rulesets.create"]}
-[debug] [2021-03-09T11:24:25.154Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Tue, 09 Mar 2021 11:24:24 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=633","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
-[debug] [2021-03-09T11:24:25.175Z] > refreshing access token with scopes: []
-[debug] [2021-03-09T11:24:25.176Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
- <request body omitted>
-[debug] [2021-03-09T11:24:27.807Z] <<< HTTP RESPONSE 200 {"cache-control":"no-cache, no-store, max-age=0, must-revalidate","date":"Tue, 09 Mar 2021 11:24:27 GMT","pragma":"no-cache","expires":"Mon, 01 Jan 1990 00:00:00 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
-[debug] [2021-03-09T11:24:27.885Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/oyald-ojlad [none]
-[debug] [2021-03-09T11:24:30.997Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/oyald-ojlad 200
-[debug] [2021-03-09T11:24:31.012Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/oyald-ojlad {"projectId":"oyald-ojlad","projectNumber":"171369652432","displayName":"oyald-ojlad","name":"projects/oyald-ojlad","resources":{"hostingSite":"oyald-ojlad","storageBucket":"oyald-ojlad.appspot.com","locationId":"europe-west"},"state":"ACTIVE"}
-[info] 
-[info] === Deploying to 'oyald-ojlad'...
-[info] 
-[info] i  deploying storage, firestore, hosting 
-[debug] [2021-03-09T11:24:31.057Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
-[debug] [2021-03-09T11:24:31.058Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
- <request body omitted>
-[debug] [2021-03-09T11:24:31.849Z] <<< HTTP RESPONSE 200 {"cache-control":"no-cache, no-store, max-age=0, must-revalidate","expires":"Mon, 01 Jan 1990 00:00:00 GMT","pragma":"no-cache","date":"Tue, 09 Mar 2021 11:24:31 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
-[debug] [2021-03-09T11:24:31.923Z] >>> HTTP REQUEST GET https://appengine.googleapis.com/v1/apps/oyald-ojlad  
+[debug] [2021-03-09T12:05:03.153Z] >>> HTTP REQUEST GET https://firestore.googleapis.com/v1/projects/oyald-ojlad/databases/(default)/collectionGroups/-/indexes  
  
+[debug] [2021-03-09T12:05:03.982Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Tue, 09 Mar 2021 12:05:03 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-03-09T12:05:03.985Z] >>> HTTP REQUEST GET https://firestore.googleapis.com/v1/projects/oyald-ojlad/databases/(default)/collectionGroups/-/fields?filter=indexConfig.usesAncestorConfig=false  
+ 
+[debug] [2021-03-09T12:05:04.392Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Tue, 09 Mar 2021 12:05:04 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-03-09T12:05:04.404Z] >>> HTTP REQUEST GET https://firebaserules.googleapis.com/v1/projects/oyald-ojlad/rulesets/fd6629c7-a377-4fad-ac4b-21d6cbef932f  
+ 
+[debug] [2021-03-09T12:05:04.820Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Tue, 09 Mar 2021 12:05:04 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-03-09T12:05:04.824Z] Skipping existing index: {"collectionGroup":"members","queryScope":"COLLECTION","fields":[{"fieldPath":"category","order":"ASCENDING"},{"fieldPath":"order","order":"ASCENDING"}]}
+[debug] [2021-03-09T12:05:04.825Z] Skipping existing index: {"collectionGroup":"members","queryScope":"COLLECTION","fields":[{"fieldPath":"email","order":"ASCENDING"},{"fieldPath":"password","order":"ASCENDING"}]}
+[info] ✔  firestore: deployed indexes in firestore.indexes.json successfully 
+[debug] [2021-03-09T12:05:05.667Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Tue, 09 Mar 2021 12:05:05 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] i  firestore: latest version of firestore.rules already up to date, skipping upload... 
+[info] i  hosting[oyald-ojlad]: beginning deploy... 
+[info] i  hosting[oyald-ojlad]: found 62 files in dist 
+[debug] [2021-03-09T12:05:05.766Z] [hosting] hash cache [ZGlzdA] not populated
