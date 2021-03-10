@@ -14,7 +14,7 @@
           width="300"
           align="right"
           style="width: 100%; max-width: 350px;"
-          src="@/assets/img/sdg-circle.jpeg"
+          src="@/assets/img/sdg-circle.png"
         />
           <figcaption class="ml-4"><small>Image source: <br /><a href="https://www.edf-feph.org/newsroom-news-what-have-we-done-so-far-about-sustainable-development-goals/">https://www.edf-feph.org/newsroom-news-what-have<br />-we-done-so-far-about-sustainable-development-goals/</a> </small> </figcaption>
         </figure>
@@ -55,10 +55,10 @@
         <img
         class="w-100 p-2 p-lg-4"
         width="300"
-        alt="Image depicting young happy Africans - https://www.un.org/en/africa/osaa/images/youth-mali.jpg"
-        src="/img/youths.jpeg"
+        alt="Image members of OYALD-OJLAD"
+        src="@/assets/img/oyald-collage.jpeg"
         />
-        <small class="pl-2 pl-lg-4 d-block w-100">Image source: <a href="https://www.un.org/en/africa/osaa/peace/youth.shtml" target="_blank">https://www.un.org/en/<wbr />africa/osaa/peace/<wbr />youth.shtml</a></small>
+        <!-- <small class="pl-2 pl-lg-4 d-block w-100">Image source: <a href="https://www.un.org/en/africa/osaa/peace/youth.shtml" target="_blank">https://www.un.org/en/<wbr />africa/osaa/peace/<wbr />youth.shtml</a></small> -->
       </section>
 
       <section class="col-12 col-md-6 col-lg-8 col-xl-8">

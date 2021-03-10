@@ -6,8 +6,8 @@
       <br />
       <p> 
         <figure class="float-right">
-          <img src="@/assets/img/istockphoto-africa-colorful.jpg" style="width: 100%; max-width: 400px;" class="pl-2 pr-2 pl-lg-4 pr-lg-4" />
-          <figcaption class="ml-4"><small>Image source:</small> </figcaption>
+          <img src="@/assets/img/africa.png" style="width: 100%; max-width: 400px;" class="pl-2 pr-2 pl-lg-4 pr-lg-4" />
+          <figcaption class="ml-4"><small>Image source: <a href="http://www.pngall.com/africa-map-png">http://www.pngall.com/africa-map-png</a> </small> </figcaption>
         </figure>
         
         Africa is the second largest continent, spanning about one-fifth of the total land surface of the earth. It is bounded on the West by the Atlantic Ocean, the Mediterranean Sea on the North, the Red Sea and Indian Ocean on the East, and on the South by the mingling waters of the Atlantic and Indian Oceans. Africa has a total land mass of approximately 11,724,000 square miles (30,365,000 km²), and measures about 5,000 miles (8,000 km) from the north to south, and about 4,600 miles (7,400 km) from east to west.
@@ -55,12 +55,13 @@
       </b-collapse> -->
     </section>
     <br />
+    <hr />
+    <br />
 
 
     <section>
       <cite class="card p-2 rounded-lg">
                 <br />
-                <hr />
                 <u><p><small>Information Sources:</small></p></u>
                 <ol>
                   <li><small>
