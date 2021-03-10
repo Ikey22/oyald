@@ -2,7 +2,7 @@
   <div class="w-100 m-0 p-0">
 
     <!-- begin auth admin section -->
-    <div class="w-100 container-fluid" v-if="$firebase.auth().currentUser">
+    <div class="w-100 container-fluid" v-if="($firebase.auth().currentUser !== null) && ($firebase.auth().currentUser !== undefined)">
     <p class="h1 text-primary-color text-center w-100 font-weight-bold">
       Admin
       </p>
@@ -237,7 +237,7 @@
 
 
   <!-- begin login form -->
-  <div class="w-100 container-fluid" v-else-if="$store.state.authAdmin == null">
+  <div class="w-100 container-fluid" v-else >
     <br />
     <p class="text-center w-100 font-weight-bold text-primary-color h1">
       Admin section. login!
@@ -466,14 +466,19 @@ export default {
     methods: {
       adminLogout(){
         const $this = this;
-        $this.$firebase.analytics().logEvent("admin_logout", { ...$this.$store.state.authAdmin, date: (Date.now() || (new Date()).getTime()) });
         this.$firebase.auth().signOut().then(() => {
-              $this.$store.commit('showSuccessModal', true);
               $this.$store.commit('setAuthAdmin', null);
               console.clear();
+              // $this.$firebase.auth().currentUser = null;
+              console.log($this.$firebase.auth().currentUser);
+              $this.$store.commit('showSuccessModal', true);
+              $this.$router.push("/home-page");
+              window.location.reload();
               $this.unSubscribe();
+              $this.$firebase.analytics().logEvent("admin_logout", { ...$this.$store.state.authAdmin, date: (Date.now() || (new Date()).getTime()) });
           }).catch((error) => {
             console.trace(error);
+            $this.$store.commit("showNetworkErrorModal", true);
           });
       },
 
@@ -534,7 +539,7 @@ export default {
 
 
                     const unsubscribeListener = ref.onSnapshot(snapshot => {
-                      
+
                                                     const newArray = [];
 
                                                     if (snapshot.docs.length) snapshot.docs.forEach(doc => {
