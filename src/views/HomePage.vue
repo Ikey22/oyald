@@ -16,7 +16,7 @@
           style="width: 100%; max-width: 350px;"
           src="@/assets/img/sdg-circle.jpeg"
         />
-          <figcaption class="ml-4"><small>Image source:</small> </figcaption>
+          <figcaption class="ml-4"><small>Image source: <br /><a href="https://www.edf-feph.org/newsroom-news-what-have-we-done-so-far-about-sustainable-development-goals/">https://www.edf-feph.org/newsroom-news-what-have<br />-we-done-so-far-about-sustainable-development-goals/</a> </small> </figcaption>
         </figure>
         <b-icon icon="caret-right-fill" /> Given the commitments made by the African Heads of State to support the implementation of the main development Agenda in Africa;  <br /><br />
         <b-icon icon="caret-right-fill" /> Acknowledging the importance of the Agenda 2063, <b>"The Africa We Want"</b> in building a united and prosperous Africa;  <br /><br />
@@ -25,7 +25,7 @@
       </p>
       
         <b-collapse id="collapse-1" class="mt-2">
-          <p class="pl-4 text-justify">
+          <p class="pl-1 text-justify">
             <b-icon icon="caret-right-fill" /> Considering the critical role of young Africans in ameliorating the narrative through their meaningful participation in, and contributions to, the decisions on the continent;  <br /><br />
             <b-icon icon="caret-right-fill" /> Convinced that collaboration between young Africans, the Civil Society Organizations (CSO), and other decision makers in the region can influence policies and enable better life for all;  <br /><br />
             <b-icon icon="caret-right-fill" /> With the resolve, as young Africans, to contribute to the positive transformation of our communities, and the improvement of the living conditions of our people; <br />
