@@ -33,7 +33,7 @@
         <p> <router-link class="text-white" to="/home-page"> <b-icon icon="caret-right-fill"></b-icon> {{ $store.state.language === 'en' ? $store.state.englishStrings.aboutUs.toString().toUpperCase() : $store.state.frenchStrings.aboutUs.toString().toUpperCase() }} </router-link> </p>
         <p> <router-link class="text-white" to="/initiatives"> <b-icon icon="caret-right-fill"></b-icon> {{ $store.state.language === 'en' ? $store.state.englishStrings.ourInitiatives.toString().toUpperCase() : $store.state.frenchStrings.ourInitiatives.toString().toUpperCase() }} </router-link> </p>
         <p> <router-link class="text-white" to="/general-secretariat"> <b-icon icon="caret-right-fill"></b-icon> OUR GENERAL SECRETARIAT </router-link> </p>
-        <p> <router-link class="text-white" to="/national-coordinators"> <b-icon icon="caret-right-fill"></b-icon> OUR NATIONAL COORDINATORS </router-link> </p>
+        <p> <router-link class="text-white" to="/country-secretaries"> <b-icon icon="caret-right-fill"></b-icon> OUR NATIONAL COORDINATORS </router-link> </p>
         <p> <router-link class="text-white" to="/partners"> <b-icon icon="caret-right-fill"></b-icon> OUR PARTNERS </router-link> </p>
         <p> <a> <b-icon icon="caret-right-fill"></b-icon>
           <JoinOYALDButton />
@@ -75,7 +75,8 @@
 
     <div class="text-light d-flex flex-crow flex-lg-row align-items-center justify-content-around">
       <span>.</span>
-      <small class="w-100 text-center font-weight-bold"> &copy; Organisation of Young African Leaders for Development (OYALD) 2011 - {{ year }} </small>
+      <small class="w-100 text-center font-weight-bold"> &copy; Organisation of Young African Leaders for Development (OYALD) {{ year }} </small>
+      <!-- 2011 -->
       <router-link to="/__admin" class="text-white p-2"><span> &nbsp; . &nbsp; </span></router-link>
     </div><br />
 

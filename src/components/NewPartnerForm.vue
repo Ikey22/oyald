@@ -31,10 +31,6 @@
 
                         </b-form-row>
 
-                        <country-state-city />
-
-
-
                         <b-form-row class="row w-100">
                           <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                             <label for="address1">Office Address 1*</label>
@@ -70,6 +66,8 @@
                             />
                           </b-form-group>
                         </b-form-row>
+
+                        <country-state-city />
 
                         <b-form-row class="w-100 row">
                           
@@ -182,7 +180,7 @@
 
                         <b-form-group>
                           <br />
-                          <label for="notes">Additional notes</label>
+                          <label for="notes">Brief Organisational profile</label>
                           <b-form-textarea
                           style="height: 200px;"
                             v-model="$store.state.userPreferences.companyNotes"

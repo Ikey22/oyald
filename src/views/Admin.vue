@@ -314,7 +314,7 @@
   <!-- #begin send password reset modal -->
   <b-modal v-model="showSendPasswordResetEmailModal" ize="md">
     <template #modal-title>
-      <p class="h4 text-center w-100 font-weight-bold">Type your email below, we will send you a reset link</p>
+      <p class="h4 text-center w-100 font-weight-bold text-primary-color">Type your email below, we will send you a reset link</p>
     </template>
     <b-form class="w-100 h-100 p-0 m-0" @submit.prevent="sendPasswordResetEmail">
       <b-form-group>
@@ -339,7 +339,7 @@
               variant="succes"
               type="submit"
               block
-              class="bg-primary-color text-white">Submit</b-button>
+              class="bg-primary-color text-white">send email</b-button>
         </b-overlay>
     </b-form>
     <template #modal-footer> - &nbsp; </template> 
@@ -495,7 +495,7 @@ export default {
               console.error(error);
                if (error.code == "auth/network-request-failed") {
                  $this.showNetworkErrorModal = true;
-               } else alert("an error occurred")
+               } else alert("an error occurred");
             });
       },
 

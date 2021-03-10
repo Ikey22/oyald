@@ -7,7 +7,7 @@
       <p> 
         <figure class="float-right">
           <img src="@/assets/img/africa.png" style="width: 100%; max-width: 400px;" class="pl-2 pr-2 pl-lg-4 pr-lg-4" />
-          <figcaption class="ml-4"><small>Image source: <a href="http://www.pngall.com/africa-map-png">http://www.pngall.com/africa-map-png</a> </small> </figcaption>
+          <figcaption class="ml-4"><small>Image source: <a target="_blank" href="http://www.pngall.com/africa-map-png">http://www.pngall.com/africa-map-png</a> </small> </figcaption>
         </figure>
         
         Africa is the second largest continent, spanning about one-fifth of the total land surface of the earth. It is bounded on the West by the Atlantic Ocean, the Mediterranean Sea on the North, the Red Sea and Indian Ocean on the East, and on the South by the mingling waters of the Atlantic and Indian Oceans. Africa has a total land mass of approximately 11,724,000 square miles (30,365,000 km²), and measures about 5,000 miles (8,000 km) from the north to south, and about 4,600 miles (7,400 km) from east to west.
@@ -44,7 +44,7 @@
           align="left"
           alt="Image depicting africa's vibrant young population - sourced from https://www.weforum.org/agenda/2020/01/the-children-s-continent/"
           />
-          <figcaption class="ml-4"><small>Image source:</small> </figcaption>
+          <figcaption class="ml-4"><small>Image source: <a href="https://www.weforum.org/agenda/2020/01/the-children-s-continent/" target="_blank">https://www.weforum.org/<br />agenda/2020/01/the-children-s-continent/</a> </small> </figcaption>
         </figure>
         <!-- eslint-disable-next-line vue/no-parsing-error -->
            With 60 percent of Africa’s population currently aged 24 and below, it is clear that Africa is a continent of young people. Acknowledging this fact, the leaders of the world decided to give a priority to the young population. This is translated into both the Agenda 2063 of the African Union, and the Agenda 2030 of the United Nations. </p>

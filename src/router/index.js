@@ -119,7 +119,14 @@ const routes = [
 
 
   {
+    path: "/national-coordinators",
+    alias: "/national-coordinators.html",
+    redirect: "/country-secretaries"
+  },
+  
+  {
     path: "/country-secretaries",
+    alias: "/country-secretaries",
     name: "CountrySecretaries",
     component: () => ({
       timeout: 60000,

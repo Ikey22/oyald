@@ -16,7 +16,7 @@
           style="width: 100%; max-width: 350px;"
           src="@/assets/img/sdg-circle.jpeg"
         />
-          <figcaption class="ml-4"><small>Image source: <br /><a href="https://www.edf-feph.org/newsroom-news-what-have-we-done-so-far-about-sustainable-development-goals/">https://www.edf-feph.org/newsroom-news-what-have<br />-we-done-so-far-about-sustainable-development-goals/</a> </small> </figcaption>
+          <figcaption class="ml-4"><small>Image source: <br /><a target="_blank" href="https://www.edf-feph.org/newsroom-news-what-have-we-done-so-far-about-sustainable-development-goals/">https://www.edf-feph.org/newsroom-news-what-have<br />-we-done-so-far-about-sustainable-development-goals/</a> </small> </figcaption>
         </figure>
         <b-icon icon="caret-right-fill" /> Given the commitments made by the African Heads of State to support the implementation of the main development Agenda in Africa;  <br /><br />
         <b-icon icon="caret-right-fill" /> Acknowledging the importance of the Agenda 2063, <b>"The Africa We Want"</b> in building a united and prosperous Africa;  <br /><br />

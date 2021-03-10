@@ -1,6 +1,6 @@
 <template>
     <b-form-row class="row w-100">
-                          <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                          <b-form-group class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
                             <label for="country">Nationality*</label>
                             <b-form-select
                             id="country"
@@ -15,7 +15,7 @@
                             </b-form-select>
                           </b-form-group>
 
-                          <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                          <b-form-group class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
                             <label for="region">State/Region*</label>
                             <b-form-select
                             id="region"
@@ -29,7 +29,7 @@
                             </b-form-select>
                           </b-form-group>
 
-                          <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                          <b-form-group class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
                             <label for="lga">District/L.G.A*</label>
                             <b-form-select
                             id="lga"
