@@ -534,6 +534,7 @@ export default {
 
 
                     const unsubscribeListener = ref.onSnapshot(snapshot => {
+                      
                                                     const newArray = [];
 
                                                     if (snapshot.docs.length) snapshot.docs.forEach(doc => {
