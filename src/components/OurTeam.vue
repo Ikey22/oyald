@@ -18,12 +18,7 @@
                     :name="`${x.data().firstName + ' ' + (x.data().middleName || '') + ' ' + (x.data().surName || '')}`"
                     :role="x.data().role"
                     :imgURL="x.data().imgURL"
-                    :socials="{
-                        facebook: true,
-                        linkedin: true,
-                        twitter: true,
-                        instagram: true
-                    }" 
+                    :socials="x.data().socials || null" 
                     />
 
     </team-member-list>

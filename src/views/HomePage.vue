@@ -14,7 +14,7 @@
           width="300"
           align="right"
           style="width: 100%; max-width: 350px;"
-          src="@/assets/img/sdg-circle.png"
+          src="@/assets/img/sdg-circle.jpeg"
         />
           <figcaption class="ml-4"><small>Image source: <br /><a href="https://www.edf-feph.org/newsroom-news-what-have-we-done-so-far-about-sustainable-development-goals/">https://www.edf-feph.org/newsroom-news-what-have<br />-we-done-so-far-about-sustainable-development-goals/</a> </small> </figcaption>
         </figure>

@@ -28,6 +28,7 @@
     </section>
 
       <br />
+      <hr />
       <br />
 
     <section class="text-justify">
