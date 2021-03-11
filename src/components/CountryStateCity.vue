@@ -47,7 +47,7 @@
 <script>
 import FetchInBG from "worker-loader!../workers/fetch-and-parse-countries.js";
 
-const fetchInBackground = new Worker("/js/fetch-and-parse-countries.worker.js") || new FetchInBG();
+let fetchInBackground = new Worker("/js/fetch-and-parse-countries.worker.js") || new FetchInBG();
 
     export default {
         name: 'CountryStateCity',
@@ -69,16 +69,27 @@ const fetchInBackground = new Worker("/js/fetch-and-parse-countries.worker.js") 
             }
         },
         created() {
-            return setTimeout(() => this.fetchData(), 1);
+            return setTimeout(() => this.fetchData(), 10);
         },
         methods: {
          fetchData(){
            const $this = this;
 
+           if (!fetchInBackground){
+               fetchInBackground = new Worker("/js/fetch-and-parse-countries.worker.js") || new FetchInBG();
+           }
+
                fetchInBackground.onmessage = e => {
                        //console.log(e.data);
                    if (e.data){
-                       if (e.data.status == 'success'){
+                       if (e.data.status == "starting"){
+                           //
+                       } else if (e.data.status == "sending") {
+                           this.countries[e.data.key] = e.data.value;
+                       } else if (e.data.status == "ended") {
+                           fetchInBackground.terminate();
+                           fetchInBackground = null;
+                       } else if (e.data.status == 'success'){
                            $this.countries = e.data.payload;
                        } else if (e.data.status == 'error'){
                            $this.countries = [{name: 'Trying to connect'}];
