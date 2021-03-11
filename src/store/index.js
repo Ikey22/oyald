@@ -14,6 +14,9 @@ const $store = new Vuex.Store({
     })
   ], */
   state: {
+    countries: [{
+      name: "Loading..."
+    }],
     primaryColor: "#002200",
     email: "oyald.ojlad@gmail.com",
     appNameShort: "OYALD",

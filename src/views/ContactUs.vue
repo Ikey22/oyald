@@ -129,7 +129,37 @@ export default {
       }
   },
   methods: {
-    submitContactForm(){}
+    submitContactForm(){
+      const destinationEmail = "danroyaleffiong@gmail.com" // this.$store.state.email;
+      const subject = this.subject;
+      const messageBody = this.message;
+
+
+let message = `Sender: ${this.$store.state.userPreferences.email}
+Date: ${ Date.now() || (new Date()).getTime() }
+Surname: ${this.$store.state.userPreferences.surName}
+First name: ${this.$store.state.userPreferences.firstName}
+Middle name: ${this.$store.state.userPreferences.middleName}
+Phone number: ${this.$store.state.userPreferences.phoneNumber}
+Email: ${this.$store.state.userPreferences.email}
+
+---
+
+Message Body:
+${messageBody}`;
+
+
+      const rawUrl = `mailto:${destinationEmail}?subject=${subject}&body=${message}`;
+
+      let a = document.createElement("a");
+      const url = encodeURI(rawUrl);
+      a.href = url;console.log(url);
+      a.target = "_blank";
+      a.click();
+      URL.revokeObjectURL(a.href);
+      a.remove();
+      
+    }
   },
   components: {
     CountryChapters,
@@ -144,6 +174,6 @@ export default {
 }
 
 .box-shadow{
-  box-shadow: 5px 5px 5px 5px #999  !iimportant;
+  box-shadow: 5px 5px 5px 5px #999;
 }
 </style>

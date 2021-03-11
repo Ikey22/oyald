@@ -3,6 +3,7 @@
                           <b-form-group class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
                             <label for="country">Nationality*</label>
                             <b-form-select
+                            :class="isReady ? 'disabled' : null"
                             id="country"
                             @change="setCountry"
                             @input="setCountry"
@@ -11,7 +12,7 @@
                             v-model="country"
                             :required="true"
                             >
-                                <b-form-select-option v-for="(x, index) in countries" :key="`country-${index + 1}`" :value="x.name">{{x.name}}{{ x.emoji }}</b-form-select-option>
+                                <b-form-select-option v-for="(x, index) in $store.state.countries" :key="`country-${index + 1}`" :value="x.name">{{x.name}}{{ x.emoji }}</b-form-select-option>
                             </b-form-select>
                           </b-form-group>
 
@@ -51,8 +52,9 @@ let fetchInBackground = new Worker("/js/fetch-and-parse-countries.worker.js") ||
 
     export default {
         name: 'CountryStateCity',
-        data () {
+        data() {
             return {
+                isReady: false,
                 url: '/country-state-city.json',//'https://raw.githubusercontent.com/dr5hn/countries-states-cities-database/master/countries%2Bstates%2Bcities.json',
                 countries: [
                     {name: 'Loading...'},
@@ -83,16 +85,15 @@ let fetchInBackground = new Worker("/js/fetch-and-parse-countries.worker.js") ||
                        //console.log(e.data);
                    if (e.data){
                        if (e.data.status == "starting"){
-                           //
-                       } else if (e.data.status == "sending") {
-                           this.countries[e.data.key] = e.data.value;
+                           $this.$store.state.countries = [];
+                       } else if (e.data.status == "success") {
+                           $this.$store.state.countries.push(e.data.value);
                        } else if (e.data.status == "ended") {
+                           $this.isREady = true;
                            fetchInBackground.terminate();
                            fetchInBackground = null;
-                       } else if (e.data.status == 'success'){
-                           $this.countries = e.data.payload;
                        } else if (e.data.status == 'error'){
-                           $this.countries = [{name: 'Trying to connect'}];
+                           $this.$store.state.countries = [{name: 'Trying to connect'}];
                            console.trace(e.data.payload);
                            $this.fetchData();
                        }

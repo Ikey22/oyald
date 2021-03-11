@@ -12,7 +12,13 @@ $self.onmessage = ({ data }) => fetch(data)// || '/country-stats-city.jon')
                };
                
                console.trace("Ready to post");
-               $self.postMessage(retVal);
+               // $self.postMessage(retVal);
+               $self.postMessage({status: "starting"});
+               retVal.payload.forEach(country => $self.postMessage({
+                   status: "success",
+                   value: country
+               }));
+               $self.postMessage({status:"ended"});
                console.trace("after post message");
                //console.trace(retVal);
            })
