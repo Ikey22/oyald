@@ -244,8 +244,49 @@ import CountryStateCity from '@/components/CountryStateCity.vue';
 export default {
     name: "NewMemberForm",
     methods: {
-      sumbitForm(){
-        const params = {};
+      submitForm(){
+        const {
+          surName,
+          firstName,
+          middleName,
+          dob,
+          address1,
+          address2,
+          address3,
+          zipCode,
+          phoneNumber,
+          email,
+          passport,
+          membershipCategory,
+          description,
+          country,
+          city,
+          state,
+          agreedToc,
+          agreedTruthOfCredentials
+        } = this.$store.state.userPreferences;
+
+        const params = {
+          surName,
+          firstName,
+          middleName,
+          dob,
+          address1,
+          address2,
+          address3,
+          zipCode,
+          phoneNumber,
+          email,
+          passport,
+          membershipCategory,
+          description,
+          country,
+          city,
+          state,
+          agreedToc,
+          agreedTruthOfCredentials
+        };
+
         this.action(params);
       }
     },

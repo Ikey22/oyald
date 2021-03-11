@@ -95,6 +95,23 @@ export default {
   src: url('/font/sans-narrow.ttf');
 }
 
+::-webkit-scrollbar{
+  background: #999 !important;
+  border: 1px solid #004400 !important;
+  width: 15px !important;
+}
+
+::-webkit-scrollbar-button{
+  background: #004400 !important;
+  border: 1px solid #fff !important;
+}
+
+::-webkit-scrollbar-thumb{
+  background: linear-gradient(to bottom right, #004400, #012001, #008800) !important;
+  border-radius: 100px !important;
+  border: 1px solid #fff !important;
+}
+
 *{
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-style: normal;

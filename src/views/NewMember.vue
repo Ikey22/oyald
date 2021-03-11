@@ -24,7 +24,9 @@ export default {
     name: "NewMember",
     data(){
       return {
-        submitNewMemberForm(){}
+        submitNewMemberForm(params){
+          console.log(params);
+        }
       }
     },
     components: {
