@@ -1,5 +1,5 @@
 <template>
-  <div class="root w-100 h-100">
+  <div class="root w-100 h-100 m-0 p-0">
 
     <pre-header />
 
@@ -130,11 +130,16 @@ hr{
   box-shadow: 5px 5px 5px 5px #999  !important;
 }
 
-*, #root{
+#root{
   animation-name: fadeIn;
-  animation-duration: .35s;
+  animation-duration: .45s;
   animation-delay: 0s;
   animation-timing-function: ease-in;
+
+  top: 0;
+  left: 0;
+  position: relative;
+  transform-origin: top left;
 }
 
 @keyframes fadeIn {

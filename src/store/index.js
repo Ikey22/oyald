@@ -167,7 +167,7 @@ const $store = new Vuex.Store({
           });
       }
 
-      ref.where('email', '==', email)
+      if (/\S@\S.\S/.test(email)) ref.where('email', '==', email)
         .limit(1)
         .get()
         .then(snapshot => {

@@ -92,11 +92,11 @@ export default {
             .where('category', '==', $this.query)
             .orderBy('order');
 
-        ref.get()
+        /* ref.get()
           .then($this.successCallback, $this.errorCallback)
           .catch(err => {
               return setTimeout(() => $this.errorCallback(err), 3000);
-            });
+            }); */
 
         ref.onSnapshot(snapshot => {
           if(snapshot.docs.length){
@@ -108,11 +108,11 @@ export default {
           
       },
       refresh(){
-        return window.location.reload(true);
+        return window.location.reload();
       }
     },
     mounted(){
-      const $this = this;
+      /* const $this = this;
       if (window.navigator.onLine){
           try {
             $this.getfetchData(); 
@@ -124,7 +124,8 @@ export default {
         window.addEventListener('online', () => {
           $this.getfetchData();
         });
-      }
+      } */
+      return this.getfetchData();
     }
 }
 </script>

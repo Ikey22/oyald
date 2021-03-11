@@ -312,7 +312,7 @@
   <!-- #end login form -->
 
   <!-- #begin send password reset modal -->
-  <b-modal v-model="showSendPasswordResetEmailModal" ize="md">
+  <b-modal v-model="showSendPasswordResetEmailModal" size="md">
     <template #modal-title>
       <p class="h4 text-center w-100 font-weight-bold text-primary-color">Type your email below, we will send you a reset link</p>
     </template>
