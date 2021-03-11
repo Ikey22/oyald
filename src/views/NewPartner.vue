@@ -27,7 +27,9 @@ export default {
     },
   data(){
     return {
-      submitNewPartnerForm(){}
+      submitNewPartnerForm(params){
+        console.log(params);
+      }
     }
   },
     name: "NewPartner"

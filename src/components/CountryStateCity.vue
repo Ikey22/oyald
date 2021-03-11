@@ -12,7 +12,7 @@
                             v-model="country"
                             :required="true"
                             >
-                                <b-form-select-option v-for="(x, index) in $store.state.countries" :key="`country-${index + 1}`" :value="x.name">{{x.name}}{{ x.emoji }}</b-form-select-option>
+                                <b-form-select-option v-for="(x, index) in $store.state.countries" :key="`country-${index + 1}`" :value="x.name + '' + x.emoji">{{x.name}}{{ x.emoji }}</b-form-select-option>
                             </b-form-select>
                           </b-form-group>
 
@@ -71,7 +71,9 @@ let fetchInBackground = new Worker("/js/fetch-and-parse-countries.worker.js") ||
             }
         },
         created() {
-            return setTimeout(() => this.fetchData(), 10);
+            if (this.$store.state.countries.length < 2) return setTimeout(() => this.fetchData(), 10);
+            
+            return true;
         },
         methods: {
          fetchData(){
@@ -108,9 +110,8 @@ let fetchInBackground = new Worker("/js/fetch-and-parse-countries.worker.js") ||
 
          },
          setCountry(){
-            window.countries = this.countries;
-            const foundIndex = this.countries.findIndex(country => country.name === this.country);
-            this.states = this.countries[foundIndex].states;
+            const foundIndex = this.$store.state.countries.findIndex(country => country.name === this.country);
+            this.states = this.$store.state.countries[foundIndex].states;
             this.cities = [{name: 'select Stat First!'}];
             return this.emitValue();
          },

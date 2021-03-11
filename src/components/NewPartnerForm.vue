@@ -272,7 +272,57 @@ export default {
   components: { CountryStateCity },
   methods: {
     submitForm(){
-      const params = {};
+
+      const { 
+        companyName,
+        companyCategory,
+        companyAddress1,
+        companyAddress2,
+        companyAddress3,
+        zipCode,
+        companyPhoneNumber,
+        companyEmail,
+        companyWebsite,
+        companyFacebook,
+        companyInstagram,
+        companyLinkedin,
+        companyTwitter,
+        companyNotes,
+        companyOfficer,
+        companyOfficerPosition,
+        trueRepresentative,
+        agreedTruthOfCredentials,
+        companyLogo,
+        country,
+        state,
+        city
+       } = this.$store.state.userPreferences;
+
+      const params = {
+        companyName,
+        companyCategory,
+        companyAddress1,
+        companyAddress2,
+        companyAddress3,
+        zipCode,
+        companyPhoneNumber,
+        companyEmail,
+        companyWebsite,
+        companyFacebook,
+        companyInstagram,
+        companyLinkedin,
+        companyTwitter,
+        companyNotes,
+        companyOfficer,
+        companyOfficerPosition,
+        trueRepresentative,
+        agreedTruthOfCredentials,
+        companyLogo,
+        country,
+        state,
+        city
+      };
+
       this.action(params);
     }
   },
