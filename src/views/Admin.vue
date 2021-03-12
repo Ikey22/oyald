@@ -365,6 +365,11 @@
   <!-- #begin add new member form -->
   <b-modal v-model="addMemberModal" size="xl" centered scrollable>
     <template #modal-title><center class="w-100 h1 text-center text-primary-color">Add new member</center></template>
+    <center class="w-100">
+      <br />
+      <img src="/img/add-user.svg" width="100" />
+      <br />
+    </center>
     <new-member-form />
     <template #modal-footer> - &nbsp;</template>
   </b-modal>
@@ -373,6 +378,11 @@
   <!-- #begin add new partner form -->
   <b-modal v-model="addPartnerModal" size="xl" centered scrollable>
     <template #modal-title><center class="w-100 h1 text-center text-primary-color">Add new partner</center></template>
+    <center class="w-100">
+      <br />
+      <img src="/img/partner.svg" width="100" />
+      <br />
+    </center>
     <new-partner-form />
     <template #modal-footer> - &nbsp;</template>
   </b-modal>
