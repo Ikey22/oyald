@@ -125,7 +125,7 @@ export default {
           $this.getfetchData();
         });
       } */
-      return this.getfetchData();
+      return setTimeout(() => this.getfetchData(), 1);
     }
 }
 </script>

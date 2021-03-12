@@ -3,7 +3,7 @@
                     <div class="member">
                       <div class="member-img">
                           <img
-                            :src="imgURL || '/img/logo.jpeg'"
+                            :src="downloadImgURL || '/img/logo.jpeg'"
                             width="400"
                             height="400"
                             class="img-fluid team-member-avatar"
@@ -59,6 +59,23 @@
 <script>
 export default {
     name: "TeamMember",
+    data(){
+        return {
+            downloadImgURL: ""
+        }
+    },
+    mounted(){
+        if (this.imgURL) {
+            const storage = this.$firebase.storage();
+            storage.ref(this.imgURL).getDownloadURL()
+                .then(url => {
+                    this.downloadImgURL = url;
+                })
+                .catch(e => {
+                    console.error(e);
+                });
+        }
+    },
     props: {
         name: {
             type: String,

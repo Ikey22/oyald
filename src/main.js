@@ -14,7 +14,7 @@ import firebase from "firebase/app";
 import "firebase/analytics";
 import "firebase/auth";
 import "firebase/firestore";
-//import "firebase/storage";
+import "firebase/storage"; 
 import "firebase/messaging";
 //import "firebase/functions";
 import VueWorker from 'vue-worker';
@@ -43,7 +43,6 @@ const firebaseVuePlugin = vueApp => {
 //  cacheSizeBytes: firebase.firestore.CACHE_SIZE_UNLIMITED
 //});
 
-window.__$analytics = firebase.analytics();
 
 firebase.firestore().enablePersistence()
   .catch(function(err) {
@@ -67,6 +66,9 @@ Vue.use(firebaseVuePlugin);
 const isDev = process.env.NODE_ENV !== "production";
 Vue.config.performance = isDev;
 Vue.config.productionTip = false;
+
+window.__$analytics = firebase.analytics();
+window.__$storage = firebase.storage();
 
 window.__$vm = new Vue({
   store,

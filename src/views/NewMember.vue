@@ -25,7 +25,13 @@ export default {
     data(){
       return {
         submitNewMemberForm(params){
-          console.log(params);
+
+          if (params.passport.size > (1024 * 5)) {
+            console.log(params);
+          } else {
+            console.log(params);
+          }
+
         }
       }
     },
