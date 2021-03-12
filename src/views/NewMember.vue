@@ -2,6 +2,10 @@
   <div class="container-fluid w-100">
       <h1 class="text-success w-100 text-center font-weight-bold" style="color: var(--custom-primary-color) !important;"> BECOME A MEMBER OF OYALD </h1>
       <br />
+      <center class="w-100">
+        <img width="250" src="@/assets/img/add-user.svg" alt="new member" />
+      </center>
+      <br />
       <p class="w-100 text-center"><span class="p-1 bg-danger text-white font-weight-bold rounded">Note:</span> Fields labelled with asterisk (*) are mandatory, the rest are optional</p>
       
       

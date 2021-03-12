@@ -1,10 +1,13 @@
 <template>
   <div class="w-100 container-fluid">
       <h1 class="text-center font-weight-bold w-100 text-success" style="color: var(--custom-primary-color) !important;">{{ $store.state.language === 'en' ? $store.state.englishStrings.contactUs : $store.state.frenchStrings.contactUs }}</h1>
+      <center class="w-100">
+        <img alt="contact-us" src="@/assets/img/mail.svg" width="250" />
+      </center>
       <p class="text-center w-100 font-weight-bold"> Please drop us a note </p>
       <br />
       <p class="w-100 text-center"><span class="p-1 bg-danger text-white font-weight-bold rounded">Note:</span> Fields labelled with asterisk (*) are mandatory, the rest are optional</p>
-      <center>
+      <center> 
       <b-form
       style="max-width: 1050px !important;"
       @submit.prevent="submitContactForm"

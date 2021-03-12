@@ -11,6 +11,7 @@
               <b-list-group-item class="d-flex align-items-center">
                 <b-avatar class="mr-3" :src="$firebase.auth().currentUser.photoURL"></b-avatar>
                 <span class="mr-auto">{{ $firebase.auth().currentUser.displayName }}</span>
+                <b-badge variant=success></b-badge>
               </b-list-group-item>
            </b-list-group>
            <br />
@@ -35,8 +36,13 @@
         </template>
         <hr />
 
+        <center class="w-100">
+          <img src="@/assets/img/analytics.svg" width="250" />
+        </center>
+        <br />
+
         <div class="py-4">
-          <p class="text-primary-color font-weight-bold h3'">Overview</p>
+          <p class="text-primary-color w-100 text-center font-weight-bold h3'">Overview</p>
           <center>
             <bar-chart
             v-if="shouldRender"
@@ -53,6 +59,8 @@
             </center>
           </center>
 
+          <br />
+          <hr />
           <br />
 
           <center>
@@ -469,12 +477,10 @@ export default {
         this.$firebase.auth().signOut().then(() => {
               $this.$store.commit('setAuthAdmin', null);
               console.clear();
-              // $this.$firebase.auth().currentUser = null;
-              console.log($this.$firebase.auth().currentUser);
-              $this.$store.commit('showSuccessModal', true);
-              $this.$router.push("/home-page");
-              window.location.reload();
               $this.unSubscribe();
+              // $this.$firebase.auth().currentUser = null;
+              $this.$store.commit('showSuccessModal', true);
+              window.location.reload();
               $this.$firebase.analytics().logEvent("admin_logout", { ...$this.$store.state.authAdmin, date: (Date.now() || (new Date()).getTime()) });
           }).catch((error) => {
             console.trace(error);

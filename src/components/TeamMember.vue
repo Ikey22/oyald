@@ -3,7 +3,7 @@
                     <div class="member">
                       <div class="member-img">
                           <img
-                            :src="downloadImgURL || '/img/logo.jpeg'"
+                            :src="downloadImgURL || '/img/loading.svg'"
                             width="400"
                             height="400"
                             class="img-fluid team-member-avatar"

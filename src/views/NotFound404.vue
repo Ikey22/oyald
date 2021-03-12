@@ -2,12 +2,12 @@
   <div class="w-100 container-fluid d-flex align-items-center justify-content-center flex-column">
       <br />
       <p class="h1 font-weight-bold d-inline-block">
-        <u class="d-inline-block text-primary-color">404</u>
+        <img src="@/assets/img/404.svg" width="200"  class="h1" alt="404" />
         <br />
-        <b-iconstack aria-label="" class="center">
+        <!-- <b-iconstack aria-label="" class="center">
           <b-icon class="text-black" icon="link" />
           <b-icon class="text-primary-color" icon="slash" />
-        </b-iconstack>
+        </b-iconstack> -->
       </p>
       <br />
       <br />
