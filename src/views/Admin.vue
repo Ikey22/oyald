@@ -9,7 +9,7 @@
     <center>
       <b-list-group style="max-width: 300px;">
               <b-list-group-item class="d-flex align-items-center">
-                <b-avatar class="mr-3" :src="$firebase.auth().currentUser.photoURL || null"></b-avatar>
+                <b-avatar class="mr-3" :src="$firebase.auth().currentUser.photoURL"></b-avatar>
                 <span class="mr-auto">{{ $firebase.auth().currentUser.displayName }}</span>
               </b-list-group-item>
            </b-list-group>
@@ -640,11 +640,11 @@ export default {
           
             default:
               //commit(matchedUser.data());
-              (() => {
-                console.error("unable to login");
-                alert("Unable to login for an unknown reason, it could be due to poor internet or a proxy");
-                $this.isLoggingIn = false;
-              })()
+              // (() => {
+              //   console.error("unable to login");
+              //   alert("Unable to login for an unknown reason, it could be due to poor internet or a proxy");
+              //   $this.isLoggingIn = false;
+              // })()
               break;
           }
           }
