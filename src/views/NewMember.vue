@@ -35,6 +35,8 @@ export default {
             alert("The file-size of the passport photograph must not exceed 5 megabytes")
           } else {
             console.log(params);
+
+            const $this = this;
             const seq = `${generateRandomSequence()}`;
             const extName = params.passport.name.toString().split(".")[1];
             const fileName = `${seq}.${extName}`;
@@ -43,10 +45,27 @@ export default {
 
             const collectionRef = this.$firebase.firestore().collections("members");
 
+            const imgURL = `members/${fileName}`;
+
             collectionRef
-              .add({ ...params, imgURL: fileName })
+              .add({ ...params, imgURL })
               .then(() => {
-                cloudRef.put(params.passport);
+
+                $this.$store.commit("showSuccessModal", true);
+                const uploadTask = cloudRef.put(params.passport);
+                uploadTask.on("state_chhanged", snapshot => {
+                    var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                    console.log(`${progress}%`);
+                    switch (snapshot.state) {
+                      case $this.$firebase.storage.TaskState.PAUSED: // or 'paused'
+                        console.log('Upload is paused');
+                        break;
+                      case $this.$firebase.storage.TaskState.RUNNING: // or 'running'
+                        console.log('Upload is running');
+                        break;
+                    }
+                  }, error => console.trace(error));
+
               })
               .catch(e => {
                 console.trace(e);
