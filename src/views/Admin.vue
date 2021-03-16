@@ -252,6 +252,12 @@
       <b-icon icon="key-fill" />
     </p>
     <br />
+      <center>
+        <img width="250" src="@/assets/img/security.svg" />
+      </center>
+    <br />
+    <p class="w-100 text-center font-weight-bold">This section is restricted to site administrators only</p>
+    <br />
 
     <center>
       <b-form

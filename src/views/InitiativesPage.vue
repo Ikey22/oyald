@@ -22,19 +22,6 @@
                       <b-form @submit.prevent="submitCapacityBuildingForm">
                         <div class="row w-100">
                           <b-form-group class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
-                            <label for="first-name">First Name*</label>
-                            <b-form-input
-                            id="first-name"
-                            class="w-100"
-                            v-model="$store.state.userPreferences.firstName"
-                            placeholder="type here..."
-                            type="text"
-                            autocomplete="given-name"
-                            :required="true"
-                            />
-                          </b-form-group>
-
-                          <b-form-group class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
                             <label for="surname">Surname*</label>
                             <b-form-input
                             id="surname"
@@ -43,6 +30,19 @@
                             placeholder="type here..."
                             type="text"
                             autocomplete="family-name"
+                            :required="true"
+                            />
+                          </b-form-group>
+
+                          <b-form-group class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+                            <label for="first-name">First Name*</label>
+                            <b-form-input
+                            id="first-name"
+                            class="w-100"
+                            v-model="$store.state.userPreferences.firstName"
+                            placeholder="type here..."
+                            type="text"
+                            autocomplete="given-name"
                             :required="true"
                             />
                           </b-form-group>

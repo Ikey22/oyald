@@ -23,6 +23,7 @@
 
 <script>
 import NewMemberForm from "../components/NewMemberForm.vue";
+import generateRandomSequence from "../utils/generateRandomSequence";
 
 export default {
     name: "NewMember",
@@ -30,10 +31,26 @@ export default {
       return {
         submitNewMemberForm(params){
 
-          if (params.passport.size > (1024 * 5)) {
-            console.log(params);
+          if (params.passport.size > (1024 * 1024 * 5)) {
+            alert("The file-size of the passport photograph must not exceed 5 megabytes")
           } else {
             console.log(params);
+            const seq = `${generateRandomSequence()}`;
+            const extName = params.passport.name.toString().split(".")[1];
+            const fileName = `${seq}.${extName}`;
+            
+            const cloudRef = this.$firebase.storage().ref(`members/${fileName}`);
+
+            const collectionRef = this.$firebase.firestore().collections("members");
+
+            collectionRef
+              .add({ ...params, imgURL: fileName })
+              .then(() => {
+                cloudRef.put(params.passport);
+              })
+              .catch(e => {
+                console.trace(e);
+              });
           }
 
         }
