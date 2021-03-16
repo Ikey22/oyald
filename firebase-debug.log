@@ -131,3 +131,50 @@ Before we get started, keep in mind:
 [info] 
 [info] 
 [info] ✔  Created workflow file /home/danroyal001/Documents/firebaseProjects/oyald/.github/workflows/firebase-hosting-pull-request.yml 
+[debug] [2021-03-16T14:42:22.019Z] ----------------------------------------------------------------------
+[debug] [2021-03-16T14:42:22.050Z] Command:       /snap/node/3790/bin/node /usr/local/bin/firebase init hosting
+[debug] [2021-03-16T14:42:22.052Z] CLI Version:   9.6.1
+[debug] [2021-03-16T14:42:22.052Z] Platform:      linux
+[debug] [2021-03-16T14:42:22.057Z] Node Version:  v14.16.0
+[debug] [2021-03-16T14:42:22.517Z] Time:          Tue Mar 16 2021 15:42:22 GMT+0100 (West Africa Standard Time)
+[debug] [2021-03-16T14:42:22.518Z] ----------------------------------------------------------------------
+[debug] [2021-03-16T14:42:22.519Z] 
+[debug] [2021-03-16T14:42:22.663Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-03-16T14:42:22.667Z] > authorizing via signed-in user
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /home/danroyal001/Documents/firebaseProjects/oyald
+
+Before we get started, keep in mind:
+
+  * You are initializing in an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[info] i  .firebaserc already has a default project, using oyald-ojlad. 
+[debug] [2021-03-16T14:42:22.770Z] > refreshing access token with scopes: []
+[debug] [2021-03-16T14:42:22.777Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-03-16T14:42:24.138Z] <<< HTTP RESPONSE 200 {"cache-control":"no-cache, no-store, max-age=0, must-revalidate","pragma":"no-cache","expires":"Mon, 01 Jan 1990 00:00:00 GMT","date":"Tue, 16 Mar 2021 14:42:24 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-03-16T14:42:24.226Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/oyald-ojlad [none]
+[debug] [2021-03-16T14:42:25.345Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/oyald-ojlad 200
+[debug] [2021-03-16T14:42:25.347Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/oyald-ojlad {"projectId":"oyald-ojlad","projectNumber":"171369652432","displayName":"oyald-ojlad","name":"projects/oyald-ojlad","resources":{"hostingSite":"oyald-ojlad","storageBucket":"oyald-ojlad.appspot.com","locationId":"europe-west"},"state":"ACTIVE"}
+[info] 
+=== Hosting Setup
+[info] 
+[info] Your public directory is the folder (relative to your project directory) that
+[info] will contain Hosting assets to be uploaded with firebase deploy. If you
+[info] have a build process for your assets, use your build's output directory.
+[info] 

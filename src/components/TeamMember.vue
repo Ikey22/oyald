@@ -16,7 +16,7 @@
                             >
                             <h4>{{ name }}</h4>
                             <span>{{ role }}</span>
-                            <div class="social-links">
+                            <div v-if="socials" class="social-links">
                                 <a v-if="socials.linkedin" target="_blank" :href="socials.linkedin || null"><b-icon icon="linkedin"></b-icon></a>
                                 <a v-if="socials.facebook" target="_blank" :href="socials.facebook || null"><b-icon icon="facebook"></b-icon></a>
                                 <a v-if="socials.twitter" target="_blank" :href="socials.twitter || null"><b-icon icon="twitter"></b-icon></a>

@@ -3,7 +3,7 @@
       <b-form
       @submit.prevent="submitForm"
       style="max-width: 1050px !important;"
-      class="card rounded p-3 d-block text-left shadow-lg"
+      class="card rounded p-3 d-block text-left"
       >
                         
                         <b-form-row clas="row w-100">

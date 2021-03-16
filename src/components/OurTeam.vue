@@ -34,12 +34,8 @@
     <br />
     <br />
 
-    <center>
-        <b-button
-        style="background: var(--custom-primary-color);"
-        type="button"
-        to="/membership"
-        >JOIN OYALD</b-button>
+    <center class="w-100">
+        <JoinOYALDButton />
     </center>
 
     <br />
@@ -49,12 +45,14 @@
 <script>
 import TeamMember from '@/components/TeamMember.vue'
 import TeamMemberList from '@/components/TeamMemberList.vue';
+import JoinOYALDButton from "@/components/JoinOYALDButton.vue";
 
 
 export default {
   components: {
       TeamMember,
-      TeamMemberList
+      TeamMemberList,
+      JoinOYALDButton
     },
     props: {
       query: {
