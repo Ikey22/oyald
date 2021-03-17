@@ -13,6 +13,21 @@
       
       <new-member-form :action="submitNewMemberForm" />
 
+      <b-modal v-model="isUploading">
+        <template #modal-title>
+          <p class="w-100 h2 text-center text-primary-color">Uploading</p>
+        </template>
+          <center>
+            <img src="/img/mail.svg" width="150">
+            <br />
+            <br />
+            <br />
+            <progress max="100" :value="progress" />
+            <p class="w-100 text-center">{{ progress }}% complete</p>
+          </center>
+        <template #modal-footer> - </template>
+      </b-modal>
+
 
 
 
@@ -29,6 +44,8 @@ export default {
     name: "NewMember",
     data(){
       return {
+        isUploading: true,
+        progress: 0,
         submitNewMemberForm(params){
 
           if (params.passport.size > (1024 * 1024 * 5)) {
@@ -52,10 +69,11 @@ export default {
               .then(() => {
 
                 $this.$store.commit("showSuccessModal", true);
+                $this.isUploading = true;
                 const uploadTask = cloudRef.put(params.passport);
                 uploadTask.on("state_chhanged", snapshot => {
-                    var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-                    console.log(`${progress}%`);
+                    $this.progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                    console.log(`${$this.progress}%`);
                     switch (snapshot.state) {
                       case $this.$firebase.storage.TaskState.PAUSED: // or 'paused'
                         console.log('Upload is paused');
