@@ -124,8 +124,12 @@ const $store = new Vuex.Store({
         icon: "instagram"
       }
     ],
+
+    uploadProgress: 0,
+
     successModal: false,
     networkErrorModal: false,
+    isUploadingModal: false,
     emailAlreadyInNewsletterModal: false,
     tocModal: false
   },
@@ -150,6 +154,12 @@ const $store = new Vuex.Store({
     },
     showTOCModal(state, trueOrFalse) {
       state.tocModal = trueOrFalse;
+    },
+    showIsUploadingModal(state, trueOrFalse){
+      state.isUploading = trueOrFalse;
+    },
+    setUploadProgress(state, progress){
+      state.uploadProgress = progress;
     },
     async submitNewsletterForm(state){
       state.isAddingToNewsletter = true;

@@ -44,36 +44,38 @@ export default {
     name: "NewMember",
     data(){
       return {
-        isUploading: true,
-        progress: 0,
+        isUploading: false,
         submitNewMemberForm(params){
+          const $this = this;
+          $this.$store.commit('setUploadProgress', 0);
+          $this.$store.commit('setIsUploading', true);
+          console.log("upload started");
 
           if (params.passport.size > (1024 * 1024 * 5)) {
-            alert("The file-size of the passport photograph must not exceed 5 megabytes")
+            this.isUploading = false;
+            alert("The file-size of the passport photograph must not exceed 5 megabytes");
           } else {
-            console.log(params);
-
             const $this = this;
-            const seq = `${generateRandomSequence()}`;
+            const seq = `${params.passport.name}-${generateRandomSequence()}`;
             const extName = params.passport.name.toString().split(".")[1];
             const fileName = `${seq}.${extName}`;
             
             const cloudRef = this.$firebase.storage().ref(`members/${fileName}`);
 
-            const collectionRef = this.$firebase.firestore().collections("members");
+            const collectionRef = this.$firebase.firestore().collection("members");
 
             const imgURL = `members/${fileName}`;
 
             collectionRef
-              .add({ ...params, imgURL })
+              .add({ ...params, passport: null, imgURL })
               .then(() => {
 
                 $this.$store.commit("showSuccessModal", true);
-                $this.isUploading = true;
+                $this.$store.commit('setIsUploading', true);
                 const uploadTask = cloudRef.put(params.passport);
-                uploadTask.on("state_chhanged", snapshot => {
-                    $this.progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-                    console.log(`${$this.progress}%`);
+                uploadTask.on("state_changed", snapshot => {
+                    $this.$store.commit('setUploadProgress', (snapshot.bytesTransferred / snapshot.totalBytes) * 100);
+
                     switch (snapshot.state) {
                       case $this.$firebase.storage.TaskState.PAUSED: // or 'paused'
                         console.log('Upload is paused');
@@ -82,10 +84,16 @@ export default {
                         console.log('Upload is running');
                         break;
                     }
-                  }, error => console.trace(error));
+                  }, error => {
+                    $this.$store.commit('setIsUploading', false);
+                    $this.$store.state.commit("showNetworkErrorModal", true);
+                    console.trace(error);
+                  });
 
               })
               .catch(e => {
+                $this.$store.commit('setIsUploading', false);
+                $this.$store.state.commit("showNetworkErrorModal", true);
                 console.trace(e);
               });
           }

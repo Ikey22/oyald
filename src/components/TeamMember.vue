@@ -142,9 +142,14 @@ export default {
 }
  .member .social-links {
     margin-top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+    width: 100%;
 }
  .member .social-links a {
-    transition: none;
+    transition: all;
     color: #fff;
 }
  .member .social-links a:hover {
