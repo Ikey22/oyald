@@ -13,7 +13,7 @@
       
       <new-member-form :action="submitNewMemberForm" />
 
-      <b-modal v-model="isUploading">
+      <b-modal v-model="$store.state.isUploading">
         <template #modal-title>
           <p class="w-100 h2 text-center text-primary-color">Uploading</p>
         </template>
@@ -22,8 +22,8 @@
             <br />
             <br />
             <br />
-            <progress max="100" :value="progress" />
-            <p class="w-100 text-center">{{ progress }}% complete</p>
+            <progress max="100" :value="$store.state.uploadProgress" />
+            <p class="w-100 text-center">{{ $store.state.uploadProgress }}% complete</p>
           </center>
         <template #modal-footer> - </template>
       </b-modal>
@@ -42,23 +42,19 @@ import generateRandomSequence from "../utils/generateRandomSequence";
 
 export default {
     name: "NewMember",
-    data(){
-      return {
-        isUploading: false,
+    methods: { 
         submitNewMemberForm(params){
           const $this = this;
           $this.$store.commit('setUploadProgress', 0);
-          $this.$store.commit('setIsUploading', true);
+          $this.$store.commit('showIsUploadingModal', true);
           console.log("upload started");
 
           if (params.passport.size > (1024 * 1024 * 5)) {
-            this.isUploading = false;
+            $this.$store.commit('showIsUploadingModal', false);
             alert("The file-size of the passport photograph must not exceed 5 megabytes");
           } else {
-            const $this = this;
-            const seq = `${params.passport.name}-${generateRandomSequence()}`;
-            const extName = params.passport.name.toString().split(".")[1];
-            const fileName = `${seq}.${extName}`;
+            const seq = `${generateRandomSequence()}-${params.passport.name}`;
+            const fileName = `${seq}`;
             
             const cloudRef = this.$firebase.storage().ref(`members/${fileName}`);
 
@@ -71,10 +67,17 @@ export default {
               .then(() => {
 
                 $this.$store.commit("showSuccessModal", true);
-                $this.$store.commit('setIsUploading', true);
+                $this.$store.commit('showIsUploadingModal', true);
                 const uploadTask = cloudRef.put(params.passport);
                 uploadTask.on("state_changed", snapshot => {
-                    $this.$store.commit('setUploadProgress', (snapshot.bytesTransferred / snapshot.totalBytes) * 100);
+                    const percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                    $this.$store.commit('setUploadProgress', percentage);
+
+                    if (percentage == 100) {
+                        $this.$store.commit('showIsUploadingModal', false);
+                        $this.$store.commit('setUploadProgress', 0);
+                        console.log('upload completed');
+                      }
 
                     switch (snapshot.state) {
                       case $this.$firebase.storage.TaskState.PAUSED: // or 'paused'
@@ -85,21 +88,20 @@ export default {
                         break;
                     }
                   }, error => {
-                    $this.$store.commit('setIsUploading', false);
+                    $this.$store.commit('showIsUploadingModal', false);
                     $this.$store.state.commit("showNetworkErrorModal", true);
                     console.trace(error);
                   });
 
               })
               .catch(e => {
-                $this.$store.commit('setIsUploading', false);
+                $this.$store.commit('showIsUploadingModal', false);
                 $this.$store.state.commit("showNetworkErrorModal", true);
                 console.trace(e);
               });
           }
 
         }
-      }
     },
     components: {
       NewMemberForm
