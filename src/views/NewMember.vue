@@ -13,7 +13,7 @@
       
       <new-member-form :action="submitNewMemberForm" />
 
-      <b-modal v-model="$store.state.isUploading">
+      <b-modal v-model="$store.state.isUploading" no-close-on-esc no-close-on-backdrop hide-header-close>
         <template #modal-title>
           <p class="w-100 h2 text-center text-primary-color">Uploading</p>
         </template>
@@ -45,8 +45,8 @@ export default {
     methods: { 
         submitNewMemberForm(params){
           const $this = this;
-          $this.$store.commit('setUploadProgress', 0);
           $this.$store.commit('showIsUploadingModal', true);
+          $this.$store.commit('setUploadProgress', 0);
           console.log("upload started");
 
           if (params.passport.size > (1024 * 1024 * 5)) {
@@ -66,15 +66,16 @@ export default {
               .add({ ...params, passport: null, imgURL })
               .then(() => {
 
-                $this.$store.commit("showSuccessModal", true);
-                $this.$store.commit('showIsUploadingModal', true);
+                alert('your details have been successfully uploaded to our database,\nplease wait while we upload your passport photograph')
+
                 const uploadTask = cloudRef.put(params.passport);
                 uploadTask.on("state_changed", snapshot => {
-                    const percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                    const percentage = ((snapshot.bytesTransferred / snapshot.totalBytes) * 100).toFixed(1);
                     $this.$store.commit('setUploadProgress', percentage);
 
                     if (percentage == 100) {
                         $this.$store.commit('showIsUploadingModal', false);
+                        $this.$store.commit("showSuccessModal", true);  
                         $this.$store.commit('setUploadProgress', 0);
                         console.log('upload completed');
                       }
@@ -89,7 +90,7 @@ export default {
                     }
                   }, error => {
                     $this.$store.commit('showIsUploadingModal', false);
-                    $this.$store.state.commit("showNetworkErrorModal", true);
+                    alert('unable to upload passport photograph');
                     console.trace(error);
                   });
 

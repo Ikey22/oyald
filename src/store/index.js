@@ -129,7 +129,7 @@ const $store = new Vuex.Store({
 
     successModal: false,
     networkErrorModal: false,
-    isUploadingModal: false,
+    isUploading: false,
     emailAlreadyInNewsletterModal: false,
     tocModal: false
   },
