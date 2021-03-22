@@ -56,13 +56,14 @@ export default {
             const seq = `${generateRandomSequence()}-${params.passport.name}`;
             const fileName = `${seq}`;
             
-            const cloudRef = this.$firebase.storage().ref(`members/${fileName}`);
+            const cloudRef = this.$firebase.storage().ref(`membership_requests/${fileName}`);
 
-            const collectionRef = this.$firebase.firestore().collection("members");
+            const collectionRef = this.$firebase.firestore().collection("membership_requests");
 
-            const imgURL = `members/${fileName}`;
+            const imgURL = `membership_requests/${fileName}`;
 
-            collectionRef
+            const run = () => {
+              collectionRef
               .add({ ...params, passport: null, imgURL })
               .then(() => {
 
@@ -100,6 +101,27 @@ export default {
                 $this.$store.state.commit("showNetworkErrorModal", true);
                 console.trace(e);
               });
+            }
+
+            collectionRef
+                .where('email', '==', params.email)
+                .get()
+                .then(snapshot => {
+                  if (!snapshot.empty) {
+                    
+                    alert('It appears you previously sent in a membership request\nPlease exercise patience while we process your request\nregards.')
+
+                  } else {
+                    
+                    run();
+
+                  }
+                })
+                .catch(err => {
+                  $this.$store.commit('showNetworkErrorModal', true);
+                  console.trace(err)
+                })
+          
           }
 
         }
