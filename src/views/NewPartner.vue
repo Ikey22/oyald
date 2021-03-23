@@ -23,18 +23,98 @@
 
 <script>
 import NewPartnerForm from "../components/NewPartnerForm.vue";
+import generateRandomSequence from '../utils/generateRandomSequence.js';
 //import CountryStateCity from '../components/CountryStateCity.vue'
 export default {
   components: {
     //CountryStateCity,
     NewPartnerForm
     },
-  data(){
-    return {
-      submitNewPartnerForm(params){
-        console.log(params);
-      }
-    }
+  methods: {
+    submitNewPartnerForm(params){
+          const $this = this;
+          $this.$store.commit('showIsUploadingModal', true);
+          $this.$store.commit('setUploadProgress', 0);
+          console.log("upload started");
+
+          if (params.passport.size > (1024 * 1024 * 5)) {
+            $this.$store.commit('showIsUploadingModal', false);
+            alert("The file-size of the passport photograph must not exceed 5 megabytes");
+          } else {
+            const seq = `${generateRandomSequence()}-${params.passport.name}`;
+            const fileName = `${seq}`;
+            
+            const cloudRef = this.$firebase.storage().ref(`membership_requests/${fileName}`);
+
+            const collectionRef = this.$firebase.firestore().collection("membership_requests");
+
+            const imgURL = `membership_requests/${fileName}`;
+
+            const run = () => {
+              collectionRef
+              .add({ ...params, passport: null, imgURL })
+              .then(() => {
+
+                alert('your details have been successfully uploaded to our database,\nplease wait while we upload your passport photograph')
+
+                const uploadTask = cloudRef.put(params.passport);
+                uploadTask.on("state_changed", snapshot => {
+                    const percentage = ((snapshot.bytesTransferred / snapshot.totalBytes) * 100).toFixed(1);
+                    $this.$store.commit('setUploadProgress', percentage);
+
+                    if (percentage == 100) {
+                        $this.$store.commit('showIsUploadingModal', false);
+                        $this.$store.commit("showSuccessModal", true);  
+                        $this.$store.commit('setUploadProgress', 0);
+                        console.log('upload completed');
+                      }
+
+                    switch (snapshot.state) {
+                      case $this.$firebase.storage.TaskState.PAUSED: // or 'paused'
+                        console.log('Upload is paused');
+                        break;
+                      case $this.$firebase.storage.TaskState.RUNNING: // or 'running'
+                        console.log('Upload is running');
+                        break;
+                    }
+                  }, error => {
+                    $this.$store.commit('showIsUploadingModal', false);
+                    alert('unable to upload passport photograph');
+                    console.trace(error);
+                  });
+
+              })
+              .catch(e => {
+                $this.$store.commit('showIsUploadingModal', false);
+                $this.$store.state.commit("showNetworkErrorModal", true);
+                console.trace(e);
+              });
+            }
+
+            collectionRef
+                .where('email', '==', params.email)
+                .get()
+                .then(snapshot => {
+                  if (!snapshot.empty) {  
+                    
+                    $this.$store.commit('showIsUploadingModal', false);
+                    alert('It appears you previously sent in a membership request\nPlease exercise patience while we process your request\nIf you feel this is a mistake, please visit our contact page and file a report\nregards.')
+                    $this.$store.commit('setUploadProgress', 0);
+
+                  } else {
+                    
+                    run();
+
+                  }
+                })
+                .catch(err => {
+                  $this.$store.commit('showNetworkErrorModal', true);
+                  console.trace(err)
+                })
+          
+          }
+
+        }
   },
     name: "NewPartner"
 }
