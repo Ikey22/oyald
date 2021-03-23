@@ -1,4 +1,0 @@
-* citation for images
-* the missing images (for partners and admin)
-* Sort the country chappters in alphabetical order
-* Change the "Ok and CANCEL" buttons on modals to just "OK"

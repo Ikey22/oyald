@@ -3,8 +3,8 @@ import App from './App.vue';
 import store from './store';
 import router from './router';
 import portalVue from 'portal-vue';
-import 'popper.js';
-window.jquery = window.jQuery = window.$ = require('jquery');
+// import 'popper.js';
+// window.jquery = window.jQuery = window.$ = require('jquery');
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
@@ -15,9 +15,10 @@ import "firebase/analytics";
 import "firebase/auth";
 import "firebase/firestore";
 import "firebase/storage"; 
-import "firebase/messaging";
-//import "firebase/functions";
-import VueWorker from 'vue-worker';
+// import "firebase/messaging";
+import "firebase/performance";
+// import "firebase/functions";
+// import VueWorker from 'vue-worker';
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -33,7 +34,6 @@ const firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-window.__$firebase = firebase;
 
 const firebaseVuePlugin = vueApp => {
   vueApp.$firebase = vueApp.prototype.$firebase = firebase;
@@ -42,8 +42,6 @@ const firebaseVuePlugin = vueApp => {
 //firebase.firestore().settings({
 //  cacheSizeBytes: firebase.firestore.CACHE_SIZE_UNLIMITED
 //});
-
-
 firebase.firestore().enablePersistence()
   .catch(function(err) {
       if (err.code == 'failed-precondition') {
@@ -60,20 +58,27 @@ firebase.firestore().enablePersistence()
 Vue.use(BootstrapVue);
 Vue.use(IconsPlugin);
 Vue.use(portalVue);
-Vue.use(VueWorker);
+// Vue.use(VueWorker);
 Vue.use(firebaseVuePlugin);
 
 const isDev = process.env.NODE_ENV !== "production";
 Vue.config.performance = isDev;
-Vue.config.productionTip = false;
+Vue.config.productionTip = isDev;
 
+
+// window globals
+window.__$firebase = firebase;
 window.__$analytics = firebase.analytics();
 window.__$storage = firebase.storage();
+window.__$performance = firebase.performance();
 
+const mount_time = window.__$performance.trace('mount_time');
+mount_time.start();
 window.__$vm = new Vue({
   store,
   router,
   render: createApp => createApp(App)
 }).$mount('#app');
+mount_time.stop();
 
 console.log('Welcome to OYALD');

@@ -13,21 +13,6 @@
       
       <new-member-form :action="submitNewMemberForm" />
 
-      <b-modal v-model="$store.state.isUploading" no-close-on-esc no-close-on-backdrop hide-header-close>
-        <template #modal-title>
-          <p class="w-100 h2 text-center text-primary-color">Uploading</p>
-        </template>
-          <center>
-            <img src="/img/mail.svg" width="150">
-            <br />
-            <br />
-            <br />
-            <progress max="100" :value="$store.state.uploadProgress" />
-            <p class="w-100 text-center">{{ $store.state.uploadProgress }}% complete</p>
-          </center>
-        <template #modal-footer> - </template>
-      </b-modal>
-
 
 
 
