@@ -92,9 +92,11 @@ export default {
                 .where('email', '==', params.email)
                 .get()
                 .then(snapshot => {
-                  if (!snapshot.empty) {
+                  if (!snapshot.empty) {  
                     
-                    alert('It appears you previously sent in a membership request\nPlease exercise patience while we process your request\nregards.')
+                    $this.$store.commit('showIsUploadingModal', false);
+                    alert('It appears you previously sent in a membership request\nPlease exercise patience while we process your request\nIf you feel this is a mistake, please visit our contact page and file a report\nregards.')
+                    $this.$store.commit('setUploadProgress', 0);
 
                   } else {
                     

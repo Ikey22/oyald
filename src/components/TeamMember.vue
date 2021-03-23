@@ -112,7 +112,8 @@ export default {
     background-color: #ffffff;
     padding: 10px;
     border-radius: 15px 0px 15px 0px;
-    box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.4);
+    border: 1px solid #004400;
+    box-shadow: 0px 1px 6px 0px rgba(187, 153, 153, 0.4);
 }
  .member .member-info {
     display: block;

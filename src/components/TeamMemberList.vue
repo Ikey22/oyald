@@ -21,7 +21,7 @@ export default {
 .team-member-list {
     padding: 60px 0;
     text-align: center;
-    background-color: var(--custom-primary-color);
+    /*background-color: var(--custom-primary-color);*/
     color: #fff;
 }
 .team-member-list h2 {

@@ -5,10 +5,10 @@
     <br id="team-tag" />
 
     <h1 id="general-secretariat" class="w-100 text-success font-weight-bold text-center" style="color: var(--custom-primary-color) !important;">
-      {{ query == 'general-secretariat' ? 'Our General Secretariat' : query == 'country-secretaries' ? 'Our National Coordinators / Country secretaries' : query == 'partners' ? 'Our Partners' : '' }}
+      {{ query == 'general-secretariat' ? 'Our General Secretariat' : query == 'country-secretaries' ? 'Our National Coordinators / Country Secretaries' : query == 'partners' ? 'Our Partners' : '' }}
     </h1>
     <br />
-    <br >
+    <br />
 
     <team-member-list v-if="(fetchData.length > 0) && !fetchDataError">
 
@@ -30,11 +30,11 @@
       <p class="h3 text-danger text-center w-100 font-weight-bold">Unable to fetch data, Please wait while we try to reconnect.<br />If nothing happens within 10 seconds, please <b-button @click="refresh" variant="warning">refresh</b-button> or check your network</p>
     </team-member-list>
 
-    <br />
-    <br />
+    <br v-if="$route.path != '/__admin'" />
+    <br v-if="$route.path != '/__admin'" />
     <br />
 
-    <center class="w-100">
+    <center class="w-100" v-if="$route.path != '/__admin'">
         <JoinOYALDButton />
     </center>
 

@@ -529,6 +529,7 @@ export default {
               $this.unsubscribeListeners.push($this.subscribeTo('partnership_requests'));
               $this.unsubscribeListeners.push($this.subscribeTo('newsletter_subscribtion'));
               $this.unsubscribeListeners.push($this.subscribeTo('capacity_building'));
+              
               $this.reRender();
       },
 

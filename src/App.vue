@@ -22,7 +22,7 @@
   <!-- #end network error modal -->
 
       <!-- begin upload progres modal -->
-      <b-modal v-model="$store.state.isUploading" no-close-on-esc ok-only ok-text="Continue in background" no-close-on-backdrop hide-header-close>
+      <b-modal v-model="$store.state.isUploading" no-close-on-esc ok-only ok-title="Continue in background" no-close-on-backdrop hide-header-close>
         <template #modal-title>
           <p class="w-100 h2 text-center text-primary-color">Uploading</p>
         </template>
