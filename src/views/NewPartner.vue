@@ -44,11 +44,11 @@ export default {
             const seq = `${generateRandomSequence()}-${params.passport.name}`;
             const fileName = `${seq}`;
             
-            const cloudRef = this.$firebase.storage().ref(`membership_requests/${fileName}`);
+            const cloudRef = this.$firebase.storage().ref(`partnership_requests/${fileName}`);
 
-            const collectionRef = this.$firebase.firestore().collection("membership_requests");
+            const collectionRef = this.$firebase.firestore().collection("partnership_requests");
 
-            const imgURL = `membership_requests/${fileName}`;
+            const imgURL = `partnership_requests/${fileName}`;
 
             const run = () => {
               collectionRef
