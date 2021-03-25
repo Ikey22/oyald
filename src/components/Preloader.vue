@@ -1,7 +1,9 @@
 <template>
   <div class="w-100 h-100 d-flex align-items-center justify-content-center flex-column">
     <br v-for="x in 4" :key="x/3" />
-    <b-spinner />
+    
+    <b-spinner variant="success" />
+    
     <br v-for="x in 4" :key="x/2" />
   </div>
 </template>
