@@ -41,7 +41,7 @@ export default {
             $this.$store.commit('showIsUploadingModal', false);
             alert("The file-size of the passport photograph must not exceed 5 megabytes");
           } else {
-            const seq = `${generateRandomSequence()}-${params.passport.name}`;
+            const seq = `${generateRandomSequence()}-${params.companyLogo.name}`;
             const fileName = `${seq}`;
             
             const cloudRef = this.$firebase.storage().ref(`partnership_requests/${fileName}`);
@@ -52,7 +52,18 @@ export default {
 
             const run = () => {
               collectionRef
-              .add({ ...params, passport: null, imgURL })
+              .add({
+                ...params,
+                companyLogo: null,
+                socials: {
+                  facebook: params.companyFacebook,
+                  twitter: params.companyTwitter,
+                  youtube: params.companyYoutube,
+                  instagram: params.companyIntagram,
+                  website: params.companyWebsite
+                },
+                imgURL
+              })
               .then(() => {
 
                 alert('your details have been successfully uploaded to our database,\nplease wait while we upload your passport photograph')

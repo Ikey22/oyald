@@ -26,7 +26,7 @@
                                 <a v-if="socials.website" target="_blank" :href="socials.website || null"><b-icon icon="globe"></b-icon></a>
                             </div>
                             <div
-                                class="admin-desicion"
+                                class="admin-decision"
                                 v-if="$route.path == '/__admin'"
                                 >
                                 <br />
