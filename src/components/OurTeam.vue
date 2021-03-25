@@ -14,17 +14,20 @@
 
                 <team-member
                     v-for="(x, index) in fetchData"
-                    :key="`general-secretariat-member-${index + 1}`"
+                    :key="`member-tile-${index + 1}`"
                     :name="`${x.data().firstName + ' ' + (x.data().middleName || '') + ' ' + (x.data().surName || '')}`"
-                    :role="x.data().role"
-                    :imgURL="x.data().imgURL"
+                    :country="x.data().country ? x.data().country : ''"
+                    :role="x.data().role || ''"
+                    :imgURL="x.data().imgURL || ''"
                     :socials="x.data().socials || null" 
                     />
 
     </team-member-list>
+
     <team-member-list v-else-if="(fetchData.length < 1) && !fetchDataError">
-      <p class="h1 text-center w-100 text-white font-weight-bold">Loading, Please wait</p>
+      <p class="h1 text-center w-100 text-black font-weight-bold">Loading, Please wait</p>
     </team-member-list>
+    
     <team-member-list v-else-if="fetchDataError" class="d-flex align-items-center justify-content-around flex-column">
       <p class="h1 text-danger text-center w-100 font-weight-bold">Network Error</p>
       <p class="h3 text-danger text-center w-100 font-weight-bold">Unable to fetch data, Please wait while we try to reconnect.<br />If nothing happens within 10 seconds, please <b-button @click="refresh" variant="warning">refresh</b-button> or check your network</p>

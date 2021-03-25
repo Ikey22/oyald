@@ -14,14 +14,16 @@
                             class="member-info"
                             :style="{bottom: $route.path == '/__admin'}"
                             >
-                            <h4>{{ name }}</h4>
-                            <span>{{ role }}</span>
+                            <h4>{{ name }} </h4>
+                            <p v-if="country" class="h6 w-100 text-center"> Country:  {{ country ? country : '' }} </p>
+                            <span>{{ role ? role : '' }}</span>
                             <div v-if="socials" class="social-links">
                                 <a v-if="socials.linkedin" target="_blank" :href="socials.linkedin || null"><b-icon icon="linkedin"></b-icon></a>
                                 <a v-if="socials.facebook" target="_blank" :href="socials.facebook || null"><b-icon icon="facebook"></b-icon></a>
                                 <a v-if="socials.twitter" target="_blank" :href="socials.twitter || null"><b-icon icon="twitter"></b-icon></a>
                                 <a v-if="socials.instagram" target="_blank" :href="socials.instagram || null"><b-icon icon="instagram"></b-icon></a>
                                 <a v-if="socials.youtube" target="_blank" :href="socials.youtube || null"><b-icon icon="youtube"></b-icon></a>
+                                <a v-if="socials.website" target="_blank" :href="socials.website || null"><b-icon icon="globe"></b-icon></a>
                             </div>
                             <div
                                 class="admin-desicion"
@@ -80,6 +82,11 @@ export default {
         name: {
             type: String,
             required: true
+        },
+        country: {
+            type: String,
+            required: false,
+            unique: false
         },
         role: {
             type: String,
