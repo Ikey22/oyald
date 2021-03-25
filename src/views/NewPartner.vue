@@ -37,7 +37,7 @@ export default {
           $this.$store.commit('setUploadProgress', 0);
           console.log("upload started");
 
-          if (params.passport.size > (1024 * 1024 * 5)) {
+          if (params.companyLogo.size > (1024 * 1024 * 5)) {
             $this.$store.commit('showIsUploadingModal', false);
             alert("The file-size of the passport photograph must not exceed 5 megabytes");
           } else {
@@ -49,12 +49,14 @@ export default {
             const collectionRef = this.$firebase.firestore().collection("partnership_requests");
 
             const imgURL = `partnership_requests/${fileName}`;
+            const email = params.companyEmail;
 
             const run = () => {
               collectionRef
               .add({
                 ...params,
                 companyLogo: null,
+                email,
                 socials: {
                   facebook: params.companyFacebook,
                   twitter: params.companyTwitter,
@@ -68,7 +70,7 @@ export default {
 
                 alert('your details have been successfully uploaded to our database,\nplease wait while we upload your passport photograph')
 
-                const uploadTask = cloudRef.put(params.passport);
+                const uploadTask = cloudRef.put(params.companyLogo);
                 uploadTask.on("state_changed", snapshot => {
                     const percentage = ((snapshot.bytesTransferred / snapshot.totalBytes) * 100).toFixed(1);
                     $this.$store.commit('setUploadProgress', percentage);
