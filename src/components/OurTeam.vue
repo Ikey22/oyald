@@ -25,7 +25,7 @@
     </team-member-list>
 
     <team-member-list v-else-if="(fetchData.length < 1) && !fetchDataError">
-      <p class="h1 text-center w-100 text-black font-weight-bold">Loading, Please wait</p>
+      <p class="h1 text-center w-100 text-primary-color font-weight-bold" style="color: #004400 !important;">Loading, Please wait</p>
     </team-member-list>
     
     <team-member-list v-else-if="fetchDataError" class="d-flex align-items-center justify-content-around flex-column">
