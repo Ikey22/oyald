@@ -12,7 +12,7 @@
               <div class="accordion w-100" role="tablist" visible>
                 <b-card no-body class="mb-1 w-100">
                   <b-card-header header-tag="header" class="p-1" role="tab">
-                    <b-button block v-b-toggle="`accordion-${index}`" variant="sucess" class="bg-green text-white">{{ country.name }}<b-icon icon="caret-down-fill" /> </b-button>
+                    <b-button @click="openedCountryChapters[index] != openedCountryChapters[index]" block v-b-toggle="`accordion-${index}`" variant="sucess" class="bg-green text-white">{{ country.name }} <span v-if="openedCountryChapters[index]" class="h5"><b-icon icon="caret-up-fill" /></span><span class="h5" v-else><b-icon icon="caret-down-fill" /></span> </b-button>
                   </b-card-header>
                   <b-collapse :id="`accordion-${index}`" :accordion="`accordion-${index}`" role="tabpanel">
                     <b-card-body>
@@ -40,6 +40,11 @@ export default {
     },
     data(){
         return {
+          openedCountryChapters: {
+            0: true,
+            1: false,
+            2: false
+          },
             countries: [
                 {
                     name: "Nigeria",
