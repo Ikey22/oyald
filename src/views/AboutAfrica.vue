@@ -69,7 +69,7 @@
                   African Union Commission Directorate on Information and Communication (2017). Harnessing the demographic dividend through investments in youth, AUEcho, Issue1. Ethiopia: African Union Commission. Retrieved from <a target="_blank" href="https://au.int/sites/default/files/documents/32665-doc-au-echo-magazine-2017-23june17-1.pdf">https://au.int/sites/default/files/documents/32665-doc-au-echo-magazine-2017-23june17-1.pdf</a>
                 </small></li>
                 <li><small>
-                  Kwamina Busumafi Dickson et al (n.d). Africa Continent. Retrived January 1, 2021 from <a target="_blank" href="https://www.britannica.com/place/Africa">https://www.britannica.com/place/Africa</a>
+                  Kwamina Busumafi Dickson et al (n.d). Africa Continent. Retrieved January 1, 2021 from <a target="_blank" href="https://www.britannica.com/place/Africa">https://www.britannica.com/place/Africa</a>
                 </small></li>
                 <li><small>
                   MoAfrika Tours. (2020). How many countries are in Africa? 54 in short. Retrieved January 1, 2021 form <a target="_blank" href="https://moafrikatours.com/how-many-countries-are-in-Africa">https://moafrikatours.com/how-many-countries-are-in-Africa</a>

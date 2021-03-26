@@ -77,10 +77,12 @@
 
                         <b-button-toolbar class="w-100">
                           <b-button-group class="w-100">
-                            <b-button @click="decrementFieldOfInterestCount" variant="danger" :class="[canRemoveField ? '' : 'disabled']">Remove field</b-button>
-                            <b-button @click="incrementFieldOfInterestCount" class="bg-success" :class="[canAddField ? '' : 'disabled']" variant="success">Add another field of interest</b-button>
+                            <b-button size="sm" @click="decrementFieldOfInterestCount" variant="danger" :class="[canRemoveField ? '' : 'disabled']">Remove field</b-button>
+                            <b-button size="sm" @click="incrementFieldOfInterestCount" class="bg-success" :class="[canAddField ? '' : 'disabled']" variant="success">Add another field of interest</b-button>
                           </b-button-group>
                         </b-button-toolbar>
+                        
+                        <br />
                         <br />
 
                         <b-form-group>
@@ -224,7 +226,7 @@ export default {
     },
     data(){
       return {
-        canRemoveField: true,
+        canRemoveField: false,
         canAddField: true,
         fieldOfInterestCount: 1,
         fieldsOfInterest: {},
@@ -242,6 +244,10 @@ export default {
 	--custom-primary-color: #002200;
 	--custom-secondary-color: #b99e00;
 	--custom-gradient: linear-gradient(to right, var(--custom-green), var(--custom-gold) 80%);
+}
+
+.disabled{
+  opacity: 0.5;
 }
 
 .bg-success{
