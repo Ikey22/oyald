@@ -25,11 +25,11 @@
     </team-member-list>
 
     <team-member-list v-else-if="(fetchData.length < 1) && !fetchDataError">
-      <p class="h1 text-center w-100 text-primary-color font-weight-bold" style="color: #004400 !important;">Loading, Please wait</p>
+      <p class="h3 text-center w-100 text-primary-color font-weight-bold" style="color: #004400 !important;">Loading, Please wait</p>
     </team-member-list>
     
     <team-member-list v-else-if="fetchDataError" class="d-flex align-items-center justify-content-around flex-column">
-      <p class="h1 text-danger text-center w-100 font-weight-bold">Network Error</p>
+      <p class="h2 text-danger text-center w-100 font-weight-bold">Network Error</p>
       <p class="h3 text-danger text-center w-100 font-weight-bold">Unable to fetch data, Please wait while we try to reconnect.<br />If nothing happens within 10 seconds, please <b-button @click="refresh" variant="warning">refresh</b-button> or check your network</p>
     </team-member-list>
 
