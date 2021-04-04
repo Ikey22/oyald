@@ -1,5 +1,8 @@
 <template>
   <center>
+    <select-country />
+    <select-state />
+    <select-city />
       <b-form
       @submit.prevent="submitForm"
       style="max-width: 1050px !important;"
@@ -240,6 +243,9 @@
 <script>
 import TitleOfAppelation from '@/components/TitleOfAppelation.vue';
 import CountryStateCity from '@/components/CountryStateCity.vue';
+import SelectCountry from './SelectCountry.vue';
+import SelectState from './SelectState.vue';
+import SelectCity from './SelectCity.vue';
 
 export default {
     name: "NewMemberForm",
@@ -292,6 +298,9 @@ export default {
     },
     components: {
       TitleOfAppelation,
+      SelectCountry,
+      SelectState,
+      SelectCity,
       CountryStateCity
     },
     props: {
