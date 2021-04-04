@@ -1,5 +1,5 @@
 <template>
-  <b-form-group class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+  <b-form-group >
     <label for="country">Nationality*</label>
     <b-form-select
       :class="isReady ? 'disabled' : null"
@@ -86,7 +86,7 @@ export default {
       const foundIndex = this.$store.state.countries.findIndex(
         (country) => country.name === this.country
       );
-      this.$store.state.states.states = this.$store.state.countries[
+      this.$store.state.states = this.$store.state.countries[
         foundIndex
       ].states;
       this.$store.state.cities = [{ name: "select Stat First!" }];

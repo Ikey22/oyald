@@ -60,6 +60,7 @@
     </b-form-group>
   </b-form-row>
 </template>
+
 <script>
 import FetchInBG from "worker-loader!../workers/fetch-and-parse-countries.js";
 

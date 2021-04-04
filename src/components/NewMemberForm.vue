@@ -1,8 +1,5 @@
 <template>
   <center>
-    <select-country />
-    <select-state />
-    <select-city />
       <b-form
       @submit.prevent="submitForm"
       style="max-width: 1050px !important;"
@@ -55,7 +52,7 @@
 
                         <b-form-row class="row w-100">
 
-                          <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                          <b-form-group class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
                             <label for="date-of-birth">Date of birth*</label>
                             <b-form-datepicker
                             id="date-of-birth"
@@ -66,9 +63,9 @@
                             />
                           </b-form-group>
 
-                        </b-form-row>
+                          <select-country class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6" />
 
-                        <country-state-city />
+                        </b-form-row>
 
                         <b-form-row class="row w-100">
                           <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
@@ -106,9 +103,17 @@
                           </b-form-group>
                         </b-form-row>
 
+                        <b-form-row class="row w-100">
+
+                          <select-state class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6" />
+
+                          <select-city class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6" />
+
+                        </b-form-row>
+
                         <b-form-row class="w-100 row">
 
-                          <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                          <b-form-group class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
                             <label for="zip">Zip/Postal code</label>
                             <b-form-input
                             id="zip"
@@ -242,7 +247,6 @@
 
 <script>
 import TitleOfAppelation from '@/components/TitleOfAppelation.vue';
-import CountryStateCity from '@/components/CountryStateCity.vue';
 import SelectCountry from './SelectCountry.vue';
 import SelectState from './SelectState.vue';
 import SelectCity from './SelectCity.vue';
@@ -301,7 +305,6 @@ export default {
       SelectCountry,
       SelectState,
       SelectCity,
-      CountryStateCity
     },
     props: {
       action: {
@@ -311,6 +314,3 @@ export default {
     }
 }
 </script>
-
-<style scoped>
-</style>

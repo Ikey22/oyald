@@ -1,5 +1,5 @@
 <template>
-  <b-form-group class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+  <b-form-group >
     <label for="region">State/Region*</label>
     <b-form-select
       id="region"
@@ -24,6 +24,7 @@ export default {
   data() {
     return {
       state: "",
+      states: []
     };
   },
   name: "SelectState",
@@ -36,7 +37,7 @@ export default {
       const foundIndex = this.$store.state.states.findIndex(
         (state) => state.name === this.state
       );
-      this.$store.state.cities = this.states[foundIndex].cities;
+      this.$store.state.cities = this.$store.state.states[foundIndex].cities;
       return this.emitValue();
     },
     emitValue() {

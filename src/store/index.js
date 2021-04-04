@@ -17,6 +17,12 @@ const $store = new Vuex.Store({
     countries: [{
       name: "Loading..."
     }],
+    states: [{
+      name: "Loading..."
+    }],
+    cities: [{
+      name: "Loading..."
+    }],
     primaryColor: "#002200",
     email: "oyald.ojlad@gmail.com",
     appNameShort: "OYALD",
