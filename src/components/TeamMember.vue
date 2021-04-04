@@ -15,7 +15,7 @@
                             :style="{bottom: $route.path == '/__admin'}"
                             >
                             <h4>{{ name }} </h4>
-                            <p v-if="country" class="h6 w-100 text-center"> Country:  {{ country ? country : '' }} </p>
+                            <p v-if="country && ($route.path != '/country-secretaries')" class="h6 w-100 text-center"> Country:  {{ country ? country : '' }} </p>
                             <span>{{ role ? role : '' }}</span>
                             <div v-if="socials" class="social-links">
                                 <a v-if="socials.linkedin" target="_blank" :href="socials.linkedin || null"><b-icon icon="linkedin"></b-icon></a>

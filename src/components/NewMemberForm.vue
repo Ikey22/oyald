@@ -204,7 +204,7 @@
                                 :unchecked-value="false"
                                 :required="true"
                               />
-                          <label class="d-inline" for="toc">I have read and agreed to  the <b><a href="javascript:void(0)" @click="$store.commit(`showTOCModal`, true)"><q>terms and conditions of OYALD membership</q></a></b>*</label>
+                          <label class="d-inline" for="toc">I have read and agree to  the <b><a href="javascript:void(0)" @click="$store.commit(`showTOCModal`, true)"><q>terms and conditions of OYALD membership</q></a></b>*</label>
                         </b-form-group>
 
 
