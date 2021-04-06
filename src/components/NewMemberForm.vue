@@ -100,9 +100,10 @@
 
       <b-form-row class="row w-100">
         <b-form-group class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6" >
+          <label></label>
           <b-form-input 
             type="text"
-            placeholder="District/l.G.A"
+            placeholder="Type here..."
             v-model="$store.state.userPreferences.city"
           />
         </b-form-group>
@@ -129,7 +130,7 @@
         </b-form-group>
 
         <b-form-group class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-          <label for="nationality">Nationality*</label>
+          <label for="nationality">Country of Residence*</label>
           <b-form-select
             id="nationality"
             v-model="$store.state.userPreferences.countryOfResidence"

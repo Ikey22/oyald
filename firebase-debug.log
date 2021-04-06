@@ -1,0 +1,81 @@
+[debug] [2021-04-06T13:43:07.036Z] ----------------------------------------------------------------------
+[debug] [2021-04-06T13:43:07.047Z] Command:       /snap/node/3790/bin/node /usr/local/bin/firebase deploy
+[debug] [2021-04-06T13:43:07.050Z] CLI Version:   9.8.0
+[debug] [2021-04-06T13:43:07.051Z] Platform:      linux
+[debug] [2021-04-06T13:43:07.051Z] Node Version:  v14.16.0
+[debug] [2021-04-06T13:43:07.055Z] Time:          Tue Apr 06 2021 14:43:07 GMT+0100 (West Africa Standard Time)
+[debug] [2021-04-06T13:43:07.056Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2021-04-06T13:43:07.097Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-04-06T13:43:07.103Z] > authorizing via signed-in user
+[debug] [2021-04-06T13:43:07.104Z] [iam] checking project oyald-ojlad for permissions ["datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasehosting.sites.update","firebaserules.releases.create","firebaserules.releases.update","firebaserules.rulesets.create"]
+[debug] [2021-04-06T13:43:07.115Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2021-04-06T13:43:07.117Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-04-06T13:43:15.877Z] <<< HTTP RESPONSE 200 {"date":"Tue, 06 Apr 2021 13:43:15 GMT","expires":"Mon, 01 Jan 1990 00:00:00 GMT","pragma":"no-cache","cache-control":"no-cache, no-store, max-age=0, must-revalidate","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-04-06T13:43:15.956Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/oyald-ojlad:testIamPermissions  
+ {"permissions":["datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasehosting.sites.update","firebaserules.releases.create","firebaserules.releases.update","firebaserules.rulesets.create"]}
+[debug] [2021-04-06T13:43:37.511Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Tue, 06 Apr 2021 13:43:37 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=1097","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-04-06T13:43:37.519Z] > refreshing access token with scopes: []
+[debug] [2021-04-06T13:43:37.520Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-04-06T13:43:39.254Z] <<< HTTP RESPONSE 200 {"cache-control":"no-cache, no-store, max-age=0, must-revalidate","date":"Tue, 06 Apr 2021 13:43:39 GMT","expires":"Mon, 01 Jan 1990 00:00:00 GMT","pragma":"no-cache","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-04-06T13:43:39.370Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/oyald-ojlad [none]
+[debug] [2021-04-06T13:44:02.099Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/oyald-ojlad 200
+[debug] [2021-04-06T13:44:02.101Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/oyald-ojlad {"projectId":"oyald-ojlad","projectNumber":"171369652432","displayName":"oyald-ojlad","name":"projects/oyald-ojlad","resources":{"hostingSite":"oyald-ojlad","storageBucket":"oyald-ojlad.appspot.com","locationId":"europe-west"},"state":"ACTIVE"}
+[info] 
+[info] === Deploying to 'oyald-ojlad'...
+[info] 
+[info] i  deploying storage, firestore, hosting 
+[debug] [2021-04-06T13:44:02.112Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2021-04-06T13:44:02.113Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-04-06T13:44:04.716Z] <<< HTTP RESPONSE 200 {"cache-control":"no-cache, no-store, max-age=0, must-revalidate","date":"Tue, 06 Apr 2021 13:44:04 GMT","expires":"Mon, 01 Jan 1990 00:00:00 GMT","pragma":"no-cache","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-04-06T13:44:04.826Z] >>> HTTP REQUEST GET https://appengine.googleapis.com/v1/apps/oyald-ojlad  
+ 
+[info] 
+
+There was an issue deploying your functions. Verify that your project has a Google App Engine instance setup at https://console.cloud.google.com/appengine and try again. If this issue persists, please contact support.
+[debug] [2021-04-06T13:46:19.719Z] Error: connect ETIMEDOUT 216.58.223.234:443
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1146:16)
+[error] 
+[error] Error: Server Error. connect ETIMEDOUT 216.58.223.234:443
+[debug] [2021-04-06T13:46:38.183Z] ----------------------------------------------------------------------
+[debug] [2021-04-06T13:46:38.192Z] Command:       /snap/node/3790/bin/node /usr/local/bin/firebase deploy --only hosting
+[debug] [2021-04-06T13:46:38.194Z] CLI Version:   9.8.0
+[debug] [2021-04-06T13:46:38.194Z] Platform:      linux
+[debug] [2021-04-06T13:46:38.194Z] Node Version:  v14.16.0
+[debug] [2021-04-06T13:46:38.196Z] Time:          Tue Apr 06 2021 14:46:38 GMT+0100 (West Africa Standard Time)
+[debug] [2021-04-06T13:46:38.197Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2021-04-06T13:46:38.226Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-04-06T13:46:38.228Z] > authorizing via signed-in user
+[debug] [2021-04-06T13:46:38.229Z] [iam] checking project oyald-ojlad for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2021-04-06T13:46:38.239Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/oyald-ojlad:testIamPermissions  
+ {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2021-04-06T13:46:39.971Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Tue, 06 Apr 2021 13:46:39 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=1092","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-04-06T13:46:39.982Z] > refreshing access token with scopes: []
+[debug] [2021-04-06T13:46:39.983Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-04-06T13:46:40.578Z] <<< HTTP RESPONSE 200 {"date":"Tue, 06 Apr 2021 13:46:40 GMT","pragma":"no-cache","expires":"Mon, 01 Jan 1990 00:00:00 GMT","cache-control":"no-cache, no-store, max-age=0, must-revalidate","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-04-06T13:46:40.647Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/oyald-ojlad [none]
+[debug] [2021-04-06T13:46:45.811Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/oyald-ojlad 200
+[debug] [2021-04-06T13:46:45.827Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/oyald-ojlad {"projectId":"oyald-ojlad","projectNumber":"171369652432","displayName":"oyald-ojlad","name":"projects/oyald-ojlad","resources":{"hostingSite":"oyald-ojlad","storageBucket":"oyald-ojlad.appspot.com","locationId":"europe-west"},"state":"ACTIVE"}
+[info] 
+[info] === Deploying to 'oyald-ojlad'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2021-04-06T13:46:45.871Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2021-04-06T13:46:45.872Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-04-06T13:46:47.487Z] <<< HTTP RESPONSE 200 {"pragma":"no-cache","date":"Tue, 06 Apr 2021 13:46:47 GMT","expires":"Mon, 01 Jan 1990 00:00:00 GMT","cache-control":"no-cache, no-store, max-age=0, must-revalidate","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-04-06T13:46:47.544Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/oyald-ojlad/versions  
+ {"config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2021-04-06T13:47:00.921Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Tue, 06 Apr 2021 13:47:00 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] i  hosting[oyald-ojlad]: beginning deploy... 
+[info] i  hosting[oyald-ojlad]: found 74 files in dist 
+[debug] [2021-04-06T13:47:14.449Z] > refreshing access token with scopes: []
+[debug] [2021-04-06T13:47:14.451Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-04-06T13:47:14.495Z] [hosting] hash cache [ZGlzdA] stored for 74 files
+[debug] [2021-04-06T13:47:14.497Z] [hosting][hash queue][FINAL] {"max":13347,"min":128,"avg":776.8783783783783,"active":0,"complete":74,"success":74,"errored":0,"retried":0,"total":74,"elapsed":13441}

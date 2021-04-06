@@ -45,6 +45,7 @@ const $store = new Vuex.Store({
       phoneNumber: "",
       zipCode: "",
       country: "",
+      countryOfResidence:"",
       state: "",
       city: "",
       passport: [],
