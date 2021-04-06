@@ -52,6 +52,8 @@ const $store = new Vuex.Store({
       agreedToc: true,
       agreedTruthOfCredentials: true,
 
+      nationality: '',
+
       companyName: "",
       companyAddress1: "",
       companyAddress2: "",
