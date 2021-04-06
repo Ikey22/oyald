@@ -99,9 +99,21 @@
       </b-form-row>
 
       <b-form-row class="row w-100">
-        <select-city class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6" />
+        <b-form-group class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6" >
+          <b-form-input 
+            type="text"
+            placeholder="District/l.G.A"
+            v-model="$store.state.userPreferences.city"
+          />
+        </b-form-group>
 
-        <select-state class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6" />
+         <b-form-group class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6" >
+          <b-form-input 
+            type="text"
+            placeholder="State/Region"
+            v-model="$store.state.userPreferences.state"
+          />
+        </b-form-group>
       </b-form-row>
 
       <b-form-row class="w-100 row">
@@ -120,7 +132,7 @@
           <label for="nationality">Nationality*</label>
           <b-form-select
             id="nationality"
-            v-model="$store.state.userPreferences.nationality"
+            v-model="$store.state.userPreferences.countryOfResidence"
           >
             <b-form-select-option
               v-for="(x, index) in $store.state.countries"
@@ -265,8 +277,8 @@
 <script>
 import TitleOfAppelation from "@/components/TitleOfAppelation.vue";
 import SelectCountry from "./SelectCountry.vue";
-import SelectState from "./SelectState.vue";
-import SelectCity from "./SelectCity.vue";
+//import SelectState from "./SelectState.vue";
+//import SelectCity from "./SelectCity.vue";
 
 export default {
   name: "NewMemberForm",
@@ -320,8 +332,8 @@ export default {
   components: {
     TitleOfAppelation,
     SelectCountry,
-    SelectState,
-    SelectCity,
+    //SelectState,
+    //SelectCity,
   },
   props: {
     action: {
