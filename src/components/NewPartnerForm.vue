@@ -1,279 +1,313 @@
 <template>
-  <center> 
-      <b-form
+  <center>
+    <b-form
       @submit.prevent="submitForm"
-      style="max-width: 1050px !important;" 
+      style="max-width: 1050px !important"
       class="card rounded p-3 d-block text-left"
+    >
+      <b-form-row class="row w-100">
+        <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+          <label for="surname">Name of Organisation*</label>
+          <b-form-input
+            id="company-name"
+            v-model="$store.state.userPreferences.companyName"
+            placeholder="type here..."
+            type="text"
+            :required="true"
+          />
+        </b-form-group>
+      </b-form-row>
+
+      <b-form-row class="row w-100">
+        <b-form-group class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+          <label for="company-category">Type/Category of Organisation*</label>
+          <b-form-input
+            id="company-category"
+            v-model="$store.state.userPreferences.companyCategory"
+            placeholder="type here..."
+            type="text"
+            :required="true"
+          />
+        </b-form-group>
+
+        <select-country label="Country where Organisation is registered" class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6" />
+      </b-form-row>
+
+      <b-form-row class="row w-100">
+        <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+          <label for="address1">Organisation's Office Address 1*</label>
+          <b-form-input
+            id="address1"
+            v-model="$store.state.userPreferences.companyAddress1"
+            placeholder="type here..."
+            type="text"
+            autocomplete="address-line-1"
+            :required="true"
+          />
+        </b-form-group>
+
+        <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+          <label for="address2">Organisation's Office Address 2 (optional)</label>
+          <b-form-input
+            id="address2"
+            v-model="$store.state.userPreferences.companyAddress2"
+            placeholder="type here..."
+            type="text"
+            autocomplete="address-line-2"
+          />
+        </b-form-group>
+
+        <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+          <label for="address3">Organisation's Office Address 3 (optional)</label>
+          <b-form-input
+            id="address3"
+            v-model="$store.state.userPreferences.companyAddress3"
+            placeholder="type here..."
+            type="text"
+            autocomplete="address-line-3"
+          />
+        </b-form-group>
+      </b-form-row>
+
+      <b-form-row class="w-100 row">
+        <b-form-group class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+          <label for="district-lga">District/L.G.A *</label>
+          <b-form-input
+            id="district-lga"
+            type="text"
+            placeholder="Type here..."
+            :required="true"
+          />
+        </b-form-group>
+
+        <b-form-group class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+          <label for="state-region">State/Region *</label>
+          <b-form-input
+            id="state-region"
+            type="text"
+            placeholder="Type here..."
+            :required="true"
+          />
+        </b-form-group>
+      </b-form-row>
+
+      <b-form-row class="w-100 row">
+        <b-form-group class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+          <label for="zip">Zip/Postal code</label>
+          <b-form-input
+            id="zip"
+            v-model="$store.state.userPreferences.zipCode"
+            placeholder="type here..."
+            type="text"
+            autocomplete="text"
+          />
+        </b-form-group>
+
+        <select-country label="Country of Domicile" class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6" />
+      </b-form-row>
+
+      <b-form-row class="row w-100">
+        <b-form-group class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+          <label for="phone-number">Organisation's Official Phone Number*</label>
+          <b-form-input
+            id="phone-number"
+            v-model="$store.state.userPreferences.companyPhoneNumber"
+            placeholder="type here..."
+            type="tel"
+            autocomplete="tel"
+            :required="true"
+          />
+        </b-form-group>
+
+        <b-form-group class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+          <label for="company-email">Organisation's Official Email</label>
+          <b-form-input
+            id="company-email"
+            v-model="$store.state.userPreferences.companyEmail"
+            placeholder="type here..."
+            type="email"
+            autocomplete="zip"
+          />
+        </b-form-group>
+      </b-form-row>
+
+      <b-form-row class="w-100">
+        <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+          <label for="company-website">Link to Organisation's website (if any)</label>
+          <b-form-input
+            id="company-website"
+            v-model="$store.state.userPreferences.companyWebsite"
+            placeholder="type here..."
+            type="url"
+          />
+        </b-form-group>
+
+        <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+          <label for="company-facebook">Link to Organisation'd Facebook page (if any)</label>
+          <b-form-input
+            id="company-facebook"
+            v-model="$store.state.userPreferences.companyFacebook"
+            placeholder="type here..."
+            type="url"
+          />
+        </b-form-group>
+
+        <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+          <label for="company-linkedin">Link to Organisation's Linkedin profile (if any)</label>
+          <b-form-input
+            id="company-linkedin"
+            v-model="$store.state.userPreferences.companyLinkedin"
+            placeholder="type here..."
+            type="url"
+          />
+        </b-form-group>
+
+        <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+          <label for="company-instagram">Link to Organisation's Instagram profile (if any)</label>
+          <b-form-input
+            id="company-instagram"
+            v-model="$store.state.userPreferences.companyInstagram"
+            placeholder="type here..."
+            type="url"
+          />
+        </b-form-group>
+
+        <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+          <label for="company-twitter">Link to Organisation's Twitter account (if any)</label>
+          <b-form-input
+            id="company-Twitter"
+            v-model="$store.state.userPreferences.companyTwitter"
+            placeholder="type here..."
+            type="url"
+          />
+        </b-form-group>
+
+        <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+          <label for="company-youtube">Link to Organisation's Youtube channel (if any)</label>
+          <b-form-input
+            id="company-youtube"
+            v-model="$store.state.userPreferences.companyYoutube"
+            placeholder="type here..."
+            type="url"
+          />
+        </b-form-group>
+      </b-form-row>
+
+      <b-form-row class="row w-100">
+        <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+          <label for="company-logo">Organisation's logo*</label>
+          <b-form-file
+            id="company-logo"
+            v-model="$store.state.userPreferences.companyLogo"
+            placeholder="Select file..."
+            accept="image/*"
+            :required="true"
+          />
+        </b-form-group>
+      </b-form-row>
+
+      <b-form-group>
+        <br />
+        <label for="notes">Brief Organisational profile</label>
+        <b-form-textarea
+          style="height: 200px"
+          v-model="$store.state.userPreferences.companyNotes"
+          placeholder="Type here..."
+          id="notes"
+          :required="true"
+        />
+      </b-form-group>
+
+      <b-form-row class="w-100 row">
+        <b-form-group class="col-12 col-sm-12 col-md-7 col-lg-7 col-xl-7">
+          <label for="company-officer"
+            >Name of organisation's officer proposing the partnership with
+            OYALD*</label
+          >
+          <b-form-input
+            id="company-officer"
+            v-model="$store.state.userPreferences.companyOfficer"
+            placeholder="type here..."
+            type="text"
+            :required="true"
+          />
+        </b-form-group>
+
+        <b-form-group class="col-12 col-sm-12 col-md-5 col-lg-5 col-xl-5">
+          <label for="company-officer-position">Designation of the Officer in the organisation*</label>
+          <b-form-input
+            id="company-officer-position"
+            v-model="$store.state.userPreferences.companyOfficerPosition"
+            placeholder="type here..."
+            type="text"
+            :required="true"
+          />
+        </b-form-group>
+      </b-form-row>
+
+      <br />
+
+      <b-form-group>
+        <b-form-checkbox
+          class="d-inline"
+          id="trueRepresentative"
+          v-model="$store.state.userPreferences.trueRepresentative"
+          :value="true"
+          :unchecked-value="false"
+          :checked-value="true"
+          :required="true"
+        />
+        <label class="d-inline" for="trueRepresentative"
+          >I, the above named officer, hereby affirm that I am a representative
+          of the above named organisation, and that I have the authority to
+          propose partnership with OYALD on the organisation's behalf*</label
+        >
+      </b-form-group>
+
+      <br />
+
+      <b-form-group>
+        <b-form-checkbox
+          class="d-inline"
+          id="truthOfCredentials"
+          v-model="$store.state.userPreferences.agreedTruthOfCredentials"
+          :value="true"
+          :unchecked-value="false"
+          :checked-value="true"
+          :required="true"
+        />
+        <label class="d-inline" for="truthOfCredentials"
+          >I declare that all the information provided herein by me are, to the
+          best of my knowledge, correct and truthful. I hereby indemnify OYALD
+          from any issues arising from inaccuracy or falsehood in the supplied
+          information.*</label
+        >
+      </b-form-group>
+
+      <br />
+
+      <b-button
+        type="submit"
+        id="submit"
+        variant="success"
+        class="bg-success w-100"
+        style="background-color: var(--custom-primary-color) !important"
+        >Submit</b-button
       >
-                        <b-form-row class="row w-100">
-
-                          <b-form-group class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                            <label for="surname">Name of Company/Organisation*</label>
-                            <b-form-input
-                            id="company-name"
-                            v-model="$store.state.userPreferences.companyName"
-                            placeholder="type here..."
-                            type="text"
-                            :required="true"
-                            />
-                          </b-form-group>
-
-                          <b-form-group class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                            <label for="company-category">Type/Category of Organisation*</label>
-                            <b-form-input
-                            id="company-category"
-                            v-model="$store.state.userPreferences.companyCategory"
-                            placeholder="type here..."
-                            type="text"
-                            :required="true"
-                            />
-                          </b-form-group>
-
-                        </b-form-row>
-
-                        <b-form-row class="row w-100">
-                          <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                            <label for="address1">Office Address 1*</label>
-                            <b-form-input
-                            id="address1"
-                            v-model="$store.state.userPreferences.companyAddress1"
-                            placeholder="type here..."
-                            type="text"
-                            autocomplete="address-line-1"
-                            :required="true"
-                            />
-                          </b-form-group>
-
-                          <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                            <label for="address2">Office Address 2 (optional)</label>
-                            <b-form-input
-                            id="address2"
-                            v-model="$store.state.userPreferences.companyAddress2"
-                            placeholder="type here..."
-                            type="text"
-                            autocomplete="address-line-2"
-                            />
-                          </b-form-group>
-
-                          <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                            <label for="address3">Office Address 3 (optional)</label>
-                            <b-form-input
-                            id="address3"
-                            v-model="$store.state.userPreferences.companyAddress3"
-                            placeholder="type here..."
-                            type="text"
-                            autocomplete="address-line-3"
-                            />
-                          </b-form-group>
-                        </b-form-row>
-
-                        <country-state-city />
-
-                        <b-form-row class="w-100 row">
-                          
-                          <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                            <label for="zip">Zip/Postal code</label>
-                            <b-form-input
-                            id="zip"
-                            v-model="$store.state.userPreferences.zipCode"
-                            placeholder="type here..."
-                            type="text"
-                            autocomplete="text"
-                            />
-                          </b-form-group>
-
-                        </b-form-row>
-
-                        <b-form-row class="row w-100">
-
-                          <b-form-group class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-                            <label for="phone-number">Official Phone Number*</label>
-                            <b-form-input
-                            id="phone-number"
-                            v-model="$store.state.userPreferences.companyPhoneNumber"
-                            placeholder="type here..."
-                            type="tel"
-                            autocomplete="tel"
-                            :required="true"
-                            />
-                          </b-form-group>
-
-                          <b-form-group class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-                            <label for="company-email">Official Email</label>
-                            <b-form-input
-                            id="company-email"
-                            v-model="$store.state.userPreferences.companyEmail"
-                            placeholder="type here..."
-                            type="email"
-                            autocomplete="zip"
-                            />
-                          </b-form-group>
-
-                        </b-form-row>
-
-                        <b-form-row class="w-100">
-
-                          <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                            <label for="company-website">Organisation's  website link</label>
-                            <b-form-input
-                            id="company-website"
-                            v-model="$store.state.userPreferences.companyWebsite"
-                            placeholder="type here..."
-                            type="url"
-                            />
-                          </b-form-group>
-
-                          <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                            <label for="company-facebook">Link to Facebook page</label>
-                            <b-form-input
-                            id="company-facebook"
-                            v-model="$store.state.userPreferences.companyFacebook"
-                            placeholder="type here..."
-                            type="url"
-                            />
-                          </b-form-group>
-
-                          <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                            <label for="company-linkedin">Link to Linkedin profile</label>
-                            <b-form-input
-                            id="company-linkedin"
-                            v-model="$store.state.userPreferences.companyLinkedin"
-                            placeholder="type here..."
-                            type="url"
-                            />
-                          </b-form-group>
-
-                          <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                            <label for="company-instagram">Link to Instagram profile</label>
-                            <b-form-input
-                            id="company-instagram"
-                            v-model="$store.state.userPreferences.companyInstagram"
-                            placeholder="type here..."
-                            type="url"
-                            />
-                          </b-form-group>
-
-                          <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                            <label for="company-twitter">Link to Twitter profile</label>
-                            <b-form-input
-                            id="company-Twitter"
-                            v-model="$store.state.userPreferences.companyTwitter"
-                            placeholder="type here..."
-                            type="url"
-                            />
-                          </b-form-group>
-
-                        </b-form-row>
-
-                        <b-form-row class="row w-100">
-                          <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                            <label for="company-logo">Company logo*</label>
-                            <b-form-file
-                            id="company-logo"
-                            v-model="$store.state.userPreferences.companyLogo"
-                            placeholder="Select file..."
-                            accept="image/*"
-                            :required="true"
-                            />
-                          </b-form-group>
-                        </b-form-row>
-
-                        <b-form-group>
-                          <br />
-                          <label for="notes">Brief Organisational profile</label>
-                          <b-form-textarea
-                          style="height: 200px;"
-                            v-model="$store.state.userPreferences.companyNotes"
-                          placeholder="Type here..."
-                          id="notes"
-                          :required="true"
-                          />
-                        </b-form-group>
-
-                        <b-form-row class="w-100 row">
-
-                          <b-form-group class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                            <label for="company-officer">Name of organisation's officer proposing the partnership with OYALD*</label>
-                            <b-form-input
-                            id="company-officer"
-                            v-model="$store.state.userPreferences.companyOfficer"
-                            placeholder="type here..."
-                            type="text"
-                            :required="true"
-                            />
-                          </b-form-group>
-
-                          <b-form-group class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                            <label for="company-officer-position">Position of the Offcer*</label>
-                            <b-form-input
-                            id="company-officer-position"
-                            v-model="$store.state.userPreferences.companyOfficerPosition"
-                            placeholder="type here..."
-                            type="text"
-                            :required="true"
-                            />
-                          </b-form-group>
-
-                        </b-form-row>
-
-                        <br />
-                        
-                        
-                        <b-form-group>
-                          <b-form-checkbox
-                          class="d-inline"
-                                id="trueRepresentative"
-                                v-model="$store.state.userPreferences.trueRepresentative"
-                                :value="true"
-                                :unchecked-value="false"
-                                :checked-value="true"
-                                :required="true"
-                              />
-                          <label class="d-inline" for="trueRepresentative">I hereby confirm that I am a representative of the above named organisation and that I am authorized to propose partnership on with OYALD on the organisation's behalf*</label>
-                          
-                        </b-form-group>
-
-
-                        <br />
-                        
-                        
-                        <b-form-group>
-                          <b-form-checkbox
-                          class="d-inline"
-                                id="truthOfCredentials"
-                                v-model="$store.state.userPreferences.agreedTruthOfCredentials"
-                                :value="true"
-                                :unchecked-value="false"
-                                :checked-value="true"
-                                :required="true"
-                              />
-                          <label class="d-inline" for="truthOfCredentials">I declare that all the information provided herein by me are, to the best of my knowledge, correct and truthful. I hereby indemnify OYALD from any issues arising from inaccuracy or falsehood in the supplied information.*</label>
-
-
-                        </b-form-group>
-
-                        <br />
-
-                        <b-button
-                        type="submit"
-                        id="submit"
-                        variant="success"
-                        class="bg-success w-100"
-                        style="background-color: var(--custom-primary-color) !important;"
-                        >Submit</b-button>
-      </b-form>
-      </center>
+    </b-form>
+  </center>
 </template>
 
 <script>
-import CountryStateCity from '@/components/CountryStateCity.vue';
+import SelectCountry from "@/components/SelectCountry.vue";
 
 export default {
-  components: { CountryStateCity },
+  components: {
+    SelectCountry,
+  },
   methods: {
-    submitForm(){
-
-      const { 
+    submitForm() {
+      const {
         companyName,
         companyCategory,
         companyAddress1,
@@ -295,8 +329,8 @@ export default {
         companyLogo,
         country,
         state,
-        city
-       } = this.$store.state.userPreferences;
+        city,
+      } = this.$store.state.userPreferences;
 
       const params = {
         companyName,
@@ -320,20 +354,20 @@ export default {
         companyLogo,
         country,
         state,
-        city
+        city,
       };
 
       this.action(params);
-    }
+    },
   },
   props: {
     action: {
       type: Function,
-      required: true
-    }
+      required: true,
+    },
   },
-    name: "NwePartnerForm"
-}
+  name: "NwePartnerForm",
+};
 </script>
 
 <style scoped>

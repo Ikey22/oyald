@@ -1,6 +1,6 @@
 <template>
   <b-form-group >
-    <label for="country">Nationality*</label>
+    <label for="country"> {{ label }} *</label>
     <b-form-select
       :class="isReady ? 'disabled' : null"
       id="country"
@@ -29,6 +29,15 @@ let fetchInBackground =
 
 export default {
   name: "SelectCountry",
+  props: {
+    label: {
+      type: String,
+      required: true,
+    },
+    modelObject: {
+      type: Object
+    }
+  },
   data() {
     return {
       isReady: false,

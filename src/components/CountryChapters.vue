@@ -42,30 +42,30 @@ export default {
         return {
           openedCountryChapters: {
             0: true,
-            1: false,
-            2: false
+            1: true,
+            2: true
           },
             countries: [
                 {
                     name: "Nigeria",
-                    representative: "....",
-                    address: "....",
-                    phoneNumber: "....",
-                    email: "..."
+                    representative: " ",
+                    address: " ",
+                    phoneNumber: "+2348103219429",
+                    email: "oyald.ng@gmail.com"
                 },
+                // {
+                //     name: "Kenya",
+                //     representative: "Ms. Cecilia Mutave",
+                //     address: "OYALD [Aly’s Centre, 5 Muthithi Road, Muthithi/Mpaka Road Junction]",
+                //     email: "oyald.ng@gmail.com",
+                //     phoneNumber: "+254745719094"
+                // },
                 {
-                    name: "Kenya",
-                    representative: "Ms. Cecilia Mutave",
-                    address: "OYALD [Aly’s Centre, 5 Muthithi Road, Muthithi/Mpaka Road Junction]",
-                    email: "mutave@alekomedia.org",
-                    phoneNumber: "+254745719094"
-                },
-                {
-                    name: "Other country",
-                    representative: "....",
-                    address: "....",
-                    phoneNumber: "....",
-                    email: "..."
+                    name: "Cameroon",
+                    representative: " ",
+                    address: " ",
+                    phoneNumber: "+237650987507",
+                    email: "oyaldcameroonteam@gmail.com"
                 }
             ]
         }

@@ -59,7 +59,7 @@
           />
         </b-form-group>
 
-        <select-country class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6" />
+        <select-country label="Nationality" class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6" />
       </b-form-row>
 
       <b-form-row class="row w-100">
@@ -100,7 +100,7 @@
 
       <b-form-row class="row w-100">
         <b-form-group class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6" >
-          <label></label>
+          <label>District/L.G.A</label>
           <b-form-input 
             type="text"
             placeholder="Type here..."
@@ -109,9 +109,10 @@
         </b-form-group>
 
          <b-form-group class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6" >
+           <label>State/Region</label>
           <b-form-input 
             type="text"
-            placeholder="State/Region"
+            placeholder="Type here..."
             v-model="$store.state.userPreferences.state"
           />
         </b-form-group>
@@ -236,9 +237,9 @@
             ><a
               href="javascript:void(0)"
               @click="$store.commit(`showTOCModal`, true)"
-              ><q>terms and conditions of OYALD membership</q></a
+              >terms and conditions of OYALD membership</a
             ></b
-          >*</label
+          ></label
         >
       </b-form-group>
 
