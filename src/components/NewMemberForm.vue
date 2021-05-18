@@ -179,7 +179,7 @@
             id="passport"
             v-model="$store.state.userPreferences.passport"
             placeholder="Select file..."
-            accept="image/*"
+            accept="image/png,image/jpg,image/jpeg,image/webp,image/svg"
             :required="true"
           />
         </b-form-group>

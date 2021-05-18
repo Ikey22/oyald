@@ -5,7 +5,7 @@
 
     <div class="row w-100">
       <section class="col-12">
-      <h1 class="w-100 text-left text-success font-weight-bold">Why OYALD?</h1>
+      <h1 class="w-100 text-left text-success font-weight-bold">{{ $store.state.language === 'en' ? 'Why OYALD?' : '' }}</h1>
       <p class="pl-4 text-justify">
         <figure class="float-right">
           <img
@@ -18,17 +18,17 @@
         />
           <figcaption class="ml-4"><small>Image source: <br /><a target="_blank" href="https://www.edf-feph.org/newsroom-news-what-have-we-done-so-far-about-sustainable-development-goals/">https://www.edf-feph.org/newsroom-news-what-have<br />-we-done-so-far-about-sustainable-development-goals/</a> </small> </figcaption>
         </figure>
-        <b-icon icon="caret-right-fill" /> Given the commitments made by the African Heads of State to support the implementation of the main development Agenda in Africa;  <br /><br />
-        <b-icon icon="caret-right-fill" /> Acknowledging the importance of the Agenda 2063, <b>"The Africa We Want"</b> in building a united and prosperous Africa;  <br /><br />
-        <b-icon icon="caret-right-fill" /> Understanding the strategic contributions of the Agenda 2030, <b>"Leaving No One Behind"</b> to the enhancement of the living conditions of Africans;  <br />
+        <b-icon icon="caret-right-fill" /> <span v-html="$store.state.language === 'en' ? 'Given the commitments made by the African Heads of State to support the implementation of the main development Agenda in Africa;' : 'Compte tenu des engagements pris par les chefs d\'État africains pour soutenir la mise en œuvre du principal programme de développement en Afrique ;' " />  <br /><br />
+        <b-icon icon="caret-right-fill" /> <span v-html="$store.state.language === 'en' ? 'Acknowledging the importance of the Agenda 2063, <b><q>The Africa We Want<q></b> in building a united and prosperous Africa;' : 'Reconnaissant l\'importance de l\'Agenda 2063, <q>L\'Afrique que nous voulons</q> dans la construction d\'une Afrique unie et prospère ;'" />  <br /><br />
+        <b-icon icon="caret-right-fill" /> <span v-html="$store.state.language === 'en' ? 'Understanding the strategic contributions of the Agenda 2030, <b><q>Leaving No One Behind</q></b> to the enhancement of the living conditions of Africans;' : 'Comprendre les contributions stratégiques de l\'Agenda 2030, « Ne laisser personne de côté» à l\'amélioration des conditions de vie des Africains;' " />  <br />
         <!-- eslint-disable-next-line vue/no-parsing-error -->
       </p>
       
         <b-collapse id="collapse-1" class="mt-2">
           <p class="pl-1 text-justify">
-            <b-icon icon="caret-right-fill" /> Considering the critical role of young Africans in ameliorating the narrative through their meaningful participation in, and contributions to, the decisions on the continent;  <br /><br />
-            <b-icon icon="caret-right-fill" /> Convinced that collaboration between young Africans, the Civil Society Organizations (CSO), and other decision makers in the region can influence policies and enable better life for all;  <br /><br />
-            <b-icon icon="caret-right-fill" /> With the resolve, as young Africans, to contribute to the positive transformation of our communities, and the improvement of the living conditions of our people; <br />
+            <b-icon icon="caret-right-fill" /> <span v-html="$store.state.language === 'en' ? 'Considering the critical role of young Africans in ameliorating the narrative through their meaningful participation in, and contributions to, the decisions on the continent;' : ''" />  <br /><br />
+            <b-icon icon="caret-right-fill" /> <span v-html="$store.state.language === 'en' ? 'Convinced that collaboration between young Africans, the Civil Society Organizations (CSO), and other decision makers in the region can influence policies and enable better life for all;' : 'Convaincus que la collaboration entre les jeunes Africains, les organisations de la société civile (OSC) et d\'autres décideurs de la région peut influencer les politiques et permettre une vie meilleure pour tous ;'" />  <br /><br />
+            <b-icon icon="caret-right-fill" /> <span v-html="$store.state.language === 'en' ? 'With the resolve, as young Africans, to contribute to the positive transformation of our communities, and the improvement of the living conditions of our people;' : 'Avec la résolution, en tant que jeunes Africains, de contribuer à la transformation positive de nos communautés et à l\'amélioration des conditions de vie de notre peuple ;'" /> <br />
           </p>
 
           <br />

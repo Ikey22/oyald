@@ -1,10 +1,10 @@
 <template>
     <b-dropdown
-      text="join OYALD"
-      variant="warning"
+        :text="$store.state.language === 'en' ? 'join OYALD' : 'Adherer à OJLAD'"
+        variant="warning"
       >
-        <b-dropdown-item to="/membership">As a member</b-dropdown-item>
-        <b-dropdown-item to="/partnership">As a Partner</b-dropdown-item>
+        <b-dropdown-item to="/membership">{{ $store.state.language === 'en' ? 'As a member' : 'En tant que membre' }}</b-dropdown-item>
+        <b-dropdown-item to="/partnership">{{ $store.state.language === 'en' ? 'As a Partner' : 'En tant que partnenaire' }}</b-dropdown-item>
     </b-dropdown>
 </template>
 

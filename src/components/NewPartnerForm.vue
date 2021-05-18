@@ -133,7 +133,7 @@
 
       <b-form-row class="w-100">
         <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-          <label for="company-website">Link to Organisation's website (if any)</label>
+          <label for="company-website">Link to O rganisation's website (if any)</label>
           <b-form-input
             id="company-website"
             v-model="$store.state.userPreferences.companyWebsite"
@@ -200,7 +200,7 @@
             id="company-logo"
             v-model="$store.state.userPreferences.companyLogo"
             placeholder="Select file..."
-            accept="image/*"
+            accept="image/png,image/jpg,image/jpeg,image/webp,image/svg"
             :required="true"
           />
         </b-form-group>

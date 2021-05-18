@@ -14,7 +14,7 @@
       <b-form-select-option
         v-for="(x, index) in $store.state.countries"
         :key="`country-${index + 1}`"
-        :value="x.name"
+        :value="$store.state.language === 'en' ? x.name : x.frenchName"
         >{{ x.name }}{{ x.emoji }}</b-form-select-option
       >
     </b-form-select>
