@@ -56,26 +56,41 @@
 
   <!-- #begin toc modal -->
   <b-modal v-model="$store.state.tocModal" id="toc-modal" ok-only ok-variant="success" size="xl" centered scrollable>
-    <template #modal-title><header class="h1" style="color: var(--custom-primary-color) !important;">Terms and Conditions</header></template>
-    <p>Membership of OYALD is open to all citizens of African countries and all persons of African descent who:</p>
+    <template #modal-title><header class="h1" style="color: var(--custom-primary-color) !important;">{{ $store.state.language === 'en' ? 'Terms and Conditions' : 'Les Termes et Les Conditionsx' }}</header></template>
+    <p>{{ $store.state.language === 'en' ? 'Membership of OYALD is open to all citizens of African countries and all persons of African descent who:' : 'Pourraient adhérer à l\'OJLAD, tous les citoyens des pays africains et toutes les personnes d\'ascendance africaine qui:' }}</p>
     <br />
     <ul>
-      <li>Are aged between the minimum legal age of maturity in their respective countries of citizenship, and 50 years.</li>
-      <li>Have functional literacy in English or French.</li>
-      <li>Are engaged professionally, or as volunteers, in development related activities, or who have demonstrated credible support for sustainable development in Africa.</li>
+      <li>{{ $store.state.language === 'en' ? 'Are aged between the minimum legal age of maturity in their respective countries of citizenship, and 50 years.' : 'Sont âgés entre l\'âge minimum légal de la maturité dans leur pays de citoyenneté respectif et 50 ans.' }}</li>
+      <li>{{ $store.state.language === 'en' ? 'Have functional literacy in English or French.' : 'Ont de littératie fonctionnelle en anglais ou en français' }}</li>
+      <li>{{ $store.state.language === 'en' ? 'Are engaged professionally, or as volunteers, in development related activities, or who have demonstrated credible support for sustainable development in Africa.' : 'Sont engagés professionnellement, ou en tant que volontaires, dans des activités liées au développement, ou qui ont démontré un soutien crédible au développement durable en Afrique.' }}</li>
     </ul>
     <br />
-    <p>The membership categories are:</p>
+    <p>
+      {{ $store.state.language === 'en' ? 'The membership categories are:' : 'Les catégories d\'adhésion comprennent:' }}
+    </p>
     <br />
     <ul>
-      <li><b>Active Members:</b> These shall be dues-paying members who undertake, and are obliged, to participate, as much as possible, in all activities of OYALD.</li>
-      <li><b>Associate Members:</b> These shall be dues paying members who may not be able to participate in all activities of OYALD.</li>
-      <li><b>Honorary Members:</b> These shall be persons who might not satisfy all the criteria for OYALD membership, but who have demonstrated a record of sustainable development practice, and who are supportive of OYALD and its objectives. Honorary members shall not be obliged to pay dues.</li>
+      <li>
+        <b>{{ $store.state.language === 'en' ? 'Active Members: ' : 'Membres Actifs: ' }}</b>
+        {{ $store.state.language === 'en' ? 'These shall be dues-paying members who undertake, and are obliged, to participate, as much as possible, in all activities of OYALD.' : 'Ce sont des membres cotisants qui s\'engagent et sont obligés de participer, autant que possible, à toutes les activités de l\'OJLAD.' }}
+      </li>
+      <li>
+        <b>{{ $store.state.language === 'en' ? 'Associate Members:' : 'Membres Associés:' }}</b>
+        {{ $store.state.language === 'en' ? 'These shall be dues paying members who may not be able to participate in all activities of OYALD.' : 'Ce sont des membres cotisants qui peuvent ne pas être en mesure de participer à toutes les activités de l\'OJLAD.' }}
+      </li>
+      <li>
+        <b>{{ $store.state.language === 'en' ? 'Honorary Members:' : 'Membres Honoraires:' }}</b>
+        {{ $store.state.language === 'en' ? 'These shall be persons who might not satisfy all the criteria for OYALD membership, but who have demonstrated a record of sustainable development practice, and who are supportive of OYALD and its objectives. Honorary members shall not be obliged to pay dues.' : 'Ce sont des personnes qui ne satisfont peut-être pas à tous les critères d\'adhésion à OJLAD, mais qui ont démontré une expérience en matière de développement durable et qui soutiennent OJLAD et ses objectifs. Les membres honoraires ne sont pas tenus de payer des cotisations.' }}
+      </li>
     </ul>
     <br />
-    <p>While all members of OYALD are obliged to pay registration fees of five US Dollars ($5) once, within the three (3) months following their acceptance into OYALD, Active and Associate members shall pay annual dues of five ($5) USD, to be paid by March of each year. In the case of a new member, the annual dues shall be pro-rated, and shall be paid within 3 months from the date of acceptance into OYALD.</p>
+    <p>
+      {{ $store.state.language === 'en' ? 'While all members of OYALD are obliged to pay registration fees of five US Dollars ($5) once, within the three (3) months following their acceptance into OYALD, Active and Associate members shall pay annual dues of five ($5) USD, to be paid by March of each year. In the case of a new member, the annual dues shall be pro-rated, and shall be paid within 3 months from the date of acceptance into OYALD.' : 'Alors que tous les membres de l\'OJLAD sont tenus de payer une fois les frais d\'inscription de cinq dollars américains (5 $ US), dans les trois (3) mois suivant leur acceptation dans l\'OJLAD, les Membres Actifs et Associés doivent payer une cotisation annuelle de cinq USD (5 $ US), à payer au plus tard en mars de chaque année. Dans le cas d\'un nouveau membre, les cotisations annuelles seront calculées au prorata et payées dans les 3 mois à compter de la date d\'acceptation dans l\'OJLAD.' }}
+    </p>
     <br />
-    <p>In addition to the above, all members of OYALD are obliged to abide by the provisions in OYALD's constitution and regulations.</p>
+    <p>
+      {{ $store.state.language === 'en' ? 'In addition to the above, all members of OYALD are obliged to abide by the provisions in OYALD\'s constitution and regulations.' : 'En plus, tous les membres de l\'OJLAD sont tenus de respecter les dispositions des statuts et des règlements de OYALD.' }}
+    </p>
   </b-modal>
   <!-- #end toc modal -->
 

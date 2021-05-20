@@ -5,7 +5,7 @@
     <br id="team-tag" />
 
     <h1 id="general-secretariat" class="w-100 text-success font-weight-bold text-center" style="color: var(--custom-primary-color) !important;">
-      {{ query == 'general-secretariat' ? 'Our General Secretariat' : query == 'country-secretaries' ? 'Our National Coordinators / Country Secretaries' : query == 'partners' ? 'Our Partners' : '' }}
+      {{ query == 'general-secretariat' ? ( $store.state.language === 'en' ? 'Our General Secretariat' : 'Notre Secrétariat Général' ) : query == 'country-secretaries' ?  ( $store.state.language === 'en' ? 'Our National Coordinators / Country Secretaries' : 'Nos Coordonnateurs/Secrétaires Nationaux' ) : query == 'partners' ? ( $store.state.language === 'en' ? 'Our Partners' : 'Nos Partenaires' ) : '' }}
     </h1>
     <br />
     <br />

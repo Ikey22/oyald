@@ -1,7 +1,7 @@
 <template>
   <b-form-row class="row w-100">
     <b-form-group class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
-      <label for="country">Nationality*</label>
+      <label for="country">{{ $store.state.language === 'en' ? 'Nationality*' : 'Nationalité' }}</label>
       <b-form-select
         :class="isReady ? 'disabled' : null"
         id="country"
@@ -22,7 +22,7 @@
     </b-form-group>
 
     <b-form-group class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
-      <label for="region">State/Region*</label>
+      <label for="region">{{ $store.state.language === 'en' ? 'State/Region*' : 'État/Région' }}</label>
       <b-form-select
         id="region"
         @change="setState"
@@ -41,7 +41,7 @@
     </b-form-group>
 
     <b-form-group class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
-      <label for="lga">District/L.G.A*</label>
+      <label for="lga">{{ $store.state.language === 'en' ? 'District/L.G.A*' : 'Quartier/L.G.A' }}</label>
       <b-form-select
         id="lga"
         @change="setCity"

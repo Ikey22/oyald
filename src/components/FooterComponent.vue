@@ -1,11 +1,9 @@
 <template>
   <footer class="w-100 bg-green text-dark">
     <br />
-    <h1 class="w-100 text-center font-weight-bold text-white">Our Vision</h1>
+    <h1 class="w-100 text-center font-weight-bold text-white">{{ $store.state.language === 'en' ? 'Our Vision' : 'Notre vision' }}</h1>
     <p class="text-center text-white w-100 px-3">
-      We envision a united, peaceful, inclusive, and sustainably prosperous
-      Africa, driven by the joint transformational efforts of Africans, across
-      generations.
+      {{ $store.state.language === 'en' ? 'We envision a united, peaceful, inclusive, and sustainably prosperous Africa, driven by the joint transformational efforts of Africans, across generations.' : 'Nous envisageons une Afrique unie, pacifique, inclusive et durablement prospère, portée par les efforts de transformation conjoints des Africains, à travers les générations.' }}
     </p>
     <br />
     <hr />

@@ -22,7 +22,7 @@
                             <b-form-input
                             id="surname"
                             v-model="$store.state.userPreferences.surName"
-                            placeholder="type here..."
+                            :placeholder="$store.state.language === 'en' ? 'type here...' : 'Écrire ici'"
                             type="text"
                             autocomplete="family-name"
                             :required="true"
@@ -38,7 +38,7 @@
                             <b-form-input
                             id="first-name"
                             v-model="$store.state.userPreferences.firstName"
-                            placeholder="type here..."
+                            :placeholder="$store.state.language === 'en' ? 'type here...' : 'Écrire ici'"
                             type="text"
                             autocomplete="given-name"
                             :required="true"
@@ -50,7 +50,7 @@
                             <b-form-input
                             id="middle-name"
                             v-model="$store.state.userPreferences.middleName"
-                            placeholder="type here..."
+                            :placeholder="$store.state.language === 'en' ? 'type here...' : 'Écrire ici'"
                             type="text"
                             />
                           </b-form-group>
@@ -60,7 +60,7 @@
                             <b-form-input
                             id="phone-number"
                             v-model="$store.state.userPreferences.phoneNumber"
-                            placeholder="type here..."
+                            :placeholder="$store.state.language === 'en' ? 'type here...' : 'Écrire ici'"
                             type="tel"
                             autocomplete="tel"
                             :required="true"
@@ -72,7 +72,7 @@
                             <b-form-input
                             id="email"
                             v-model="$store.state.userPreferences.email"
-                            placeholder="type here..."
+                            :placeholder="$store.state.language === 'en' ? 'type here...' : 'Écrire ici'"
                             type="email"
                             autocomplete="email"
                             :required="true"
@@ -86,7 +86,7 @@
                             <b-form-input
                             id="subject"
                             v-model="subject"
-                            placeholder="type here..."
+                            :placeholder="$store.state.language === 'en' ? 'type here...' : 'Écrire ici'"
                             type="text"
                             :required="true"
                             />
@@ -98,7 +98,7 @@
                           <b-form-textarea
                           style="height: 200px;"
                           :required="true"
-                          placeholder="Type here..."
+                          :placeholder="$store.state.language === 'en' ? 'type here...' : 'Écrire ici'"
                           v-model="message"
                           id="message"
                           />

@@ -271,7 +271,7 @@
                 type="email"
                 v-model="adminLoginDetails.email"
                 class="w-100"
-                placeholder="Type here..."
+                :placeholder="$store.state.language === 'en' ? 'type here...' : 'Écrire ici'"
                 :required="true"
               />
               <b-form-text class="font-weight-bold text-danger"
@@ -286,7 +286,7 @@
                 type="password"
                 v-model="adminLoginDetails.password"
                 class="w-100"
-                placeholder="Type here..."
+                :placeholder="$store.state.language === 'en' ? 'type here...' : 'Écrire ici'"
                 :required="true"
               />
               <b-form-text class="font-weight-bold text-danger"

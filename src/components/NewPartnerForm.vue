@@ -7,11 +7,11 @@
     >
       <b-form-row class="row w-100">
         <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-          <label for="surname">Name of Organisation*</label>
+          <label for="surname">{{ $store.state.language === 'en' ? 'Name of Organisation*' : 'Nom de l’organisation' }}</label>
           <b-form-input
             id="company-name"
             v-model="$store.state.userPreferences.companyName"
-            placeholder="type here..."
+            :placeholder="$store.state.language === 'en' ? 'type here...' : 'Écrire ici'"
             type="text"
             :required="true"
           />
@@ -24,7 +24,7 @@
           <b-form-input
             id="company-category"
             v-model="$store.state.userPreferences.companyCategory"
-            placeholder="type here..."
+            :placeholder="$store.state.language === 'en' ? 'type here...' : 'Écrire ici'"
             type="text"
             :required="true"
           />
@@ -39,7 +39,7 @@
           <b-form-input
             id="address1"
             v-model="$store.state.userPreferences.companyAddress1"
-            placeholder="type here..."
+            :placeholder="$store.state.language === 'en' ? 'type here...' : 'Écrire ici'"
             type="text"
             autocomplete="address-line-1"
             :required="true"
@@ -51,7 +51,7 @@
           <b-form-input
             id="address2"
             v-model="$store.state.userPreferences.companyAddress2"
-            placeholder="type here..."
+            :placeholder="$store.state.language === 'en' ? 'type here...' : 'Écrire ici'"
             type="text"
             autocomplete="address-line-2"
           />
@@ -62,7 +62,7 @@
           <b-form-input
             id="address3"
             v-model="$store.state.userPreferences.companyAddress3"
-            placeholder="type here..."
+            :placeholder="$store.state.language === 'en' ? 'type here...' : 'Écrire ici'"
             type="text"
             autocomplete="address-line-3"
           />
@@ -75,7 +75,7 @@
           <b-form-input
             id="district-lga"
             type="text"
-            placeholder="Type here..."
+            :placeholder="$store.state.language === 'en' ? 'type here...' : 'Écrire ici'"
             :required="true"
           />
         </b-form-group>
@@ -85,7 +85,7 @@
           <b-form-input
             id="state-region"
             type="text"
-            placeholder="Type here..."
+            :placeholder="$store.state.language === 'en' ? 'type here...' : 'Écrire ici'"
             :required="true"
           />
         </b-form-group>
@@ -97,7 +97,7 @@
           <b-form-input
             id="zip"
             v-model="$store.state.userPreferences.zipCode"
-            placeholder="type here..."
+            :placeholder="$store.state.language === 'en' ? 'type here...' : 'Écrire ici'"
             type="text"
             autocomplete="text"
           />
@@ -112,7 +112,7 @@
           <b-form-input
             id="phone-number"
             v-model="$store.state.userPreferences.companyPhoneNumber"
-            placeholder="type here..."
+            :placeholder="$store.state.language === 'en' ? 'type here...' : 'Écrire ici'"
             type="tel"
             autocomplete="tel"
             :required="true"
@@ -124,7 +124,7 @@
           <b-form-input
             id="company-email"
             v-model="$store.state.userPreferences.companyEmail"
-            placeholder="type here..."
+            :placeholder="$store.state.language === 'en' ? 'type here...' : 'Écrire ici'"
             type="email"
             autocomplete="zip"
           />
@@ -137,7 +137,7 @@
           <b-form-input
             id="company-website"
             v-model="$store.state.userPreferences.companyWebsite"
-            placeholder="type here..."
+            :placeholder="$store.state.language === 'en' ? 'type here...' : 'Écrire ici'"
             type="url"
           />
         </b-form-group>
@@ -147,7 +147,7 @@
           <b-form-input
             id="company-facebook"
             v-model="$store.state.userPreferences.companyFacebook"
-            placeholder="type here..."
+            :placeholder="$store.state.language === 'en' ? 'type here...' : 'Écrire ici'"
             type="url"
           />
         </b-form-group>
@@ -157,7 +157,7 @@
           <b-form-input
             id="company-linkedin"
             v-model="$store.state.userPreferences.companyLinkedin"
-            placeholder="type here..."
+            :placeholder="$store.state.language === 'en' ? 'type here...' : 'Écrire ici'"
             type="url"
           />
         </b-form-group>
@@ -167,7 +167,7 @@
           <b-form-input
             id="company-instagram"
             v-model="$store.state.userPreferences.companyInstagram"
-            placeholder="type here..."
+            :placeholder="$store.state.language === 'en' ? 'type here...' : 'Écrire ici'"
             type="url"
           />
         </b-form-group>
@@ -177,7 +177,7 @@
           <b-form-input
             id="company-Twitter"
             v-model="$store.state.userPreferences.companyTwitter"
-            placeholder="type here..."
+            :placeholder="$store.state.language === 'en' ? 'type here...' : 'Écrire ici'"
             type="url"
           />
         </b-form-group>
@@ -187,7 +187,7 @@
           <b-form-input
             id="company-youtube"
             v-model="$store.state.userPreferences.companyYoutube"
-            placeholder="type here..."
+            :placeholder="$store.state.language === 'en' ? 'type here...' : 'Écrire ici'"
             type="url"
           />
         </b-form-group>
@@ -212,7 +212,7 @@
         <b-form-textarea
           style="height: 200px"
           v-model="$store.state.userPreferences.companyNotes"
-          placeholder="Type here..."
+          :placeholder="$store.state.language === 'en' ? 'type here...' : 'Écrire ici'"
           id="notes"
           :required="true"
         />
@@ -227,7 +227,7 @@
           <b-form-input
             id="company-officer"
             v-model="$store.state.userPreferences.companyOfficer"
-            placeholder="type here..."
+            :placeholder="$store.state.language === 'en' ? 'type here...' : 'Écrire ici'"
             type="text"
             :required="true"
           />
@@ -238,7 +238,7 @@
           <b-form-input
             id="company-officer-position"
             v-model="$store.state.userPreferences.companyOfficerPosition"
-            placeholder="type here..."
+            :placeholder="$store.state.language === 'en' ? 'type here...' : 'Écrire ici'"
             type="text"
             :required="true"
           />

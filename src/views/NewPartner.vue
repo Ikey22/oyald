@@ -1,12 +1,12 @@
 <template>
   <div class="container-fluid w-100">
-      <h1 class="text-success w-100 text-center font-weight-bold" style="color: var(--custom-primary-color) !important;">PARTNER WITH OYALD </h1>
+      <h1 class="text-success w-100 text-center font-weight-bold" style="color: var(--custom-primary-color) !important;">{{ $store.state.language === 'en' ? 'PARTNER WITH OYALD' : 'S\'Associer Avec l\'OJLAD' }} </h1>
       <br />
       <center class="w-100">
         <img width="250" src="@/assets/img/partner.svg" alt="new partner" />
       </center>
       <br />
-      <p class="w-100 text-center"><span class="p-1 bg-danger text-white font-weight-bold rounded">Note:</span> Fields labelled with asterisk (*) are mandatory, the rest are optional</p>
+      <p class="w-100 text-center"><span class="p-1 bg-danger text-white font-weight-bold rounded">{{ $store.state.language === 'en' ? 'Note:' : 'Noter' }}</span> {{ $store.state.language === 'en' ? 'Fields labelled with asterisk (*) are mandatory, the rest are optional' : 'Les champs marqués d’un astérisque sont obligatoires, les autres sont facultatifs.' }}</p>
       
       
       
