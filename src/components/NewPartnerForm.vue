@@ -30,12 +30,14 @@
           />
         </b-form-group>
 
-        <select-country label="Country where Organisation is registered" class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6" />
+        <select-country
+          :label="$store.state.language == 'en' ? 'Country where Organisation is registered' : 'Pays où l’organisation est enregistrée'"
+          class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6" />
       </b-form-row>
 
       <b-form-row class="row w-100">
         <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-          <label for="address1">Organisation's Office Address 1*</label>
+          <label for="address1">{{ $store.state.language == 'en' ? 'Organisation\'s Office Address 1*' : 'Adresse du bureau de l’organisation 1' }}</label>
           <b-form-input
             id="address1"
             v-model="$store.state.userPreferences.companyAddress1"
@@ -47,7 +49,7 @@
         </b-form-group>
 
         <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-          <label for="address2">Organisation's Office Address 2 (optional)</label>
+          <label for="address2">{{ $store.state.language == 'en' ? 'Organisation\'s Office Address 2 (optional)' : 'Adresse du bureau de l’organisation 2 (facultative)' }}</label>
           <b-form-input
             id="address2"
             v-model="$store.state.userPreferences.companyAddress2"
@@ -58,7 +60,7 @@
         </b-form-group>
 
         <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-          <label for="address3">Organisation's Office Address 3 (optional)</label>
+          <label for="address3">{{ $store.state.language == 'en' ? 'Organisation\'s Office Address 3 (optional)' : 'Adresse du bureau de l’organisation 3 (facultative)' }}</label>
           <b-form-input
             id="address3"
             v-model="$store.state.userPreferences.companyAddress3"
@@ -71,7 +73,7 @@
 
       <b-form-row class="w-100 row">
         <b-form-group class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-          <label for="district-lga">District/L.G.A *</label>
+          <label for="district-lga">{{ $store.state.language == 'en' ? 'District/L.G.A *' : 'Quartier/L.G.A' }}</label>
           <b-form-input
             id="district-lga"
             type="text"
@@ -81,7 +83,7 @@
         </b-form-group>
 
         <b-form-group class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-          <label for="state-region">State/Region *</label>
+          <label for="state-region">{{ $store.state.language == 'en' ? 'State/Region *' : 'État/Région' }}</label>
           <b-form-input
             id="state-region"
             type="text"
@@ -93,7 +95,7 @@
 
       <b-form-row class="w-100 row">
         <b-form-group class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-          <label for="zip">Zip/Postal code</label>
+          <label for="zip">{{ $store.state.language == 'en' ? 'Zip/Postal code' : 'Code zip/postal' }}</label>
           <b-form-input
             id="zip"
             v-model="$store.state.userPreferences.zipCode"
@@ -103,12 +105,14 @@
           />
         </b-form-group>
 
-        <select-country label="Country of Domicile" class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6" />
+        <select-country
+          :label="$store.state.language == 'en' ? 'Country of Domicile' : 'Pays de résidence'"
+          class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6" />
       </b-form-row>
 
       <b-form-row class="row w-100">
         <b-form-group class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-          <label for="phone-number">Organisation's Official Phone Number*</label>
+          <label for="phone-number">{{ $store.state.language == 'en' ? 'Organisation\'s Official Phone Number*' : 'Numéro de téléphone officiel de l’organisation' }}</label>
           <b-form-input
             id="phone-number"
             v-model="$store.state.userPreferences.companyPhoneNumber"
@@ -120,7 +124,7 @@
         </b-form-group>
 
         <b-form-group class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-          <label for="company-email">Organisation's Official Email</label>
+          <label for="company-email">{{ $store.state.language == 'en' ? 'Organisation\'s Official Email' : 'Courriel officiel de l’organisation' }}</label>
           <b-form-input
             id="company-email"
             v-model="$store.state.userPreferences.companyEmail"
@@ -133,7 +137,7 @@
 
       <b-form-row class="w-100">
         <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-          <label for="company-website">Link to O rganisation's website (if any)</label>
+          <label for="company-website">{{ $store.state.language == 'en' ? 'Link to Organisation\'s website (if any)' : 'Lien vers le site web de l’organisation (le cas échéant)' }}</label>
           <b-form-input
             id="company-website"
             v-model="$store.state.userPreferences.companyWebsite"
@@ -143,7 +147,7 @@
         </b-form-group>
 
         <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-          <label for="company-facebook">Link to Organisation'd Facebook page (if any)</label>
+          <label for="company-facebook">{{ $store.state.language == 'en' ? 'Link to Organisation\'d Facebook page (if any)' : 'Profile facebook de l’organisation (le cas échéant)' }}</label>
           <b-form-input
             id="company-facebook"
             v-model="$store.state.userPreferences.companyFacebook"
@@ -153,7 +157,7 @@
         </b-form-group>
 
         <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-          <label for="company-linkedin">Link to Organisation's Linkedin profile (if any)</label>
+          <label for="company-linkedin">{{ $store.state.language == 'en' ? 'Link to Organisation\'s Linkedin profile (if any)' : 'Lien Linkedin de l’organisation (le cas échéant)' }}</label>
           <b-form-input
             id="company-linkedin"
             v-model="$store.state.userPreferences.companyLinkedin"
@@ -163,7 +167,7 @@
         </b-form-group>
 
         <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-          <label for="company-instagram">Link to Organisation's Instagram profile (if any)</label>
+          <label for="company-instagram">{{ $store.state.language == 'en' ? 'Link to Organisation\'s Instagram profile (if any)' : 'Lien instagram de l’organisation (le cas échéant)' }}</label>
           <b-form-input
             id="company-instagram"
             v-model="$store.state.userPreferences.companyInstagram"
@@ -173,7 +177,7 @@
         </b-form-group>
 
         <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-          <label for="company-twitter">Link to Organisation's Twitter account (if any)</label>
+          <label for="company-twitter">>{{ $store.state.language == 'en' ? 'Link to Organisation\'s Twitter account (if any)' : 'Lien Twitter de l’organisation (le cas échéant)' }}</label>
           <b-form-input
             id="company-Twitter"
             v-model="$store.state.userPreferences.companyTwitter"
@@ -183,7 +187,7 @@
         </b-form-group>
 
         <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-          <label for="company-youtube">Link to Organisation's Youtube channel (if any)</label>
+          <label for="company-youtube">{{ $store.state.language == 'en' ? 'Link to Organisation\'s Youtube channel (if any)' : 'Lien YouTube de l’organisation (le cas échéant)' }}</label>
           <b-form-input
             id="company-youtube"
             v-model="$store.state.userPreferences.companyYoutube"
@@ -195,7 +199,7 @@
 
       <b-form-row class="row w-100">
         <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-          <label for="company-logo">Organisation's logo*</label>
+          <label for="company-logo">{{ $store.state.language == 'en' ? 'Organisation\'s logo*' : 'Le logo de l’organisation' }}</label>
           <b-form-file
             id="company-logo"
             v-model="$store.state.userPreferences.companyLogo"
@@ -208,7 +212,7 @@
 
       <b-form-group>
         <br />
-        <label for="notes">Brief Organisational profile</label>
+        <label for="notes">{{ $store.state.language == 'en' ? 'Brief Organisational profile' : 'Bref aperçu du profile de l’organisation' }}</label>
         <b-form-textarea
           style="height: 200px"
           v-model="$store.state.userPreferences.companyNotes"
@@ -221,8 +225,7 @@
       <b-form-row class="w-100 row">
         <b-form-group class="col-12 col-sm-12 col-md-7 col-lg-7 col-xl-7">
           <label for="company-officer"
-            >Name of organisation's officer proposing the partnership with
-            OYALD*</label
+            >{{ $store.state.language == 'en' ? 'Name of organisation\'s officer proposing the partnership with OYALD*' : 'Nom du responsable de l’organisation proposant un partenariat avec OYALD' }}</label
           >
           <b-form-input
             id="company-officer"
@@ -234,7 +237,7 @@
         </b-form-group>
 
         <b-form-group class="col-12 col-sm-12 col-md-5 col-lg-5 col-xl-5">
-          <label for="company-officer-position">Designation of the Officer in the organisation*</label>
+          <label for="company-officer-position">{{ $store.state.language == 'en' ? 'Designation of the Officer in the organisation*' : 'Responsable du dirigeant de l’organisation' }}</label>
           <b-form-input
             id="company-officer-position"
             v-model="$store.state.userPreferences.companyOfficerPosition"
@@ -258,9 +261,11 @@
           :required="true"
         />
         <label class="d-inline" for="trueRepresentative"
-          >I, the above named officer, hereby affirm that I am a representative
+          >{{ $store.state.language == 'en' ? `I, the above named officer, hereby affirm that I am a representative
           of the above named organisation, and that I have the authority to
-          propose partnership with OYALD on the organisation's behalf*</label
+          propose partnership with OYALD on the organisation's behalf*` : `responsable susmentionné, je déclare par la
+           présente que je suis un représentant de l’organisation susmentionnée, et que
+           j’ai le pouvoir de proposer un partenariat avec OYALD au nom de l’organisation.` }}</label
         >
       </b-form-group>
 
@@ -277,10 +282,13 @@
           :required="true"
         />
         <label class="d-inline" for="truthOfCredentials"
-          >I declare that all the information provided herein by me are, to the
+          >{{ $store.state.language == 'en' ? `I declare that all the information provided herein by me are, to the
           best of my knowledge, correct and truthful. I hereby indemnify OYALD
           from any issues arising from inaccuracy or falsehood in the supplied
-          information.*</label
+          information.*` : `Je déclare que toutes les informations fournies ici par
+           mon nom sont à ma connaissance correctes et véridiques. Par le présent,
+            j’indemnise OYALD de tout problème résultant d’une inexactitude ou d’un mensonge
+             dans les informations fournies.` }}</label
         >
       </b-form-group>
 
@@ -292,7 +300,7 @@
         variant="success"
         class="bg-success w-100"
         style="background-color: var(--custom-primary-color) !important"
-        >Submit</b-button
+        >{{ $store.state.language == 'en' ? `Submit` : `Soumettre` }}</b-button
       >
     </b-form>
   </center>
