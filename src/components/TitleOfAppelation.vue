@@ -1,6 +1,6 @@
 <template>
 <b-form-group>
-                            <label for="title">Title of Appellation*</label>
+                            <label for="title">{{ $store.state.language == 'en' ? 'Title of Appellation*' : 'Titre de l\'appellation*' }}</label>
                             <b-form-select
                               v-model="$store.state.userPreferences.titleOfAppelation"
                               :options="titles"

@@ -20,7 +20,7 @@
               margin-right: 0 !important; /*color:; var(--yellow) !important;*/
             "
             class="h2 font-weight-bold text-warning"
-            >OYALD</span
+            >{{ $store.state.language === 'en' ? 'OYALD' : 'OJLAD' }}</span
           >
         </center>
         <center
@@ -94,18 +94,17 @@
           </p>
           <p>
             <router-link class="text-white" to="/general-secretariat">
-              <b-icon icon="caret-right-fill"></b-icon> OUR GENERAL SECRETARIAT
+              <b-icon icon="caret-right-fill"></b-icon> {{ $store.state.language === 'en' ? 'OUR GENERAL SECRETARIAT' : 'Notre Secrétariat Général'.toUpperCase() }}
             </router-link>
           </p>
           <p>
             <router-link class="text-white" to="/country-secretaries">
-              <b-icon icon="caret-right-fill"></b-icon> OUR NATIONAL
-              COORDINATORS
+              <b-icon icon="caret-right-fill"></b-icon> {{ $store.state.language === 'en' ? 'OUR NATIONAL COORDINATORS' : 'Nos Coordonnateurs Nationaux'.toUperCase() }}
             </router-link>
           </p>
           <p>
             <router-link class="text-white" to="/partners">
-              <b-icon icon="caret-right-fill"></b-icon> OUR PARTNERS
+              <b-icon icon="caret-right-fill"></b-icon> {{ $store.state.language === 'en' ? 'OUR PARTNERS' : 'Nos partenaires' }}
             </router-link>
           </p>
           <p>
@@ -129,7 +128,7 @@
       >
         <div>
           <span class="h6 font-weight-bold text-center"
-            >SUBSCRIBE TO OUR NEWSLETTER</span
+            >{{ $store.state.language === 'en' ? 'SUBSCRIBE TO OUR NEWSLETTER' : 'Abonnez-vous à notre newsletter'.toUpperCase() }}</span
           >
           <br />
           <b-overlay
@@ -150,7 +149,7 @@
                   type="email"
                   class="form-control"
                   id="inlineFormInputGroupUsername"
-                  placeholder="Enter your email address here"
+                  :placeholder="$store.state.language === 'en' ? 'Enter your email address here' : 'Entrez votre courriel ici'"
                 />
                 <div class="input-group-append">
                   <button
@@ -173,7 +172,7 @@
           href="mailto:info@oyald-ojlad.org"
           target="_blank"
         >
-          <b-icon icon="chat-left-dots-fill" /> Send us an email</a
+          <b-icon icon="chat-left-dots-fill" /> {{ $store.state.language === 'en' ? 'Send us an email' : ' Nous envoyer un e-mail' }}</a
         >
       </div>
 
@@ -184,7 +183,7 @@
       >
         <span>.</span>
         <small class="w-100 text-center font-weight-bold">
-          &copy; Organisation of Young African Leaders for Development (OYALD)
+          &copy; {{ $store.state.language === 'en' ? 'Organisation of Young African Leaders for Development (OYALD)' : '(c) L\'Organisation des Jeunes Leaders Africains pour le Développement (OJLAD) 2021' }}
           {{ year }}
         </small>
         <!-- 2011 -->

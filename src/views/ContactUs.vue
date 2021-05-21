@@ -4,9 +4,9 @@
       <center class="w-100">
         <img alt="contact-us" src="@/assets/img/mail.svg" width="250" />
       </center>
-      <p class="text-center w-100 font-weight-bold"> Please drop us a note </p>
+      <p class="text-center w-100 font-weight-bold"> {{ $store.state.language == 'en' ? 'Please drop us a note' : 'Veuillez nous laisser un message' }} </p>
       <br />
-      <p class="w-100 text-center"><span class="p-1 bg-danger text-white font-weight-bold rounded">Note:</span> Fields labelled with asterisk (*) are mandatory, the rest are optional</p>
+      <p class="w-100 text-center"><span class="p-1 bg-danger text-white font-weight-bold rounded">{{ $store.state.language == 'en' ? 'Note:' : 'Noter' }}</span> {{ $store.state.language == 'en' ? 'Fields labelled with asterisk (*) are mandatory, the rest are optional' : 'Remarque: Les champs marqués d\'un astérisque (*) sont obligatoires, les autres sont facultatifs' }}</p>
       <center> 
       <b-form
       style="max-width: 1050px !important;"
@@ -18,7 +18,7 @@
                           <title-of-appelation class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6" />
 
                           <b-form-group class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                            <label for="surname">Surname*</label>
+                            <label for="surname">{{ $store.state.language == 'en' ? 'Surname*' : 'Nom de famille*' }}</label>
                             <b-form-input
                             id="surname"
                             v-model="$store.state.userPreferences.surName"
@@ -34,7 +34,7 @@
                         <b-form-row class="row w-100">
 
                           <b-form-group class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                            <label for="first-name">First Name*</label>
+                            <label for="first-name">{{ $store.state.language == 'en' ? 'First Name*' : 'Prénom*' }}</label>
                             <b-form-input
                             id="first-name"
                             v-model="$store.state.userPreferences.firstName"
@@ -46,7 +46,7 @@
                           </b-form-group>
 
                           <b-form-group class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                            <label for="middle-name">Middle/other Names</label>
+                            <label for="middle-name">{{ $store.state.language == 'en' ? 'Middle/other Names' : 'Deuxième prénom / autres noms' }}</label>
                             <b-form-input
                             id="middle-name"
                             v-model="$store.state.userPreferences.middleName"
@@ -56,7 +56,7 @@
                           </b-form-group>
                           
                           <b-form-group class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                            <label for="phone-number">Phone Number*</label>
+                            <label for="phone-number">{{ $store.state.language == 'en' ? 'Phone Number*' : 'Numéro de téléphone*' }}</label>
                             <b-form-input
                             id="phone-number"
                             v-model="$store.state.userPreferences.phoneNumber"
@@ -68,7 +68,7 @@
                           </b-form-group>
 
                           <b-form-group class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                            <label for="email">Email*</label>
+                            <label for="email">{{ $store.state.language == 'en' ? 'Email*' : 'E-mail*' }}</label>
                             <b-form-input
                             id="email"
                             v-model="$store.state.userPreferences.email"
@@ -82,7 +82,7 @@
 
                         <b-form-row class="row w-100">
                           <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                            <label for="subject">Subject*</label>
+                            <label for="subject">{{ $store.state.language == 'en' ? 'Subject*' : 'Matière*' }}</label>
                             <b-form-input
                             id="subject"
                             v-model="subject"
@@ -109,7 +109,7 @@
                         <b-button
                         type="submit"
                         class="bg-green w-100"
-                        >Submit</b-button>
+                        >{{ $store.state.language == 'en' ? 'Submit' : 'Soumettre' }}</b-button>
                       </b-form>
                       </center>
 

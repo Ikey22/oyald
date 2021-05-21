@@ -177,7 +177,7 @@
         </b-form-group>
 
         <b-form-group class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-          <label for="company-twitter">>{{ $store.state.language == 'en' ? 'Link to Organisation\'s Twitter account (if any)' : 'Lien Twitter de l’organisation (le cas échéant)' }}</label>
+          <label for="company-twitter">{{ $store.state.language == 'en' ? 'Link to Organisation\'s Twitter account (if any)' : 'Lien Twitter de l’organisation (le cas échéant)' }}</label>
           <b-form-input
             id="company-Twitter"
             v-model="$store.state.userPreferences.companyTwitter"
