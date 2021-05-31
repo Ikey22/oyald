@@ -1,9 +1,19 @@
 <template>
   <footer class="w-100 bg-green text-dark">
     <br />
-    <h1 class="w-100 text-center font-weight-bold text-white">{{ $store.state.language === 'en' ? 'Our Vision' : 'Notre vision' }}</h1>
+    <h1 class="w-100 text-center font-weight-bold text-white">
+      {{ $store.state.language == "en" ? "Our Vision" : "Notre vision" }}
+    </h1>
     <p class="text-center text-white w-100 px-3">
-      {{ $store.state.language === 'en' ? 'We envision a united, peaceful, inclusive, and sustainably prosperous Africa, driven by the joint transformational efforts of Africans, across generations.' : 'Nous envisageons une Afrique unie, pacifique, inclusive et durablement prospère, portée par les efforts de transformation conjoints des Africains, à travers les générations.' }}
+      {{
+        $store.state.language === "en"
+          ? `We envision a united, peaceful, inclusive,
+      and sustainably prosperous Africa, driven by the joint transformational efforts of
+      Africans, across generations.`
+          : `Nous envisageons une Afrique unie, pacifique,
+      inclusive et durablement prospère, portée par les efforts de transformation conjoints
+      des Africains, à travers les générations.`
+      }}
     </p>
     <br />
     <hr />
@@ -17,10 +27,10 @@
               padding-left: 0 !important;
               margin-left: 0 !important;
               padding-right: 0 !important;
-              margin-right: 0 !important; /*color:; var(--yellow) !important;*/
+              margin-right: 0 !important;
             "
             class="h2 font-weight-bold text-warning"
-            >{{ $store.state.language === 'en' ? 'OYALD' : 'OJLAD' }}</span
+            >{{ $store.state.language === "en" ? "OYALD" : "OJLAD" }}</span
           >
         </center>
         <center
@@ -94,17 +104,32 @@
           </p>
           <p>
             <router-link class="text-white" to="/general-secretariat">
-              <b-icon icon="caret-right-fill"></b-icon> {{ $store.state.language === 'en' ? 'OUR GENERAL SECRETARIAT' : 'Notre Secrétariat Général'.toUpperCase() }}
+              <b-icon icon="caret-right-fill"></b-icon>
+              {{
+                $store.state.language === "en"
+                  ? "OUR GENERAL SECRETARIAT"
+                  : "Notre Secrétariat Général".toUpperCase()
+              }}
             </router-link>
           </p>
           <p>
             <router-link class="text-white" to="/country-secretaries">
-              <b-icon icon="caret-right-fill"></b-icon> {{ $store.state.language === 'en' ? 'OUR NATIONAL COORDINATORS' : 'Nos Coordonnateurs Nationaux'.toUperCase() }}
+              <b-icon icon="caret-right-fill"></b-icon>
+              {{
+                $store.state.language === "en"
+                  ? "OUR NATIONAL COORDINATORS"
+                  : "Nos Coordonnateurs Nationaux".toUpperCase()
+              }}
             </router-link>
           </p>
           <p>
             <router-link class="text-white" to="/partners">
-              <b-icon icon="caret-right-fill"></b-icon> {{ $store.state.language === 'en' ? 'OUR PARTNERS' : 'Nos partenaires' }}
+              <b-icon icon="caret-right-fill"></b-icon>
+              {{
+                $store.state.language === "en"
+                  ? "OUR PARTNERS"
+                  : "Nos partenaires"
+              }}
             </router-link>
           </p>
           <p>
@@ -127,9 +152,11 @@
         class="px-2 text-light d-flex flex-column flex-md-row flex-lg-row flex-xl-row align-items-center justify-content-between"
       >
         <div>
-          <span class="h6 font-weight-bold text-center"
-            >{{ $store.state.language === 'en' ? 'SUBSCRIBE TO OUR NEWSLETTER' : 'Abonnez-vous à notre newsletter'.toUpperCase() }}</span
-          >
+          <span class="h6 font-weight-bold text-center">{{
+            $store.state.language === "en"
+              ? "SUBSCRIBE TO OUR NEWSLETTER"
+              : "Abonnez-vous à notre newsletter".toUpperCase()
+          }}</span>
           <br />
           <b-overlay
             :show="$store.state.isAddingToNewsletter"
@@ -149,7 +176,11 @@
                   type="email"
                   class="form-control"
                   id="inlineFormInputGroupUsername"
-                  :placeholder="$store.state.language === 'en' ? 'Enter your email address here' : 'Entrez votre courriel ici'"
+                  :placeholder="
+                    $store.state.language === 'en'
+                      ? 'Enter your email address here'
+                      : 'Entrez votre courriel ici'
+                  "
                 />
                 <div class="input-group-append">
                   <button
@@ -165,14 +196,24 @@
           </b-overlay>
         </div>
 
-        <span v-for="x in 3" :key="`random-span-${x}`" class="text-primary-color">&nbsp; . &nbsp;</span>
+        <span
+          v-for="x in 3"
+          :key="`random-span-${x}`"
+          class="text-primary-color"
+          >&nbsp; . &nbsp;</span
+        >
 
         <a
           class="text-white"
           href="mailto:info@oyald-ojlad.org"
           target="_blank"
         >
-          <b-icon icon="chat-left-dots-fill" /> {{ $store.state.language === 'en' ? 'Send us an email' : ' Nous envoyer un e-mail' }}</a
+          <b-icon icon="chat-left-dots-fill" />
+          {{
+            $store.state.language === "en"
+              ? "Send us an email"
+              : " Nous envoyer un e-mail"
+          }}</a
         >
       </div>
 
@@ -183,7 +224,12 @@
       >
         <span>.</span>
         <small class="w-100 text-center font-weight-bold">
-          &copy; {{ $store.state.language === 'en' ? 'Organisation of Young African Leaders for Development (OYALD)' : '(c) L\'Organisation des Jeunes Leaders Africains pour le Développement (OJLAD) 2021' }}
+          &copy;
+          {{
+            $store.state.language === "en"
+              ? "Organisation of Young African Leaders for Development (OYALD)"
+              : "(c) L'Organisation des Jeunes Leaders Africains pour le Développement (OJLAD) 2021"
+          }}
           {{ year }}
         </small>
         <!-- 2011 -->

@@ -98,7 +98,7 @@ export default {
       this.$store.state.states = this.$store.state.countries[
         foundIndex
       ].states;
-      this.$store.state.cities = [{ name: "select Stat First!" }];
+      this.$store.state.cities = [{ name: "select State First!" }];
       return this.emitValue();
     },
     emitValue() {

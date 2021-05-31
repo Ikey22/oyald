@@ -1,6 +1,6 @@
 <template>
     <b-dropdown
-        :text="$store.state.language === 'en' ? 'join OYALD' : 'Adherer à OJLAD'"
+        :text="$store.state.language === 'en' ? 'join OYALD' : 'Adhérer à OJLAD'"
         variant="warning"
       >
         <b-dropdown-item to="/membership">{{ $store.state.language === 'en' ? 'As a member' : 'En tant que membre' }}</b-dropdown-item>
