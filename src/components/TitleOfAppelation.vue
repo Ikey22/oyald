@@ -1,18 +1,19 @@
 <template>
   <b-form-group>
-    <label for="title">{{
+    <label for="title-of-appelation">{{
       $store.state.language == "en"
         ? "Title of Appellation*"
         : "Titre de l'appellation*"
     }}</label>
     <b-form-select
+      id="title-of-appelation"
       v-model="$store.state.userPreferences.titleOfAppelation"
       :required="true"
     >
       <b-form-select-option
-        v-for="title in titles"
-        :key="title"
-        value="title.english"
+        v-for="title of titles"
+        :key="title.english"
+        :value="title.english"
       >
         {{ $store.state.language == "en" ? title.english : title.french }}
       </b-form-select-option>
@@ -45,10 +46,6 @@ export default {
         {
           english: "Pst.",
           french: "Pst.",
-        },
-        {
-          english: "Pst.",
-          french: "Pst",
         },
         {
           english: "Rev.",

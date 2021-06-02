@@ -5,7 +5,7 @@
       style="color: var(--custom-primary-color) !important"
     >
       {{
-        $store.state.language === "en"
+        $store.state.language == "en"
           ? $store.state.englishStrings.contactUs
           : $store.state.frenchStrings.contactUs
       }}
@@ -64,17 +64,10 @@
             <label for="first-name">{{
               $store.state.language == "en" ? "First Name*" : "Prénom*"
             }}</label>
-            <b-form-input
-              id="first-name"
-              v-model="$store.state.userPreferences.firstName"
-              :placeholder="
-                $store.state.language === 'en' ? 'type here...' : 'Écrire ici'
-              "
-              type="text"
-              autocomplete="given-name"
-              :required="true"                height: 100% !important;
-
-            />
+            <b-form-input id="first-name"
+            v-model="$store.state.userPreferences.firstName" :placeholder="
+            $store.state.language === 'en' ? 'type here...' : 'Écrire ici' "
+            type="text" autocomplete="given-name" :required="true" />
           </b-form-group>
 
           <b-form-group class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
@@ -186,7 +179,7 @@ export default {
   },
   methods: {
     submitContactForm() {
-      const destinationEmail = "danroyaleffiong@gmail.com"; // this.$store.state.email;
+      const destinationEmail = this.$store.state.email;
       const subject = this.subject;
       const messageBody = this.message;
 

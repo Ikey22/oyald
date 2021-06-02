@@ -8,8 +8,7 @@ import NetworkError from '@/components/NetworkError.vue';
 
 Vue.use(VueRouter);
 
-const routes = [
-  {
+const routes = [{
     path: '/',
     alias: '/landing-page',
     name: 'LandingPage',
@@ -25,7 +24,7 @@ const routes = [
   },
 
 
-  
+
   {
     path: '/home',
     redirect: '/home-page'
@@ -44,7 +43,7 @@ const routes = [
       delay: 1,
       loading: PreLoader,
       error: NetworkError,
-      component: import(/* webpackChunkName: "about", webpackPrefetch: true */ '@/views/HomePage.vue')
+      component: import( /* webpackChunkName: "about", webpackPrefetch: true */ '@/views/HomePage.vue')
     })
   },
 
@@ -67,9 +66,9 @@ const routes = [
     component: () => ({
       timeout: 60000,
       delay: 1,
-      loading: PreLoader, 
+      loading: PreLoader,
       error: NetworkError,
-      component: import(/* webpackChunkName: "about", webpackPrefetch: true */ '@/views/InitiativesPage.vue')
+      component: import( /* webpackChunkName: "about", webpackPrefetch: true */ '@/views/InitiativesPage.vue')
     })
   },
 
@@ -82,9 +81,9 @@ const routes = [
     component: () => ({
       timeout: 60000,
       delay: 1,
-      loading: PreLoader, 
+      loading: PreLoader,
       error: NetworkError,
-      component: import(/* webpackChunkName: "membership" */ '@/views/NewMember.vue')
+      component: import( /* webpackChunkName: "membership" */ '@/views/NewMember.vue')
     })
   },
 
@@ -96,9 +95,9 @@ const routes = [
     component: () => ({
       timeout: 60000,
       delay: 1,
-      loading: PreLoader, 
+      loading: PreLoader,
       error: NetworkError,
-      component: import(/* webpackChunkName: "membership" */ '@/views/NewPartner.vue')
+      component: import( /* webpackChunkName: "membership" */ '@/views/NewPartner.vue')
     })
   },
 
@@ -110,9 +109,9 @@ const routes = [
     component: () => ({
       timeout: 60000,
       delay: 1,
-      loading: PreLoader, 
+      loading: PreLoader,
       error: NetworkError,
-      component: import(/* webpackChunkName: "our-team", webpackPrefetch: true */ '@/views/Generalsecretariat.vue')
+      component: import( /* webpackChunkName: "our-team", webpackPrefetch: true */ '@/views/Generalsecretariat.vue')
     })
   },
 
@@ -123,7 +122,7 @@ const routes = [
     alias: "/national-coordinators.html",
     redirect: "/country-secretaries"
   },
-  
+
   {
     path: "/country-secretaries",
     alias: "/country-secretaries",
@@ -131,9 +130,9 @@ const routes = [
     component: () => ({
       timeout: 60000,
       delay: 1,
-      loading: PreLoader, 
+      loading: PreLoader,
       error: NetworkError,
-      component: import(/* webpackChunkName: "our-team", webpackPrefetch: true */ '@/views/CountrySecretaries.vue')
+      component: import( /* webpackChunkName: "our-team", webpackPrefetch: true */ '@/views/CountrySecretaries.vue')
     })
   },
 
@@ -145,9 +144,9 @@ const routes = [
     component: () => ({
       timeout: 60000,
       delay: 1,
-      loading: PreLoader, 
+      loading: PreLoader,
       error: NetworkError,
-      component: import(/* webpackChunkName: "our-team", webpackPrefetch: true */ '@/views/Partners.vue')
+      component: import( /* webpackChunkName: "our-team", webpackPrefetch: true */ '@/views/Partners.vue')
     })
   },
 
@@ -160,9 +159,9 @@ const routes = [
     component: () => ({
       timeout: 60000,
       delay: 1,
-      loading: PreLoader, 
+      loading: PreLoader,
       error: NetworkError,
-      component: import(/* webpakChunkName: "contact-us", webpackPrefetch: true */ '@/views/ContactUs.vue')
+      component: import( /* webpakChunkName: "contact-us", webpackPrefetch: true */ '@/views/ContactUs.vue')
     })
   },
 
@@ -174,13 +173,13 @@ const routes = [
     component: () => ({
       timeout: 60000,
       delay: 1,
-      loading: PreLoader, 
+      loading: PreLoader,
       error: NetworkError,
-      component: import(/*  webpackChunkName: "admin", webpackPrefetch: true */ '@/views/Admin.vue')
+      component: import( /*  webpackChunkName: "admin", webpackPrefetch: true */ '@/views/Admin.vue')
     })
   },
 
-  
+
 
   {
     path: "*",
@@ -188,7 +187,7 @@ const routes = [
     component: NotFound404
   },
 
-  
+
 
   {
     path: "/hover-calender",
@@ -196,13 +195,13 @@ const routes = [
     component: () => ({
       timeout: 60000,
       delay: 1,
-      loading: PreLoader, 
+      loading: PreLoader,
       error: NetworkError,
-      component: import(/*  webpackChunkName: "admin", webpackPrefetch: true */ '@/views/HoverCalendar.vue')
+      component: import( /*  webpackChunkName: "admin", webpackPrefetch: true */ '@/views/HoverCalendar.vue')
     })
   },
 
-  
+
 
   {
     path: "/auth-handler",
@@ -210,9 +209,9 @@ const routes = [
     component: () => ({
       timeout: 60000,
       delay: 1,
-      loading: PreLoader, 
+      loading: PreLoader,
       error: NetworkError,
-      component: import(/*  webpackChunkName: "AuthHandler" */ '@/views/AuthHandler.vue')
+      component: import( /*  webpackChunkName: "AuthHandler" */ '@/views/AuthHandler.vue')
     })
   }
 ];
@@ -221,8 +220,11 @@ const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes,
-  scrollBehavior () {
-    return { x: 0, y: 0 };
+  scrollBehavior() {
+    return {
+      x: 0,
+      y: 0
+    };
   }
 });
 
