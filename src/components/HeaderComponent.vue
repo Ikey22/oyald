@@ -4,7 +4,7 @@
     toggleable="lg"
     type="dark"
     variant="success"
-    style="background: var(--custom-primary-color) !important"
+    style="background: var(--custom-primary-color) !important; width: 100%;"
   >
     <b-navbar-brand to="/home-page" class="font-weight-bold navbar-brand">
       <div class="logo-img-wrapper">
@@ -23,15 +23,15 @@
             >{{
               $store.state.language === "en"
                 ? $store.state.englishStrings.inform
-                : $store.state.frenchStrings.inform.toString().toUpperCase()
+                : $store.state.frenchStrings.inform
             }}...{{
               $store.state.language === "en"
                 ? $store.state.englishStrings.inspire
-                : $store.state.frenchStrings.inspire.toString().toUpperCase()
+                : $store.state.frenchStrings.inspire
             }}...{{
               $store.state.language === "en"
                 ? $store.state.englishStrings.involve
-                : $store.state.frenchStrings.involve.toString().toUpperCase()
+                : $store.state.frenchStrings.involve
             }}</marquee
           ></span
         >
@@ -63,7 +63,7 @@
         }}</b-nav-item>
         <b-nav-item to="/about-africa">{{
           $store.state.language === "en"
-            ? "ABOUT AFRICA"
+            ? "About Africa"
             : "À Propos de l'Afrique"
         }}</b-nav-item>
         <b-nav-item to="/initiatives">{{
@@ -72,7 +72,7 @@
             : $store.state.frenchStrings.ourInitiatives
         }}</b-nav-item>
         <b-nav-item-dropdown
-          :text="$store.state.language === 'en' ? 'OUR TEAM' : 'Notre équipe'"
+          :text="$store.state.language === 'en' ? 'Our Team' : 'Notre Équipe'"
           right
         >
           <b-dropdown-item to="/general-secretariat" class="font-weight-bold">{{
@@ -86,7 +86,7 @@
               : "Nos Coordonnateurs/Secrétaires Nationaux"
           }}</b-dropdown-item>
           <b-dropdown-item to="/partners" class="font-weight-bold">{{
-            $store.state.language === "en" ? "Our Partners" : ""
+            $store.state.language === "en" ? "Our Partners" : "Nos Partenaires"
           }}</b-dropdown-item>
           <!-- Right aligned nav items -->
           <!-- <b-navbar-nav class="ml-auto">
@@ -114,7 +114,7 @@
         </b-nav-item-dropdown>
         <b-nav-item-dropdown
           :text="
-            $store.state.language === 'en' ? 'JOIN OYALD' : 'Adhérer à OJLAD'
+            $store.state.language === 'en' ? 'Join OYALD' : 'Adhérer à OJLAD'
           "
           right
         >
@@ -130,7 +130,7 @@
           }}</b-dropdown-item>
         </b-nav-item-dropdown>
         <b-nav-item to="/contact">{{
-          $store.state.language === "en" ? "CONTACT US" : "Nous Contacter"
+          $store.state.language === "en" ? "Contact Us" : "Nous Contacter"
         }}</b-nav-item>
       </b-navbar-nav>
     </b-collapse>

@@ -10,7 +10,7 @@
           <figcaption class="ml-4"><small>{{ $store.state.language === 'en' ? 'Image source:' : "Source de l'Image" }} <a target="_blank" href="http://www.pngall.com/africa-map-png">http://www.pngall.com/africa-map-png</a> </small> </figcaption>
         </figure>
         
-        {{ $store.state.language === 'en' ? 'Africa is the second largest continent, spanning about one-fifth of the total land surface of the earth. It is bounded on the West by the Atlantic Ocean, the Mediterranean Sea on the North, the Red Sea and Indian Ocean on the East, and on the South by the mingling waters of the Atlantic and Indian Oceans. Africa has a total land mass of approximately 11,724,000 square miles (30,365,000 km²), and measures about 5,000 miles (8,000 km) from the north to south, and about 4,600 miles (7,400 km) from east to west.' : 'L\'Afrique est le deuxième plus grand continent, couvrant environ un cinquième de la surface totale de la terre. Elle est délimitée à l\'ouest par l\'océan Atlantique, la mer Méditerranée au nord, la mer Rouge, l\'océan Indien à l\'est et au sud par le mélange des eaux des océans Atlantique et Indien. L\'Afrique a une masse terrestre totale d\'environ 11.724.000 m2 (30.365.000 km2) et mesure environ 5.000 m2 (7.400 km) d\'est en ouest.' }}
+        {{ $store.state.language === 'en' ? 'Africa is the second largest continent, spanning about one-fifth of the total land surface of the earth. It is bounded on the West by the Atlantic Ocean, the Mediterranean Sea on the North, the Red Sea and Indian Ocean on the East, and on the South by the mingling waters of the Atlantic and Indian Oceans. Africa has a total land mass of approximately 11,724,000 square miles (30,365,000 km²), and measures about 5,000 miles (8,000 km) from the north to south, and about 4,600 miles (7,400 km) from east to west.' : `L'Afrique est le deuxième plus grand continent, couvrant environ un cinquième de la surface totale de la terre. Elle est délimitée à l'ouest par l'Océan Atlantique, la Mer Méditerranée au nord, la Mer Rouge et l'Océan Indien à l'est, et au sud par le mélange des eaux des Océans Atlantique et Indien. L'Afrique a une masse terrestre totale d'environ 11.724.000 m2 (30.365.000 km2) et mesure environ 5.000 m2 (7.400 km) d'est en ouest.` }}
       <!-- eslint-disable-next-line vue/no-parsing-error -->
       </p>
       <p> {{ $store.state.language === 'en' ? 'Africa is divided almost equally in two by the equator, making most of the continent lying within the tropical region, which is bounded on the north by the Tropic of Cancer and on the south by the tropic of Capricorn. Due to the bulge formed by West Africa, the greater part of the continent’s territory lies north of the equator.' : 'L\'Afrique est divisée en deux par l\'équateur. Ainsi, la majeure partie du continent est située dans la région tropicale, qui est délimitée au nord par le tropique du Cancer et au sud par le tropique du Capricorne en raison du renflement formé par l’Afrique de l’Ouest. La plus grande partie du territoire du continent se situe au nord de l’équateur.' }}</p>
@@ -21,7 +21,7 @@
         <p>{{ $store.state.language === 'en' ? 'Africa is rising once again. The African horizon is growing brighter. Africa is on the march towards a more prosperous future in which all its citizens, of all creeds and backgrounds, are empowered to realize their full potential, and live with satisfaction and pride about their continent. Indeed, Africa is on the verge of a future with healthy, well educated people living in robust, inclusive, and sustainably developed economies. ' : 'L\'Afrique est à nouveau en train de s\'élever. L\'horizon africain s\'éclaircit. L\'Afrique est en marche vers un avenir plus prospère dans lequel tous ses citoyens, de toutes croyances et origines, sont habilités à réaliser leur plein potentiel et à vivre avec satisfaction et fierté pour leur continent. En effet, l\'Afrique est à la veille d\'un avenir prospère avec des personnes en bonne santé et bien éduquées vivant dans des économies robustes, inclusives et développées de manières durables.' }}</p>
       </b-collapse>
       <br />
-      <b-button v-b-toggle.collapse-1 variant="success" @click="
+      <b-button v-b-toggle.collapse-1 variant="success"  @click="
             $store.state.language === 'en'
               ? readMoreText === 'Read More'
                 ? (readMoreText = 'Read Less')
@@ -108,28 +108,6 @@ export default {
     return {
       readMoreText: 'Read More',
       readMoreTextFrench: 'Lire la suite'
-    }
-  },
-  mounted(){
-    const $this = this;
-    switch ($this.$route.query.lang) {
-      case "fr":
-        (() => {
-          $this.$store.commit('setLanguage', 'fr');
-        })()
-        break;
-
-      case "en":
-        (() => {
-          $this.$store.commit('setLanguage', 'en');
-        })()
-        break;
-    
-      default:
-        (() => {
-          $this.$store.commit('setLanguage', 'en');
-        })()
-        break;
     }
   }
 }

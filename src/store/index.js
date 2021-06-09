@@ -45,7 +45,7 @@ const $store = new Vuex.Store({
       phoneNumber: "",
       zipCode: "",
       country: "",
-      countryOfResidence:"",
+      countryOfResidence: "",
       state: "",
       city: "",
       passport: [],
@@ -75,30 +75,30 @@ const $store = new Vuex.Store({
     },
     englishStrings: {
       language: 'Language',
-      inform: 'INFORM',
-      inspire: 'INSPIRE',
-      involve: 'INVOLVE',
-      home: 'HOME',
-      about: 'ABOUT',
-      aboutUs: 'ABOUT OYALD',
-      ourInitiatives: 'OUR INITIATIVES',
-      ourTeam: 'OUR TEAM',
-      meetOurTeam: 'MEET OUR TEAM',
-      ourMembership: 'OUR MEMBERSHIP',
-      ourPartners: 'OUR PARTNERS',
-      contactUs: 'CONTACT US',
-      writeUs: 'write us',
-      usefulLinks: 'Useful links',
+      inform: 'Inform',
+      inspire: 'Inspire',
+      involve: 'Involve',
+      home: 'Home',
+      about: 'About',
+      aboutUs: 'About OYALD',
+      ourInitiatives: 'Our Initiatives',
+      ourTeam: 'Our Team',
+      meetOurTeam: 'Meet Our Team',
+      ourMembership: 'Our Membership',
+      ourPartners: 'Our Partners',
+      contactUs: 'Contact Us',
+      writeUs: 'Write us',
+      usefulLinks: 'Useful Links',
       stayConnected: 'Stay Connected',
     },
     frenchStrings: {
       language: 'Langue',
-      inform: 'Informer', 
+      inform: 'Informer',
       inspire: 'Inspirer',
       involve: 'impliquer',
       home: 'Accueil',
-      about: 'À propos',
-      aboutUs: 'À propos de nous',
+      about: 'À Propos',
+      aboutUs: 'À Propos de Nous',
       ourInitiatives: 'Nos Initiatives',
       ourTeam: 'Notre Équipe',
       meetOurTeam: 'Rencontrez notre équipe',
@@ -106,7 +106,7 @@ const $store = new Vuex.Store({
       ourPartners: 'Nos partenaires',
       contactUs: 'Nous Contacter',
       writeUs: 'Nous écrire à ',
-      usefulLinks: 'Hyperliens utiles',
+      usefulLinks: 'Hyperliens Utiles',
       stayConnected: 'Rester connecté',
     },
     authAdmin: null,
@@ -143,34 +143,34 @@ const $store = new Vuex.Store({
     tocModal: false
   },
   mutations: {
-    setLanguage(state, language){
+    setLanguage(state, language) {
       state.language = language;
       return console.log(`Lang: ${language}`);
     },
-    setAuthAdmin(state, admin){
+    setAuthAdmin(state, admin) {
       state.authAdmin = admin;
       // localStorage.setItem('authAdmin', JSON.stringify(admin));
       // console.log(JSON.stringify(admin));
     },
-    showSuccessModal(state, boolValue){
+    showSuccessModal(state, boolValue) {
       state.successModal = boolValue;
     },
-    showEmailAlreadyInNewsletterModal(state, boolValue){
+    showEmailAlreadyInNewsletterModal(state, boolValue) {
       state.emailAlreadyInNewsletterModal = boolValue;
     },
-    showNetworkErrorModal(state, boolValue){
+    showNetworkErrorModal(state, boolValue) {
       state.networkErrorModal = boolValue;
     },
     showTOCModal(state, trueOrFalse) {
       state.tocModal = trueOrFalse;
     },
-    showIsUploadingModal(state, trueOrFalse){
+    showIsUploadingModal(state, trueOrFalse) {
       state.isUploading = trueOrFalse;
     },
-    setUploadProgress(state, progress){
+    setUploadProgress(state, progress) {
       state.uploadProgress = progress;
     },
-    async submitNewsletterForm(state){
+    async submitNewsletterForm(state) {
       state.isAddingToNewsletter = true;
 
 
@@ -178,7 +178,7 @@ const $store = new Vuex.Store({
       const email = state.userPreferences.email;
 
       const addEmailToNewsletterSubscribtion = email => {
-        if (/\S@\S.\S/.test(email)) ref.add({email, subscribed_on: Date.now() || (new Date()).getTime()})
+        if (/\S@\S.\S/.test(email)) ref.add({ email, subscribed_on: Date.now() || (new Date()).getTime() })
           .then(() => {
             state.isAddingToNewsletter = false;
             window.__$store.commit('showSuccessModal', true)
@@ -193,8 +193,8 @@ const $store = new Vuex.Store({
         .limit(1)
         .get()
         .then(snapshot => {
-          if (snapshot.docs){
-            if (snapshot.docs.length && snapshot.docs[0]){
+          if (snapshot.docs) {
+            if (snapshot.docs.length && snapshot.docs[0]) {
               state.isAddingToNewsletter = false;
               window.__$store.commit('showEmailAlreadyInNewsletterModal', true);
             } else {

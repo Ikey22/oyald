@@ -76,7 +76,7 @@
       v-model="$store.state.emailAlreadyInNewsletterModal"
       ok-only
       ok-variant="success"
-      size="xl"
+      
       centered
     >
       <div class="w-100 h-100">
@@ -222,6 +222,17 @@ export default {
     FooterComponent,
     PreHeader,
     HeaderComponent
+  },
+  mounted(){
+    window.onscroll = () => {
+      const deltaY = window.scrollY;
+      const header = document.querySelector("body > div.root.w-100.h-100.m-0.p-0 > nav");
+      if (deltaY > 100) {
+        header.style.position = 'fixed';
+      } else {
+        header.style.position = '';
+      }
+    }
   },
   name: "App",
   data() {

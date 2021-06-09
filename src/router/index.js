@@ -6,6 +6,8 @@ import NotFound404 from '@/views/NotFound404.vue';
 import PreLoader from '@/components/Preloader.vue';
 import NetworkError from '@/components/NetworkError.vue';
 
+import store from '../store';
+
 Vue.use(VueRouter);
 
 const routes = [{
@@ -229,10 +231,16 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
+  to.query.lang = store.state.language
   console.log(to, from);
-  console.clear();
+  // console.clear();
   return next();
 });
+
+router.afterEach((to) => {
+  store.commit('setLanguage', to.query.lang || 'en');
+  // return console.clear();
+})
 
 window.__$router = router;
 

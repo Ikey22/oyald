@@ -19,7 +19,13 @@
     <hr />
     <div class="container-fluid">
       <div
-        class="d-flex flex-column flex-med-row flex-lg-row align-items-start justify-content-between text-yellow"
+        class="
+          d-flex
+          flex-column flex-med-row flex-lg-row
+          align-items-start
+          justify-content-between
+          text-yellow
+        "
       >
         <center class="pt-4 pb-1">
           <span
@@ -34,7 +40,16 @@
           >
         </center>
         <center
-          class="pt-4 px-3 pb-2 row d-flex flex-row align-items-center justify-content-between"
+          class="
+            pt-4
+            px-3
+            pb-2
+            row
+            d-flex
+            flex-row
+            align-items-center
+            justify-content-between
+          "
         ></center>
       </div>
 
@@ -44,11 +59,7 @@
             {{
               $store.state.language === "en"
                 ? $store.state.englishStrings.stayConnected
-                    .toString()
-                    .toUpperCase()
                 : $store.state.frenchStrings.stayConnected
-                    .toString()
-                    .toUpperCase()
             }}
           </p>
           <p
@@ -66,11 +77,7 @@
             {{
               $store.state.language === "en"
                 ? $store.state.englishStrings.usefulLinks
-                    .toString()
-                    .toUpperCase()
                 : $store.state.frenchStrings.usefulLinks
-                    .toString()
-                    .toUpperCase()
             }}
           </p>
           <p>
@@ -83,8 +90,8 @@
               <b-icon icon="caret-right-fill"></b-icon>
               {{
                 $store.state.language === "en"
-                  ? $store.state.englishStrings.aboutUs.toString().toUpperCase()
-                  : $store.state.frenchStrings.aboutUs.toString().toUpperCase()
+                  ? $store.state.englishStrings.aboutUs
+                  : $store.state.frenchStrings.aboutUs
               }}
             </router-link>
           </p>
@@ -94,11 +101,7 @@
               {{
                 $store.state.language === "en"
                   ? $store.state.englishStrings.ourInitiatives
-                      .toString()
-                      .toUpperCase()
                   : $store.state.frenchStrings.ourInitiatives
-                      .toString()
-                      .toUpperCase()
               }}
             </router-link>
           </p>
@@ -107,8 +110,8 @@
               <b-icon icon="caret-right-fill"></b-icon>
               {{
                 $store.state.language === "en"
-                  ? "OUR GENERAL SECRETARIAT"
-                  : "Notre Secrétariat Général".toUpperCase()
+                  ? "Our General Secretariat"
+                  : "Notre Secrétariat Général"
               }}
             </router-link>
           </p>
@@ -117,8 +120,8 @@
               <b-icon icon="caret-right-fill"></b-icon>
               {{
                 $store.state.language === "en"
-                  ? "OUR NATIONAL COORDINATORS"
-                  : "Nos Coordonnateurs Nationaux".toUpperCase()
+                  ? "Our National Coordinators"
+                  : "Nos Coordonnateurs Nationaux"
               }}
             </router-link>
           </p>
@@ -127,7 +130,7 @@
               <b-icon icon="caret-right-fill"></b-icon>
               {{
                 $store.state.language === "en"
-                  ? "OUR PARTNERS"
+                  ? "Our Partners"
                   : "Nos partenaires"
               }}
             </router-link>
@@ -149,19 +152,27 @@
       <hr class="bordered border-light" />
 
       <div
-        class="px-2 text-light d-flex flex-column flex-md-row flex-lg-row flex-xl-row align-items-center justify-content-between"
+        class="
+          px-2
+          text-light
+          d-flex
+          flex-column flex-md-row flex-lg-row flex-xl-row
+          align-items-center
+          justify-content-between
+        "
       >
         <div>
           <span class="h6 font-weight-bold text-center">{{
             $store.state.language === "en"
-              ? "SUBSCRIBE TO OUR NEWSLETTER"
-              : "Abonnez-vous à notre newsletter".toUpperCase()
+              ? "Subscribe to Our Newsletter"
+              : "Abonnez-vous à notre newsletter"
           }}</span>
           <br />
           <b-overlay
             :show="$store.state.isAddingToNewsletter"
             rounded
             opacity="0.6"
+            spinner-variant="primary"
             spinner-small
             class="d-flex flex-xl-row flex-lg-row flex-md-row flex-sm-column"
           >
@@ -220,7 +231,13 @@
       <hr class="bordered border-light" />
 
       <div
-        class="text-light d-flex flex-crow flex-lg-row align-items-center justify-content-around"
+        class="
+          text-light
+          d-flex
+          flex-crow flex-lg-row
+          align-items-center
+          justify-content-around
+        "
       >
         <span>.</span>
         <small class="w-100 text-center font-weight-bold">
@@ -228,7 +245,7 @@
           {{
             $store.state.language === "en"
               ? "Organisation of Young African Leaders for Development (OYALD)"
-              : "(c) L'Organisation des Jeunes Leaders Africains pour le Développement (OJLAD) 2021"
+              : "L'Organisation des Jeunes Leaders Africains pour le Développement (OJLAD)"
           }}
           {{ year }}
         </small>

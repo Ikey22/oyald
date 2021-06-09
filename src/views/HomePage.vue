@@ -30,7 +30,7 @@
             v-html="
               $store.state.language === 'en'
                 ? 'Given the commitments made by the African Heads of State to support the implementation of the main development Agenda in Africa;'
-                : 'Compte tenu des engagements pris par les chefs d\'État africains pour soutenir la mise en œuvre du principal programme de développement en Afrique;'
+                : 'Compte tenu des engagements pris par les Chefs D\'État Africains pour soutenir la mise en œuvre du principal programme de développement en Afrique;'
             "
           />
           <br /><br />
@@ -39,7 +39,7 @@
             v-html="
               $store.state.language === 'en'
                 ? 'Acknowledging the importance of the Agenda 2063, <b><q>The Africa We Want</q></b> in building a united and prosperous Africa;'
-                : 'Reconnaissant l\'importance de l\'Agenda 2063, <q>L\'Afrique que nous Voulons</q> dans la construction d\'une Afrique unie et prospère;'
+                : 'Reconnaissant l\'importance de l\'Agenda 2063, <q>L\'Afrique Que Nous Voulons</q> dans la construction d\'une Afrique unie et prospère;'
             "
           />
           <br /><br />
@@ -48,7 +48,7 @@
             v-html="
               $store.state.language === 'en'
                 ? 'Understanding the strategic contributions of the Agenda 2030, <b><q>Leaving No One Behind</q></b> to the enhancement of the living conditions of Africans;'
-                : 'Comprendre les contributions stratégiques de l\'Agenda 2030, « Ne laisser personne de côté» à l\'amélioration des conditions de vie des Africains;'
+                : 'Comprendre les contributions stratégiques de l\'Agenda 2030, « Ne Laisser Personne De Côté» à l\'amélioration des conditions de vie des Africains;'
             "
           />
           <br />
@@ -102,7 +102,7 @@
           v-b-toggle.collapse-1
           variant="success"
           class="bg-success"
-          @click="
+           @click="
             $store.state.language === 'en'
               ? readMoreText === 'Read More'
                 ? (readMoreText = 'Read Less')
@@ -115,6 +115,7 @@
             $store.state.language == "en" ? readMoreText : readMoreTextFrench
           }}</b-button
         >
+        <!-- bookmark -->
       </section>
     </div>
 
