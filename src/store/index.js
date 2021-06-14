@@ -72,6 +72,9 @@ const $store = new Vuex.Store({
       companyLogo: [],
       companyNotes: "",
       trueRepresentative: true,
+
+      initiativesState: "",
+      initiativesCity: "",
     },
     englishStrings: {
       language: 'Language',
@@ -144,6 +147,9 @@ const $store = new Vuex.Store({
   },
   mutations: {
     setLanguage(state, language) {
+
+      if (state.language == language) return;
+
       state.language = language;
       return console.log(`Lang: ${language}`);
     },

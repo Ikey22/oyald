@@ -9,6 +9,11 @@
       id="title-of-appelation"
       v-model="$store.state.userPreferences.titleOfAppelation"
       :required="true"
+        :placeholder="
+          $store.state.language == 'en'
+            ? 'Select a title'
+            : 'Sélectionner un titre'
+        "
     >
       <b-form-select-option
         v-for="title of titles"

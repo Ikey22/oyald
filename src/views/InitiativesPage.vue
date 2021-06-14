@@ -119,7 +119,63 @@
                     </b-form-group>
                   </div>
 
-                  <country-state-city />
+                  <div class="row w-100">
+                    <select-country
+                      label="Nationality"
+                      class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4"
+                      :placeholder="
+                        $store.state.language == 'en'
+                          ? 'Select a country'
+                          : 'Sélectionner un pays'
+                      "
+                    />
+
+                    <b-form-group
+                      class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4"
+                    >
+                      <label for="initiatives-state">{{
+                        $store.state.language === "en"
+                          ? "State/Region*"
+                          : "État/Région*"
+                      }}</label>
+                      <b-form-input
+                        id="initiatives-state"
+                        class="w-100"
+                        v-model="$store.state.userPreferences.initiativesState"
+                        :placeholder="
+                          $store.state.language === 'en'
+                            ? 'type here...'
+                            : 'Écrire ici'
+                        "
+                        type="text"
+                        autocomplete="region"
+                        :required="true"
+                      />
+                    </b-form-group>
+
+                    <b-form-group
+                      class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4"
+                    >
+                      <label for="middle-name">{{
+                        $store.state.language === "en"
+                          ? "District/L.G.A."
+                          : "Quartier/L.G.A."
+                      }}</label>
+                      <b-form-input
+                        id="middle-name"
+                        class="w-100"
+                        v-model="$store.state.userPreferences.initiativesCity"
+                        :placeholder="
+                          $store.state.language === 'en'
+                            ? 'type here...'
+                            : 'Écrire ici'
+                        "
+                        type="text"
+                        :required="true"
+                        autocomplete="region"
+                      />
+                    </b-form-group>
+                  </div>
 
                   <b-form-group
                     v-for="x in fieldOfInterestCount"
@@ -280,9 +336,9 @@
 </template>
 
 <script>
-import CountryStateCity from "../components/CountryStateCity.vue";
+import SelectCountry from "../components/SelectCountry.vue";
 export default {
-  components: { CountryStateCity },
+  components: { SelectCountry },
   name: "InitiativesPage",
   methods: {
     incrementFieldOfInterestCount() {

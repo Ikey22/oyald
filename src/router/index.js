@@ -5,6 +5,7 @@ import LandingPage from '@/views/LandingPage.vue';
 import NotFound404 from '@/views/NotFound404.vue';
 import PreLoader from '@/components/Preloader.vue';
 import NetworkError from '@/components/NetworkError.vue';
+// import { useTitle } from '@vueuse/core';
 
 import store from '../store';
 
@@ -231,16 +232,17 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  to.query.lang = store.state.language
-  console.log(to, from);
-  // console.clear();
+  if (!to.query.lang) {
+    to.query.lang = from.query.lang || store.state.language
+  }
+  console.clear();
   return next();
 });
 
 router.afterEach((to) => {
-  store.commit('setLanguage', to.query.lang || 'en');
-  // return console.clear();
-})
+  if (to.query.lang) store.commit('setLanguage', to.query.lang);
+  return console.clear();
+});
 
 window.__$router = router;
 

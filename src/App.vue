@@ -19,7 +19,6 @@
       v-model="$store.state.networkErrorModal"
       ok-only
       ok-variant="success"
-      size="xl"
       centered
     >
       <div class="w-100 h-100">
@@ -76,7 +75,6 @@
       v-model="$store.state.emailAlreadyInNewsletterModal"
       ok-only
       ok-variant="success"
-      
       centered
     >
       <div class="w-100 h-100">
@@ -96,6 +94,7 @@
       size="xl"
       centered
       scrollable
+      class="text-justified"
     >
       <template #modal-title
         ><header
@@ -104,8 +103,8 @@
         >
           {{
             $store.state.language === "en"
-              ? "Terms and Condition"
-              : "Les Termes et Les Conditionsx"
+              ? "Terms and Conditions"
+              : "Les Termes et Les Conditions"
           }}
         </header></template
       >
@@ -204,7 +203,7 @@
         {{
           $store.state.language === "en"
             ? "In addition to the above, all members of OYALD are obliged to abide by the provisions in OYALD's constitution and regulations."
-            : "En plus, tous les membres sont tenus de respecter les dispositions des statuts et des règlements de l'OYALD."
+            : "En plus, tous les membres sont tenus de respecter les dispositions des statuts et des règlements de l'OJLAD."
         }}
       </p>
     </b-modal>
@@ -221,23 +220,35 @@ export default {
   components: {
     FooterComponent,
     PreHeader,
-    HeaderComponent
+    HeaderComponent,
   },
-  mounted(){
-    window.onscroll = () => {
+  mounted() {
+    const setFixedHeaderOnScroll = () => {
       const deltaY = window.scrollY;
-      const header = document.querySelector("body > div.root.w-100.h-100.m-0.p-0 > nav");
-      if (deltaY > 100) {
-        header.style.position = 'fixed';
+      const header = document.querySelector(
+        "body > div.root.w-100.h-100.m-0.p-0 > nav"
+      );
+      if (deltaY > 144) {
+        header.style.position = "fixed";
       } else {
-        header.style.position = '';
+        header.style.position = "";
       }
-    }
+
+      // eslint-disable-next-line no-undef
+      return (requestAnimationFrame || webkitRequestAnimationFrame)(() =>
+        setFixedHeaderOnScroll()
+      );
+    };
+
+    // eslint-disable-next-line no-undef
+    return (requestAnimationFrame || webkitRequestAnimationFrame)(() =>
+      setFixedHeaderOnScroll()
+    );
   },
   name: "App",
   data() {
-    return {}
-  }
+    return {};
+  },
 };
 </script>
 

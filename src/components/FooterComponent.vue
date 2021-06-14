@@ -172,7 +172,7 @@
             :show="$store.state.isAddingToNewsletter"
             rounded
             opacity="0.6"
-            spinner-variant="primary"
+            spinner-variant="success"
             spinner-small
             class="d-flex flex-xl-row flex-lg-row flex-md-row flex-sm-column"
           >
@@ -250,9 +250,9 @@
           {{ year }}
         </small>
         <!-- 2011 -->
-        <router-link to="/__admin" class="text-white p-2"
-          ><span> &nbsp; . &nbsp; </span></router-link
-        >
+        <span
+          style="cursor: pointer;"
+          @click="$router.push('/__admin')"> &nbsp; . &nbsp; </span>
       </div>
       <br />
     </div>
