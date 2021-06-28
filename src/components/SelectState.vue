@@ -6,9 +6,16 @@
       @change="setState"
       @input="setState"
       placeholder="Select State/Region..."
+      :value="null"
       v-model="state"
       :required="true"
     >
+      
+      <b-form-select-option
+        :value="null"
+        disabled
+      >Select State/Region...</b-form-select-option>
+
       <b-form-select-option
         v-for="(x, index) in states"
         :key="`state-${index + 1}`"

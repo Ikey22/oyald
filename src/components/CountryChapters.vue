@@ -4,7 +4,11 @@
     <br />
     <br />
     <h1 class="text-green text-center font-weight-bold w-100">
-      {{ $store.state.language == 'en' ? `Country chapters' contact details` : `Coordonnées des Sections Nationales` }}
+      {{
+        $store.state.language == "en"
+          ? `Country chapters' contact details`
+          : `Coordonnées des Sections Nationales`
+      }}
     </h1>
 
     <div class="row w-100">

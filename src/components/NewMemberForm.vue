@@ -82,7 +82,7 @@
         </b-form-group>
 
         <select-country
-          label="Nationality"
+          :label="$store.state.language == 'en' ? 'Nationality' : 'Nationalité'"
           class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6"
         />
       </b-form-row>

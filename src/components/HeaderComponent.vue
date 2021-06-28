@@ -6,7 +6,7 @@
     variant="success"
     style="background: var(--custom-primary-color) !important; width: 100%;"
   >
-    <b-navbar-brand to="/home-page" class="font-weight-bold navbar-brand">
+    <b-navbar-brand :to="`/home-page?lang=${$store.state.language}`" class="font-weight-bold navbar-brand">
       <div class="logo-img-wrapper">
         <img
           class="logo-img"
@@ -56,17 +56,17 @@
 
     <b-collapse id="nav-collapse" is-nav>
       <b-navbar-nav class="ml-auto" align="center">
-        <b-nav-item to="/home-page">{{
+        <b-nav-item :to="`/home-page?lang=${$store.state.language}`">{{
           $store.state.language === "en"
             ? $store.state.englishStrings.home
             : $store.state.frenchStrings.home
         }}</b-nav-item>
-        <b-nav-item to="/about-africa">{{
+        <b-nav-item :to="`/about-africa?lang=${$store.state.language}`">{{
           $store.state.language === "en"
             ? "About Africa"
             : "À Propos de l'Afrique"
         }}</b-nav-item>
-        <b-nav-item to="/initiatives">{{
+        <b-nav-item :to="`/initiatives?lang=${$store.state.language}`">{{
           $store.state.language === "en"
             ? $store.state.englishStrings.ourInitiatives
             : $store.state.frenchStrings.ourInitiatives
@@ -75,17 +75,17 @@
           :text="$store.state.language === 'en' ? 'Our Team' : 'Notre Équipe'"
           right
         >
-          <b-dropdown-item to="/general-secretariat" class="font-weight-bold">{{
+          <b-dropdown-item :to="`/general-secretariat?lang=${$store.state.language}`" class="font-weight-bold">{{
             $store.state.language === "en"
-              ? "Our General Sceretariat"
+              ? "Our General Secretariat"
               : "Notre Secrétariat Général"
           }}</b-dropdown-item>
-          <b-dropdown-item to="/country-secretaries" class="font-weight-bold">{{
+          <b-dropdown-item :to="`/country-secretaries?lang=${$store.state.language}`" class="font-weight-bold">{{
             $store.state.language === "en"
               ? "Our National Coordinators/Country Secretaries"
               : "Nos Coordonnateurs/Secrétaires Nationaux"
           }}</b-dropdown-item>
-          <b-dropdown-item to="/partners" class="font-weight-bold">{{
+          <b-dropdown-item :to="`/partners?lang=${$store.state.language}`" class="font-weight-bold">{{
             $store.state.language === "en" ? "Our Partners" : "Nos Partenaires"
           }}</b-dropdown-item>
           <!-- Right aligned nav items -->
@@ -118,18 +118,18 @@
           "
           right
         >
-          <b-dropdown-item to="/membership">{{
+          <b-dropdown-item :to="`/membership?lang=${$store.state.language}`">{{
             $store.state.language === "en"
               ? "As a Member"
               : "En tant que membre"
           }}</b-dropdown-item>
-          <b-dropdown-item to="/partnership">{{
+          <b-dropdown-item :to="`/partnership?lang=${$store.state.language}`">{{
             $store.state.language === "en"
               ? "As a partner"
               : "En tant que partnenaire"
           }}</b-dropdown-item>
         </b-nav-item-dropdown>
-        <b-nav-item to="/contact">{{
+        <b-nav-item :to="`/contact?lang=${$store.state.language}`">{{
           $store.state.language === "en" ? "Contact Us" : "Nous Contacter"
         }}</b-nav-item>
       </b-navbar-nav>

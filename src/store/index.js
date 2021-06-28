@@ -145,7 +145,9 @@ const $store = new Vuex.Store({
     emailAlreadyInNewsletterModal: false,
     tocModal: false
   },
+
   mutations: {
+    
     setLanguage(state, language) {
 
       if (state.language == language) return;

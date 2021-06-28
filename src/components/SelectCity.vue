@@ -6,9 +6,16 @@
       @change="setCity"
       @input="setCity"
       placeholder="Select District/L.G.A..."
+      value="null"
       v-model="city"
       :required="true"
     >
+      
+      <b-form-select-option
+        :value="null"
+        disabled
+      >Select District/L.G.A...</b-form-select-option>
+
       <b-form-select-option
         v-for="(x, index) in cities"
         :key="`cities-${index + 1}`"

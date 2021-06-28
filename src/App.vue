@@ -94,7 +94,7 @@
       size="xl"
       centered
       scrollable
-      class="text-justified"
+      class="text-justify"
     >
       <template #modal-title
         ><header
@@ -108,7 +108,7 @@
           }}
         </header></template
       >
-      <p>
+      <p class="text-justify">
         {{
           $store.state.language === "en"
             ? `Membership of OYALD is open to all citizens
@@ -121,21 +121,21 @@
       </p>
       <br />
       <ul>
-        <li>
+        <li class="text-justify">
           {{
             $store.state.language === "en"
               ? "Are aged between the minimum legal age of maturity in their respective countries of citizenship, and 50 years."
               : "Sont âgés entre l'âge minimum légal de la maturité dans leur pays de citoyenneté respectif et 50 ans."
           }}
         </li>
-        <li>
+        <li class="text-justify">
           {{
             $store.state.language === "en"
               ? "Have functional literacy in English or French."
               : "Ont de littératie fonctionnelle en anglais ou en français"
           }}
         </li>
-        <li>
+        <li class="text-justify">
           {{
             $store.state.language === "en"
               ? "Are engaged professionally, or as volunteers, in development related activities, or who have demonstrated credible support for sustainable development in Africa."
@@ -144,7 +144,7 @@
         </li>
       </ul>
       <br />
-      <p>
+      <p class="text-justify">
         {{
           $store.state.language === "en"
             ? "The membership categories are:"
@@ -153,7 +153,7 @@
       </p>
       <br />
       <ul>
-        <li>
+        <li class="text-justify">
           <b>{{
             $store.state.language === "en"
               ? "Active Members: "
@@ -165,7 +165,7 @@
               : "Ce sont des membres cotisants qui s'engagent et sont obligés de participer, autant que possible, à toutes les activités de l'OJLAD."
           }}
         </li>
-        <li>
+        <li class="text-justify">
           <b>{{
             $store.state.language === "en"
               ? "Associate Members:"
@@ -177,7 +177,7 @@
               : "Ce sont des membres cotisants qui peuvent ne pas être en mesure de participer à toutes les activités de l'OJLAD."
           }}
         </li>
-        <li>
+        <li class="text-justify">
           <b>{{
             $store.state.language === "en"
               ? "Honorary Members:"
@@ -191,7 +191,7 @@
         </li>
       </ul>
       <br />
-      <p>
+      <p class="text-justify">
         {{
           $store.state.language === "en"
             ? "While all members of OYALD are obliged to pay registration fees of five US Dollars ($5) once, within the three (3) months following their acceptance into OYALD, Active and Associate members shall pay annual dues of five ($5) USD, to be paid by March of each year. In the case of a new member, the annual dues shall be pro-rated, and shall be paid within 3 months from the date of acceptance into OYALD."
@@ -199,7 +199,7 @@
         }}
       </p>
       <br />
-      <p>
+      <p class="text-justify">
         {{
           $store.state.language === "en"
             ? "In addition to the above, all members of OYALD are obliged to abide by the provisions in OYALD's constitution and regulations."

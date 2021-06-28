@@ -27,6 +27,7 @@
           </figure>
           <b-icon icon="caret-right-fill" />
           <span
+          class="text-justify"
             v-html="
               $store.state.language === 'en'
                 ? 'Given the commitments made by the African Heads of State to support the implementation of the main development Agenda in Africa;'
@@ -36,6 +37,7 @@
           <br /><br />
           <b-icon icon="caret-right-fill" />
           <span
+          class="text-justify"
             v-html="
               $store.state.language === 'en'
                 ? 'Acknowledging the importance of the Agenda 2063, <b><q>The Africa We Want</q></b> in building a united and prosperous Africa;'
@@ -45,6 +47,7 @@
           <br /><br />
           <b-icon icon="caret-right-fill" />
           <span
+          class="text-justify"
             v-html="
               $store.state.language === 'en'
                 ? 'Understanding the strategic contributions of the Agenda 2030, <b><q>Leaving No One Behind</q></b> to the enhancement of the living conditions of Africans;'
@@ -59,6 +62,7 @@
           <p class="pl-1 text-justify">
             <b-icon icon="caret-right-fill" />
             <span
+            class="text-justify"
               v-html="
                 $store.state.language === 'en'
                   ? 'Considering the critical role of young Africans in ameliorating the narrative through their meaningful participation in, and contributions to, the decisions on the continent;'
@@ -68,6 +72,7 @@
             <br /><br />
             <b-icon icon="caret-right-fill" />
             <span
+            class="text-justify"
               v-html="
                 $store.state.language === 'en'
                   ? 'Convinced that collaboration between young Africans, the Civil Society Organizations (CSO), and other decision makers in the region can influence policies and enable better life for all;'
@@ -77,6 +82,7 @@
             <br /><br />
             <b-icon icon="caret-right-fill" />
             <span
+            class="text-justify"
               v-html="
                 $store.state.language === 'en'
                   ? 'With the resolve, as young Africans, to contribute to the positive transformation of our communities, and the improvement of the living conditions of our people;'
@@ -88,7 +94,7 @@
 
           <br />
 
-          <p>
+          <p class="text-justify">
             {{
               $store.state.language === "en"
                 ? "OYALD was established to unite young leaders, professionals and entrepreneurs as collaborators towards the achievement of sustainable development in Africa. "

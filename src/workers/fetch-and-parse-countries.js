@@ -18,6 +18,12 @@ $self.onmessage = ({
         $self.postMessage({
             status: "starting"
         });
+
+        retVal.payload.unshift({
+            name: 'Select A country',
+            frenchName: 'Sélectionner un pays',
+            disabled: true
+        })
         
         for (const country of retVal.payload) {
 

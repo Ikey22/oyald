@@ -1,21 +1,29 @@
 <template>
-  <b-form-group >
-    <label for="country"> {{ label }} *</label>
+  <b-form-group>
+    <label for="country"> {{ label }}*</label>
     <b-form-select
-      :class="isReady ? 'disabled' : null"
+      :class="!isReady ? 'disabled' : ''"
       id="country"
       @change="setCountry"
       @input="setCountry"
+      :value="null"
       placeholder="Select country..."
       autocomplete="country"
-      v-model="country"
       :required="true"
     >
       <b-form-select-option
         v-for="(x, index) in $store.state.countries"
         :key="`country-${index + 1}`"
-        :value="$store.state.language === 'en' ? x.name : x.frenchName"
-        >{{ x.name }}{{ x.emoji }}</b-form-select-option
+        :value="x.disabled ? null : x.name"
+        :selected="x.disabled ? true : false"
+        :disabled="x.disabled ? true : false"
+        >{{
+          x.frenchName
+            ? $store.state.language === "en"
+              ? x.name
+              : x.frenchName
+            : x.name
+        }}{{ x.emoji }}</b-form-select-option
       >
     </b-form-select>
   </b-form-group>
@@ -35,8 +43,8 @@ export default {
       required: true,
     },
     modelObject: {
-      type: Object
-    }
+      type: Object,
+    },
   },
   data() {
     return {
@@ -95,9 +103,7 @@ export default {
       const foundIndex = this.$store.state.countries.findIndex(
         (country) => country.name === this.country
       );
-      this.$store.state.states = this.$store.state.countries[
-        foundIndex
-      ].states;
+      this.$store.state.states = this.$store.state.countries[foundIndex].states;
       this.$store.state.cities = [{ name: "select State First!" }];
       return this.emitValue();
     },

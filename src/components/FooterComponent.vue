@@ -86,7 +86,7 @@
             </b-form>
           </p>
           <p>
-            <router-link class="text-white" to="/home-page">
+            <router-link class="text-white" :to="`/home-page?lang=${$store.state.language}`">
               <b-icon icon="caret-right-fill"></b-icon>
               {{
                 $store.state.language === "en"
@@ -96,7 +96,7 @@
             </router-link>
           </p>
           <p>
-            <router-link class="text-white" to="/initiatives">
+            <router-link class="text-white" :to="`/initiatives?lang=${$store.state.language}`">
               <b-icon icon="caret-right-fill"></b-icon>
               {{
                 $store.state.language === "en"
@@ -106,7 +106,7 @@
             </router-link>
           </p>
           <p>
-            <router-link class="text-white" to="/general-secretariat">
+            <router-link class="text-white" :to="`/general-secretariat?lang=${$store.state.language}`">
               <b-icon icon="caret-right-fill"></b-icon>
               {{
                 $store.state.language === "en"
@@ -116,7 +116,7 @@
             </router-link>
           </p>
           <p>
-            <router-link class="text-white" to="/country-secretaries">
+            <router-link class="text-white" :to="`/country-secretaries?lang=${$store.state.language}`">
               <b-icon icon="caret-right-fill"></b-icon>
               {{
                 $store.state.language === "en"
@@ -126,7 +126,7 @@
             </router-link>
           </p>
           <p>
-            <router-link class="text-white" to="/partners">
+            <router-link class="text-white" :to="`/partners?lang=${$store.state.language}`">
               <b-icon icon="caret-right-fill"></b-icon>
               {{
                 $store.state.language === "en"

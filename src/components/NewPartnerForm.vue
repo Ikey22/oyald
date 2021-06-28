@@ -342,11 +342,11 @@
       </b-form-group>
 
       <b-form-row class="w-100 row">
-        <b-form-group class="col-12 col-sm-12 col-md-7 col-lg-7 col-xl-7">
-          <label for="company-officer">{{
+        <b-form-group class="col-12 col-sm-12 col-md-7 col-lg-6 col-xl-7">
+          <label style="font-size: 15.5px;" for="company-officer">{{
             $store.state.language == "en"
               ? "Name of organisation's Officer proposing the partnership with OYALD*"
-              : "Nom du Responsable de l’organisation proposant un partenariat avec OJLAD"
+              : "Nom du Responsable de l’organisation proposant un partenariat avec OJLAD*"
           }}</label>
           <b-form-input
             id="company-officer"
@@ -359,11 +359,11 @@
           />
         </b-form-group>
 
-        <b-form-group class="col-12 col-sm-12 col-md-5 col-lg-5 col-xl-5">
+        <b-form-group class="col-12 col-sm-12 col-md-5 col-lg-6 col-xl-5">
           <label for="company-officer-position">{{
             $store.state.language == "en"
-              ? "Designation of the Officer in the organisation*"
-              : "Désignation du Responsable de l’organisation"
+              ? "Designation of the Officer*"
+              : "Désignation du Responsable"
           }}</label>
           <b-form-input
             id="company-officer-position"
