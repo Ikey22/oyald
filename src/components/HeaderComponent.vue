@@ -138,8 +138,18 @@
 </template>
 
 <script>
+import { useMediaQuery, whenever } from '@vueuse/core'
+
 export default {
   name: "HeaderComponent",
+  data(){
+    return {
+      isLargeScreen: useMediaQuery('(min-width: 1200px)')
+    }
+  },
+  mounted(){
+    whenever(this.isLargeScreen, () => console.log('is large screen'));
+  }
 };
 </script>
 
