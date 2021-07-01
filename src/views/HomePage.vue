@@ -10,6 +10,7 @@
             <img
               class="w-100 p-2 p-lg-4"
               alt="Elliptical Image depicting the 17 sustainable development goals as laid down by the United Nations Organisation"
+              title="Elliptical Image depicting the 17 sustainable development goals as laid down by the United Nations Organisation"
               width="300"
               align="right"
               style="width: 100%; max-width: 350px"
@@ -17,7 +18,12 @@
             />
             <figcaption class="ml-4">
               <small
-                >{{ $store.state.language === 'en' ? 'Image source:' : "Source de l'Image" }} <br /><a
+                >{{
+                  $store.state.language === "en"
+                    ? "Image source:"
+                    : "Source de l'Image"
+                }}
+                <br /><a
                   target="_blank"
                   href="https://www.edf-feph.org/newsroom-news-what-have-we-done-so-far-about-sustainable-development-goals/"
                   >https://www.edf-feph.org/newsroom-news-what-have<br />-we-done-so-far-about-sustainable-development-goals/</a
@@ -27,7 +33,7 @@
           </figure>
           <b-icon icon="caret-right-fill" />
           <span
-          class="text-justify"
+            class="text-justify"
             v-html="
               $store.state.language === 'en'
                 ? 'Given the commitments made by the African Heads of State to support the implementation of the main development Agenda in Africa;'
@@ -37,7 +43,7 @@
           <br /><br />
           <b-icon icon="caret-right-fill" />
           <span
-          class="text-justify"
+            class="text-justify"
             v-html="
               $store.state.language === 'en'
                 ? 'Acknowledging the importance of the Agenda 2063, <b><q>The Africa We Want</q></b> in building a united and prosperous Africa;'
@@ -47,7 +53,7 @@
           <br /><br />
           <b-icon icon="caret-right-fill" />
           <span
-          class="text-justify"
+            class="text-justify"
             v-html="
               $store.state.language === 'en'
                 ? 'Understanding the strategic contributions of the Agenda 2030, <b><q>Leaving No One Behind</q></b> to the enhancement of the living conditions of Africans;'
@@ -62,7 +68,7 @@
           <p class="pl-1 text-justify">
             <b-icon icon="caret-right-fill" />
             <span
-            class="text-justify"
+              class="text-justify"
               v-html="
                 $store.state.language === 'en'
                   ? 'Considering the critical role of young Africans in ameliorating the narrative through their meaningful participation in, and contributions to, the decisions on the continent;'
@@ -72,7 +78,7 @@
             <br /><br />
             <b-icon icon="caret-right-fill" />
             <span
-            class="text-justify"
+              class="text-justify"
               v-html="
                 $store.state.language === 'en'
                   ? 'Convinced that collaboration between young Africans, the Civil Society Organizations (CSO), and other decision makers in the region can influence policies and enable better life for all;'
@@ -82,7 +88,7 @@
             <br /><br />
             <b-icon icon="caret-right-fill" />
             <span
-            class="text-justify"
+              class="text-justify"
               v-html="
                 $store.state.language === 'en'
                   ? 'With the resolve, as young Africans, to contribute to the positive transformation of our communities, and the improvement of the living conditions of our people;'
@@ -108,7 +114,7 @@
           v-b-toggle.collapse-1
           variant="success"
           class="bg-success"
-           @click="
+          @click="
             $store.state.language === 'en'
               ? readMoreText === 'Read More'
                 ? (readMoreText = 'Read Less')
@@ -136,6 +142,7 @@
           class="w-100 p-2 p-lg-4"
           width="300"
           alt="Image members of OYALD-OJLAD"
+          title="Image members of OYALD-OJLAD"
           src="@/assets/img/oyald-collage.jpeg"
         />
         <!-- <small class="pl-2 pl-lg-4 d-block w-100">{{ $store.state.language === 'en' ? 'Image source:' : "Source de l'Image" }} <a href="https://www.un.org/en/africa/osaa/peace/youth.shtml" target="_blank">https://www.un.org/en/<wbr />africa/osaa/peace/<wbr />youth.shtml</a></small> -->

@@ -222,29 +222,6 @@ export default {
     PreHeader,
     HeaderComponent,
   },
-  mounted() {
-    const setFixedHeaderOnScroll = () => {
-      const deltaY = window.scrollY;
-      const header = document.querySelector(
-        "body > div.root.w-100.h-100.m-0.p-0 > nav"
-      );
-      if (deltaY > 144) {
-        header.style.position = "fixed";
-      } else {
-        header.style.position = "";
-      }
-
-      // eslint-disable-next-line no-undef
-      return (requestAnimationFrame || webkitRequestAnimationFrame)(() =>
-        setFixedHeaderOnScroll()
-      );
-    };
-
-    // eslint-disable-next-line no-undef
-    return (requestAnimationFrame || webkitRequestAnimationFrame)(() =>
-      setFixedHeaderOnScroll()
-    );
-  },
   name: "App",
   data() {
     return {};

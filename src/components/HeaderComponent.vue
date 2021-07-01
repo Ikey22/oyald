@@ -4,9 +4,18 @@
     toggleable="lg"
     type="dark"
     variant="success"
-    style="background: var(--custom-primary-color) !important; width: 100%;"
+    style="background: var(--custom-primary-color) !important; width: 100%"
   >
-    <b-navbar-brand :to="`/home-page?lang=${$store.state.language}`" class="font-weight-bold navbar-brand">
+
+    <br v-if="isFrenchLargeScreen">
+    <br v-if="isFrenchLargeScreen">
+    <br v-if="isFrenchLargeScreen">
+
+    <b-navbar-brand
+      :class="[{ 'nav-brand-large-french-screen': isFrenchLargeScreen }]"
+      :to="`/home-page?lang=${$store.state.language}`"
+      class="font-weight-bold navbar-brand"
+    >
       <div class="logo-img-wrapper">
         <img
           class="logo-img"
@@ -19,7 +28,11 @@
         <span class="logo-img-slogan text-white"
           ><marquee
             scrollamount="4"
-            class="font-weight-bold text-justified d-none d-md-block d-lg-block d-xl-block"
+            class="
+              font-weight-bold
+              text-justified
+              d-none d-md-block d-lg-block d-xl-block
+            "
             >{{
               $store.state.language === "en"
                 ? $store.state.englishStrings.inform
@@ -54,7 +67,11 @@
 
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
-    <b-collapse id="nav-collapse" is-nav>
+    <b-collapse
+      :class="[{ 'nav-collapse-large-french-screen': isFrenchLargeScreen }]"
+      id="nav-collapse"
+      is-nav
+    >
       <b-navbar-nav class="ml-auto" align="center">
         <b-nav-item :to="`/home-page?lang=${$store.state.language}`">{{
           $store.state.language === "en"
@@ -75,19 +92,33 @@
           :text="$store.state.language === 'en' ? 'Our Team' : 'Notre Équipe'"
           right
         >
-          <b-dropdown-item :to="`/general-secretariat?lang=${$store.state.language}`" class="font-weight-bold">{{
-            $store.state.language === "en"
-              ? "Our General Secretariat"
-              : "Notre Secrétariat Général"
-          }}</b-dropdown-item>
-          <b-dropdown-item :to="`/country-secretaries?lang=${$store.state.language}`" class="font-weight-bold">{{
-            $store.state.language === "en"
-              ? "Our National Coordinators/Country Secretaries"
-              : "Nos Coordonnateurs/Secrétaires Nationaux"
-          }}</b-dropdown-item>
-          <b-dropdown-item :to="`/partners?lang=${$store.state.language}`" class="font-weight-bold">{{
-            $store.state.language === "en" ? "Our Partners" : "Nos Partenaires"
-          }}</b-dropdown-item>
+          <b-dropdown-item
+            :to="`/general-secretariat?lang=${$store.state.language}`"
+            class="font-weight-bold"
+            >{{
+              $store.state.language === "en"
+                ? "Our General Secretariat"
+                : "Notre Secrétariat Général"
+            }}</b-dropdown-item
+          >
+          <b-dropdown-item
+            :to="`/country-secretaries?lang=${$store.state.language}`"
+            class="font-weight-bold"
+            >{{
+              $store.state.language === "en"
+                ? "Our National Coordinators/Country Secretaries"
+                : "Nos Coordonnateurs/Secrétaires Nationaux"
+            }}</b-dropdown-item
+          >
+          <b-dropdown-item
+            :to="`/partners?lang=${$store.state.language}`"
+            class="font-weight-bold"
+            >{{
+              $store.state.language === "en"
+                ? "Our Partners"
+                : "Nos Partenaires"
+            }}</b-dropdown-item
+          >
           <!-- Right aligned nav items -->
           <!-- <b-navbar-nav class="ml-auto">
         <b-nav-form>
@@ -138,20 +169,85 @@
 </template>
 
 <script>
-import { useMediaQuery, whenever } from '@vueuse/core'
+import { useMediaQuery, whenever } from "@vueuse/core";
 
 export default {
   name: "HeaderComponent",
-  data(){
+  data() {
     return {
-      isLargeScreen: useMediaQuery('(min-width: 1200px)')
-    }
+      isLargeScreen: useMediaQuery("(min-width: 1200px)"),
+      isSmallScreen: useMediaQuery("(max-width: 1199px)"),
+      isFrenchLargeScreen: true,
+    };
   },
-  mounted(){
-    whenever(this.isLargeScreen, () => console.log('is large screen'));
-  }
+  mounted() {
+    const doLargeScreen = () => {
+      if (this.$store.state.language == "fr") {
+        this.isFrenchLargeScreen = true;
+      } else if (this.$store.state.language == "en") {
+        this.isFrenchLargeScreen = false;
+      }
+    };
+
+    const doSmallScreen = () => {
+      this.isFrenchLargeScreen = false;
+    };
+
+    whenever(this.isLargeScreen, () => doLargeScreen());
+    whenever(this.isSmallScreen, () => doSmallScreen());
+
+    const setFixedHeaderOnScroll = () => {
+      (
+        requestAnimationFrame ||
+        // eslint-disable-next-line no-undef
+        webkitRequestAnimationFrame ||
+        // eslint-disable-next-line no-undef
+        mozRequestAnimationFrame ||
+        // eslint-disable-next-line no-undef
+        msRequestAnimationFrame ||
+        // eslint-disable-next-line no-undef
+        oRequestAnimationFrame
+      )(() => setFixedHeaderOnScroll());
+
+      const deltaY = window.scrollY;
+      const header = document.querySelector(
+        "body > div.root.w-100.h-100.m-0.p-0 > nav"
+      );
+
+      if (deltaY > 144) {
+        header.style.position = "fixed";
+      } else {
+        header.style.position = "";
+      }
+
+      return true;
+    };
+
+    (
+      requestAnimationFrame ||
+      // eslint-disable-next-line no-undef
+      webkitRequestAnimationFrame ||
+      // eslint-disable-next-line no-undef
+      mozRequestAnimationFrame ||
+      // eslint-disable-next-line no-undef
+      msRequestAnimationFrame ||
+      // eslint-disable-next-line no-undef
+      oRequestAnimationFrame
+    )(() => setFixedHeaderOnScroll());
+  },
 };
 </script>
+
+<style>
+.nav-brand-large-french-screen {
+  position: absolute;
+  transform: translateY(-5px) !important;
+}
+
+.nav-collapse-large-french-screen {
+  display: flex !important;
+}
+</style>
 
 <style scoped>
 .navbar-brand {
