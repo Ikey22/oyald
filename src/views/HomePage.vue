@@ -141,8 +141,8 @@
         <img
           class="w-100 p-2 p-lg-4"
           width="300"
-          alt="Image members of OYALD-OJLAD"
-          title="Image members of OYALD-OJLAD"
+          alt="Image depicting members of OYALD-OJLAD"
+          title="Image depicting members of OYALD-OJLAD"
           src="@/assets/img/oyald-collage.jpeg"
         />
         <!-- <small class="pl-2 pl-lg-4 d-block w-100">{{ $store.state.language === 'en' ? 'Image source:' : "Source de l'Image" }} <a href="https://www.un.org/en/africa/osaa/peace/youth.shtml" target="_blank">https://www.un.org/en/<wbr />africa/osaa/peace/<wbr />youth.shtml</a></small> -->

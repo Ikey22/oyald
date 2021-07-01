@@ -196,7 +196,7 @@ export default {
     whenever(this.isLargeScreen, () => doLargeScreen());
     whenever(this.isSmallScreen, () => doSmallScreen());
 
-    const setFixedHeaderOnScroll = () => {
+    const setFixedHeaderOnScroll = async () => {
       (
         requestAnimationFrame ||
         // eslint-disable-next-line no-undef
