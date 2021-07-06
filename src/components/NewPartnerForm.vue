@@ -316,7 +316,9 @@
                 ? 'Select file...'
                 : 'Sélectionner une Image'
             "
-            :browse-text="$store.state.language == 'en' ? 'Browse' : 'Parcourir'"
+            :browse-text="
+              $store.state.language == 'en' ? 'Browse' : 'Parcourir'
+            "
             accept="image/png,image/jpg,image/jpeg,image/webp,image/svg"
             :required="true"
           />
@@ -343,10 +345,10 @@
 
       <b-form-row class="w-100 row">
         <b-form-group class="col-12 col-sm-12 col-md-7 col-lg-6 col-xl-7">
-          <label style="font-size: 15.5px;" for="company-officer">{{
+          <label style="font-size: 15.5px" for="company-officer">{{
             $store.state.language == "en"
               ? "Name of organisation's Officer proposing the partnership with OYALD*"
-              : "Nom du Responsable de l’organisation proposant un partenariat avec OJLAD*"
+              : "Nom du responsable de l’organisation proposant un partenariat avec OJLAD*"
           }}</label>
           <b-form-input
             id="company-officer"
@@ -363,7 +365,7 @@
           <label for="company-officer-position">{{
             $store.state.language == "en"
               ? "Designation of the Officer*"
-              : "Désignation du Responsable"
+              : "Désignation du responsable"
           }}</label>
           <b-form-input
             id="company-officer-position"

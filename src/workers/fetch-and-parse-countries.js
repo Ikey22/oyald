@@ -1,8 +1,8 @@
 const $self = self;
 
 $self.onmessage = ({
-        data
-    }) => fetch(data) // || '/country-stats-city.jon')
+    data
+}) => fetch(data) // || '/country-stats-city.jon')
     .then(res => res.json())
     .then(async json => {
 
@@ -14,17 +14,17 @@ $self.onmessage = ({
         };
 
         console.trace("Ready to post");
-        // $self.postMessage(retVal);
         $self.postMessage({
             status: "starting"
         });
 
-        retVal.payload.unshift({
-            name: 'Select A country',
-            frenchName: 'Sélectionner un pays',
-            disabled: true
-        })
-        
+        // retVal.payload.unshift({
+        //     name: 'Select a country',
+        //     frenchName: 'Sélectionner un pays',
+        //     disabled: true,
+        //     selected: true
+        // })
+
         for (const country of retVal.payload) {
 
             $self.postMessage({
@@ -34,7 +34,7 @@ $self.onmessage = ({
 
             await new Promise(resolve => setTimeout(resolve, 100));
         }
-        
+
         $self.postMessage({
             status: "ended"
         });

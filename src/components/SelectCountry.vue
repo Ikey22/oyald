@@ -11,12 +11,22 @@
       autocomplete="country"
       :required="true"
     >
+      <template #first>
+        <b-form-select-option :value="null" disabled selected>
+          --
+          {{
+            $store.state.language == "en"
+              ? "Select a country"
+              : "Sélectionner un pays"
+          }}
+          --
+        </b-form-select-option>
+      </template>
+
       <b-form-select-option
         v-for="(x, index) in $store.state.countries"
         :key="`country-${index + 1}`"
-        :value="x.disabled ? null : x.name"
-        :selected="x.disabled ? true : false"
-        :disabled="x.disabled ? true : false"
+        :value="x.name"
         >{{
           x.frenchName
             ? $store.state.language === "en"

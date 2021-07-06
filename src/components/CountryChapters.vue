@@ -28,7 +28,11 @@
                 v-b-toggle="`accordion-${index}`"
                 variant="sucess"
                 class="bg-green text-white"
-                >{{ country.name }}
+                >{{
+                  $store.state.language == "en"
+                    ? country.name
+                    : country.frenchName
+                }}
                 <span v-if="!openedCountryChapters[index]" class="h5"
                   ><b-icon icon="caret-up-fill" /></span
                 ><span class="h5" v-else

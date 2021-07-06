@@ -40,7 +40,7 @@ const $store = new Vuex.Store({
       address3: "",
       fieldsOfInterest: [],
       membershipCategory: "active",
-      titleOfAppelation: "Mr",
+      titleOfAppelation: null,
       dob: "",
       phoneNumber: "",
       zipCode: "",

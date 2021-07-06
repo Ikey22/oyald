@@ -131,7 +131,7 @@
               {{
                 $store.state.language === "en"
                   ? "Our Partners"
-                  : "Nos partenaires"
+                  : "Nos Partenaires"
               }}
             </router-link>
           </p>

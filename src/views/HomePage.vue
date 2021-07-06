@@ -47,7 +47,7 @@
             v-html="
               $store.state.language === 'en'
                 ? 'Acknowledging the importance of the Agenda 2063, <b><q>The Africa We Want</q></b> in building a united and prosperous Africa;'
-                : 'Reconnaissant l\'importance de l\'Agenda 2063, <q>L\'Afrique Que Nous Voulons</q> dans la construction d\'une Afrique unie et prospère;'
+                : 'Reconnaissant l\'importance de l\'Agenda 2063, «L\'Afrique Que Nous Voulons» dans la construction d\'une Afrique unie et prospère;'
             "
           />
           <br /><br />
@@ -57,7 +57,7 @@
             v-html="
               $store.state.language === 'en'
                 ? 'Understanding the strategic contributions of the Agenda 2030, <b><q>Leaving No One Behind</q></b> to the enhancement of the living conditions of Africans;'
-                : 'Comprendre les contributions stratégiques de l\'Agenda 2030, « Ne Laisser Personne De Côté» à l\'amélioration des conditions de vie des Africains;'
+                : 'Comprendre les contributions stratégiques de l\'Agenda 2030, «Ne Laisser Personne De Côté» à l\'amélioration des conditions de vie des Africains;'
             "
           />
           <br />
@@ -120,7 +120,7 @@
                 ? (readMoreText = 'Read Less')
                 : (readMoreText = 'Read More')
               : readMoreTextFrench === 'Lire la suite'
-              ? (readMoreTextFrench = 'Lire moons')
+              ? (readMoreTextFrench = 'Lire moins')
               : (readMoreTextFrench = 'Lire la suite')
           "
           >{{

@@ -9,6 +9,7 @@
       id="title-of-appelation"
       v-model="$store.state.userPreferences.titleOfAppelation"
       :required="true"
+      :value="null"
       :placeholder="
         $store.state.language == 'en'
           ? 'Select a title'
