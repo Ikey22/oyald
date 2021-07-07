@@ -244,9 +244,9 @@ export default {
   transform: translateY(-5px) !important;
 }
 
-.nav-collapse-large-french-screen {
+/* .nav-collapse-large-french-screen {
   display: flex !important;
-}
+} */
 </style>
 
 <style scoped>
