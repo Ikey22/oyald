@@ -43,7 +43,7 @@
 import FetchInBG from "worker-loader!../workers/fetch-and-parse-countries.js";
 
 let fetchInBackground =
-  new Worker("/js/fetch-and-parse-countries.worker.js") || new FetchInBG();
+  /* new Worker("/js/fetch-and-parse-countries.worker.js") ||  */ new FetchInBG();
 
 export default {
   name: "SelectCountry",
@@ -80,7 +80,7 @@ export default {
 
       if (!fetchInBackground) {
         fetchInBackground =
-          new Worker("/js/fetch-and-parse-countries.worker.js") ||
+          /* new Worker("/js/fetch-and-parse-countries.worker.js") || */
           new FetchInBG();
       }
 
